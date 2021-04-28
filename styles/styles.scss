@@ -1,4 +1,12 @@
+$background: #F6F6F6;
+$primary: #524E68;
+$secondary: #D9A13B;
+$accent: #8C2A2A;
+
 img {
     object-fit: cover;
-    
 }
+
+@import "~bootstrap/scss/bootstrap";
+@import './base/base.scss';
+@import './layout/layout.scss'

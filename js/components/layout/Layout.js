@@ -6,7 +6,7 @@ export default function Layout({children}) {
         <div>
             <Menu/>
             <div>{children}</div>
-            {/* <Footer/> */}
+            <Footer/>
         </div>
     )
 }

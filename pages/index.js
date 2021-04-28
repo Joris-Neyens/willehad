@@ -1,19 +1,16 @@
 import axios from 'axios';
 import Image from 'next/image';
-
 import { BASE_URL }from '../js/constants/Api';
 import Layout from '../js/components/layout/Layout';
 
 export default function Home({courses}) {
 
-  console.log(courses)
-
   return (
       <Layout>
-            { courses.map((course)  => {
+            {courses.map((course)  => {
                 let url = course.cover.url
-                return < >
-                          <Image src={url} key={course.id} priority="true" layout="responsive" width="2000" height="1200"/>
+                return <>
+                          <Image src={url} key={course.id} priority="true" layout="responsive" width="2000" height="800"/>
                         </>
             })}
       </Layout>
