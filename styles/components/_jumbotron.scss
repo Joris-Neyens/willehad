@@ -1,0 +1,22 @@
+.jumbotron p {
+    color: white;
+}
+.jumbotron__content-date {
+    border-bottom: 2px solid $secondary;
+    font-style: italic;
+}
+.jumbotron-wrapper {
+
+}
+.jumbotron {
+    background-repeat: none;
+    background-size: cover;
+    background-position: center center;
+    max-width: 1600px;
+}
+.jumbotron-overlay {
+    background: linear-gradient(90deg, rgba(37,36,42,1) 0%, rgba(37,36,42,0) 100%);
+}
+.jumbotron__content {
+    height: 80vh;
+}

@@ -1,0 +1,55 @@
+body {
+  font-family: $montserrat;
+}
+#logo {
+  font-family: $playfair;
+  font-weight: 300;
+}
+.jumbotron__content-title {
+  font-family: $playfair;
+  font-size: 62px;
+  line-height: 68px;
+}
+h1 {
+  color: $primary !important;
+  font-family: $playfair;
+  font-size: 36px;
+}
+h2 {
+  font-family: $playfair;
+  font-size: 36px;
+}
+h3 {
+  font-size: 24px;
+}
+p.text-right__date {
+  font-weight: 500;
+}
+footer p {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+footer a {
+  font-size: 14px;
+}
+.footer__terms {
+  font-weight: 300;
+  font-size: 14px;
+  text-transform: lowercase;
+}
+a:hover {
+  text-decoration: none;
+  font-weight: 500;
+}
+a::before {
+  display: block;
+  content: attr(title);
+  font-weight: 500;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.review__name {
+  font-style: italic;
+}

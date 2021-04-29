@@ -1,0 +1,61 @@
+
+.button__primary {
+    border: none;
+    background-color: $accent;
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+}
+.button__primary:hover {
+    background-color: #6C1E1E;
+    font-weight: 500;
+}
+.button__primary::before {
+    display: block;
+    content: attr(title);
+    font-weight: 500;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.button__secondary--light {
+    border: 1px solid white;
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 18px;
+    color: $white;
+}
+.button__secondary--light:hover {
+    outline: 1px solid white;
+    font-weight: 500;
+}
+
+.button__secondary--light::before {
+    display: block;
+    content: attr(title);
+    font-weight: 500;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+.button__secondary--dark {
+    border: 1px solid $accent;
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 18px;
+    color: $accent;
+}
+.button__secondary--dark:hover {
+    outline: 1px solid $accent;
+    font-weight: 500;
+}
+
+.button__secondary--dark::before {
+    display: block;
+    content: attr(title);
+    font-weight: 500;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}

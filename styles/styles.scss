@@ -1,12 +1,12 @@
-$background: #F6F6F6;
-$primary: #524E68;
-$secondary: #D9A13B;
-$accent: #8C2A2A;
-
-img {
-    object-fit: cover;
-}
+@import "./base/custom";
 
 @import "~bootstrap/scss/bootstrap";
-@import './base/base.scss';
-@import './layout/layout.scss'
+
+@import "./base/color";
+@import "./base/typography";
+@import "./layout/layout";
+@import "./base/buttons";
+@import "./components/menu";
+@import "./components/jumbotron";
+@import "./components/textRight";
+@import "./components/newsletter";
