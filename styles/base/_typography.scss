@@ -10,6 +10,9 @@ body {
   font-size: 62px;
   line-height: 68px;
 }
+p {
+  font-size: 16px;
+}
 h1 {
   color: $primary !important;
   font-family: $playfair;
@@ -21,6 +24,9 @@ h2 {
 }
 h3 {
   font-size: 24px;
+}
+h4 {
+  font-size: 18px;
 }
 p.text-right__date {
   font-weight: 500;

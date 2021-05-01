@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { BASE_URL } from "../js/constants/Api";
+import { BASE_URL } from "../js/components/api/baseUrl";
 import Head from "../js/components/head/Head";
 import Layout from "../js/components/layout/Layout";
 import HomeHeader from "../js/components/headers/HomeHeader";
