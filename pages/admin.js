@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import { BASE_URL } from '../js/components/api/baseUrl';
+import { BASE_URL } from '../js/api/baseUrl';
 import Head from '../js/components/head/Head';
 
 

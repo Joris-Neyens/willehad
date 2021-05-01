@@ -1,9 +1,9 @@
 import axios from "axios";
 
-import { BASE_URL } from "../js/components/api/baseUrl";
+import { BASE_URL } from "../js/api/baseUrl";
 import Head from "../js/components/head/Head";
 import Layout from "../js/components/layout/Layout";
-import HomeHeader from "../js/components/headers/HomeHeader";
+import HomeHeader from "../js/components/layout/headers/HomeHeader";
 import Uitleg from "../js/components/pages/home/uitleg";
 import TextRight from "../js/components/common/TextRight";
 import Newsletter from "../js/components/pages/home/Newsletter";
