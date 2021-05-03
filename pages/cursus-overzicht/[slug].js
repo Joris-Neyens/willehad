@@ -1,13 +1,23 @@
 import axios from "axios";
 import { BASE_URL } from "../../js/api/baseUrl";
-import EditCourse3 from "../../js/components/pages/cursus-overzicht/EditCourse3";
+import PostCover from "../../js/components/pages/cursus-overzicht/PostCover";
+import PostTeacherCover from "../../js/components/pages/cursus-overzicht/PostTeacherCover";
+import PostVideo from "../../js/components/pages/cursus-overzicht/PostVideo";
+import EditCourse from "../../js/components/pages/cursus-overzicht/EditCourse";
 
 export default function Course({ course }) {
   const { id, title, cover, description, price, curriculum, teacher, teacher_description, teacher_image, reviews, video } = course;
 
+  console.log(video);
   return (
     <div>
-      <EditCourse3
+      <h4>Cover</h4>
+      <PostCover id={id} />
+      <h4>Teacher image</h4>
+      <PostTeacherCover id={id} />
+      <h4>Video</h4>
+      <PostVideo id={id} />
+      <EditCourse
         key={id}
         id={id}
         title={title}

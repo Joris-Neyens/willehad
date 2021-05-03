@@ -4,7 +4,7 @@ import { BASE_URL } from "../../../api/baseUrl";
 
 const url = BASE_URL + "upload";
 
-export default function EditCourse3({ id }) {
+export default function PostCover({ id }) {
   const { register, handleSubmit } = useForm();
 
   const submitData = async (data) => {
@@ -14,12 +14,12 @@ export default function EditCourse3({ id }) {
       formData.append("ref", "courses");
       formData.append("refId", id);
       formData.append("field", "cover");
-      const res = await axios({
+      const response = await axios({
         method: "POST",
         url: url,
         data: formData,
       });
-      console.log("Success", res);
+      console.log("Success", response);
     } catch (error) {
       console.log(error);
     }

@@ -56,7 +56,7 @@ export default function EditCourse({ id, title, cover, description, price, curri
         <p>Cursus video</p>
         {video.map(function (video_info) {
           return (
-            <div key={id} className="row">
+            <div className="row">
               <div className="col-5 px-0 pb-3">
                 <textarea className="w-100 rounded" rows="6" defaultValue={video_info.url} type="text" {...register4("video_url")} />
               </div>
