@@ -1,15 +1,13 @@
 import axios from "axios";
 import { BASE_URL } from "../../js/api/baseUrl";
-import EditCourse from "../../js/components/pages/cursus-overzicht/EditCourse";
+import EditCourse3 from "../../js/components/pages/cursus-overzicht/EditCourse3";
 
 export default function Course({ course }) {
-  console.log(course);
-
-  const { id, title, cover, description, price, curriculum, teacher, teacher_description, teacher_image, reviews } = course;
+  const { id, title, cover, description, price, curriculum, teacher, teacher_description, teacher_image, reviews, video } = course;
 
   return (
     <div>
-      <EditCourse
+      <EditCourse3
         key={id}
         id={id}
         title={title}
@@ -21,6 +19,7 @@ export default function Course({ course }) {
         teacher_description={teacher_description}
         teacher_image={teacher_image}
         reviews={reviews}
+        video={video}
       />
     </div>
   );

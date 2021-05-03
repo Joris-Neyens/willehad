@@ -7,8 +7,6 @@ export default function cursusOverzicht({ courses }) {
   return (
     <>
       {courses.map(function (course) {
-        console.log(course);
-
         const { id, title, cover, price, slug } = course;
         return (
           <Link key={id} href={`cursus-overzicht/${slug}`}>
