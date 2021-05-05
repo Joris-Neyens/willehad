@@ -4,7 +4,7 @@ import { BASE_URL } from "../../../api/baseUrl";
 
 const url = BASE_URL + "upload";
 
-export default function PostVideo({ id }) {
+export default function PostVideo({ id, video }) {
   const { register, handleSubmit } = useForm();
 
   const submitData = async (data) => {
@@ -29,10 +29,20 @@ export default function PostVideo({ id }) {
 
   return (
     <>
+      <div className="row">
+        {video.map(function (video_info) {
+          return (
+            <div key={video_info.id} className="col-4">
+              <video src={video_info.url} className="w-100" />
+              <p className="mb-1">{video_info.name}</p>
+            </div>
+          );
+        })}
+      </div>
       <div className="FileUpload">
         <form onSubmit={handleSubmit(submitData)}>
           <input type="file" {...register("file")} />
-          <button>Submit</button>
+          <button className="button__secondary">Submit</button>
         </form>
       </div>
     </>

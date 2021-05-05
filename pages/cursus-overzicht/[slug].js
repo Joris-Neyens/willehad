@@ -3,34 +3,37 @@ import { BASE_URL } from "../../js/api/baseUrl";
 import PostCover from "../../js/components/pages/cursus-overzicht/PostCover";
 import PostTeacherCover from "../../js/components/pages/cursus-overzicht/PostTeacherCover";
 import PostVideo from "../../js/components/pages/cursus-overzicht/PostVideo";
-import EditCourse from "../../js/components/pages/cursus-overzicht/EditCourse";
+import PutInfo from "../../js/components/pages/cursus-overzicht/PutInfo";
+import PutReviews from "../../js/components/pages/cursus-overzicht/PutReviews";
 
 export default function Course({ course }) {
-  const { id, title, cover, description, price, curriculum, teacher, teacher_description, teacher_image, reviews, video } = course;
+  const { id, title, cover, description, price, curriculum, teacher, teacher_description, teacher_image, reviews, video, categories } = course;
 
-  console.log(video);
   return (
-    <div>
-      <h4>Cover</h4>
-      <PostCover id={id} />
-      <h4>Teacher image</h4>
-      <PostTeacherCover id={id} />
-      <h4>Video</h4>
-      <PostVideo id={id} />
-      <EditCourse
-        key={id}
-        id={id}
-        title={title}
-        cover={cover}
-        description={description}
-        price={price}
-        curriculum={curriculum}
-        teacher={teacher}
-        teacher_description={teacher_description}
-        teacher_image={teacher_image}
-        reviews={reviews}
-        video={video}
-      />
+    <div className="container flex-column">
+      <div className="row ">
+        <div className="col-11 offset-1">
+          <h1>Edit cursus</h1>
+          <h4>Cover</h4>
+          <PostCover key={teacher_image.id} id={id} cover={cover} />
+          <h4>Teacher image</h4>
+          <PostTeacherCover id={teacher_image.id} teacher_image={teacher_image} />
+          <h4>Video</h4>
+          <PostVideo key={video[0].id} id={id} video={video} />
+
+          <PutInfo
+            key={id}
+            id={id}
+            title={title}
+            description={description}
+            price={price}
+            curriculum={curriculum}
+            teacher={teacher}
+            teacher_description={teacher_description}
+          />
+          <PutReviews key={reviews[0].id} reviews={reviews} />
+        </div>
+      </div>
     </div>
   );
 }
