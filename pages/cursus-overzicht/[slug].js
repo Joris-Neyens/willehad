@@ -9,6 +9,11 @@ import PutReviews from "../../js/components/pages/cursus-overzicht/PutReviews";
 export default function Course({ course }) {
   const { id, title, cover, description, price, curriculum, teacher, teacher_description, teacher_image, reviews, video, categories } = course;
 
+  let reviewId = "1";
+  if (reviews) {
+    reviewId = reviews[0];
+  }
+
   return (
     <div className="container flex-column">
       <div className="row ">
@@ -30,8 +35,9 @@ export default function Course({ course }) {
             curriculum={curriculum}
             teacher={teacher}
             teacher_description={teacher_description}
+            categories={categories}
           />
-          <PutReviews key={reviews[0].id} reviews={reviews} />
+          <PutReviews key={reviewId} reviews={reviews} />
         </div>
       </div>
     </div>

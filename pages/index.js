@@ -9,25 +9,13 @@ import TextRight from "../js/components/common/TextRight";
 import Newsletter from "../js/components/pages/home/Newsletter";
 import Reviews from "../js/components/common/Reviews";
 
-export default function Home({ courses }) {
+export default function Home({ home }) {
+  console.log(home);
+  const url = home.header_image.url;
   return (
     <Layout>
-      <Head
-        title="Home"
-        description="willed cursus platform startpagina"
-      ></Head>
-      {courses.map((course) => {
-        let url = course.cover.url;
-        return (
-          <>
-            <HomeHeader
-              url={url}
-              id={course.id}
-              alt={course.image_discription}
-            />
-          </>
-        );
-      })}
+      <Head title="Home" description="willed cursus platform startpagina"></Head>
+      <HomeHeader url={url} id={home.id} alt={("cursus afbeelding:", home.title)} /> */}
       <Uitleg />
       <TextRight
         url="https://res.cloudinary.com/dewzqtmii/image/upload/v1619444906/photo_1515378791036_0648a3ef77b2_1c7d07af64.jpg"
@@ -48,20 +36,20 @@ export default function Home({ courses }) {
   );
 }
 export async function getStaticProps() {
-  const url = BASE_URL + "courses";
+  const url = BASE_URL + "home";
 
-  let courses = [];
+  let home = [];
 
   try {
     const response = await axios.get(url);
     console.log(response.data);
-    courses = response.data;
+    home = response.data;
   } catch (error) {
     console.log(error);
   }
   return {
     props: {
-      courses: courses,
+      home: home,
     },
   };
 }

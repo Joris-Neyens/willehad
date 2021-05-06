@@ -2,8 +2,11 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { BASE_URL } from "../../../api/baseUrl";
 
-export default function PutInfo({ id, title, description, price, curriculum, teacher, teacher_description }) {
+export default function PutInfo({ id, title, description, price, curriculum, teacher, teacher_description, categories }) {
   const { register, handleSubmit } = useForm();
+
+  console.log(categories);
+  console.log(curriculum);
 
   const url = BASE_URL + "courses/" + id;
 
@@ -48,23 +51,10 @@ export default function PutInfo({ id, title, description, price, curriculum, tea
         <p className="m-0">Curriculum</p>
         <div className="row">
           <div className="col-3">
-            <input></input>
-            <input></input>
-            <input></input>
-            <input></input>
-            <input></input>
-            <input></input>
-            <input></input>
-            <input></input>
-            <input></input>
-            <input></input>
+            <input />
           </div>
           <div className="col-3 px-0 py-2">
-            <ul>
-              {curriculum.map(function (listItem) {
-                return <li key={listItem.id}>{listItem.entry}</li>;
-              })}
-            </ul>
+            <textarea defaultValue={curriculum} {...register("curriculum")} />
           </div>
         </div>
         <p className="m-0">Naam docent</p>
@@ -75,6 +65,7 @@ export default function PutInfo({ id, title, description, price, curriculum, tea
         <div className="col-6 offset-3 px-0 py-2">
           <textarea className="w-100 rounded" rows="6" defaultValue={teacher_description} type="text" {...register("teacher_description")} />
         </div>
+        <p className="m-0">Categoties</p>
         <button type="submit">Pas cursus info aan</button>
       </form>
     </div>
