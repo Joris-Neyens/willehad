@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/router";
-import Menu from "../../js/components/pages/dashboard/Menu";
+import { Form } from "react-bootstrap";
+import Menu from "../../js/components/pages/dashboard/SideMenu";
 import DashboardMenu from "../../js/components/layout/DashboardMenu";
 import { BASE_URL } from "../../js/api/baseUrl";
 
@@ -13,6 +14,8 @@ export default function nieuweCursus() {
 
   const onSubmit = async (data) => {
     console.log(data);
+
+    data.slug = "slug";
     try {
       const response = await axios({
         method: "POST",
@@ -43,21 +46,93 @@ export default function nieuweCursus() {
           <div className="row">
             <div className="col-6 offset-1">
               <h1 className="pb-3">Nieuwe cursus</h1>
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form className="mb-5 pb-5" onSubmit={handleSubmit(onSubmit)}>
                 <p>titel</p>
-                <input className="w-100 p-2 rounded" type="text" {...register("title")} />
+                <input
+                  className="w-100 p-2 rounded"
+                  type="text"
+                  {...register("title")}
+                />
                 <p>beschrijving</p>
-                <textarea rows="6" className="w-100 p-2 rounded" type="text" {...register("description")} />
+                <textarea
+                  rows="6"
+                  className="w-100 p-2 rounded"
+                  type="text"
+                  {...register("description")}
+                />
+                <Form.Check
+                  className="col-12 my-3"
+                  type="switch"
+                  id="featured"
+                  label="uitgelicht (er kan maar een cursus uitgelicht worden)"
+                  {...register("featured")}
+                />
                 <p>Prijs</p>
-                <input className="w-100 p-2 my-2 rounded" type="number" {...register("price")} />
+                <input
+                  className="w-100 p-2 my-2 rounded"
+                  type="number"
+                  {...register("price")}
+                />
                 <p>Praktische informatie</p>
-                <textarea className="w-100 rounded" rows="6" {...register("practical_info")} />
+                <textarea
+                  className="w-100 rounded"
+                  rows="6"
+                  {...register("practical_info")}
+                />
                 <p>Wat gaan ze leren</p>
-                <textarea className="w-100 rounded" rows="6" {...register("curriculum")} />
+                <textarea
+                  className="w-100 rounded"
+                  rows="6"
+                  {...register("curriculum")}
+                />
                 <p>Naam docent</p>
-                <input className="w-100 p-2 my-2 rounded" type="text" {...register("teacher")} />
+                <input
+                  className="w-100 p-2 my-2 rounded"
+                  type="text"
+                  {...register("teacher")}
+                />
                 <p>over de docent</p>
-                <textarea className="w-100 rounded" rows="6" type="text" {...register("teacher_description")} />
+                <textarea
+                  className="w-100 rounded"
+                  rows="6"
+                  type="text"
+                  {...register("teacher_description")}
+                />
+                <Form.Check
+                  className="col-3 my-3"
+                  type="switch"
+                  id="geschiedenis"
+                  label="geschiedenis"
+                  {...register("category_history")}
+                />
+                <Form.Check
+                  className="col-3 my-3"
+                  type="switch"
+                  id="filosofie"
+                  label="filosofie"
+                  {...register("category_philosophy")}
+                />
+                <Form.Check
+                  className="col-3 my-3"
+                  type="switch"
+                  id="theologie"
+                  label="theologie"
+                  {...register("category_theology")}
+                />
+                <Form.Check
+                  className="col-3 my-3"
+                  type="switch"
+                  id="catechese"
+                  label="catechese"
+                  {...register("category_catechesis")}
+                />
+                <Form.Check
+                  className="col-3 my-3"
+                  type="switch"
+                  id="bijbel studie"
+                  label="bijbel studie"
+                  {...register("category_bibel_study")}
+                />
                 <button type="submit">volgende stap 1/2</button>
               </form>
             </div>

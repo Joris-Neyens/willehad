@@ -8,8 +8,6 @@ export default function PostNewTeacherCover({ id }) {
   const { register, handleSubmit } = useForm();
 
   const submitData = async (data) => {
-    const files = data.file[0];
-
     try {
       const formData = new FormData();
       formData.append("files", data.file[0]);

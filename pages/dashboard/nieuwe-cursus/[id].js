@@ -1,4 +1,4 @@
-import Menu from "../../../js/components/pages/dashboard/Menu";
+import Menu from "../../../js/components/pages/dashboard/SideMenu";
 import DashboardMenu from "../../../js/components/layout/DashboardMenu";
 import axios from "axios";
 import PostNewVideo from "../../../js/components/pages/cursus-toevoegen/PostNewVideo";

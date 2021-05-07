@@ -15,7 +15,7 @@ export default function Home({ home }) {
   return (
     <Layout>
       <Head title="Home" description="willed cursus platform startpagina"></Head>
-      <HomeHeader url={url} id={home.id} alt={("cursus afbeelding:", home.title)} /> */}
+      <HomeHeader url={url} id={home.id} alt={("cursus afbeelding:", home.title)} />
       <Uitleg />
       <TextRight
         url="https://res.cloudinary.com/dewzqtmii/image/upload/v1619444906/photo_1515378791036_0648a3ef77b2_1c7d07af64.jpg"

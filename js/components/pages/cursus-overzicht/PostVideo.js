@@ -8,14 +8,13 @@ export default function PostVideo({ id, video }) {
   const { register, handleSubmit } = useForm();
 
   const submitData = async (data) => {
-    const files = data.file[0];
-
     try {
       const formData = new FormData();
       formData.append("files", data.file[0]);
       formData.append("ref", "courses");
       formData.append("refId", id);
       formData.append("field", "video");
+
       const response = await axios({
         method: "POST",
         url: url,
@@ -32,17 +31,17 @@ export default function PostVideo({ id, video }) {
       <div className="row">
         {video.map(function (video_info) {
           return (
-            <div key={video_info.id} className="col-4">
+            <div key={video_info.id} className="col-6">
               <video src={video_info.url} className="w-100" />
               <p className="mb-1">{video_info.name}</p>
             </div>
           );
         })}
       </div>
-      <div className="FileUpload">
+      <div className="FileUpload p-0  mt-2 col-6">
         <form onSubmit={handleSubmit(submitData)}>
           <input type="file" {...register("file")} />
-          <button className="button__secondary">Submit</button>
+          <button className="mt-3 button__secondary--dark">Upload</button>
         </form>
       </div>
     </>

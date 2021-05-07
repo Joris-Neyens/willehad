@@ -1,11 +1,14 @@
 import Head from "../js/components/head/Head";
 import DashboardMenu from "../js/components/layout/DashboardMenu";
-import Menu from "../js/components/pages/dashboard/Menu";
+import Menu from "../js/components/pages/dashboard/SideMenu";
 
 export default function dashboard() {
   return (
     <>
-      <Head title="Dashboard" description="Aanpassingen maken aan de website"></Head>
+      <Head
+        title="Dashboard"
+        description="Aanpassingen maken aan de website"
+      ></Head>
       <DashboardMenu />
       <div>
         <h1>Dashboard</h1>
