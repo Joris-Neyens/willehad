@@ -1,10 +1,11 @@
 import axios from "axios";
 import { BASE_URL } from "../../../js/api/baseUrl";
+import Head from "../../../js/components/head/Head";
+import DashboardMenu from "../../../js/components/layout/DashboardMenu";
 import PostCover from "../../../js/components/pages/cursus-overzicht/PostCover";
 import PostTeacherCover from "../../../js/components/pages/cursus-overzicht/PostTeacherCover";
 import PostVideo from "../../../js/components/pages/cursus-overzicht/PostVideo";
 import PutInfo from "../../../js/components/pages/cursus-overzicht/PutInfo";
-import DashboardMenu from "../../../js/components/layout/DashboardMenu";
 import Menu from "../../../js/components/pages/dashboard/SideMenu";
 
 export default function Course({ course }) {
@@ -28,6 +29,7 @@ export default function Course({ course }) {
   }
   return (
     <>
+      <Head title="edit cursus" description="edit cursus willehad"></Head>
       <DashboardMenu />
       <div className="container-fluid">
         <div className="row">

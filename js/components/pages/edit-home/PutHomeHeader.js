@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BASE_URL } from "../../../api/baseUrl";
 import Image from "next/image";
@@ -7,11 +8,11 @@ const postUrl = BASE_URL + "upload";
 
 export default function PutHomeHeader({ id, header_image }) {
   const url = header_image.url;
-
+  const [submitting, setSubmitting] = useState(false);
   const { register, handleSubmit } = useForm();
 
   const submitData = async (data) => {
-    console.log(data.file[0]);
+    setSubmitting(true);
     try {
       const formData = new FormData();
       formData.append("files", data.file[0]);
@@ -27,6 +28,8 @@ export default function PutHomeHeader({ id, header_image }) {
       console.log("Success", response);
     } catch (error) {
       console.log(error);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -39,10 +42,14 @@ export default function PutHomeHeader({ id, header_image }) {
         <form className="mb-5" onSubmit={handleSubmit(submitData)}>
           <div className="row">
             <div className="col-12">
-              <input type="file" {...register("file")} />
+              <fieldset disabled={submitting}>
+                <input type="file" {...register("file")} />
+              </fieldset>
             </div>
             <div className="col-12">
-              <button className="button__secondary--dark mt-3">Upload</button>
+              <button className="button__secondary--dark mt-3">
+                {submitting ? "momentje.." : "upload"}
+              </button>
             </div>
           </div>
         </form>

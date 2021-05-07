@@ -13,6 +13,10 @@ body {
 p {
   font-size: 16px;
 }
+.error {
+  color: $accent;
+  font-weight: 500;
+}
 h1 {
   color: $primary !important;
   font-family: $playfair;

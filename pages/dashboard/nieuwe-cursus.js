@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { Form } from "react-bootstrap";
+import Head from "../../js/components/head/Head";
 import Menu from "../../js/components/pages/dashboard/SideMenu";
 import DashboardMenu from "../../js/components/layout/DashboardMenu";
 import { BASE_URL } from "../../js/api/baseUrl";
@@ -40,6 +41,7 @@ export default function nieuweCursus() {
   return (
     <>
       <DashboardMenu />
+      <Head title="nieuwe cursus" description="voeg nieuwe cursus toe"></Head>
       <div className="container-fluid">
         <div className="row">
           <Menu />

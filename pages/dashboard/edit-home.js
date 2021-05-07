@@ -1,5 +1,6 @@
 import DashboardMenu from "../../js/components/layout/DashboardMenu";
 import axios from "axios";
+import Head from "../../js/components/head/Head";
 import SideMenu from "../../js/components/pages/dashboard/SideMenu";
 import PutHomeInfo from "../../js/components/pages/edit-home/PutHomeInfo";
 import PutHomeHeader from "../../js/components/pages/edit-home/PutHomeHeader";
@@ -20,6 +21,7 @@ export default function editHome({ home }) {
 
   return (
     <div>
+      <Head title="edit homepage" description="edit homepage willehad"></Head>
       <DashboardMenu />
       <div className="container-fluid">
         <div className="row">

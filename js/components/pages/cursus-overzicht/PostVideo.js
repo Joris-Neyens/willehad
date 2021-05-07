@@ -1,13 +1,16 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { BASE_URL } from "../../../api/baseUrl";
 
 const url = BASE_URL + "upload";
 
 export default function PostVideo({ id, video }) {
   const { register, handleSubmit } = useForm();
+  const [submitting, setSubmitting] = useState(false);
 
   const submitData = async (data) => {
+    setSubmitting(true);
     try {
       const formData = new FormData();
       formData.append("files", data.file[0]);
@@ -23,6 +26,8 @@ export default function PostVideo({ id, video }) {
       console.log("Success", response);
     } catch (error) {
       console.log(error);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -40,8 +45,12 @@ export default function PostVideo({ id, video }) {
       </div>
       <div className="FileUpload p-0  mt-2 col-6">
         <form onSubmit={handleSubmit(submitData)}>
-          <input type="file" {...register("file")} />
-          <button className="mt-3 button__secondary--dark">Upload</button>
+          <fieldset disabled={submitting}>
+            <input type="file" {...register("file")} />
+          </fieldset>
+          <button className="mt-3 button__secondary--dark">
+            {submitting ? "momentje.." : "upload"}
+          </button>
         </form>
       </div>
     </>

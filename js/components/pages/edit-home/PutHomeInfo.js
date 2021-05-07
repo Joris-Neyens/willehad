@@ -1,6 +1,11 @@
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../../api/baseUrl";
+
+const url = BASE_URL + "home";
 
 export default function PutHomeInfo({
   course_date,
@@ -9,11 +14,37 @@ export default function PutHomeInfo({
   course_title,
   course_description,
 }) {
-  const { register, handleSubmit } = useForm();
-  const url = BASE_URL + "home";
+  const [submitting, setSubmitting] = useState(false);
+  const [putError, setPutError] = useState(null);
+
+  const schema = yup.object().shape({
+    title: yup
+      .string()
+      .required("Vul de title in die over de header foto komt"),
+    course_date: yup
+      .string()
+      .required("vul in datum voor de eersvolgende cursus"),
+    subtitle: yup.string().required("schijf een zin die de cursus beschrijft"),
+    course_title: yup.string().required("Vul cursus titel in"),
+    course_description: yup
+      .string()
+      .required(
+        "Schrijf een korte beschijving van de cursus voor de hoofdpagina"
+      ),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit = async (data) => {
-    console.log(data);
+    setSubmitting(true);
+    setPutError(null);
+
     try {
       const response = await axios({
         method: "PUT",
@@ -28,60 +59,77 @@ export default function PutHomeInfo({
       console.log("Success", response);
     } catch (error) {
       console.log(error);
+      setPutError(error.toString());
+    } finally {
+      setSubmitting(false);
     }
   };
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h4 className="mt-4 mb-3">Header info</h4>
-      <p className="m-0">Titel</p>
-      <div className="col-8 px-0 py-2">
-        <input
-          className="w-100 p-2 rounded"
-          defaultValue={title}
-          type="text"
-          {...register("title")}
-        />
-      </div>
-      <p className="m-0">datum cursus</p>
-      <div className="col-8 px-0 py-2">
-        <input
-          className="w-100 p-2 rounded"
-          defaultValue={course_date}
-          type="text"
-          {...register("course_date")}
-        />
-      </div>
-      <p className="m-0">subtitle</p>
-      <div className="col-8 px-0 py-2">
-        <input
-          className="w-100 p-2 rounded"
-          defaultValue={subtitle}
-          type="text"
-          {...register("subtitle")}
-        />
-      </div>
-      <h4 className="mt-5 mb-3">Homepage cursus info</h4>
-      <p className="m-0">Naam cursus</p>
-      <div className="col-8 px-0 py-2">
-        <input
-          className="w-100 p-2 rounded"
-          defaultValue={course_title}
-          type="text"
-          {...register("course_title")}
-        />
-      </div>
-      <p className="m-0">Cursus beschrijving</p>
-      <div className="col-8 px-0 py-2">
-        <textarea
-          className="w-100 rounded"
-          rows="8"
-          defaultValue={course_description}
-          type="text"
-          {...register("course_description")}
-        />
-      </div>
-      <button className="button__secondary--dark mt-2">Verander info</button>
+      <fieldset disabled={submitting}>
+        <h4 className="mt-4 mb-3">Header info</h4>
+        <p className="m-0">Titel</p>
+        <div className="col-8 px-0 py-2">
+          <input
+            className="w-100 p-2 rounded"
+            defaultValue={title}
+            type="text"
+            {...register("title")}
+          />
+          <p className="error"> {errors.title?.message}</p>
+        </div>
+        <p className="m-0">datum cursus</p>
+        <div className="col-8 px-0 py-2">
+          <input
+            className="w-100 p-2 rounded"
+            defaultValue={course_date}
+            type="text"
+            {...register("course_date")}
+          />
+          <p className="error">{errors.course_date?.message}</p>
+        </div>
+        <p className="m-0">subtitle</p>
+        <div className="col-8 px-0 py-2">
+          <input
+            className="w-100 p-2 rounded"
+            defaultValue={subtitle}
+            type="text"
+            {...register("subtitle")}
+          />
+          <p className="error">{errors.subtitle?.message}</p>
+        </div>
+        <h4 className="mt-5 mb-3">Homepage cursus info</h4>
+        <p className="m-0">Naam cursus</p>
+        <div className="col-8 px-0 py-2">
+          <input
+            className="w-100 p-2 rounded"
+            defaultValue={course_title}
+            type="text"
+            {...register("course_title")}
+          />
+          <p className="error">{errors.course_title?.message}</p>
+        </div>
+        <p className="m-0">Cursus beschrijving</p>
+        <div className="col-8 px-0 py-2">
+          <textarea
+            className="w-100 rounded"
+            rows="8"
+            defaultValue={course_description}
+            type="text"
+            {...register("course_description")}
+          />
+          <p className="error">{errors.course_description?.message}</p>
+        </div>
+        <button className="button__secondary--dark mt-2">
+          {submitting ? "momentje.." : "Submit"}
+        </button>
+        {putError && (
+          <span>
+            Er is iets misgegaan, probeer het later nog een keer of neem contact
+            op met de admin
+          </span>
+        )}
+      </fieldset>
     </form>
   );
 }

@@ -1,6 +1,7 @@
 import SideMenu from "../../../js/components/pages/dashboard/SideMenu";
 import DashboardMenu from "../../../js/components/layout/DashboardMenu";
 import axios from "axios";
+import Head from "../../../js/components/head";
 import PostNewVideo from "../../../js/components/pages/cursus-toevoegen/PostNewVideo";
 import PostNewCover from "../../../js/components/pages/cursus-toevoegen/PostNewCover";
 import PostNewTeacherCover from "../../../js/components/pages/cursus-toevoegen/PostNewTeacherCover";
@@ -14,6 +15,10 @@ export default function newCourseMedia({ course }) {
   return (
     <>
       <DashboardMenu />
+      <Head
+        title="nieuwe cursus"
+        description="voeg media toe aan nieuwe cursus"
+      ></Head>
       <div className="container-fluid">
         <div className="row">
           <SideMenu />
