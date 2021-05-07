@@ -40,105 +40,107 @@ export default function nieuweCursus() {
   return (
     <>
       <DashboardMenu />
-      <Menu />
-      <section className="mt-5">
-        <div className="container">
-          <div className="row">
-            <div className="col-6 offset-1">
-              <h1 className="pb-3">Nieuwe cursus</h1>
-              <form className="mb-5 pb-5" onSubmit={handleSubmit(onSubmit)}>
-                <p>titel</p>
-                <input
-                  className="w-100 p-2 rounded"
-                  type="text"
-                  {...register("title")}
-                />
-                <p>beschrijving</p>
-                <textarea
-                  rows="6"
-                  className="w-100 p-2 rounded"
-                  type="text"
-                  {...register("description")}
-                />
-                <Form.Check
-                  className="col-12 my-3"
-                  type="switch"
-                  id="featured"
-                  label="uitgelicht (er kan maar een cursus uitgelicht worden)"
-                  {...register("featured")}
-                />
-                <p>Prijs</p>
-                <input
-                  className="w-100 p-2 my-2 rounded"
-                  type="number"
-                  {...register("price")}
-                />
-                <p>Praktische informatie</p>
-                <textarea
-                  className="w-100 rounded"
-                  rows="6"
-                  {...register("practical_info")}
-                />
-                <p>Wat gaan ze leren</p>
-                <textarea
-                  className="w-100 rounded"
-                  rows="6"
-                  {...register("curriculum")}
-                />
-                <p>Naam docent</p>
-                <input
-                  className="w-100 p-2 my-2 rounded"
-                  type="text"
-                  {...register("teacher")}
-                />
-                <p>over de docent</p>
-                <textarea
-                  className="w-100 rounded"
-                  rows="6"
-                  type="text"
-                  {...register("teacher_description")}
-                />
-                <Form.Check
-                  className="col-3 my-3"
-                  type="switch"
-                  id="geschiedenis"
-                  label="geschiedenis"
-                  {...register("category_history")}
-                />
-                <Form.Check
-                  className="col-3 my-3"
-                  type="switch"
-                  id="filosofie"
-                  label="filosofie"
-                  {...register("category_philosophy")}
-                />
-                <Form.Check
-                  className="col-3 my-3"
-                  type="switch"
-                  id="theologie"
-                  label="theologie"
-                  {...register("category_theology")}
-                />
-                <Form.Check
-                  className="col-3 my-3"
-                  type="switch"
-                  id="catechese"
-                  label="catechese"
-                  {...register("category_catechesis")}
-                />
-                <Form.Check
-                  className="col-3 my-3"
-                  type="switch"
-                  id="bijbel studie"
-                  label="bijbel studie"
-                  {...register("category_bibel_study")}
-                />
-                <button type="submit">volgende stap 1/2</button>
-              </form>
+      <div className="container-fluid">
+        <div className="row">
+          <Menu />
+          <div className="col-8 pb-4 mt-5">
+            <div className="row">
+              <div className="col-10 pl-5">
+                <h1>Nieuwe cursus</h1>
+                <form className="mb-5 pb-5" onSubmit={handleSubmit(onSubmit)}>
+                  <p>titel</p>
+                  <input
+                    className="w-100 p-2 rounded"
+                    type="text"
+                    {...register("title")}
+                  />
+                  <p>beschrijving</p>
+                  <textarea
+                    rows="6"
+                    className="w-100 p-2 rounded"
+                    type="text"
+                    {...register("description")}
+                  />
+                  <Form.Check
+                    className="col-12 my-3"
+                    type="switch"
+                    id="featured"
+                    label="uitgelicht (er kan maar een cursus uitgelicht worden)"
+                    {...register("featured")}
+                  />
+                  <p>Prijs</p>
+                  <input
+                    className="w-100 p-2 my-2 rounded"
+                    type="number"
+                    {...register("price")}
+                  />
+                  <p>Praktische informatie</p>
+                  <textarea
+                    className="w-100 rounded"
+                    rows="6"
+                    {...register("practical_info")}
+                  />
+                  <p>Wat gaan ze leren</p>
+                  <textarea
+                    className="w-100 rounded"
+                    rows="6"
+                    {...register("curriculum")}
+                  />
+                  <p>Naam docent</p>
+                  <input
+                    className="w-100 p-2 my-2 rounded"
+                    type="text"
+                    {...register("teacher")}
+                  />
+                  <p>over de docent</p>
+                  <textarea
+                    className="w-100 rounded"
+                    rows="6"
+                    type="text"
+                    {...register("teacher_description")}
+                  />
+                  <Form.Check
+                    className="col-3 my-3"
+                    type="switch"
+                    id="geschiedenis"
+                    label="geschiedenis"
+                    {...register("category_history")}
+                  />
+                  <Form.Check
+                    className="col-3 my-3"
+                    type="switch"
+                    id="filosofie"
+                    label="filosofie"
+                    {...register("category_philosophy")}
+                  />
+                  <Form.Check
+                    className="col-3 my-3"
+                    type="switch"
+                    id="theologie"
+                    label="theologie"
+                    {...register("category_theology")}
+                  />
+                  <Form.Check
+                    className="col-3 my-3"
+                    type="switch"
+                    id="catechese"
+                    label="catechese"
+                    {...register("category_catechesis")}
+                  />
+                  <Form.Check
+                    className="col-3 my-3"
+                    type="switch"
+                    id="bijbel studie"
+                    label="bijbel studie"
+                    {...register("category_bibel_study")}
+                  />
+                  <button type="submit">volgende stap 1/2</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 }

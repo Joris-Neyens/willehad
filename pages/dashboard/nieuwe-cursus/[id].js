@@ -1,4 +1,4 @@
-import Menu from "../../../js/components/pages/dashboard/SideMenu";
+import SideMenu from "../../../js/components/pages/dashboard/SideMenu";
 import DashboardMenu from "../../../js/components/layout/DashboardMenu";
 import axios from "axios";
 import PostNewVideo from "../../../js/components/pages/cursus-toevoegen/PostNewVideo";
@@ -13,16 +13,20 @@ export default function newCourseMedia({ course }) {
 
   return (
     <>
-      <Menu />
       <DashboardMenu />
-      <div className="container">
+      <div className="container-fluid">
         <div className="row">
-          <div className="col-10 offset-1">
-            <h1>Media toevoegen</h1>
-            <h4>{course.name}</h4>
-            <PostNewCover key={course.title} id={id} />
-            <PostNewTeacherCover key={course.teacher} id={id} />
-            <PostNewVideo key={id} id={id} />
+          <SideMenu />
+          <div className="col-8 pb-4 mt-5">
+            <div className="row">
+              <div className="col-10 pl-5">
+                <h1>Media toevoegen</h1>
+                <h4>{course.name}</h4>
+                <PostNewCover key={course.title} id={id} />
+                <PostNewTeacherCover key={course.teacher} id={id} />
+                <PostNewVideo key={id} id={id} />
+              </div>
+            </div>
           </div>
         </div>
       </div>

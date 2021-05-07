@@ -10,10 +10,18 @@ export default function dashboard() {
         description="Aanpassingen maken aan de website"
       ></Head>
       <DashboardMenu />
-      <div>
-        <h1>Dashboard</h1>
+      <div className="container-fluid">
+        <div className="row">
+          <Menu />
+          <div className="col-8 pb-4 mt-5">
+            <div className="row">
+              <div className="col-10 pl-5">
+                <h1>Dashboard</h1>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <Menu />
     </>
   );
 }

@@ -29,36 +29,38 @@ export default function Course({ course }) {
   return (
     <>
       <DashboardMenu />
-      <div className="row">
-        <Menu />
-        <div className="col-8 pb-4 mt-5">
-          <div className="row">
-            <div className="col-10 pl-5">
-              <h1>Edit cursus</h1>
-              <PutInfo
-                key={id}
-                id={id}
-                title={title}
-                description={description}
-                price={price}
-                curriculum={curriculum}
-                teacher={teacher}
-                teacher_description={teacher_description}
-              />
-              <h4 className="pt-4 my-4">Media</h4>
-              <div className="row">
-                <div className="col-6">
-                  <p>Cover</p>
-                  <PostCover key={teacher_image.id} id={id} cover={cover} />
+      <div className="container-fluid">
+        <div className="row">
+          <Menu />
+          <div className="col-8 pb-4 mt-5">
+            <div className="row">
+              <div className="col-10 pl-5">
+                <h1>Edit cursus</h1>
+                <PutInfo
+                  key={id}
+                  id={id}
+                  title={title}
+                  description={description}
+                  price={price}
+                  curriculum={curriculum}
+                  teacher={teacher}
+                  teacher_description={teacher_description}
+                />
+                <h4 className="pt-4 my-4">Media</h4>
+                <div className="row">
+                  <div className="col-6">
+                    <p>Cover</p>
+                    <PostCover key={teacher_image.id} id={id} cover={cover} />
+                  </div>
+                  <div className="col-6">
+                    <p>Teacher image</p>
+                    <PostTeacherCover id={id} teacher_image={teacher_image} />
+                  </div>
                 </div>
-                <div className="col-6">
-                  <p>Teacher image</p>
-                  <PostTeacherCover id={id} teacher_image={teacher_image} />
+                <div className="col-12 p-0">
+                  <p className="pt-4">Video</p>
+                  <PostVideo key={course.title} id={id} video={video} />
                 </div>
-              </div>
-              <div className="col-12 p-0">
-                <p className="pt-4">Video</p>
-                <PostVideo key={course.title} id={id} video={video} />
               </div>
             </div>
           </div>
