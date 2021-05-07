@@ -39,7 +39,7 @@ export default function PostNewVideo({ id }) {
           <fieldset disabled={submitting}>
             <input type="file" {...register("file")} />
           </fieldset>
-          <button className="button__secondary">
+          <button className="button__secondary--dark">
             {submitting ? "momentje.." : "upload"}
           </button>
         </form>

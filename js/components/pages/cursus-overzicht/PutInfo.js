@@ -40,7 +40,6 @@ export default function PutInfo({
     setPutError(null);
 
     const url = BASE_URL + "courses/" + id;
-
     try {
       const response = await axios({
         method: "PUT",
@@ -214,7 +213,7 @@ export default function PutInfo({
             </div>
           </div>
           <button className="button__secondary--dark mt-5" type="submit">
-            Pas cursus info aan
+            {submitting ? "momentje.." : "Submit"}
           </button>
           {putError && (
             <span>

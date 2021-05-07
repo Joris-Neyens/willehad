@@ -52,7 +52,7 @@ export default function Course({ course }) {
                 <div className="row">
                   <div className="col-6">
                     <p>Cover</p>
-                    <PostCover key={teacher_image.id} id={id} cover={cover} />
+                    <PostCover key={teacher_image.url} id={id} cover={cover} />
                   </div>
                   <div className="col-6">
                     <p>Teacher image</p>

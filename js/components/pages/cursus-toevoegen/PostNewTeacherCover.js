@@ -38,7 +38,9 @@ export default function PostNewTeacherCover({ id }) {
           <fieldset disabled={submitting}>
             <input type="file" {...register("file")} />
           </fieldset>
-          <button>{submitting ? "momentje.." : "upload"}</button>
+          <button className="button__secondary--dark">
+            {submitting ? "momentje.." : "upload"}
+          </button>
         </form>
       </div>
     </>

@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { BASE_URL } from "../js/api/baseUrl";
 import Head from "../js/components/head/Head";
+import ApiKey from "../js/api/ApiKey";
 
 const schema = yup.object().shape({
   identifier: yup
