@@ -11,9 +11,9 @@ export default function SideMenu() {
           <h4>Edit</h4>
         </div>
         <div className="px-3 pb-3 pt-1">
-          <Link href="/dashboard/nieuwe-cursus">Nieuwe cursus</Link>
-          <Link href="/dashboard/cursus-overzicht">Cursus overzicht</Link>
-          <Link href="/dashboard/edit-home">Edit home</Link>
+          <Link href="/admin/dashboard/nieuwe-cursus">Nieuwe cursus</Link>
+          <Link href="/admin/dashboard/edit-cursus">Edit cursus</Link>
+          <Link href="/admin/dashboard/edit-home">Edit home</Link>
         </div>
       </div>
       <div className="communicatie pt-3 mt-3">

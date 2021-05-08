@@ -1,13 +1,15 @@
 import axios from "axios";
-import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { BASE_URL } from "../../../api/baseUrl";
+import { useForm } from "react-hook-form";
+import { BASE_URL, UPLOAD_PATH } from "../../../api/baseUrl";
+import Image from "next/image";
 
-const url = BASE_URL + "upload";
+const postUrl = BASE_URL + UPLOAD_PATH;
 
-export default function PostVideo({ id, video }) {
-  const { register, handleSubmit } = useForm();
+export default function PostCover({ id, cover }) {
+  const url = cover.url;
   const [submitting, setSubmitting] = useState(false);
+  const { register, handleSubmit } = useForm();
 
   const submitData = async (data) => {
     setSubmitting(true);
@@ -16,11 +18,11 @@ export default function PostVideo({ id, video }) {
       formData.append("files", data.file[0]);
       formData.append("ref", "courses");
       formData.append("refId", id);
-      formData.append("field", "video");
+      formData.append("field", "cover");
 
       const response = await axios({
         method: "POST",
-        url: url,
+        url: postUrl,
         data: formData,
       });
       console.log("Success", response);
@@ -34,21 +36,16 @@ export default function PostVideo({ id, video }) {
   return (
     <>
       <div className="row">
-        {video.map(function (video_info) {
-          return (
-            <div key={video_info.id} className="col-6">
-              <video src={video_info.url} className="w-100" />
-              <p className="mb-1">{video_info.name}</p>
-            </div>
-          );
-        })}
+        <div className="col-12">
+          <Image src={url} width="3000" height="1500" />
+        </div>
       </div>
-      <div className="FileUpload p-0  mt-2 col-6">
+      <div className="FileUpload mt-2">
         <form onSubmit={handleSubmit(submitData)}>
           <fieldset disabled={submitting}>
             <input type="file" {...register("file")} />
           </fieldset>
-          <button className="mt-3 button__secondary--dark">
+          <button className="button__secondary--dark mt-3">
             {submitting ? "momentje.." : "upload"}
           </button>
         </form>

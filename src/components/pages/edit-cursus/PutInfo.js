@@ -14,6 +14,7 @@ export default function PutInfo({
   curriculum,
   teacher,
   teacher_description,
+  practical_info,
 }) {
   const [submitting, setSubmitting] = useState(false);
   const [putError, setPutError] = useState(null);
@@ -25,6 +26,9 @@ export default function PutInfo({
     curriculum: yup.string().required("Vul in wat een deelnemer zal leren"),
     teacher: yup.string().required("Vul naam van schrijver in"),
     teacher_description: yup.string().required("informatie over de schrijver"),
+    practical_info: yup
+      .string()
+      .required("Schrijf iets over datums, kosten etc."),
   });
 
   const {
@@ -135,7 +139,18 @@ export default function PutInfo({
               type="number"
               {...register("price")}
             />
-            <p className="error"> {errors.price?.message}</p>
+          </div>
+          <p className="error"> {errors.price?.message}</p>
+          <p className="m-0 mt-4">Practische informatie</p>
+          <div className="col-8 px-0 py-2">
+            <textarea
+              className="w-100 rounded"
+              rows="6"
+              defaultValue={practical_info}
+              type="text"
+              {...register("practical_info")}
+            />
+            <p className="error"> {errors.practical_info?.message}</p>
           </div>
           <p className="m-0">Curriculum</p>
           <div className="col-8 px-0 py-2">

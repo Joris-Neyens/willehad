@@ -1,12 +1,12 @@
-import { BASE_URL } from "../../src/api/baseUrl";
+import { BASE_URL, COURSES_PATH } from "../../../src/api/baseUrl";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import Head from "../../src/components/head/Head";
-import DashboardMenu from "../../src/components/layout/DashboardMenu";
-import Menu from "../../src/components/pages/dashboard/SideMenu";
+import Head from "../../../src/components/head/Head";
+import DashboardMenu from "../../../src/components/layout/DashboardMenu";
+import Menu from "../../../src/components/pages/dashboard/SideMenu";
 
-export default function cursusOverzicht({ courses }) {
+export default function editCourse({ courses }) {
   return (
     <>
       <Head title="edit homepage" description="edit homepage willehad"></Head>
@@ -17,7 +17,7 @@ export default function cursusOverzicht({ courses }) {
           <div className="col-8 pb-4 mt-5">
             <div className="row">
               <div className="col-10 pl-5">
-                <h1>Cursus overzicht</h1>
+                <h1>Edit cursus</h1>
                 {courses.map(function (course) {
                   const { id, title, cover, price } = course;
 
@@ -28,7 +28,7 @@ export default function cursusOverzicht({ courses }) {
                   }
                   return (
                     <>
-                      <Link key={id} href={`cursus-overzicht/${id}`}>
+                      <Link key={id} href={`edit-cursus/${id}`}>
                         <div className="p-2 mt-4 course-card shadow-sm">
                           <div className="row">
                             <Image
@@ -57,7 +57,7 @@ export default function cursusOverzicht({ courses }) {
 }
 
 export async function getStaticProps() {
-  const url = BASE_URL + "courses";
+  const url = BASE_URL + COURSES_PATH;
 
   let courses = [];
 

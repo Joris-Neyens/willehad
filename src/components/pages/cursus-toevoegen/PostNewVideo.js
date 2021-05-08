@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { BASE_URL } from "../../../api/baseUrl";
+import { BASE_URL, UPLOAD_PATH } from "../../../api/baseUrl";
 
-const url = BASE_URL + "upload";
+const url = BASE_URL + UPLOAD_PATH;
 
 export default function PostNewVideo({ id }) {
   const { register, handleSubmit } = useForm();

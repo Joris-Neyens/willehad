@@ -5,25 +5,14 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { Form } from "react-bootstrap";
-import Head from "../../src/components/head/Head";
-import Menu from "../../src/components/pages/dashboard/SideMenu";
-import DashboardMenu from "../../src/components/layout/DashboardMenu";
-import { BASE_URL } from "../../src/api/baseUrl";
+import Head from "../../../src/components/head/Head";
+import Menu from "../../../src/components/pages/dashboard/SideMenu";
+import DashboardMenu from "../../../src/components/layout/DashboardMenu";
+import { BASE_URL } from "../../../src/api/baseUrl";
 
 const url = BASE_URL + "courses";
 
 export default function nieuweCursus() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
-
-  const [submitting, setSubmitting] = useState(false);
-  const [postError, setPostError] = useState(null);
-
   const schema = yup.object().shape({
     title: yup.string().required("Vul de cursus titel in"),
     price: yup.number().required("vul een getal in"),
@@ -35,6 +24,17 @@ export default function nieuweCursus() {
       .string()
       .required("Schrijf iets over datums, kosten etc."),
   });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const [submitting, setSubmitting] = useState(false);
+  const [postError, setPostError] = useState(null);
 
   const router = useRouter();
 
@@ -56,7 +56,7 @@ export default function nieuweCursus() {
       const id = response.data._id;
       console.log(response);
 
-      router.push(`/dashboard/nieuwe-cursus/${id}`);
+      router.push(`/admin/dashboard/nieuwe-cursus/${id}`);
     } catch (error) {
       console.log(error);
       setPostError(error.toString());

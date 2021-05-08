@@ -1,5 +1,5 @@
-import Layout from "../../src/components/layout/Layout";
-import Head from "../../src/components/head/head";
+import Layout from "../../../src/components/layout/Layout";
+import Head from "../../../src/components/head/head";
 
 export default function cursus_aanbod() {
   return (

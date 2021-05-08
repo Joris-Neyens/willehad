@@ -1,7 +1,7 @@
-import Head from "../src/components/head/Head";
-import DashboardMenu from "../src/components/layout/DashboardMenu";
-import Menu from "../src/components/pages/dashboard/SideMenu";
-import { AuthProvider } from "../src/components/context/AuthContext";
+import Head from "../../src/components/head/Head";
+import DashboardMenu from "../../src/components/layout/DashboardMenu";
+import Menu from "../../src/components/pages/dashboard/SideMenu";
+import { AuthProvider } from "../../src/components/context/AuthContext";
 
 export default function dashboard() {
   return (

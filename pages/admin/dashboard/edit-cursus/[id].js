@@ -1,12 +1,12 @@
 import axios from "axios";
-import { BASE_URL } from "../../../src/api/baseUrl";
-import Head from "../../../src/components/head/Head";
-import DashboardMenu from "../../../src/components/layout/DashboardMenu";
-import PostCover from "../../../src/components/pages/cursus-overzicht/PostCover";
-import PostTeacherCover from "../../../src/components/pages/cursus-overzicht/PostTeacherCover";
-import PostVideo from "../../../src/components/pages/cursus-overzicht/PostVideo";
-import PutInfo from "../../../src/components/pages/cursus-overzicht/PutInfo";
-import Menu from "../../../src/components/pages/dashboard/SideMenu";
+import { BASE_URL } from "../../../../src/api/baseUrl";
+import Head from "../../../../src/components/head/Head";
+import DashboardMenu from "../../../../src/components/layout/DashboardMenu";
+import PostCover from "../../../../src/components/pages/edit-cursus/PostCover";
+import PostTeacherCover from "../../../../src/components/pages/edit-cursus/PostTeacherCover";
+import PostVideo from "../../../../src/components/pages/edit-cursus/PostVideo";
+import PutInfo from "../../../../src/components/pages/edit-cursus/PutInfo";
+import Menu from "../../../../src/components/pages/dashboard/SideMenu";
 
 export default function Course({ course }) {
   const {
@@ -19,14 +19,10 @@ export default function Course({ course }) {
     teacher,
     teacher_description,
     teacher_image,
-    reviews,
     video,
+    practical_info,
   } = course;
 
-  let reviewId = "1";
-  if (reviews) {
-    reviewId = reviews[0];
-  }
   return (
     <>
       <Head title="edit cursus" description="edit cursus willehad"></Head>
@@ -47,6 +43,7 @@ export default function Course({ course }) {
                   curriculum={curriculum}
                   teacher={teacher}
                   teacher_description={teacher_description}
+                  practical_info={practical_info}
                 />
                 <h4 className="pt-4 my-4">Media</h4>
                 <div className="row">
@@ -56,7 +53,10 @@ export default function Course({ course }) {
                   </div>
                   <div className="col-6">
                     <p>Teacher image</p>
-                    <PostTeacherCover id={id} teacher_image={teacher_image} />
+                    <PostTeacherCover
+                      id={teacher_image.id}
+                      teacher_image={teacher_image}
+                    />
                   </div>
                 </div>
                 <div className="col-12 p-0">
@@ -81,8 +81,6 @@ export async function getStaticPaths() {
     const paths = courses.map((course) => ({
       params: { id: course.id },
     }));
-
-    console.log(paths);
 
     return { paths, fallback: false };
   } catch (error) {

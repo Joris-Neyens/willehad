@@ -14,8 +14,10 @@ export default function DashboardMenu() {
     });
   }
   function logout() {
-    setAuth(null);
-    router.push("/admin");
+    useEffect(() => {
+      setAuth(null);
+      router.push("/admin");
+    });
   }
   return (
     <div className="menu">
@@ -27,41 +29,33 @@ export default function DashboardMenu() {
             </Link>
           </div>
           <div className="col-8 d-flex justify-content-center align-items-center">
-            <Link href="/dashboard  ">
+            <Link href="/admin/dashboard  ">
               <a className="px-3" title="dashboard">
                 dashboard
               </a>
             </Link>
-            <Link href="/dashboard/cursus-overzicht">
-              <a className="px-3" title="cursus overzicht">
-                cursus overzicht
+            <Link href="/admin/dashboard/edit-cursus">
+              <a className="px-3" title="edit cursus">
+                edit cursus
               </a>
             </Link>
-            <Link href="/dashboard/nieuwe-cursus">
+            <Link href="/admin/dashboard/nieuwe-cursus">
               <a className="px-3" title="nieuwe cursus">
                 nieuwe cursus
               </a>
             </Link>
-            <Link href="/dashboard/edit-home">
+            <Link href="/admin/dashboard/edit-home">
               <a className="px-3" title="edit home">
                 edit home
               </a>
             </Link>
-            <Link href="/dashboard/communicatie">
+            <Link href="/admin/dashboard/communicatie">
               <a className="px-3" title="communicatie">
                 communicatie
               </a>
             </Link>
           </div>
-          <div className="col-2">
-            {auth ? (
-              <>
-                <button onClick={logout}>Log out</button>
-              </>
-            ) : (
-              reject()
-            )}
-          </div>
+          <div className="col-2"></div>
         </nav>
       </div>
     </div>

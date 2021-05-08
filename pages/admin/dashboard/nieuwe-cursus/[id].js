@@ -1,11 +1,11 @@
-import SideMenu from "../../../src/components/pages/dashboard/SideMenu";
-import DashboardMenu from "../../../src/components/layout/DashboardMenu";
+import SideMenu from "../../../../src/components/pages/dashboard/SideMenu";
+import DashboardMenu from "../../../../src/components/layout/DashboardMenu";
 import axios from "axios";
-import Head from "../../../src/components/head/Head";
-import PostNewVideo from "../../../src/components/pages/cursus-toevoegen/PostNewVideo";
-import PostNewCover from "../../../src/components/pages/cursus-toevoegen/PostNewCover";
-import PostNewTeacherCover from "../../../src/components/pages/cursus-toevoegen/PostNewTeacherCover";
-import { BASE_URL } from "../../../src/api/baseUrl";
+import Head from "../../../../src/components/head/Head";
+import PostNewVideo from "../../../../src/components/pages/cursus-toevoegen/PostNewVideo";
+import PostNewCover from "../../../../src/components/pages/cursus-toevoegen/PostNewCover";
+import PostNewTeacherCover from "../../../../src/components/pages/cursus-toevoegen/PostNewTeacherCover";
+import { BASE_URL } from "../../../../src/api/baseUrl";
 
 export default function newCourseMedia({ course }) {
   console.log(course);

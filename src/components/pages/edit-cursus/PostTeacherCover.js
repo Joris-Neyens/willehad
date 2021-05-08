@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { BASE_URL } from "../../../api/baseUrl";
+import { BASE_URL, UPLOAD_PATH } from "../../../api/baseUrl";
 import Image from "next/image";
 
-const postUrl = BASE_URL + "upload";
+const postUrl = BASE_URL + UPLOAD_PATH;
 
 export default function PostTeacherCover({ id, teacher_image }) {
   const url = teacher_image.url;

@@ -4,8 +4,8 @@ import * as yup from "yup";
 import { useState, useContext } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import { BASE_URL, TOKEN_PATH } from "../../../api/baseUrl";
-import Head from "../../head/Head";
+import { BASE_URL } from "../../../../src/api/baseUrl";
+import Head from "../../../../src/components/head/Head";
 import AuthContext from "../../context/AuthContext";
 
 const schema = yup.object().shape({
@@ -16,7 +16,7 @@ const schema = yup.object().shape({
   password: yup.string().required("vul hier je wachwoord in"),
 });
 
-const url = BASE_URL + TOKEN_PATH;
+const url = BASE_URL + "auth/local";
 
 export default function adminForm() {
   const [submitting, setSubmitting] = useState(false);

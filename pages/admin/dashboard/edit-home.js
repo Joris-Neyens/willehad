@@ -1,11 +1,11 @@
-import DashboardMenu from "../../src/components/layout/DashboardMenu";
+import DashboardMenu from "../../../src/components/layout/DashboardMenu";
 import axios from "axios";
-import Head from "../../src/components/head/Head";
-import SideMenu from "../../src/components/pages/dashboard/SideMenu";
-import PutHomeInfo from "../../src/components/pages/edit-home/PutHomeInfo";
-import PutHomeHeader from "../../src/components/pages/edit-home/PutHomeHeader";
-import PutHomeCourseImg from "../../src/components/pages/edit-home/PutHomeCourseImg";
-import { BASE_URL } from "../../src/api/baseUrl";
+import Head from "../../../src/components/head/Head";
+import SideMenu from "../../../src/components/pages/dashboard/SideMenu";
+import PutHomeInfo from "../../../src/components/pages/edit-home/PutHomeInfo";
+import PutHomeHeader from "../../../src/components/pages/edit-home/PutHomeHeader";
+import PutHomeCourseImg from "../../../src/components/pages/edit-home/PutHomeCourseImg";
+import { BASE_URL } from "../../../src/api/baseUrl";
 
 export default function editHome({ home }) {
   const {
