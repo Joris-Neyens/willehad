@@ -5,10 +5,10 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { Form } from "react-bootstrap";
-import Head from "../../js/components/head/Head";
-import Menu from "../../js/components/pages/dashboard/SideMenu";
-import DashboardMenu from "../../js/components/layout/DashboardMenu";
-import { BASE_URL } from "../../js/api/baseUrl";
+import Head from "../../src/components/head/Head";
+import Menu from "../../src/components/pages/dashboard/SideMenu";
+import DashboardMenu from "../../src/components/layout/DashboardMenu";
+import { BASE_URL } from "../../src/api/baseUrl";
 
 const url = BASE_URL + "courses";
 

@@ -1,12 +1,12 @@
 import axios from "axios";
-import { BASE_URL } from "../../../js/api/baseUrl";
-import Head from "../../../js/components/head/Head";
-import DashboardMenu from "../../../js/components/layout/DashboardMenu";
-import PostCover from "../../../js/components/pages/cursus-overzicht/PostCover";
-import PostTeacherCover from "../../../js/components/pages/cursus-overzicht/PostTeacherCover";
-import PostVideo from "../../../js/components/pages/cursus-overzicht/PostVideo";
-import PutInfo from "../../../js/components/pages/cursus-overzicht/PutInfo";
-import Menu from "../../../js/components/pages/dashboard/SideMenu";
+import { BASE_URL } from "../../../src/api/baseUrl";
+import Head from "../../../src/components/head/Head";
+import DashboardMenu from "../../../src/components/layout/DashboardMenu";
+import PostCover from "../../../src/components/pages/cursus-overzicht/PostCover";
+import PostTeacherCover from "../../../src/components/pages/cursus-overzicht/PostTeacherCover";
+import PostVideo from "../../../src/components/pages/cursus-overzicht/PostVideo";
+import PutInfo from "../../../src/components/pages/cursus-overzicht/PutInfo";
+import Menu from "../../../src/components/pages/dashboard/SideMenu";
 
 export default function Course({ course }) {
   const {

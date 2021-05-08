@@ -1,6 +1,22 @@
+import { useContext, useEffect } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
+import AuthContext from "../context/AuthContext";
 
 export default function DashboardMenu() {
+  const [auth, setAuth] = useContext(AuthContext);
+
+  const router = useRouter();
+
+  function reject() {
+    useEffect(() => {
+      router.push("/admin");
+    });
+  }
+  function logout() {
+    setAuth(null);
+    router.push("/admin");
+  }
   return (
     <div className="menu">
       <div className="container">
@@ -36,6 +52,15 @@ export default function DashboardMenu() {
                 communicatie
               </a>
             </Link>
+          </div>
+          <div className="col-2">
+            {auth ? (
+              <>
+                <button onClick={logout}>Log out</button>
+              </>
+            ) : (
+              reject()
+            )}
           </div>
         </nav>
       </div>

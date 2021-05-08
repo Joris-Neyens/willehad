@@ -1,21 +1,28 @@
 import axios from "axios";
 
-import { BASE_URL } from "../js/api/baseUrl";
-import Head from "../js/components/head/Head";
-import Layout from "../js/components/layout/Layout";
-import HomeHeader from "../js/components/layout/headers/HomeHeader";
-import Uitleg from "../js/components/pages/home/uitleg";
-import TextRight from "../js/components/common/TextRight";
-import Newsletter from "../js/components/pages/home/Newsletter";
-import Reviews from "../js/components/common/Reviews";
+import { BASE_URL } from "../src/api/baseUrl";
+import Head from "../src/components/head/Head";
+import Layout from "../src/components/layout/Layout";
+import HomeHeader from "../src/components/layout/headers/HomeHeader";
+import Uitleg from "../src/components/pages/home/uitleg";
+import TextRight from "../src/components/common/TextRight";
+import Newsletter from "../src/components/pages/home/Newsletter";
+import Reviews from "../src/components/common/Reviews";
 
 export default function Home({ home }) {
   console.log(home);
   const url = home.header_image.url;
   return (
     <Layout>
-      <Head title="Home" description="willed cursus platform startpagina"></Head>
-      <HomeHeader url={url} id={home.id} alt={("cursus afbeelding:", home.title)} />
+      <Head
+        title="Home"
+        description="willed cursus platform startpagina"
+      ></Head>
+      <HomeHeader
+        url={url}
+        id={home.id}
+        alt={("cursus afbeelding:", home.title)}
+      />
       <Uitleg />
       <TextRight
         url="https://res.cloudinary.com/dewzqtmii/image/upload/v1619444906/photo_1515378791036_0648a3ef77b2_1c7d07af64.jpg"
