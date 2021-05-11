@@ -38,7 +38,7 @@ export default function Footer() {
           </div>
         </div>
         <p className="footer__terms text-center mt-5">
-          Terms & Conditions Privacy Policy 2021 Willhad
+          Terms &amp; Conditions Privacy Policy 2021 Willhad
         </p>
       </div>
     </footer>

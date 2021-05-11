@@ -12,7 +12,7 @@ export default function Newsletter() {
           </div>
           <form className="col-6 d-flex align-items-center">
             <div className="row w-100">
-              <div classname="col-5">
+              <div className="col-5">
                 <input placeholder="email adres"></input>
               </div>
               <div className="col-5">

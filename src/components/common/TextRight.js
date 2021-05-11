@@ -46,7 +46,7 @@ export default function TextRight({
             <p className="text-right__date m-0">{startDate}</p>
             <h2 className="pt-1">{title}</h2>
             <p className="pt-2">{text}</p>
-            <div class="row mt-4">
+            <div className="row mt-4">
               {buttonOne}
               {buttonTwo}
             </div>

@@ -3,7 +3,7 @@ import axios from "axios";
 import { BASE_URL } from "../src/api/baseUrl";
 import Head from "../src/components/head/Head";
 import Layout from "../src/components/layout/Layout";
-import HomeHeader from "../src/components/layout/headers/HomeHeader";
+import Header from "../src/components/layout/Header";
 import Uitleg from "../src/components/pages/home/uitleg";
 import TextRight from "../src/components/common/TextRight";
 import Newsletter from "../src/components/pages/home/Newsletter";
@@ -12,16 +12,24 @@ import Reviews from "../src/components/common/Reviews";
 export default function Home({ home }) {
   console.log(home);
   const url = home.header_image.url;
+  let primaryLink = "/cursus-aanbod/" + home.id;
   return (
     <Layout>
       <Head
         title="Home"
         description="willed cursus platform startpagina"
       ></Head>
-      <HomeHeader
+      <Header
         url={url}
+        viewHeight= {80}
         id={home.id}
         alt={("cursus afbeelding:", home.title)}
+        textWidth="4"
+        title={home.title}
+        subtitle={home.subtitle}
+        date={home.course_date}
+        buttonPrimary={primaryLink}
+        buttonSecondary="/cursus-aanbod/"
       />
       <Uitleg />
       <TextRight

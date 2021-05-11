@@ -54,7 +54,7 @@ export default function Uitleg() {
             </p>
           </div>
         </div>
-        <div class="d-flex mt-5 justify-content-center">
+        <div className="d-flex mt-5 justify-content-center">
           <button className="button__primary py-1 px-4" text="cursus aanbod">
             cursus aanbod
           </button>
