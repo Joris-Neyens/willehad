@@ -6,3 +6,14 @@ $transparant-background: rgba($color: #d9a13b, $alpha: 0.35);
 
 $montserrat: 'Montserrat', sans-serif;
 $playfair: 'Playfair Display', serif;
+
+@media (min-width: 1600px) { 
+    .container {
+        min-width: 1200px !important;
+    }
+}
+@media (min-width: 2000px) { 
+    .container {
+        min-width: 1400px !important;
+    }
+}

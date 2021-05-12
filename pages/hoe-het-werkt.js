@@ -13,7 +13,7 @@ export default function hoeHetWerkt() {
         <Header
           url="/hoe_het_werkt.jpg"
           viewHeight={50}
-          textWidth="8"
+          textCol="8"
           title="Cursus Traject"
           subtitle="Zo veel meer dan een studie"
         />

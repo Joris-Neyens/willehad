@@ -5,6 +5,7 @@
     font-weight: 400;
     font-size: 18px;
     color: white;
+    max-width: 200px;
 }
 .button__primary:hover {
     background-color: #6C1E1E;
@@ -25,6 +26,7 @@
     font-weight: 400;
     font-size: 18px;
     color: $white;
+    max-width: 200px;
 }
 .button__secondary--light:hover {
     outline: 1px solid white;
@@ -45,6 +47,7 @@
     font-weight: 400;
     font-size: 18px;
     color: $accent;
+    max-width: 200px;
 }
 .button__secondary--dark:hover {
     outline: 1px solid $accent;

@@ -1,3 +1,40 @@
 .course-card {
     background-color: white;
 }
+.course-card:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+}
+.course-card:active {
+    box-shadow: none !important;
+}
+.icon {
+    bottom: 15px;
+    left: 30px;
+}
+.color-bible {
+    border-left: 4px solid $accent;
+    margin-left: 10px;
+    height: 96.5%;
+}
+.color-history {
+        border-left: 4px solid $secondary;
+    margin-left: 10px;
+    height: 96.5%;
+
+}
+.color-philosophy {
+             border-left: 4px solid #615CC7;
+    margin-left: 10px;
+    height: 96.5%;
+}
+.color-theology {
+          border-left: 4px solid #358933;
+    margin-left: 10px;
+    height: 96.5%;
+}
+.color-catechesis {
+          border-left: 4px solid $primary;
+    margin-left: 10px;
+    height: 96.5%;
+}

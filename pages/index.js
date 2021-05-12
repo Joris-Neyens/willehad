@@ -21,10 +21,10 @@ export default function Home({ home }) {
       ></Head>
       <Header
         url={url}
-        viewHeight= {80}
+        viewHeight={80}
+        textCol="4"
         id={home.id}
         alt={("cursus afbeelding:", home.title)}
-        textWidth="4"
         title={home.title}
         subtitle={home.subtitle}
         date={home.course_date}
