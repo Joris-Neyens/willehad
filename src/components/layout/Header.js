@@ -11,14 +11,13 @@ export default function Header({
   type,
   textCol,
 }) {
-
   const styles = {
     backgroundImage: `url(${url})`,
   };
-  const textWidth = `col-${textCol}`
+  const textWidth = `col-${textCol}`;
 
-  let height = { height: `${viewHeight}vh` }
-  let headerType = ""
+  let height = { height: `${viewHeight}vh` };
+  let headerType = "";
   let headerTitle = "";
   let headerSubtitle = "";
   let headerDate = "";
@@ -38,18 +37,20 @@ export default function Header({
     headerDate = <p className="jumbotron__content-date col-5 px-0">{date}</p>;
   }
   if (buttonPrimary) {
-    headerButtonPrimary =
+    headerButtonPrimary = (
       <div className="col-12 p-0">
         <Link href={buttonPrimary}>
-          <button className="button__primary col-12 py-1 mb-3" title="meer info">
+          <button
+            className="button__primary col-12 py-1 mb-3"
+            title="meer info">
             meer info
           </button>
         </Link>
       </div>
-
+    );
   }
   if (buttonSecondary) {
-    headerButtonSecondary = 
+    headerButtonSecondary = (
       <Link href={buttonSecondary}>
         <button
           className="button__secondary--light col-12 py-1"
@@ -58,13 +59,14 @@ export default function Header({
           cursus aanbod
         </button>
       </Link>
+    );
   }
 
   return (
     <div className="jumbotron container-fluid rounded-0 p-0" style={styles}>
       <div className="jumbotron-overlay">
         <div
-          className="container container-xl-fluid d-flex align-items-center jumbotron__content"
+          className="container d-flex align-items-center jumbotron__content"
           style={height}
         >
           <div className="row w-100">

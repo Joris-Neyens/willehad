@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from 'next/link';
 
 export default function Uitleg() {
   return (
-    <section className="d-flex align-items-center">
-      <div className="container">
+    <section className="d-flex align-items-center py-5">
+      <div className="container py-5">
         <h1 className="text-center">Willehad cursus platform</h1>
         <div className="row mt-5">
           <div className="col-2 offset-1">
@@ -55,15 +56,19 @@ export default function Uitleg() {
           </div>
         </div>
         <div className="d-flex mt-5 justify-content-center">
-          <button className="button__primary py-1 px-4" text="cursus aanbod">
-            cursus aanbod
-          </button>
-          <button
-            className="button__secondary--dark py-1 px-4 ml-4"
-            text="hoe het werkt"
-          >
-            hoe het werkt
-          </button>
+          <Link href="/cursus-aanbod">
+            <button className="button__primary py-1 px-4" text="cursus aanbod">
+              cursus aanbod
+            </button>
+          </Link>
+          <Link href="/hoe-het-werkt">
+            <button
+              className="button__secondary--dark py-1 px-4 ml-4"
+              text="hoe het werkt"
+            >
+              hoe het werkt
+            </button>
+          </Link>
         </div>
       </div>
     </section>

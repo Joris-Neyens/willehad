@@ -1,17 +1,15 @@
 body {
-  font-family: $montserrat;
+  font-family: $sans-serif;
+  font-weight: 300;
+    line-height: 1.7rem;
 }
 #logo {
   font-family: $playfair;
-  font-weight: 300;
 }
 .jumbotron__content-title {
   font-family: $playfair;
-  font-size: 62px;
+  font-size: 58px;
   line-height: 68px;
-}
-p {
-  font-size: 16px;
 }
 .error {
   color: $accent;
@@ -20,24 +18,30 @@ p {
 h1 {
   color: $primary !important;
   font-family: $playfair;
-  font-size: 36px;
+  font-size: 32px;
 }
 h2 {
   font-family: $playfair;
-  font-size: 36px;
+  font-size: 24px;
 }
 .hoe-het-werkt__title {
   background-color: $transparant-background;
 }
 h3 {
   font-family: $playfair;
-  font-size: 22px;
+  font-size: 24px;
 }
 h4 {
   font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 p.text-right__date {
   font-weight: 500;
+}
+.menu__link {
+  font-weight: 400;
+  text-transform: uppercase;
 }
 footer p {
   font-weight: 500;
@@ -54,7 +58,7 @@ footer a {
 }
 a:hover {
   text-decoration: none;
-  font-weight: 500;
+  color: black;
 }
 a::before {
   display: block;

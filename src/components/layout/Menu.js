@@ -12,17 +12,17 @@ export default function Menu() {
           </div>
           <div className="col-6 d-flex justify-content-center align-items-center">
             <Link href="/cursus-aanbod">
-              <a className="px-3" title="cursus aanbod">
+              <a className="px-3 menu__link" title="cursus aanbod">
                 cursus aanbod
               </a>
             </Link>
             <Link href="/hoe-het-werkt">
-              <a className="px-3" title="hoe het werkt">
+              <a className="px-3  menu__link" title="hoe het werkt">
                 hoe het werkt
               </a>
             </Link>
             <Link href="/contact">
-              <a className="px-3" title="contact">
+              <a className="px-3  menu__link" title="contact">
                 contact
               </a>
             </Link>

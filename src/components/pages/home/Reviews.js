@@ -1,7 +1,7 @@
 export default function Reviews({ title, name, review }) {
   return (
-    <section className="d-flex align-items-center">
-      <div className="container">
+    <section className="d-flex align-items-center py-5">
+      <div className="container py-5">
         <h2 className="text-center">Wat anderen zeggen</h2>
         <div className="row pt-5">
           <div className="col-4">

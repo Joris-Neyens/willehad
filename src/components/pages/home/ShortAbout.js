@@ -29,10 +29,10 @@ export default function TextRight({
   }
 
   return (
-    <section className="d-flex align-items-center">
-      <div className="container">
+    <section className="d-flex align-items-center py-5">
+      <div className="container py-5">
         <div className="row">
-          <div className="col-5 offset-1 ml-5 position-relative">
+          <div className="col-6 position-relative">
             <Image
               src={url}
               className="text-right__image pt-4"

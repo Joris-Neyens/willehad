@@ -5,9 +5,9 @@ import Head from "../src/components/head/Head";
 import Layout from "../src/components/layout/Layout";
 import Header from "../src/components/layout/Header";
 import Uitleg from "../src/components/pages/home/uitleg";
-import TextRight from "../src/components/common/TextRight";
+import ShortAbout from "../src/components/pages/home/ShortAbout";
 import Newsletter from "../src/components/pages/home/Newsletter";
-import Reviews from "../src/components/common/Reviews";
+import Reviews from "../src/components/pages/home/Reviews";
 
 export default function Home({ home }) {
   console.log(home);
@@ -32,7 +32,7 @@ export default function Home({ home }) {
         buttonSecondary="/cursus-aanbod/"
       />
       <Uitleg />
-      <TextRight
+      <ShortAbout
         url="https://res.cloudinary.com/dewzqtmii/image/upload/v1619444906/photo_1515378791036_0648a3ef77b2_1c7d07af64.jpg"
         alt="here is an image"
         startDate="5 mei"
