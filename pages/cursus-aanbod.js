@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Head from '../src/components/head/Head';
 import Layout from '../src/components/layout/Layout';
-import Header from '../src/components/layout/Header';
+import Header from '../src/components/layout/header/Header';
 import Courses from '../src/components/pages/cursus-aanbod/Courses';
 import { BASE_URL, COURSES_PATH } from '../src/api/baseUrl';
 

@@ -9,16 +9,21 @@
 }
 .button__primary:hover {
     background-color: #6C1E1E;
-    font-weight: 500;
+    cursor: pointer;
 }
-.button__primary::before {
-    display: block;
-    content: attr(title);
-    font-weight: 500;
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
+.button__primary--dark {
+    border: none;
+    background-color: $primary;
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+    max-width: 200px;
 }
+.button__primary--dark:hover {
+    background-color: #302e3d;
+    cursor: pointer;
+}
+
 
 .button__secondary--light {
     border: 1px solid white;

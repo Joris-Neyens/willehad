@@ -3,7 +3,7 @@ import axios from "axios";
 import { BASE_URL } from "../src/api/baseUrl";
 import Head from "../src/components/head/Head";
 import Layout from "../src/components/layout/Layout";
-import Header from "../src/components/layout/Header";
+import Header from "../src/components/layout/header/Header";
 import Uitleg from "../src/components/pages/home/uitleg";
 import ShortAbout from "../src/components/pages/home/ShortAbout";
 import Newsletter from "../src/components/pages/home/Newsletter";

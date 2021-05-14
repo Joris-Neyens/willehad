@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { BASE_URL, COURSES_PATH } from '../../src/api/baseUrl';
 import Head from '../../src/components/head/Head';
-import Header from '../../src/components/layout/Header';
+import Header from '../../src/components/layout/header/Header';
 import Layout from '../../src/components/layout/Layout';
 import AboutCourse from '../../src/components/pages/cursus/AboutCourse'
 import ExplainCourse from '../../src/components/pages/cursus/ExplainCourse';
@@ -26,7 +26,7 @@ export default function Course({ course }) {
             url={cover.url}
             viewHeight={80}
             textCol="4"
-            buttonPrimary=""
+            modal="modal"
           />
           <AboutCourse
             title="Over deze cursus"

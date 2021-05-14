@@ -1,6 +1,6 @@
 import Layout from "../src/components/layout/Layout";
 import Head from "../src/components/head/Head";
-import Header from "../src/components/layout/Header";
+import Header from "../src/components/layout/header/Header";
 
 export default function hoeHetWerkt() {
   return (

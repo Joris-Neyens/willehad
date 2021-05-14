@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import HeaderModal from './Modal';
 export default function Header({
   url,
   viewHeight,
@@ -10,6 +10,7 @@ export default function Header({
   buttonSecondary,
   type,
   textCol,
+  modal,
 }) {
   const styles = {
     backgroundImage: `url(${url})`,
@@ -23,6 +24,7 @@ export default function Header({
   let headerDate = "";
   let headerButtonPrimary = "";
   let headerButtonSecondary = "";
+  let headerModal = ""
 
   if (type) {
     headerType = <p className="jumbotron__content-type m-0">{type}</p>;
@@ -61,6 +63,9 @@ export default function Header({
       </Link>
     );
   }
+  if (modal) {
+    headerModal = <HeaderModal key={title} title={title}/>
+  }
 
   return (
     <div className="jumbotron container-fluid rounded-0 p-0" style={styles}>
@@ -80,6 +85,7 @@ export default function Header({
                   <div className="row pl-3">
                     {headerButtonPrimary}
                     {headerButtonSecondary}
+                    {headerModal}
                   </div>
                 </div>
               </div>
