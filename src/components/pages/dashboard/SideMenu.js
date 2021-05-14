@@ -5,7 +5,7 @@ export default function SideMenu() {
     <div className="ml-5 mt-5 pt-5 col-2 px-0 start-0">
       <div className="edit mt-4">
         <div className="px-3 py-2">
-          <Link href="/dasboard">dashboard</Link>
+          <Link href="/admin/dashboard">dashboard</Link>
         </div>
         <div className="px-3 border-bottom">
           <h4>Edit</h4>
@@ -21,9 +21,9 @@ export default function SideMenu() {
           <h4>communicatie</h4>
         </div>
         <div className="px-3 pb-3 pt-1">
-          <Link href="/contact-pagina">Contact pagina</Link>
-          <Link href="/registraties">Registraties</Link>
-          <Link href="/nieuwsbrief">Nieuwsbrief</Link>
+          <Link href="/admin/dashboard/contact-pagina">Contact pagina</Link>
+          <Link href="/admin/dashboard/registraties">Registraties</Link>
+          <Link href="/admin/dashboard/nieuwsbrief">Nieuwsbrief</Link>
         </div>
       </div>
     </div>

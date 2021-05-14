@@ -36,7 +36,7 @@ h4 {
   font-weight: 400;
   text-transform: uppercase;
 }
-p.text-right__date {
+p.short-about-course__date {
   font-weight: 500;
 }
 label {
@@ -73,4 +73,7 @@ a::before {
 }
 .review__name {
   font-style: italic;
+}
+.form-control {
+  font-weight: 300;
 }

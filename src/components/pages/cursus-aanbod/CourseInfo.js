@@ -85,7 +85,6 @@ export default function CourseInfo({ courseInfo }) {
                                             </div>
                                         </div>
                                     </div>
-
                                     <div className="py-2 col-8 pl-4">
                                         <h3>{title}</h3>
                                         <p>{description}</p>

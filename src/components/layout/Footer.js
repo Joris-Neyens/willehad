@@ -1,4 +1,9 @@
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebookSquare,
+  faTwitterSquare,
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
   return (
@@ -33,8 +38,14 @@ export default function Footer() {
             </Link>
           </div>
           <div className="col-6 d-flex justify-content-end p-0">
-            <a className="px-1">face</a>
-            <a className="px-1">twit</a>
+            <FontAwesomeIcon
+              className="footer__icon mx-2"
+              icon={faFacebookSquare}
+            />
+            <FontAwesomeIcon
+              className="footer__icon mx-2"
+              icon={faTwitterSquare}
+            />
           </div>
         </div>
         <p className="footer__terms text-center mt-5">

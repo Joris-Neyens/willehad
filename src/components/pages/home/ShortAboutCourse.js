@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function TextRight({
+export default function shortAboutCourse({
   startDate,
   url,
   title,
@@ -35,15 +35,15 @@ export default function TextRight({
           <div className="col-6 position-relative">
             <Image
               src={url}
-              className="text-right__image pt-4"
+              className="short-about-course__image pt-4"
               layout="responsive"
               width="200"
               height="140"
             />
-            <span className="text-righ__overlay position-absolute"></span>
+            <span className="short-about-course__overlay position-absolute"></span>
           </div>
           <div className="col-5 ml-5 pt-4 d-flex flex-column justify-content-centr">
-            <p className="text-right__date m-0">{startDate}</p>
+            <p className="short-about-course__date m-0">{startDate}</p>
             <h2 className="pt-1">{title}</h2>
             <p className="pt-2">{text}</p>
             <div className="row mt-4">

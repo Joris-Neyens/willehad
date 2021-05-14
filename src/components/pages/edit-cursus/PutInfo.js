@@ -64,14 +64,14 @@ export default function PutInfo({
   };
 
   return (
-    <div>
+    <div className="container">
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset disabled={submitting}>
           <h4 className="mt-4 mb-3">Cursus info</h4>
           <p className="m-0">Titel</p>
           <div className="col-8 px-0 py-2">
             <input
-              className="w-100 p-2 rounded"
+              className="form-control w-100 p-2 rounded"
               defaultValue={title}
               type="text"
               {...register("title")}
@@ -123,7 +123,7 @@ export default function PutInfo({
           <p className="m-0 mt-4">Beschrijving</p>
           <div className="col-8 px-0 py-2">
             <textarea
-              className="w-100 rounded"
+              className="form-control w-100 rounded"
               rows="6"
               defaultValue={description}
               type="text"
@@ -134,7 +134,7 @@ export default function PutInfo({
           <p className="m-0">Prijs</p>
           <div className="col-8 px-0 py-2">
             <input
-              className="w-100 p-2 my-2 rounded"
+              className="form-control w-100 p-2 my-2 rounded"
               defaultValue={price}
               type="number"
               {...register("price")}
@@ -144,7 +144,7 @@ export default function PutInfo({
           <p className="m-0 mt-4">Practische informatie</p>
           <div className="col-8 px-0 py-2">
             <textarea
-              className="w-100 rounded"
+              className="form-control w-100 rounded"
               rows="6"
               defaultValue={practical_info}
               type="text"
@@ -156,7 +156,7 @@ export default function PutInfo({
           <div className="col-8 px-0 py-2">
             <textarea
               rows="6"
-              className="w-100 rounded"
+              className="form-control w-100 rounded"
               defaultValue={curriculum}
               {...register("curriculum")}
             />
@@ -165,7 +165,7 @@ export default function PutInfo({
           <p className="m-0">Naam docent</p>
           <div className="col-8 px-0 py-2">
             <input
-              className="w-100 p-2 my-2 rounded"
+              className="form-control w-100 p-2 my-2 rounded"
               defaultValue={teacher}
               type="text"
               {...register("teacher")}
@@ -175,7 +175,7 @@ export default function PutInfo({
           <p className="m-0">Docent info</p>
           <div className="col-8 px-0 py-2">
             <textarea
-              className="w-100 rounded"
+              className="form-control w-100 rounded"
               rows="6"
               defaultValue={teacher_description}
               type="text"
@@ -227,15 +227,20 @@ export default function PutInfo({
               />
             </div>
           </div>
-          <button className="button__secondary--dark mt-5" type="submit">
-            {submitting ? "momentje.." : "Submit"}
-          </button>
-          {putError && (
-            <span>
-              Er is iets misgegaan, probeer het later nog een keer of neem
-              contact op met de admin
-            </span>
-          )}
+          <div className="d-flex col-8 justify-content-center">
+            <button
+              className="button__primary--dark px-5 mt-5 rounded"
+              type="submit"
+            >
+              {submitting ? "momentje.." : "Submit"}
+            </button>
+            {putError && (
+              <span>
+                Er is iets misgegaan, probeer het later nog een keer of neem
+                contact op met de admin
+              </span>
+            )}
+          </div>
         </fieldset>
       </form>
     </div>

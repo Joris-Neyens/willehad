@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Image from 'next/image'
 import Layout from "../src/components/layout/Layout";
 import Head from "../src/components/head/Head";
 import Header from "../src/components/layout/header/Header";
@@ -20,13 +20,9 @@ export default function hoeHetWerkt() {
         />
         <main>
           <div className="container hoe-het-werkt">
-            <div className="row">
-              <div className="col-6 offset-3">
-                <h1 className="pb-3">Hoe het werkt</h1>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-6 offset-3">
+            <h1>Hoe het werkt</h1>
+            <div className="row py-5">
+              <div className="col-6">
                 <h2 className="hoe-het-werkt__title pl-2">Samen</h2>
                 <p>
                   Een essentieel deel van het groeien in geloof is de
@@ -49,7 +45,24 @@ export default function hoeHetWerkt() {
                   tijd om niet alleen te groeien in kennis, maar om deze kennis
                   je leven te laten veranderen.
                 </p>
-                <h2 className="hoe-het-werkt__title pl-2 mt-5">Verdieping</h2>
+              </div>
+              <div className="col-6 d-flex">
+                <div className="w-100 h-75 mt-4">
+                  <Image src="/guys_together.jpg" width="500" height="300" />
+                </div>
+                <span className="hoe-het-werkt__overlay position-absolute pt-0"></span>
+              </div>
+            </div>
+            <div className="row py-5">
+              <div className="col-6 d-flex">
+                {" "}
+                <div className="w-100 h-75 ml-4 mt-4">
+                  <Image src="/study.jpg" width="500" height="300" />
+                </div>
+                <span className="hoe-het-werkt__overlay--2 position-absolute pt-0"></span>
+              </div>
+              <div className="col-6">
+                <h2 className="hoe-het-werkt__title pl-2">Verdieping</h2>
                 <p>
                   Leren is meer dan het opnemen van nieuwe informatie. Door
                   kritische vragen te stellen over de inhoud van de cursus kun
@@ -64,7 +77,11 @@ export default function hoeHetWerkt() {
                   te dagen, jou inbreng zal de anderen in jou groep ook scherp
                   houden.
                 </p>
-                <h2 className="hoe-het-werkt__title pl-2 mt-5">Begeleiding</h2>
+              </div>
+            </div>
+            <div className="row py-5">
+              <div className="col-6">
+                <h2 className="hoe-het-werkt__title pl-2">Begeleiding</h2>
                 <p>
                   Een coach zal jou groep helpen om dieper te gaan met het
                   cursus materiaal. Een coach zal jou niet vertellen wat je moet
@@ -77,9 +94,13 @@ export default function hoeHetWerkt() {
                   mogelijkheid om het vuur aan de scheenen van de docent te
                   leggen om zo verder te kunnen in je traject.
                 </p>
-                <h2 className="hoe-het-werkt__title pl-2 mt-5">
-                  Na het traject
-                </h2>
+              </div>
+              <div className="col-6"></div>
+            </div>
+            <div className="row py-5">
+              <div className="col-6"></div>
+              <div className="col-6">
+                <h2 className="hoe-het-werkt__title pl-2">Na het traject</h2>
                 <p>
                   Een cursus is bedoeld om ons op weg te helpen. Na de cursus is
                   het aan jou om deze weg op te gaan. Door samen met de groep te
@@ -91,11 +112,6 @@ export default function hoeHetWerkt() {
                   een nieuwe cursus te volgen om weer volgende stappen te
                   zetten.
                 </p>
-                <Link href="/cursus-aanbod">
-                  <button className="button__primary mt-3 px-3 rounded">
-                    Cursus aanbod
-                  </button>
-                </Link>
               </div>
             </div>
           </div>

@@ -71,7 +71,7 @@ export default function PutHomeInfo({
         <p className="m-0">Titel</p>
         <div className="col-8 px-0 py-2">
           <input
-            className="w-100 p-2 rounded"
+            className="form-control w-100 p-2 rounded"
             defaultValue={title}
             type="text"
             {...register("title")}
@@ -81,7 +81,7 @@ export default function PutHomeInfo({
         <p className="m-0">datum cursus</p>
         <div className="col-8 px-0 py-2">
           <input
-            className="w-100 p-2 rounded"
+            className="form-control w-100 p-2 rounded"
             defaultValue={course_date}
             type="text"
             {...register("course_date")}
@@ -91,7 +91,7 @@ export default function PutHomeInfo({
         <p className="m-0">subtitle</p>
         <div className="col-8 px-0 py-2">
           <input
-            className="w-100 p-2 rounded"
+            className="form-control w-100 p-2 rounded"
             defaultValue={subtitle}
             type="text"
             {...register("subtitle")}
@@ -102,7 +102,7 @@ export default function PutHomeInfo({
         <p className="m-0">Naam cursus</p>
         <div className="col-8 px-0 py-2">
           <input
-            className="w-100 p-2 rounded"
+            className="form-control w-100 p-2 rounded"
             defaultValue={course_title}
             type="text"
             {...register("course_title")}
@@ -112,7 +112,7 @@ export default function PutHomeInfo({
         <p className="m-0">Cursus beschrijving</p>
         <div className="col-8 px-0 py-2">
           <textarea
-            className="w-100 rounded"
+            className="form-control w-100 rounded"
             rows="8"
             defaultValue={course_description}
             type="text"
@@ -120,15 +120,17 @@ export default function PutHomeInfo({
           />
           <p className="error">{errors.course_description?.message}</p>
         </div>
-        <button className="button__secondary--dark mt-2">
-          {submitting ? "momentje.." : "Submit"}
-        </button>
-        {putError && (
-          <span>
-            Er is iets misgegaan, probeer het later nog een keer of neem contact
-            op met de admin
-          </span>
-        )}
+        <div className="d-flex col-8 justify-content-center">
+          <button className="button__primary--dark px-4 mt-2 rounded">
+            {submitting ? "momentje.." : "Submit"}
+          </button>
+          {putError && (
+            <span>
+              Er is iets misgegaan, probeer het later nog een keer of neem
+              contact op met de admin
+            </span>
+          )}
+        </div>
       </fieldset>
     </form>
   );

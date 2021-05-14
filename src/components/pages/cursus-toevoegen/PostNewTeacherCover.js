@@ -38,7 +38,7 @@ export default function PostNewTeacherCover({ id }) {
           <fieldset disabled={submitting}>
             <input type="file" {...register("file")} />
           </fieldset>
-          <button className="button__secondary--dark">
+          <button className="button__primary--dark mx-4 rounded">
             {submitting ? "momentje.." : "upload"}
           </button>
         </form>

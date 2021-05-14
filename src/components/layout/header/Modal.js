@@ -31,12 +31,6 @@ export default function HeaderModal({ title }) {
                 </label>
                 <input id="name" className="col-7 form-control mr-2" />
               </div>
-              <div className="row my-3 align-items-center">
-                <label className="col-3 px-0 mb-0" for="lastName">
-                  achternaam:
-                </label>
-                <input id="lastName" className="col-7 form-control mr-2" />
-              </div>
               <div className="row  my-3 align-items-center">
                 <label className="col-3 px-0 mb-0" for="email">
                   email:

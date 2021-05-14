@@ -80,7 +80,7 @@ export default function nieuweCursus() {
                   <fieldset disabled={submitting}>
                     <p>titel</p>
                     <input
-                      className="w-100 p-2 rounded"
+                      className="form-control w-100 p-2 rounded"
                       type="text"
                       {...register("title")}
                     />
@@ -88,7 +88,7 @@ export default function nieuweCursus() {
                     <p>beschrijving</p>
                     <textarea
                       rows="6"
-                      className="w-100 p-2 rounded"
+                      className="form-control w-100 p-2 rounded"
                       type="text"
                       {...register("description")}
                     />
@@ -102,35 +102,35 @@ export default function nieuweCursus() {
                     />
                     <p>Prijs</p>
                     <input
-                      className="w-100 p-2 my-2 rounded"
+                      className="form-control w-100 p-2 my-2 rounded"
                       type="number"
                       {...register("price")}
                     />
                     <p className="error"> {errors.price?.message}</p>
                     <p>Praktische informatie</p>
                     <textarea
-                      className="w-100 rounded"
+                      className="form-control w-100 rounded"
                       rows="6"
                       {...register("practical_info")}
                     />
                     <p className="error"> {errors.practical_info?.message}</p>
                     <p>Wat gaan ze leren</p>
                     <textarea
-                      className="w-100 rounded"
+                      className="form-control w-100 rounded"
                       rows="6"
                       {...register("curriculum")}
                     />
                     <p className="error"> {errors.curriculum?.message}</p>
                     <p>Naam docent</p>
                     <input
-                      className="w-100 p-2 my-2 rounded"
+                      className="form-control w-100 p-2 my-2 rounded"
                       type="text"
                       {...register("teacher")}
                     />
                     <p className="error"> {errors.teacher?.message}</p>
                     <p>over de docent</p>
                     <textarea
-                      className="w-100 rounded"
+                      className="form-control w-100 rounded"
                       rows="6"
                       type="text"
                       {...register("teacher_description")}
@@ -174,15 +174,20 @@ export default function nieuweCursus() {
                       label="bijbel studie"
                       {...register("category_bibel_study")}
                     />
-                    <button className="button__secondary--dark" type="submit">
-                      {submitting ? "momentje.." : "volgende stap 1/2"}
-                    </button>
-                    {postError && (
-                      <span>
-                        Er is iets misgegaan, probeer het later nog een keer of
-                        neem contact op met de admin
-                      </span>
-                    )}
+                    <div className="d-flex justify-content-center">
+                      <button
+                        className="button__primary--dark mx-5 rounded"
+                        type="submit"
+                      >
+                        {submitting ? "momentje.." : "volgende stap 1/2"}
+                      </button>
+                      {postError && (
+                        <span>
+                          Er is iets misgegaan, probeer het later nog een keer
+                          of neem contact op met de admin
+                        </span>
+                      )}
+                    </div>
                   </fieldset>
                 </form>
               </div>

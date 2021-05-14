@@ -1,17 +1,19 @@
 import axios from "axios";
-
 import { BASE_URL } from "../src/api/baseUrl";
 import Head from "../src/components/head/Head";
-import Layout from "../src/components/layout/Layout";
 import Header from "../src/components/layout/header/Header";
-import Uitleg from "../src/components/pages/home/uitleg";
-import ShortAbout from "../src/components/pages/home/ShortAbout";
+import Layout from "../src/components/layout/Layout";
 import Newsletter from "../src/components/pages/home/Newsletter";
 import Reviews from "../src/components/pages/home/Reviews";
+import ShortAboutCourse from "../src/components/pages/home/ShortAboutCourse";
+import Uitleg from "../src/components/pages/home/uitleg";
+
 
 export default function Home({ home }) {
-  console.log(home);
-  const url = home.header_image.url;
+
+  const {id, title, subtitle, course_date, header_image, course_title, course_image, course_description} = home
+
+
   let primaryLink = "/cursus-aanbod/" + home.id;
   return (
     <Layout>
@@ -20,24 +22,24 @@ export default function Home({ home }) {
         description="willed cursus platform startpagina"
       ></Head>
       <Header
-        url={url}
+        url={header_image.url}
         viewHeight={80}
         textCol="4"
-        id={home.id}
-        alt={("cursus afbeelding:", home.title)}
-        title={home.title}
-        subtitle={home.subtitle}
-        date={home.course_date}
+        id={id}
+        alt={("cursus afbeelding:", title)}
+        title={title}
+        subtitle={subtitle}
+        date={course_date}
         buttonPrimary={primaryLink}
         buttonSecondary="/cursus-aanbod/"
       />
       <Uitleg />
-      <ShortAbout
-        url="https://res.cloudinary.com/dewzqtmii/image/upload/v1619444906/photo_1515378791036_0648a3ef77b2_1c7d07af64.jpg"
-        alt="here is an image"
-        startDate="5 mei"
-        title="Katholieke Catechese"
-        text="Hier komt iets te staan over de inhoud van deze cursus. Wat zijn de belangrijkste themas die behandeld zullen worden. Waarom iemand deze cursus zou moeten volgen. Voor wie deze cursus bedoeld is. "
+      <ShortAboutCourse
+        url={ course_image.url }
+        alt={("afbeelding voor de cursus:", course_title)}
+        startDate={course_date}
+        title={course_title}
+        text={course_description}
         buttonPrimary="meer info"
         buttonSecondary="meld je aan"
       />

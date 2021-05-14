@@ -1,0 +1,16 @@
+.hoe-het-werkt img {
+     filter: grayscale(100%);
+     opacity: 0.3;
+}
+.hoe-het-werkt__overlay {
+margin: 50px 0 0 30px;
+  width: 88%;
+  height: 80%;
+  background-color: $transparant-background;
+}
+.hoe-het-werkt__overlay--2 {
+    margin: 0px 30px 50px 0px;
+  width: 88%;
+  height: 90%;
+  background-color: $transparant-background-red;
+}

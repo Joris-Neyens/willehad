@@ -22,7 +22,7 @@ export default function contact() {
                     </Link>{" "}
                     en heeft als doel jongeren en gezinnen aan te moedigen op
                     reis te gaan door de grote intellectuele Traditie van de
-                    Katholieke Kerk toegankelijk te maken. Voor vragen of
+                    Katholieke Kerk door het toegankelijk te maken. Voor vragen of
                     opmerkingen kunt u gebruik maken van het onderstaand
                     formulier. Wij doen ons best om u binnen twee werkdagen te
                     antwoorden.

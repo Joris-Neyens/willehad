@@ -48,7 +48,7 @@ export default function PostVideo({ id, video }) {
           <fieldset disabled={submitting}>
             <input type="file" {...register("file")} />
           </fieldset>
-          <button className="mt-3 button__secondary--dark">
+          <button className="mt-3 button__primary--dark mx-4 rounded">
             {submitting ? "momentje.." : "upload"}
           </button>
         </form>

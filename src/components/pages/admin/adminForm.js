@@ -41,7 +41,7 @@ export default function adminForm() {
     try {
       const response = await axios.post(url, data);
       setAuth(response.data);
-      router.push("/dashboard");
+      router.push("/admin/dashboard");
     } catch (error) {
       console.log("error is", error);
       setLoginError(error.toString());
@@ -53,37 +53,52 @@ export default function adminForm() {
   return (
     <>
       <Head title="Admin" description="login voor admin"></Head>
-      <section>
+      <section className="pt-5 mt-5">
         <div className="container h-100 d-flex flex-column justify-content-center align-items-center">
           <h1>Admin</h1>
-          <form className="w-25" onSubmit={handleSubmit(onSubmit)}>
-            {loginError && (
-              <span>
-                Als je email en wachtwoord niet werken, neem contact op met de
-                admin
-              </span>
-            )}
-            <fieldset disabled={submitting}>
-              <input
-                className="w-100 p-2"
-                placeholder="email"
-                {...register("identifier")}
-              />
-              <p>{errors.identifier?.message}</p>
+          <div className="row w-100">
+            <div className="col-4 offset-4">
+              <form
+                className="background-dark py-4 px-3 rounded"
+                onSubmit={handleSubmit(onSubmit)}
+              >
+                {loginError && (
+                  <span>
+                    Als je email en wachtwoord niet werken, neem contact op met
+                    de admin
+                  </span>
+                )}
+                <fieldset disabled={submitting}>
+                  <input
+                    placeholder="email"
+                    id="email"
+                    className="form-control w-75 mt-3 mx-auto"
+                    {...register("identifier")}
+                  />
 
-              <input
-                className="w-100 p-2"
-                placeholder="password"
-                {...register("password")}
-              />
-              <p>{errors.password?.message}</p>
-              <div className="d-flex justify-content-center">
-                <button className="button__primary py-1 px-5" type="submit">
-                  {submitting ? "momentje.." : "login"}
-                </button>
-              </div>
-            </fieldset>
-          </form>
+                  <p>{errors.identifier?.message}</p>
+
+                  <input
+                    type="password"
+                    placeholder="paswoord"
+                    id="email"
+                    className="form-control w-75 mx-auto"
+                    {...register("password")}
+                  />
+
+                  <p>{errors.password?.message}</p>
+                  <div className="d-flex justify-content-center">
+                    <button
+                      className="button__primary py-1 px-5 rounded"
+                      type="submit"
+                    >
+                      {submitting ? "momentje.." : "login"}
+                    </button>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
     </>
