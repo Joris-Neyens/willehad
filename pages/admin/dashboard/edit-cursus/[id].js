@@ -6,21 +6,27 @@ import PostCover from "../../../../src/components/pages/edit-cursus/PostCover";
 import PostTeacherCover from "../../../../src/components/pages/edit-cursus/PostTeacherCover";
 import PostVideo from "../../../../src/components/pages/edit-cursus/PostVideo";
 import PutInfo from "../../../../src/components/pages/edit-cursus/PutInfo";
-import Menu from "../../../../src/components/pages/dashboard/SideMenu";
+import SideNav from "../../../../src/components/pages/dashboard/SideNav";
 
 export default function Course({ course }) {
   const {
     id,
     title,
+    subtitle,
     cover,
-    description,
+    description_long,
+    description_short,
+    category,
+    type,
+    episodes,
     price,
     curriculum,
     teacher,
     teacher_description,
     teacher_image,
     video,
-    practical_info,
+    practical_info_1,
+    practical_info_2,
   } = course;
 
   return (
@@ -29,7 +35,7 @@ export default function Course({ course }) {
       <DashboardMenu />
       <div className="container-fluid">
         <div className="row">
-          <Menu />
+          <SideNav />
           <div className="col-8 pb-4 mt-5">
             <div className="row">
               <div className="col-10 pl-5">
@@ -38,12 +44,18 @@ export default function Course({ course }) {
                   key={id}
                   id={id}
                   title={title}
-                  description={description}
+                subtitle={subtitle}
+                practical_info_1={practical_info_1}
+                practical_info_2={practical_info_2}
+                category={category}
+                type={type}
+                episodes={episodes}
+                  description_long={description_long}
+                  description_short={description_short}
                   price={price}
                   curriculum={curriculum}
                   teacher={teacher}
                   teacher_description={teacher_description}
-                  practical_info={practical_info}
                 />
                 <h4 className="pt-4 my-4">Media</h4>
                 <div className="row">

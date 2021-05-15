@@ -9,12 +9,18 @@ import { BASE_URL } from "../../../api/baseUrl";
 export default function PutInfo({
   id,
   title,
-  description,
+  description_long,
+  description_short,
   price,
   curriculum,
   teacher,
   teacher_description,
-  practical_info,
+  practical_info_1,
+  practical_info_2,
+  category,
+  type,
+  subtitle,
+  episodes,
 }) {
   const [submitting, setSubmitting] = useState(false);
   const [putError, setPutError] = useState(null);
@@ -73,172 +79,176 @@ export default function PutInfo({
     <div className="container">
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset disabled={submitting}>
-          <h4 className="mt-4 mb-3">Cursus info</h4>
-          <p className="m-0">Titel</p>
-          <div className="col-8 px-0 py-2">
-            <input
-              className="form-control w-100 p-2 rounded"
-              defaultValue={title}
-              type="text"
-              {...register("title")}
-            />
-            <p className="error"> {errors.title?.message}</p>
-          </div>
-          <Form.Check
-            className="col-12 my-3"
-            type="switch"
-            id="featured"
-            label="uitgelicht (er kan maar een cursus uitgelicht worden)"
-            {...register("featured")}
+          <p className="mb-0">titel</p>
+          <input
+            className="form-control w-100 p-2 rounder-0"
+            type="text"
+            defaultValue={title}
+            {...register("title")}
           />
-          <p className="m-0 mt-4">Cursus vorm</p>
-          <div className="row">
-            <div className="col-4">
-              <Form.Check
-                className="col-12 my-3"
-                type="switch"
-                id="course"
-                label="cursus"
-                {...register("type_course")}
-              />
-              <Form.Check
-                className="col-12 my-3"
-                type="switch"
-                id="video"
-                label="video"
-                {...register("type_video")}
-              />
-            </div>
-            <div className="col">
-              <Form.Check
-                className="col-12 my-3"
-                type="switch"
-                id="audio"
-                label="audio"
-                {...register("type_audio")}
-              />
-              <Form.Check
-                className="col-12 my-3"
-                type="switch"
-                id="webinar"
-                label="webinar"
-                {...register("type_webinar")}
-              />
-            </div>
-          </div>
-          <p className="m-0 mt-4">Beschrijving</p>
-          <div className="col-8 px-0 py-2">
-            <textarea
-              className="form-control w-100 rounded"
-              rows="6"
-              defaultValue={description}
-              type="text"
-              {...register("description")}
-            />
-            <p className="error"> {errors.description?.message}</p>
-          </div>
-          <p className="m-0">Prijs</p>
-          <div className="col-8 px-0 py-2">
-            <input
-              className="form-control w-100 p-2 my-2 rounded"
-              defaultValue={price}
-              type="number"
-              {...register("price")}
-            />
-          </div>
+          <p className="error"> {errors.title?.message}</p>
+          <p className="mb-0">
+            uitgelicht, belangrijk dat er altijd maar eén cursus uitgelicht is!
+          </p>
+          <Form.Check type="switch" id="featured" {...register("featured")} />
+          <p className="mb-0 mt-2">
+            subtitle voor op de landingpage header image
+          </p>
+          <input
+            className="form-control w-100 p-2 rounder-0"
+            type="text"
+            defaultValue={subtitle}
+            {...register("subtitle")}
+          />
+          <p className="error"> {errors.title?.message}</p>
+          <p className="mb-0">
+            Korte beschrijving (twee zinnen) voor de cursus aanbod pagina
+          </p>
+          <textarea
+            rows="2"
+            className="form-control w-100 p-2"
+            defaultValue={description_short}
+            type="text"
+            {...register("description_short")}
+          />
+          <p className="error"> {errors.description_short?.message}</p>
+          <p className="mb-0">uitgebreide beschrijving</p>
+          <textarea
+            rows="6"
+            className="form-control w-100 p-2"
+            defaultValue={description_long}
+            type="text"
+            {...register("description_long")}
+          />
+          <p className="error"> {errors.description_long?.message}</p>
+          <p className="mb-0">Prijs</p>
+          <input
+            className="form-control w-100 p-2"
+            defaultValue={price}
+            type="number"
+            {...register("price")}
+          />
           <p className="error"> {errors.price?.message}</p>
-          <p className="m-0 mt-4">Practische informatie</p>
-          <div className="col-8 px-0 py-2">
-            <textarea
-              className="form-control w-100 rounded"
-              rows="6"
-              defaultValue={practical_info}
-              type="text"
-              {...register("practical_info")}
-            />
-            <p className="error"> {errors.practical_info?.message}</p>
-          </div>
-          <p className="m-0">Curriculum</p>
-          <div className="col-8 px-0 py-2">
-            <textarea
-              rows="6"
-              className="form-control w-100 rounded"
-              defaultValue={curriculum}
-              {...register("curriculum")}
-            />
-            <p className="error"> {errors.curriculum?.message}</p>
-          </div>
-          <p className="m-0">Naam docent</p>
-          <div className="col-8 px-0 py-2">
-            <input
-              className="form-control w-100 p-2 my-2 rounded"
-              defaultValue={teacher}
-              type="text"
-              {...register("teacher")}
-            />
-            <p className="error"> {errors.teacher?.message}</p>
-          </div>
-          <p className="m-0">Docent info</p>
-          <div className="col-8 px-0 py-2">
-            <textarea
-              className="form-control w-100 rounded"
-              rows="6"
-              defaultValue={teacher_description}
-              type="text"
-              {...register("teacher_description")}
-            />
-            <p className="error"> {errors.teacher_description?.message}</p>
-          </div>
-          <h4 className="mt-4">Categorieën</h4>
-          <div className="row">
-            <div className="col-4">
-              <Form.Check
-                className="col-3 my-3"
-                type="switch"
-                id="geschiedenis"
-                label="geschiedenis"
-                {...register("category_history")}
-              />
-              <Form.Check
-                className="col-3 my-3"
-                type="switch"
-                id="filosofie"
-                label="filosofie"
-                {...register("category_philosophy")}
-              />
-            </div>
-            <div className="col-4">
-              <Form.Check
-                className="col-3 my-3"
-                type="switch"
-                id="theologie"
-                label="theologie"
-                {...register("category_theology")}
-              />
-              <Form.Check
-                className="col-3 my-3"
-                type="switch"
-                id="catechese"
-                label="catechese"
-                {...register("category_catechesis")}
-              />
-            </div>
-            <div className="col-12">
-              <Form.Check
-                className="col-4"
-                type="switch"
-                id="bijbel studie"
-                label="bijbel studie"
-                {...register("category_bibel_study")}
-              />
-            </div>
-          </div>
-          <div className="d-flex col-8 justify-content-center">
-            <button
-              className="button__primary--dark px-5 mt-5 rounded"
-              type="submit"
-            >
-              {submitting ? "momentje.." : "Submit"}
+          <p className="mb-0">
+            Praktische informatie 1 (bv. data, voorbereiding)
+          </p>
+          <textarea
+            className="form-control w-100"
+            defaultValue={practical_info_1}
+            rows="6"
+            {...register("practical_info_1")}
+          />
+          <p className="error"> {errors.practical_info_1?.message}</p>
+          <p className="mb-0">
+            Praktische informatie 2 (bv. kosten, hoe aanmelden)
+          </p>
+          <textarea
+            className="form-control w-100"
+            defaultValue={practical_info_2}
+            rows="6"
+            {...register("practical_info_2")}
+          />
+          <p className="error"> {errors.practical_info_2?.message}</p>
+          <p className="mb-0">
+            Wat gaan ze leren (Om een lijst te maken gebruik enter om volgende
+            regel te schrijven)
+          </p>
+          <textarea
+            className="form-control w-100"
+            defaultValue={curriculum}
+            rows="6"
+            {...register("curriculum")}
+          />
+          <p className="error"> {errors.curriculum?.message}</p>
+          <p className="mb-0">Naam docent</p>
+          <input
+            className="form-control w-100 p-2"
+            type="text"
+          defaultValue={teacher}
+            {...register("teacher")}
+          />
+          <p className="error"> {errors.teacher?.message}</p>
+          <p className="mb-0">over de docent</p>
+          <textarea
+            className="form-control w-100"
+            defaultValue={teacher_description}
+            rows="6"
+            type="text"
+            {...register("teacher_description")}
+          />
+          <p className="error">{errors.teacher_description?.message}</p>
+          <p className="mb-0">Categorie</p>
+          <select
+            id="inputState"
+            defaultValue={category}
+            className="form-control"
+            {...register("category")}
+          >
+            <option defaultValue>Theologie</option>
+            <option>Filosofie</option>
+            <option>Geschiedenis</option>
+            <option>Bijbel studie</option>
+            <option>Catechese</option>
+            <option>filosofie</option>
+          </select>
+          <p className="mb-0">Type cursus</p>
+          <select
+            id="inputState"
+            defaultValue={type}
+            className="form-control"
+            {...register("type")}
+          >
+            <option defaultValue>Cursus traject</option>
+            <option>Video</option>
+            <option>Audio</option>
+            <option>Webinar</option>
+          </select>
+          <p className="mb-0">Aantal delen/ hoofdstukken</p>
+          <input
+            className="form-control w-100 p-2"
+            defaultValue={episodes}
+            type="number"
+            {...register("episodes")}
+          />
+          <p className="error"> {errors.price?.message}</p>
+          {/* <Form.Check
+                      className="col-3 my-3"
+                      type="switch"
+                      id="geschiedenis"
+                      label="geschiedenis"
+                      {...register("category_history")}
+                    />
+                    <Form.Check
+                      className="col-3 my-3"
+                      type="switch"
+                      id="filosofie"
+                      label="filosofie"
+                      {...register("category_philosophy")}
+                    />
+                    <Form.Check
+                      className="col-3 my-3"
+                      type="switch"
+                      id="theologie"
+                      label="theologie"
+                      {...register("category_theology")}
+                    />
+                    <Form.Check
+                      className="col-3 my-3"
+                      type="switch"
+                      id="catechese"
+                      label="catechese"
+                      {...register("category_catechesis")}
+                    />
+                    <Form.Check
+                      className="col-3 my-3"
+                      type="switch"
+                      id="bijbel studie"
+                      label="bijbel studie"
+                      {...register("category_bibel_study")}
+                    /> */}
+          <div className="d-flex justify-content-center">
+            <button className="button__primary--dark mx-5" type="submit">
+              {submitting ? "momentje.." : "edit cursus"}
             </button>
             {putError && (
               <span>
