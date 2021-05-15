@@ -1,10 +1,11 @@
-import SideMenu from "../../../../src/components/pages/dashboard/SideMenu";
+import SideNav from "../../../../src/components/pages/dashboard/SideNav";
 import DashboardMenu from "../../../../src/components/layout/DashboardMenu";
 import axios from "axios";
 import Head from "../../../../src/components/head/Head";
 import PostNewVideo from "../../../../src/components/pages/cursus-toevoegen/PostNewVideo";
 import PostNewCover from "../../../../src/components/pages/cursus-toevoegen/PostNewCover";
 import PostNewTeacherCover from "../../../../src/components/pages/cursus-toevoegen/PostNewTeacherCover";
+import PostAboutCourseImage from "../../../../src/components/pages/cursus-toevoegen/PostAboutCourseImage";
 import { BASE_URL } from "../../../../src/api/baseUrl";
 
 export default function newCourseMedia({ course }) {
@@ -21,7 +22,7 @@ export default function newCourseMedia({ course }) {
       ></Head>
       <div className="container-fluid">
         <div className="row">
-          <SideMenu />
+          <SideNav />
           <div className="col-8 pb-4 mt-5">
             <div className="row">
               <div className="col-10 pl-5">
@@ -29,6 +30,7 @@ export default function newCourseMedia({ course }) {
                 <h4>{course.name}</h4>
                 <PostNewCover key={course.title} id={id} />
                 <PostNewTeacherCover key={course.teacher} id={id} />
+                <PostAboutCourseImage key={course.type} id={id} />
                 <PostNewVideo key={id} id={id} />
               </div>
             </div>

@@ -21,14 +21,20 @@ export default function PutInfo({
 
   const schema = yup.object().shape({
     title: yup.string().required("Vul de cursus titel in"),
-    price: yup.number().required("vul een getal in"),
-    description: yup.string().required("Cursus beschijving"),
+    subtitle: yup
+      .string()
+      .required("korte slagzin voor op de header afbeelding"),
+    price: yup.number().typeError("vul een getal in"),
+    episodes: yup.number().required("vul een getal in"),
+    description_short: yup.string().required("Vul twee zinnen in"),
+    description_long: yup
+      .string()
+      .required("Vul een uitgebreide cursus beschrijving in"),
     curriculum: yup.string().required("Vul in wat een deelnemer zal leren"),
     teacher: yup.string().required("Vul naam van schrijver in"),
     teacher_description: yup.string().required("informatie over de schrijver"),
-    practical_info: yup
-      .string()
-      .required("Schrijf iets over datums, kosten etc."),
+    practical_info_1: yup.string().required("Vul aub iets in"),
+    practical_info_2: yup.string().required("Vul aub iets in"),
   });
 
   const {

@@ -4,19 +4,18 @@ import { useForm } from "react-hook-form";
 import { BASE_URL, UPLOAD_PATH } from "../../../api/baseUrl";
 
 const url = BASE_URL + UPLOAD_PATH;
-
-export default function PostNewCover({ id }) {
+export default function PostAboutCourseImage({id}) {
   const { register, handleSubmit } = useForm();
   const [submitting, setSubmitting] = useState(false);
 
-  const submitData = async (data) => {
+  const submitData = async data => {
     setSubmitting(true);
     try {
       const formData = new FormData();
       formData.append("files", data.file[0]);
       formData.append("ref", "courses");
       formData.append("refId", id);
-      formData.append("field", "cover");
+      formData.append("field", "about_course_image");
       const response = await axios({
         method: "POST",
         url: url,
@@ -33,7 +32,7 @@ export default function PostNewCover({ id }) {
   return (
     <>
       <div className="FileUpload">
-        <p>Cursus cover foto</p>
+        <p>Over de cursus afbeelding landingpage</p>
         <form onSubmit={handleSubmit(submitData)}>
           <fieldset disabled={submitting}>
             <input type="file" {...register("file")} />

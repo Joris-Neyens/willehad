@@ -1,12 +1,16 @@
 import Link from "next/link";
 
-export default function SideMenu() {
+export default function SideNav() {
   return (
     <div className="ml-5 mt-5 pt-5 col-2 px-0 start-0">
-      <div className="edit mt-4">
-        <div className="px-3 py-2">
-          <Link href="/admin/dashboard">dashboard</Link>
-        </div>
+      <div className="side-nav__dashboard">
+        <Link href="/admin/dashboard">
+          <h4 className="px-3 py-2 mb-0">dashboard</h4>
+        </Link>
+      </div>
+
+      <div className="side-nav__edit mt-3">
+        <div className="py-2"></div>
         <div className="px-3 border-bottom">
           <h4>Edit</h4>
         </div>
@@ -16,7 +20,7 @@ export default function SideMenu() {
           <Link href="/admin/dashboard/edit-home">Edit home</Link>
         </div>
       </div>
-      <div className="communicatie pt-3 mt-3">
+      <div className="side-nav__communicatie pt-3 mt-3">
         <div className="px-3 border-bottom">
           <h4>communicatie</h4>
         </div>

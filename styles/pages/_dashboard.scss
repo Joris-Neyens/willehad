@@ -1,8 +1,11 @@
-.edit,
-.communicatie {
+.side-nav__dashboard, .side-nav__edit,
+.side-nav__communicatie {
   background-color: white;
 
   a {
     line-height: 32px;
   }
+}
+.dashboard h4:hover {
+  cursor: pointer;
 }

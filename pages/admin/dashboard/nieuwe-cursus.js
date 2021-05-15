@@ -6,23 +6,29 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { Form } from "react-bootstrap";
 import Head from "../../../src/components/head/Head";
-import Menu from "../../../src/components/pages/dashboard/SideMenu";
+import SideNav from "../../../src/components/pages/dashboard/SideNav";
 import DashboardMenu from "../../../src/components/layout/DashboardMenu";
-import { BASE_URL } from "../../../src/api/baseUrl";
+import { BASE_URL, COURSES_PATH} from "../../../src/api/baseUrl";
 
-const url = BASE_URL + "courses";
+const url = BASE_URL + COURSES_PATH;
 
 export default function nieuweCursus() {
   const schema = yup.object().shape({
     title: yup.string().required("Vul de cursus titel in"),
-    price: yup.number().required("vul een getal in"),
-    description: yup.string().required("Cursus beschijving"),
+    subtitle: yup
+      .string()
+      .required("korte slagzin voor op de header afbeelding"),
+    price: yup.number().typeError("vul een getal in"),
+    episodes: yup.number().required("vul een getal in"),
+    description_short: yup.string().required("Vul twee zinnen in"),
+    description_long: yup
+      .string()
+      .required("Vul een uitgebreide cursus beschrijving in"),
     curriculum: yup.string().required("Vul in wat een deelnemer zal leren"),
     teacher: yup.string().required("Vul naam van schrijver in"),
     teacher_description: yup.string().required("informatie over de schrijver"),
-    practical_info: yup
-      .string()
-      .required("Schrijf iets over datums, kosten etc."),
+    practical_info_1: yup.string().required("Vul aub iets in"),
+    practical_info_2: yup.string().required("Vul aub iets in"),
   });
 
   const {
@@ -71,66 +77,103 @@ export default function nieuweCursus() {
       <Head title="nieuwe cursus" description="voeg nieuwe cursus toe"></Head>
       <div className="container-fluid">
         <div className="row">
-          <Menu />
+          <SideNav />
           <div className="col-8 pb-4 mt-5">
             <div className="row">
               <div className="col-10 pl-5">
                 <h1>Nieuwe cursus</h1>
                 <form className="mb-5 pb-5" onSubmit={handleSubmit(onSubmit)}>
                   <fieldset disabled={submitting}>
-                    <p>titel</p>
+                    <p className="mb-0">titel</p>
                     <input
-                      className="form-control w-100 p-2 rounded"
+                      className="form-control w-100 p-2 rounder-0"
                       type="text"
                       {...register("title")}
                     />
                     <p className="error"> {errors.title?.message}</p>
-                    <p>beschrijving</p>
-                    <textarea
-                      rows="6"
-                      className="form-control w-100 p-2 rounded"
-                      type="text"
-                      {...register("description")}
-                    />
-                    <p className="error"> {errors.description?.message}</p>
+                    <p className="mb-0">
+                      uitgelicht, belangrijk dat er altijd maar eén cursus
+                      uitgelicht is!
+                    </p>
                     <Form.Check
-                      className="col-12 my-3"
                       type="switch"
                       id="featured"
-                      label="uitgelicht (er kan maar een cursus uitgelicht worden)"
                       {...register("featured")}
                     />
-                    <p>Prijs</p>
+                    <p className="mb-0 mt-2">subtitle voor op de landingpage header image</p>
                     <input
-                      className="form-control w-100 p-2 my-2 rounded"
+                      className="form-control w-100 p-2 rounder-0"
+                      type="text"
+                      {...register("subtitle")}
+                    />
+                    <p className="error"> {errors.title?.message}</p>
+                    <p className="mb-0">
+                      Korte beschrijving (twee zinnen) voor de cursus aanbod
+                      pagina
+                    </p>
+                    <textarea
+                      rows="2"
+                      className="form-control w-100 p-2"
+                      type="text"
+                      {...register("description_short")}
+                    />
+                    <p className="error">
+                      {" "}
+                      {errors.description_short?.message}
+                    </p>
+                    <p className="mb-0">uitgebreide beschrijving</p>
+                    <textarea
+                      rows="6"
+                      className="form-control w-100 p-2"
+                      type="text"
+                      {...register("description_long")}
+                    />
+                    <p className="error"> {errors.description_long?.message}</p>
+                    <p className="mb-0">Prijs</p>
+                    <input
+                      className="form-control w-100 p-2"
                       type="number"
                       {...register("price")}
                     />
                     <p className="error"> {errors.price?.message}</p>
-                    <p>Praktische informatie</p>
+                    <p className="mb-0">
+                      Praktische informatie 1 (bv. data, voorbereiding)
+                    </p>
                     <textarea
-                      className="form-control w-100 rounded"
+                      className="form-control w-100"
                       rows="6"
-                      {...register("practical_info")}
+                      {...register("practical_info_1")}
                     />
-                    <p className="error"> {errors.practical_info?.message}</p>
-                    <p>Wat gaan ze leren</p>
+                    <p className="error"> {errors.practical_info_1?.message}</p>
+                    <p className="mb-0">
+                      Praktische informatie 2 (bv. kosten, hoe aanmelden)
+                    </p>
                     <textarea
-                      className="form-control w-100 rounded"
+                      className="form-control w-100"
+                      rows="6"
+                      {...register("practical_info_2")}
+                    />
+                    <p className="error"> {errors.practical_info_2?.message}</p>
+                    <p className="mb-0">
+                      Wat gaan ze leren (Om een lijst te maken gebruik enter om
+                      volgende regel te schrijven)
+                    </p>
+                    <textarea
+                      className="form-control w-100"
                       rows="6"
                       {...register("curriculum")}
                     />
                     <p className="error"> {errors.curriculum?.message}</p>
-                    <p>Naam docent</p>
+                    <p className="mb-0">Naam docent</p>
                     <input
-                      className="form-control w-100 p-2 my-2 rounded"
+                      className="form-control w-100 p-2"
                       type="text"
                       {...register("teacher")}
                     />
                     <p className="error"> {errors.teacher?.message}</p>
-                    <p>over de docent</p>
+                    <p className="mb-0">over de docent</p>
                     <textarea
-                      className="form-control w-100 rounded"
+                      className="form-control w-100"
                       rows="6"
                       type="text"
                       {...register("teacher_description")}
@@ -138,8 +181,38 @@ export default function nieuweCursus() {
                     <p className="error">
                       {errors.teacher_description?.message}
                     </p>
-
-                    <Form.Check
+                    <p className="mb-0">Categorie</p>
+                    <select
+                      id="inputState"
+                      className="form-control"
+                      {...register("category")}
+                    >
+                      <option defaultValue>Theologie</option>
+                      <option>Filosofie</option>
+                      <option>Geschiedenis</option>
+                      <option>Bijbel studie</option>
+                      <option>Catechese</option>
+                      <option>filosofie</option>
+                    </select>
+                    <p className="mb-0">Type cursus</p>
+                    <select
+                      id="inputState"
+                      className="form-control"
+                      {...register("type")}
+                    >
+                      <option defaultValue>Cursus traject</option>
+                      <option>Video</option>
+                      <option>Audio</option>
+                      <option>Webinar</option>
+                    </select>
+                    <p className="mb-0">Aantal delen/ hoofdstukken</p>
+                    <input
+                      className="form-control w-100 p-2"
+                      type="number"
+                      {...register("episodes")}
+                    />
+                    <p className="error"> {errors.price?.message}</p>
+                    {/* <Form.Check
                       className="col-3 my-3"
                       type="switch"
                       id="geschiedenis"
@@ -173,10 +246,10 @@ export default function nieuweCursus() {
                       id="bijbel studie"
                       label="bijbel studie"
                       {...register("category_bibel_study")}
-                    />
+                    /> */}
                     <div className="d-flex justify-content-center">
                       <button
-                        className="button__primary--dark mx-5 rounded"
+                        className="button__primary--dark mx-5"
                         type="submit"
                       >
                         {submitting ? "momentje.." : "volgende stap 1/2"}
