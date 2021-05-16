@@ -10,9 +10,11 @@ export default function PostTeacherCover({ id, teacher_image }) {
   const url = teacher_image.url;
   const [submitting, setSubmitting] = useState(false);
   const { register, handleSubmit } = useForm();
+  const [submitButton, setSubmitButton] = useState("upload");
 
   const submitData = async (data) => {
     setSubmitting(true);
+        setSubmitButton("loading..");
     try {
       const formData = new FormData();
       formData.append("files", data.file[0]);
@@ -30,6 +32,7 @@ export default function PostTeacherCover({ id, teacher_image }) {
       console.log(error);
     } finally {
       setSubmitting(false);
+       setSubmitButton("upload succesvol");
     }
   };
 
@@ -45,8 +48,8 @@ export default function PostTeacherCover({ id, teacher_image }) {
           <fieldset disabled={submitting}>
             <input type="file" {...register("file")} />
           </fieldset>
-          <button className="button__primary--dark mx-4 rounded mt-3">
-            {submitting ? "momentje.." : "upload"}
+          <button className="button__primary--dark col-12 mt-3">
+            {submitButton}
           </button>
         </form>
       </div>

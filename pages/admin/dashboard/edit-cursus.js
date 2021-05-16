@@ -9,7 +9,7 @@ import SideNav from "../../../src/components/pages/dashboard/SideNav";
 export default function editCourse({ courses }) {
   return (
     <>
-      <Head title="edit homepage" description="edit homepage willehad"></Head>
+      <Head title="edit homepage" description="edit homepage willehad" />
       <DashboardMenu />
       <div className="container-fluid">
         <div className="row">
@@ -28,7 +28,7 @@ export default function editCourse({ courses }) {
                   }
                   return (
                     <>
-                      <Link key={id} href={`edit-cursus/${id}`}>
+                      <Link href={`edit-cursus/${id}`}>
                         <div className="p-2 mt-4 course-card shadow-sm">
                           <div className="row">
                             <Image

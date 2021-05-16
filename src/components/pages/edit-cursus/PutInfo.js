@@ -24,6 +24,7 @@ export default function PutInfo({
 }) {
   const [submitting, setSubmitting] = useState(false);
   const [putError, setPutError] = useState(null);
+  const [submitButton, setSubmitButton] = useState("upload");
 
   const schema = yup.object().shape({
     title: yup.string().required("Vul de cursus titel in"),
@@ -54,6 +55,7 @@ export default function PutInfo({
   const onSubmit = async (data) => {
     setSubmitting(true);
     setPutError(null);
+     setSubmitButton("loading..");
 
     const url = BASE_URL + "courses/" + id;
     try {
@@ -72,11 +74,12 @@ export default function PutInfo({
       setPutError(error.toString());
     } finally {
       setSubmitting(false);
+      setSubmitButton("upload succesvol");
     }
   };
 
   return (
-    <div className="container">
+    <div className="container px-0">
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset disabled={submitting}>
           <p className="mb-0">titel</p>
@@ -164,7 +167,7 @@ export default function PutInfo({
           <input
             className="form-control w-100 p-2"
             type="text"
-          defaultValue={teacher}
+            defaultValue={teacher}
             {...register("teacher")}
           />
           <p className="error"> {errors.teacher?.message}</p>
@@ -246,17 +249,15 @@ export default function PutInfo({
                       label="bijbel studie"
                       {...register("category_bibel_study")}
                     /> */}
-          <div className="d-flex justify-content-center">
-            <button className="button__primary--dark mx-5" type="submit">
-              {submitting ? "momentje.." : "edit cursus"}
-            </button>
-            {putError && (
-              <span>
-                Er is iets misgegaan, probeer het later nog een keer of neem
-                contact op met de admin
-              </span>
-            )}
-          </div>
+          <button className="button__primary--dark col-4" type="submit">
+            {submitButton}
+          </button>
+          {putError && (
+            <span>
+              Er is iets misgegaan, probeer het later nog een keer of neem
+              contact op met de admin
+            </span>
+          )}
         </fieldset>
       </form>
     </div>

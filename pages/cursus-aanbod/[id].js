@@ -11,8 +11,13 @@ import Curriculum from "../../src/components/pages/cursus/Curriculum";
 
 export default function Course({ course }) {
 
-    const { title, description, cover, teacher, teacher_description, practical_info, curriculum, teacher_image} = course
-    console.log(course)
+    const { whitepaper, title, description_long, about_course_image, subtitle, cover, teacher, teacher_description, practical_info_1, practical_info_2, curriculum, teacher_image} = course
+
+  let whitePaperFile
+  
+  if (whitepaper) {
+    whitePaperFile = whitepaper
+  }
 
     return (
       <>
@@ -23,25 +28,26 @@ export default function Course({ course }) {
         <Layout>
           <Header
             title={title}
+            subtitle={subtitle}
             url={cover.url}
             viewHeight={80}
-            textCol="4"
+            textCol="12"
             modal="modal"
           />
           <AboutCourse
             title="Over deze cursus"
-            text="description"
-            button="whitepaper"
-            url={teacher_image.url}
+            text={description_long}
+            button={whitePaperFile}
+            url={about_course_image.url}
           />
           <ExplainCourse />
-          <PracticalInfo info={practical_info} />
-                <Docent
-                    teacher={teacher}
+          <PracticalInfo practical_info_1={practical_info_1} practical_info_2={practical_info_2} />
+          <Docent
+            teacher={teacher}
             teacherInfo={teacher_description}
             teacherImage={teacher_image}
-                />
-                <Curriculum curriculum={curriculum} />
+          />
+          <Curriculum curriculum={curriculum} />
         </Layout>
       </>
     );

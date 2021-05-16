@@ -92,7 +92,7 @@ export default function hoeHetWerkt() {
                   zetten.
                 </p>
                 <Link href="/cursus-aanbod">
-                  <button className="button__primary mt-3 px-3 rounded">
+                  <button className="button__primary mt-3 px-3">
                     Cursus aanbod
                   </button>
                 </Link>

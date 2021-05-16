@@ -11,6 +11,9 @@ body {
   font-size: 58px;
   line-height: 68px;
 }
+.jumbotron__content-subtitle {
+  font-size: 22px;
+}
 .error {
   color: $accent;
   font-weight: 500;
@@ -44,6 +47,7 @@ label {
 }
 .menu__link {
   font-weight: 400;
+  font-size: 14px;
   text-transform: uppercase;
 }
 footer p {

@@ -1,17 +1,16 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useState, useContext } from "react";
+import { useState} from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { BASE_URL } from "../../../../src/api/baseUrl";
 import Head from "../../../../src/components/head/Head";
-import AuthContext from "../../context/AuthContext";
 
 const schema = yup.object().shape({
   identifier: yup
     .string()
-    .required("vul je naam in")
+    .required("vul je email adres in")
     .email("vul een geldig emailadres in"),
   password: yup.string().required("vul hier je wachwoord in"),
 });
@@ -32,15 +31,13 @@ export default function adminForm() {
     resolver: yupResolver(schema),
   });
 
-  const [auth, setAuth] = useContext(AuthContext);
-
   async function onSubmit(data) {
     setSubmitting(true);
     setLoginError(null);
 
     try {
       const response = await axios.post(url, data);
-      setAuth(response.data);
+      console.log(response.data)
       router.push("/admin/dashboard");
     } catch (error) {
       console.log("error is", error);
@@ -52,14 +49,14 @@ export default function adminForm() {
 
   return (
     <>
-      <Head title="Admin" description="login voor admin"></Head>
+      <Head title="Admin" description="login voor admin"/>
       <section className="pt-5 mt-5">
         <div className="container h-100 d-flex flex-column justify-content-center align-items-center">
           <h1>Admin</h1>
           <div className="row w-100">
             <div className="col-4 offset-4">
               <form
-                className="background-dark py-4 px-3 rounded"
+                className="background-dark py-4 px-3"
                 onSubmit={handleSubmit(onSubmit)}
               >
                 {loginError && (
@@ -89,7 +86,7 @@ export default function adminForm() {
                   <p>{errors.password?.message}</p>
                   <div className="d-flex justify-content-center">
                     <button
-                      className="button__primary py-1 px-5 rounded"
+                      className="button__primary py-1 px-5"
                       type="submit"
                     >
                       {submitting ? "momentje.." : "login"}

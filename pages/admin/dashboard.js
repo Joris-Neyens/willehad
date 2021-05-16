@@ -1,7 +1,6 @@
 import Head from "../../src/components/head/Head";
 import DashboardMenu from "../../src/components/layout/DashboardMenu";
 import SideNav from "../../src/components/pages/dashboard/SideNav";
-import { AuthProvider } from "../../src/components/context/AuthContext";
 
 export default function dashboard() {
   return (
@@ -9,8 +8,7 @@ export default function dashboard() {
       <Head
         title="Dashboard"
         description="Aanpassingen maken aan de website"
-      ></Head>
-      <AuthProvider>
+      />
         <DashboardMenu />
         <div className="container-fluid">
           <div className="row">
@@ -24,7 +22,6 @@ export default function dashboard() {
             </div>
           </div>
         </div>
-      </AuthProvider>
     </>
   );
 }
