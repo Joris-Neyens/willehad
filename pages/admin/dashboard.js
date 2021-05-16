@@ -1,4 +1,4 @@
-import Head from "../../src/components/head/Head";
+import Head from '../../src/components/head/Head'
 import DashboardMenu from "../../src/components/layout/DashboardMenu";
 import SideNav from "../../src/components/pages/dashboard/SideNav";
 
