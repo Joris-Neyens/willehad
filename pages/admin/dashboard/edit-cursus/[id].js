@@ -7,7 +7,6 @@ import PostCover from "../../../../src/components/pages/edit-cursus/PostCover";
 import PostTeacherCover from "../../../../src/components/pages/edit-cursus/PostTeacherCover";
 import PostVideo from "../../../../src/components/pages/edit-cursus/PostVideo";
 import PostAboutCourseImage from "../../../../src/components/pages/edit-cursus/PostAboutCourseImage";
-import PostWhitepaper from "../../../../src/components/pages/edit-cursus/PostWhitepaper";
 import PutInfo from "../../../../src/components/pages/edit-cursus/PutInfo";
 import SideNav from "../../../../src/components/pages/dashboard/SideNav";
 
@@ -31,7 +30,6 @@ export default function Course({ course }) {
     practical_info_1,
     practical_info_2,
     about_course_image,
-    whitepaper,
   } = course;
 
   const reload = `/admin/dashboard/edit-cursus/${id}`
@@ -86,14 +84,6 @@ export default function Course({ course }) {
                       key={about_course_image.id}
                       id={id}
                       about_course_image={about_course_image}
-                    />
-                  </div>
-
-                  <div className="col-6 mt-4 d-flex flex-column justify-content-end">
-                    <PostWhitepaper
-                      key={category}
-                      id={id}
-                      whitepaper={whitepaper}
                     />
                   </div>
                 </div>
