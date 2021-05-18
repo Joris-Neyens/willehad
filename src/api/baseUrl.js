@@ -1,4 +1,4 @@
-export const BASE_URL = "https://willehad-api.herokuapp.com/";
+export const BASE_URL = process.env.BASE_URL
 export const TOKEN_PATH = "auth/local";
 export const UPLOAD_PATH = "upload";
 export const COURSES_PATH = "courses";
