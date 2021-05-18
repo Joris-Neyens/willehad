@@ -6,7 +6,6 @@ import PostNewVideo from "../../../../src/components/pages/cursus-toevoegen/Post
 import PostNewCover from "../../../../src/components/pages/cursus-toevoegen/PostNewCover";
 import PostNewTeacherCover from "../../../../src/components/pages/cursus-toevoegen/PostNewTeacherCover";
 import PostAboutCourseImage from "../../../../src/components/pages/cursus-toevoegen/PostAboutCourseImage";
-import PostNewWhitePaper from "../../../../src/components/pages/cursus-toevoegen/PostNewWhitePaper";
 import { BASE_URL } from "../../../../src/api/baseUrl";
 
 export default function newCourseMedia({ course }) {
@@ -33,7 +32,6 @@ export default function newCourseMedia({ course }) {
                 <PostNewTeacherCover key={course.teacher} id={id} />
                 <PostAboutCourseImage key={course.type} id={id} />
                 <PostNewVideo key={id} id={id} />
-                <PostNewWhitePaper key={course.category} id={id} />
               </div>
             </div>
           </div>
