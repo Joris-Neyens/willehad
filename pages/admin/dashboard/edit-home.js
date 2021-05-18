@@ -1,7 +1,7 @@
 import DashboardMenu from "../../../src/components/layout/DashboardMenu";
 import axios from "axios";
 import Head from "../../../src/components/head/Head";
-import SideMenu from "../../../src/components/pages/dashboard/SideMenu";
+import SideNav from "../../../src/components/pages/dashboard/SideNav";
 import PutHomeInfo from "../../../src/components/pages/edit-home/PutHomeInfo";
 import PutHomeHeader from "../../../src/components/pages/edit-home/PutHomeHeader";
 import PutHomeCourseImg from "../../../src/components/pages/edit-home/PutHomeCourseImg";
@@ -25,7 +25,7 @@ export default function editHome({ home }) {
       <DashboardMenu />
       <div className="container-fluid">
         <div className="row">
-          <SideMenu />
+          <SideNav />
           <div className="col-8 pb-4 mt-5">
             <div className="row">
               <div className="col-10 pl-5">

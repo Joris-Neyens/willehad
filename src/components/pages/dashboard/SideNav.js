@@ -25,9 +25,8 @@ export default function SideNav() {
           <h4>communicatie</h4>
         </div>
         <div className="px-3 pb-3 pt-1">
-          <Link href="/admin/dashboard/contact-pagina">Contact pagina</Link>
           <Link href="/admin/dashboard/registraties">Registraties</Link>
-          <Link href="/admin/dashboard/nieuwsbrief">Nieuwsbrief</Link>
+          <Link href="/admin/dashboard/inbox">Inbox</Link>
         </div>
       </div>
     </div>

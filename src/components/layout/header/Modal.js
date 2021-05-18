@@ -92,40 +92,21 @@ export default function HeaderModal({ title }) {
               <div className="row my-4">
                 <div className="col-10">
                   <div className="form-check">
-                    <input
-                      {...register("group_own")}
-                      className="form-check-input"
-                      type="radio"
-                      name="radio"
-                      id="radio1"
-                      defaultChecked
-                    />
+                    <input {...register} type="radio" value="group_own" />
                     <label className="form-check-label">
                       Ik heb zelf een groep
                     </label>
                   </div>
                   <div className="form-check">
-                    <input
-                      {...register("group_exiting")}
-                      className="form-check-input"
-                      type="radio"
-                      name="radio"
-                      id="radio2"
-                    />
+                    <input {...register("group_own")} type="radio" value="group_own" />
                     <label className="form-check-label">
-                      Ik wil in een groep geplaatst worden
+                      Vind een groep voor mij
                     </label>
                   </div>
                 </div>
               </div>
               <div className="form-check">
-                <input
-                  {...register("newsletter")}
-                  defaultValue="true"
-                  type="checkbox"
-                  className="form-check-input"
-                  id="newsletter"
-                />
+                <input {...register} type="radio" value=" group_existing" />
                 <label className="form-check-label">
                   Meld je aan voor de nieuwsbrief
                 </label>

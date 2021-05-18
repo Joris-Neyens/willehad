@@ -33,9 +33,14 @@ export default function DashboardMenu() {
                 edit home
               </a>
             </Link>
-            <Link href="/admin/dashboard/communicatie">
+            <Link href="/admin/dashboard/inbox">
               <a className="menu__link px-3" title="communicatie">
-                communicatie
+                inbox
+              </a>
+            </Link>
+            <Link href="/admin/dashboard/registraties">
+              <a className="menu__link px-3" title="communicatie">
+                registraties
               </a>
             </Link>
           </div>
