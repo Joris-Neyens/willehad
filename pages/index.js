@@ -6,7 +6,7 @@ import Layout from "../src/components/layout/Layout";
 import Newsletter from "../src/components/pages/home/Newsletter";
 import Reviews from "../src/components/pages/home/Reviews";
 import ShortAboutCourse from "../src/components/pages/home/ShortAboutCourse";
-import Uitleg from "../src/components/pages/home/uitleg";
+import Uitleg from "../src/components/pages/home/Uitleg";
 
 
 export default function Home({ home }) {
