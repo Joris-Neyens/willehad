@@ -6,7 +6,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { Form } from "react-bootstrap";
 import Head from "../../../src/components/head/Head";
-import SideNav from "../../../src/components/pages/dashboard/SideNav";
+import SideNav from "../../../src/components/layout/SideNav";
 import DashboardMenu from "../../../src/components/layout/DashboardMenu";
 import { BASE_URL, COURSES_PATH} from "../../../src/api/baseUrl";
 

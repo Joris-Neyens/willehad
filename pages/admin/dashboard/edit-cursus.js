@@ -4,9 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "../../../src/components/head/Head";
 import DashboardMenu from "../../../src/components/layout/DashboardMenu";
-import SideNav from "../../../src/components/pages/dashboard/SideNav";
+import SideNav from "../../../src/components/layout/SideNav";
 
-export default function editCourse({ courses }) {
+export default function editCourse({ courses, url }) {
+
   return (
     <>
       <Head title="edit homepage" description="edit homepage willehad" />
@@ -27,7 +28,7 @@ export default function editCourse({ courses }) {
                     url = cover.url;
                   }
                   return (
-                    <>
+                    <div key={ id }>
                       <Link href={`edit-cursus/${id}`}>
                         <div className="p-2 mt-4 course-card shadow-sm">
                           <div className="row">
@@ -44,7 +45,7 @@ export default function editCourse({ courses }) {
                           </div>
                         </div>
                       </Link>
-                    </>
+                    </div>
                   );
                 })}
               </div>
@@ -71,6 +72,7 @@ export async function getStaticProps() {
   return {
     props: {
       courses: courses,
+      url: url,
     },
   };
 }

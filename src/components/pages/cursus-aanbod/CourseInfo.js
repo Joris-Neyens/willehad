@@ -32,16 +32,15 @@ export default function CourseInfo({ courseInfo }) {
                 let icon = "";
                 if (type_audio === true) {
                     icon = (
-                        <FontAwesomeIcon key={id} icon={faMicrophoneAlt}></FontAwesomeIcon>
+                        <FontAwesomeIcon icon={faMicrophoneAlt}></FontAwesomeIcon>
                     );
                 } else if (type_video === true) {
-                    icon = <FontAwesomeIcon key={id} icon={faVideo}></FontAwesomeIcon>;
+                    icon = <FontAwesomeIcon icon={faVideo}></FontAwesomeIcon>;
                 } else if (type_course === true) {
-                    icon = <FontAwesomeIcon key={id} icon={faComments}></FontAwesomeIcon>;
+                    icon = <FontAwesomeIcon icon={faComments}></FontAwesomeIcon>;
                 } else if (type_webinar === true) {
                     icon = (
                         <FontAwesomeIcon
-                            key={id}
                             icon={faChalkboardTeacher}
                         ></FontAwesomeIcon>
                     );
@@ -71,8 +70,8 @@ export default function CourseInfo({ courseInfo }) {
                     };
                 }
                 return (
-                    <>
-                        <Link key={id} href={`cursus-aanbod/${id}`}>
+                    <div  key={ id }>
+                        <Link href={`cursus-aanbod/${id}`}>
                             <div className="my-3 course-card shadow">
                                 <div className="row ml-2 ">
                                     <div className={imageStyle} style={styles}>
@@ -93,7 +92,7 @@ export default function CourseInfo({ courseInfo }) {
                                 </div>
                             </div>
                         </Link>
-                    </>
+                    </div>
                 );
             })}
                </>

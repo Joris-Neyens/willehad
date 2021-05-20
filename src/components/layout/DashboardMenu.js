@@ -12,34 +12,34 @@ export default function DashboardMenu() {
               <a id="logo">Willehad</a>
             </Link>
           </div>
-          <div className="col-8 d-flex justify-content-center align-items-center">
+          <div className="offset-2 col-8 d-flex justify-content-between align-items-center">
             <Link href="/admin/dashboard  ">
-              <a className="menu__link px-3" title="dashboard">
+              <a className="menu__link" title="dashboard">
                 dashboard
               </a>
             </Link>
-            <Link href="/admin/dashboard/edit-cursus">
-              <a className="menu__link px-3" title="edit cursus">
-                edit cursus
-              </a>
-            </Link>
             <Link href="/admin/dashboard/nieuwe-cursus">
-              <a className="menu__link px-3" title="nieuwe cursus">
+              <a className="menu__link" title="nieuwe cursus">
                 nieuwe cursus
               </a>
             </Link>
+            <Link href="/admin/dashboard/edit-cursus">
+              <a className="menu__link" title="edit cursus">
+                edit cursus
+              </a>
+            </Link>
             <Link href="/admin/dashboard/edit-home">
-              <a className="menu__link px-3" title="edit home">
+              <a className="menu__link" title="edit home">
                 edit home
               </a>
             </Link>
             <Link href="/admin/dashboard/inbox">
-              <a className="menu__link px-3" title="communicatie">
+              <a className="menu__link" title="inbox">
                 inbox
               </a>
             </Link>
             <Link href="/admin/dashboard/registraties">
-              <a className="menu__link px-3" title="communicatie">
+              <a className="menu__link" title="registraties">
                 registraties
               </a>
             </Link>

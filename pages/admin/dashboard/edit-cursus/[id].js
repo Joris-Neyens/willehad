@@ -8,9 +8,10 @@ import PostTeacherCover from "../../../../src/components/pages/edit-cursus/PostT
 import PostVideo from "../../../../src/components/pages/edit-cursus/PostVideo";
 import PostAboutCourseImage from "../../../../src/components/pages/edit-cursus/PostAboutCourseImage";
 import PutInfo from "../../../../src/components/pages/edit-cursus/PutInfo";
-import SideNav from "../../../../src/components/pages/dashboard/SideNav";
+import SideNav from "../../../../src/components/layout/SideNav";
 
 export default function Course({ course }) {
+
   const {
     id,
     title,

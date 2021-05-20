@@ -68,7 +68,9 @@ export default function Courses({ courses }) {
               id="select"
               onChange={e => sortCourses(e.target.value)}
             >
-              <option value="prijs" placeholder="prijs">Prijs</option>
+              <option value="prijs" placeholder="prijs">
+                Prijs
+              </option>
               <option value="laag">Laag</option>
               <option value="hoog">Hoog</option>
             </select>
@@ -92,9 +94,8 @@ export default function Courses({ courses }) {
               ></input>
             </div>
           </div>
-          {console.log(courseInfo)}
           <div className="col-8">
-                      <CourseInfo key={ courseInfo.id }courseInfo={courseInfo} />
+            <CourseInfo key={courseInfo.id}  courseInfo={courseInfo} />
           </div>
         </div>
       </div>

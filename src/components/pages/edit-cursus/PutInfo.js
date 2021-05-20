@@ -22,6 +22,8 @@ export default function PutInfo({
   subtitle,
   episodes,
 }) {
+
+
   const [submitting, setSubmitting] = useState(false);
   const [putError, setPutError] = useState(null);
   const [submitButton, setSubmitButton] = useState("upload");
@@ -214,41 +216,6 @@ export default function PutInfo({
             {...register("episodes")}
           />
           <p className="error"> {errors.price?.message}</p>
-          {/* <Form.Check
-                      className="col-3 my-3"
-                      type="switch"
-                      id="geschiedenis"
-                      label="geschiedenis"
-                      {...register("category_history")}
-                    />
-                    <Form.Check
-                      className="col-3 my-3"
-                      type="switch"
-                      id="filosofie"
-                      label="filosofie"
-                      {...register("category_philosophy")}
-                    />
-                    <Form.Check
-                      className="col-3 my-3"
-                      type="switch"
-                      id="theologie"
-                      label="theologie"
-                      {...register("category_theology")}
-                    />
-                    <Form.Check
-                      className="col-3 my-3"
-                      type="switch"
-                      id="catechese"
-                      label="catechese"
-                      {...register("category_catechesis")}
-                    />
-                    <Form.Check
-                      className="col-3 my-3"
-                      type="switch"
-                      id="bijbel studie"
-                      label="bijbel studie"
-                      {...register("category_bibel_study")}
-                    /> */}
           <button className="button__primary--dark col-4" type="submit">
             {submitButton}
           </button>
