@@ -29,10 +29,10 @@ export default function shortAboutCourse({
   }
 
   return (
-    <section className="d-flex align-items-center py-5">
+    <section className="d-flex align-items-center py-lg-5">
       <div className="container py-5">
         <div className="row">
-          <div className="col-6 position-relative">
+          <div className="col-8 mx-auto col-lg-6 offset-lg-0 position-relative">
             <Image
               src={url}
               className="short-about-course__image pt-4"
@@ -42,11 +42,13 @@ export default function shortAboutCourse({
             />
             <span className="short-about-course__overlay position-absolute"></span>
           </div>
-          <div className="col-5 ml-5 pt-4 d-flex flex-column justify-content-centr">
-            <p className="short-about-course__date m-0">{startDate}</p>
-            <h2 className="pt-1">{title}</h2>
-            <p className="pt-2">{text}</p>
-            <div className="row mt-4">
+          <div className="col-lg-5 ml-lg-5 pt-4 d-flex flex-column justify-content-centr">
+            <p className="short-about-course__date text-center text-lg-left m-0">
+              {startDate}
+            </p>
+            <h2 className="pt-1 text-center text-lg-left">{title}</h2>
+            <p className="pt-2 text-center text-lg-left">{text}</p>
+            <div className="row offset-2 offset-lg-0 mt-4">
               {buttonOne}
               {buttonTwo}
             </div>

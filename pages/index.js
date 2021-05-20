@@ -19,11 +19,11 @@ export default function Home({ home }) {
     <Layout>
       <Head
         title="Home"
-        description="willed cursus platform startpagina"
+        description="willehad cursus platform startpagina"
       ></Head>
       <Header
         url={header_image.url}
-        viewHeight={80}
+        viewHeight={95}
         textCol="4"
         id={id}
         alt={("cursus afbeelding:", title)}

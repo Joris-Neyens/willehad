@@ -15,7 +15,7 @@ export default function Header({
   const styles = {
     backgroundImage: `url(${url})`,
   };
-  const textWidth = `col-${textCol}`;
+  const textWidth = `col-12 col-lg-${textCol}`;
 
   let height = { height: `${viewHeight}vh` };
   let headerType = "";

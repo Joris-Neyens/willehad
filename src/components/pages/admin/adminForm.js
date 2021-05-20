@@ -38,7 +38,8 @@ export default function adminForm() {
 
     try {
       const response = await axios.post(url, data);
-      localStorage.setItem("auth", JSON.stringify(response.data.jwt)); 
+      localStorage.setItem("auth", JSON.stringify(response.data.jwt));
+      setToken(response.data.jwt)
     } catch (error) {
       console.log("error is", error);
       setLoginError(error.toString());

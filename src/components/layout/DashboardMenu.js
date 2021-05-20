@@ -1,8 +1,17 @@
 import Link from "next/link";
-
+import localStorage from "localStorage";
+import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function DashboardMenu() {
 
+  const router = useRouter()
+
+  function logout() {
+    localStorage.clear()
+    router.push("/admin")
+}
   return (
     <div className="menu">
       <div className="container">
@@ -43,8 +52,14 @@ export default function DashboardMenu() {
                 registraties
               </a>
             </Link>
+            <div onClick={logout} className="d-flex align-items-center">
+              <div className="menu__link--logout">logout</div>
+              <FontAwesomeIcon
+                className="dashboard-menu__icon mx-2"
+                icon={faSignOutAlt}
+              />
+            </div>
           </div>
-          <div className="col-2"></div>
         </nav>
       </div>
     </div>
