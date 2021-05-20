@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useState} from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import localStorage from "localStorage";
 import { BASE_URL } from "../../../../src/api/baseUrl";
 import Head from "../../../../src/components/head/Head";
 
@@ -37,13 +38,13 @@ export default function adminForm() {
 
     try {
       const response = await axios.post(url, data);
-      console.log(response.data)
-      router.push("/admin/dashboard");
+      localStorage.setItem("auth", JSON.stringify(response.data.jwt)); 
     } catch (error) {
       console.log("error is", error);
       setLoginError(error.toString());
     } finally {
       setSubmitting(false);
+      router.push("/admin/dashboard");
     }
   }
 

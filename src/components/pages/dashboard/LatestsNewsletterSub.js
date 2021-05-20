@@ -8,8 +8,11 @@ export default function LatestsNewsletterSub({newsletters}) {
           const { email_address, id } = newsletter;
 
           return (
-            <div key={id} className="row py-2">
-              <div className="col-12">{email_address}</div>
+            <div
+              key={id}
+              className="row  mx-0 col-4 py-2 background-light border my-1"
+            >
+              <div className="col-12 p-0">{email_address}</div>
             </div>
           );
         });
