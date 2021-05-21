@@ -53,7 +53,7 @@ export default function cursusAanbod({ courses }) {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const url = BASE_URL + COURSES_PATH;
 
   let courses = [];

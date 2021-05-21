@@ -9,8 +9,6 @@ import Newsletters from "../../../src/components/pages/registraties/Newsletters"
 
 export default function register({ registrations, newsletters }) {
 
-    console.log(newsletters)
-
   return (
     <>
       <Head
@@ -43,7 +41,7 @@ export default function register({ registrations, newsletters }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const url = `${BASE_URL}registers`;
     const newsletterUrl = `${BASE_URL}newsletters`;
 

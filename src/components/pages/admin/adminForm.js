@@ -44,19 +44,19 @@ export default function adminForm() {
       console.log("error is", error);
       setLoginError(error.toString());
     } finally {
-      setSubmitting(false);
       router.push("/admin/dashboard");
+      setSubmitting(false);
     }
   }
 
   return (
     <>
       <Head title="Admin" description="login voor admin"/>
-      <section className="pt-5 mt-5">
+      <section className="admin mb-5">
         <div className="container h-100 d-flex flex-column justify-content-center align-items-center">
           <h1>Admin</h1>
           <div className="row w-100">
-            <div className="col-4 offset-4">
+            <div className="col-12 col-lg-4 offset-lg-4">
               <form
                 className="background-dark py-4 px-3"
                 onSubmit={handleSubmit(onSubmit)}

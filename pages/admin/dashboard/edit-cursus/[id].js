@@ -115,7 +115,7 @@ export default function Course({ course }) {
   );
 }
 
-export async function getStaticPaths() {
+export async function getServerSidePaths() {
   try {
     const response = await axios.get(BASE_URL + COURSES_PATH);
     console.log(response.data);
@@ -131,7 +131,7 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const url = `${BASE_URL}courses/${params.id}`;
 
   let course = null;

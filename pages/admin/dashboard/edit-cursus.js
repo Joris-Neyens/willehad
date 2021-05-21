@@ -7,7 +7,7 @@ import Head from "../../../src/components/head/Head";
 import DashboardMenu from "../../../src/components/layout/DashboardMenu";
 import SideNav from "../../../src/components/layout/SideNav";
 
-export default function editCourse({ courses, url }) {
+export default function editCourse({ courses }) {
 
   return (
     <>
@@ -60,7 +60,7 @@ export default function editCourse({ courses, url }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const url = BASE_URL + COURSES_PATH;
 
   let courses = [];

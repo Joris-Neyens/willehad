@@ -12,7 +12,7 @@ export default function LatestsNewsletterSub({newsletters}) {
               key={id}
               className="row  mx-0 col-6 py-2 background-light border my-1"
             >
-              <div className="col-12 p-0">{email_address}</div>
+              <div className="col-12 p-0 text-small">{email_address}</div>
             </div>
           );
         });

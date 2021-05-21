@@ -56,7 +56,7 @@ export default function inbox({ contacts }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const url = `${BASE_URL}contacts`;
 
   let contacts = null;
