@@ -54,7 +54,7 @@ export default function editHome({ home }) {
   );
 }
 
-export async function getServerSiteProps() {
+export async function getStaticProps() {
   const url = `${BASE_URL}home`;
 
   let home = null;
