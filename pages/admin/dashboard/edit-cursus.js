@@ -22,7 +22,7 @@ export default function editCourse({ courses }) {
                 <div className="col-10 pl-5">
                   <h1>Edit cursus</h1>
                   {courses.map(function (course) {
-                    const { id, title, cover, price } = course;
+                    const { id, title, cover } = course;
 
                     let url = "/public/under-construction.jpg";
 
@@ -40,9 +40,25 @@ export default function editCourse({ courses }) {
                                 width="150"
                                 height="100"
                               />
-                              <div className="p-2">
+                              <div className="col-6 pl-2">
                                 <h4>{title}</h4>
-                                <p>{price}</p>
+                                <div className="row pt-5">
+                                  <div className="col-5">
+                                    <Link href={`edit-cursus/${id}`}>
+                                      <div className="button__primary--dark text-center">
+                                        edit cursus
+                                      </div>
+                                    </Link>
+                                  </div>
+
+                                  <div className="col-5">
+                                    <div
+                                      className="button__primary text-center"
+                                    >
+                                      delete course
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
