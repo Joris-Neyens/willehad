@@ -23,7 +23,7 @@ export default function Home({ home }) {
       ></Head>
       <Header
         url={header_image.url}
-        viewHeight={95}
+        viewHeight={100}
         textCol="4"
         id={id}
         alt={("cursus afbeelding:", title)}

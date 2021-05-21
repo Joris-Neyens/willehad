@@ -121,7 +121,7 @@ export default function PutHomeInfo({
           <p className="error">{errors.course_description?.message}</p>
         </div>
         <div className="d-flex col-8 justify-content-center">
-          <button className="button__primary--dark px-4 mt-2 rounded">
+          <button className="button__primary--dark px-4 mt-2">
             {submitting ? "momentje.." : "Submit"}
           </button>
           {putError && (

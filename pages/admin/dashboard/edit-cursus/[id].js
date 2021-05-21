@@ -70,7 +70,7 @@ export default function Course({ course }) {
                     <div className="col-6">
                       <p>Cover</p>
                       <PostCover
-                        key={teacher_image.url}
+                        key={id}
                         id={id}
                         cover={cover}
                       />

@@ -1,4 +1,4 @@
-import SideNav from "../../../../src/components/pages/dashboard/SideNav";
+import SideNav from "../../../../src/components/layout/SideNav";
 import DashboardMenu from "../../../../src/components/layout/DashboardMenu";
 import axios from "axios";
 import Head from "../../../../src/components/head/Head";

@@ -36,7 +36,7 @@ export default function Header({
     headerSubtitle = <p className="jumbotron__content-subtitle">{subtitle}</p>;
   }
   if (date) {
-    headerDate = <p className="jumbotron__content-date col-5 px-0">{date}</p>;
+    headerDate = <p className="jumbotron__content-date col-6 col-sm-4 col-md-3 col-lg-6 col-xl-5 px-0">{date}</p>;
   }
   if (buttonPrimary) {
     headerButtonPrimary = (

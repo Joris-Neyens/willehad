@@ -48,7 +48,7 @@ export default function PutHomeCourseImg({ id, course_image }) {
               </fieldset>
             </div>
             <div className="col-12">
-              <button className="button__primary--dark px-4 mt-3 rounded">
+              <button className="button__primary--dark px-4 mt-3">
                 {submitting ? "momentje.." : "upload"}
               </button>
             </div>
