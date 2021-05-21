@@ -21,12 +21,12 @@ export default function hoeHetWerkt() {
         <main>
           <div className="container hoe-het-werkt">
             <div className="row">
-              <div className="col-6 offset-3">
+              <div className="col-12 offset-0 col-lg-6 offset-lg-3">
                 <h1 className="pb-3">Hoe het werkt</h1>
               </div>
             </div>
             <div className="row">
-              <div className="col-6 offset-3">
+              <div className="col-12 offset-0 col-lg-6 offset-lg-3">
                 <h2 className="hoe-het-werkt__title pl-2">Samen</h2>
                 <p>
                   Een essentieel deel van het groeien in geloof is de
@@ -91,11 +91,13 @@ export default function hoeHetWerkt() {
                   een nieuwe cursus te volgen om weer volgende stappen te
                   zetten.
                 </p>
-                <Link href="/cursus-aanbod">
-                  <button className="button__primary mt-3 px-3">
-                    Cursus aanbod
-                  </button>
-                </Link>
+                <div className="d-flex justify-content-center">
+                  <Link href="/cursus-aanbod">
+                    <button className="button__primary mt-3 px-3">
+                      Cursus aanbod
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
