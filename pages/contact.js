@@ -79,7 +79,7 @@ export default function contact() {
               </div>
             </div>
             <div className="row">
-              <div className="col-6 offset-3 background-dark  p-3">
+              <div className="col-6 offset-3 background-dark  p-3 rounded">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <fieldset disabled={submitting}>
                     <div className="row">

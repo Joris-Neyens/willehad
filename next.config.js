@@ -6,6 +6,6 @@ module.exports = {
   }
   ,
   env: {
-    BASE_URL: process.env.BASE_URL,
+    BASE_URL: 'https://willehad-api.herokuapp.com/'
   }
 }
