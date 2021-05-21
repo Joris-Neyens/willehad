@@ -33,11 +33,7 @@ export default function editHome({ home }) {
                 <div className="col-10 pl-5">
                   <h1>Edit Home</h1>
                   <PutHomeInfo
-                    title={title}
-                    subtitle={subtitle}
-                    course_date={course_date}
-                    course_title={course_title}
-                    course_description={course_description}
+                    home={home}
                   />
                   <h4 className="pt-4 my-4">Media</h4>
                   <p>Header</p>

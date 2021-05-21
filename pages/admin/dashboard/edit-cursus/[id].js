@@ -15,22 +15,9 @@ export default function Course({ course }) {
 
   const {
     id,
-    title,
-    subtitle,
     cover,
-    description_long,
-    description_short,
-    category,
-    type,
-    episodes,
-    price,
-    curriculum,
-    teacher,
-    teacher_description,
     teacher_image,
     video,
-    practical_info_1,
-    practical_info_2,
     about_course_image,
   } = course;
 
@@ -49,21 +36,7 @@ export default function Course({ course }) {
                 <div className="col-10 pl-5">
                   <h1>Edit cursus</h1>
                   <PutInfo
-                    key={id}
-                    id={id}
-                    title={title}
-                    subtitle={subtitle}
-                    practical_info_1={practical_info_1}
-                    practical_info_2={practical_info_2}
-                    category={category}
-                    type={type}
-                    episodes={episodes}
-                    description_long={description_long}
-                    description_short={description_short}
-                    price={price}
-                    curriculum={curriculum}
-                    teacher={teacher}
-                    teacher_description={teacher_description}
+                    course={ course }
                   />
                   <h4 className="pt-4 my-4">Media</h4>
                   <div className="row">

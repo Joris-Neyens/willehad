@@ -7,14 +7,11 @@ import { BASE_URL } from "../../../api/baseUrl";
 
 const url = BASE_URL + "home";
 
-export default function PutHomeInfo({
-  course_date,
-  title,
-  subtitle,
-  course_title,
-  course_description,
-}) {
-  const [submitting, setSubmitting] = useState(false);
+export default function PutHomeInfo({ home }) {
+  
+  const { course_date, title, header_subtitle, course_title, course_description } = home
+    
+ const [submitting, setSubmitting] = useState(false);
   const [putError, setPutError] = useState(null);
 
   const schema = yup.object().shape({
@@ -24,7 +21,7 @@ export default function PutHomeInfo({
     course_date: yup
       .string()
       .required("vul in datum voor de eersvolgende cursus"),
-    subtitle: yup.string().required("schijf een zin die de cursus beschrijft"),
+    header_subtitle: yup.string().required("schijf een zin die de cursus beschrijft"),
     course_title: yup.string().required("Vul cursus titel in"),
     course_description: yup
       .string()
@@ -42,6 +39,9 @@ export default function PutHomeInfo({
   });
 
   const onSubmit = async (data) => {
+
+    console.log(data)
+
     setSubmitting(true);
     setPutError(null);
 
@@ -88,15 +88,15 @@ export default function PutHomeInfo({
           />
           <p className="error">{errors.course_date?.message}</p>
         </div>
-        <p className="m-0">subtitle</p>
+        <p className="m-0">header subtitle</p>
         <div className="col-8 px-0 py-2">
           <input
             className="form-control w-100 p-2 rounded"
-            defaultValue={subtitle}
+            defaultValue={header_subtitle}
             type="text"
-            {...register("subtitle")}
+            {...register("header_subtitle")}
           />
-          <p className="error">{errors.subtitle?.message}</p>
+          <p className="error">{errors.header_subtitle?.message}</p>
         </div>
         <h4 className="mt-5 mb-3">Homepage cursus info</h4>
         <p className="m-0">Naam cursus</p>

@@ -11,7 +11,7 @@ import Uitleg from "../src/components/pages/home/Uitleg";
 
 export default function Home({ home }) {
 
-  const {id, title, subtitle, course_date, header_image, course_title, course_image, course_description} = home
+  const {id, title, header_subtitle, course_date, header_image, course_title, course_image, course_description} = home
 
 
   let primaryLink = "/cursus-aanbod/" + home.id;
@@ -28,7 +28,7 @@ export default function Home({ home }) {
         id={id}
         alt={("cursus afbeelding:", title)}
         title={title}
-        subtitle={subtitle}
+        header_subtitle={header_subtitle}
         date={course_date}
         buttonPrimary={primaryLink}
         buttonSecondary="/cursus-aanbod/"

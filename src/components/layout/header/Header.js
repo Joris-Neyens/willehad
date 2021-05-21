@@ -4,7 +4,7 @@ export default function Header({
   url,
   viewHeight,
   title,
-  subtitle,
+  header_subtitle,
   date,
   buttonPrimary,
   buttonSecondary,
@@ -32,8 +32,8 @@ export default function Header({
   if (title) {
     headerTitle = <p className="jumbotron__content-title">{title}</p>;
   }
-  if (subtitle) {
-    headerSubtitle = <p className="jumbotron__content-subtitle">{subtitle}</p>;
+  if (header_subtitle) {
+    headerSubtitle = <p className="jumbotron__content-subtitle">{header_subtitle}</p>;
   }
   if (date) {
     headerDate = <p className="jumbotron__content-date col-6 col-sm-4 col-md-3 col-lg-6 col-xl-5 px-0">{date}</p>;

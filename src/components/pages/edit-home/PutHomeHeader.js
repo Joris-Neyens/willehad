@@ -7,11 +7,13 @@ import Image from "next/image";
 const postUrl = BASE_URL + "upload";
 
 export default function PutHomeHeader({ id, header_image }) {
+
   const url = header_image.url;
   const [submitting, setSubmitting] = useState(false);
   const { register, handleSubmit } = useForm();
 
   const submitData = async (data) => {
+      console.log(data.file[0]);
     setSubmitting(true);
     try {
       const formData = new FormData();

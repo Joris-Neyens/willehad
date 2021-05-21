@@ -6,23 +6,23 @@ import axios from "axios";
 import { Form } from "react-bootstrap";
 import { BASE_URL } from "../../../api/baseUrl";
 
-export default function PutInfo({
-  id,
-  title,
-  description_long,
-  description_short,
-  price,
-  curriculum,
-  teacher,
-  teacher_description,
-  practical_info_1,
-  practical_info_2,
-  category,
-  type,
-  subtitle,
-  episodes,
-}) {
-
+export default function PutInfo({ course }) {
+  const {
+    id,
+    title,
+    description_long,
+    description_short,
+    price,
+    curriculum,
+    teacher,
+    teacher_description,
+    practical_info_1,
+    practical_info_2,
+    category,
+    type,
+    subtitle,
+    episodes,
+  } = home;
 
   const [submitting, setSubmitting] = useState(false);
   const [putError, setPutError] = useState(null);
@@ -54,10 +54,10 @@ export default function PutInfo({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     setSubmitting(true);
     setPutError(null);
-     setSubmitButton("loading..");
+    setSubmitButton("loading..");
 
     const url = BASE_URL + "courses/" + id;
     try {
