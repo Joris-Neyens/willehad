@@ -1,13 +1,17 @@
 import Image from "next/image";
+import PropTypes from "prop-types";
 
 export default function shortAboutCourse({
-  startDate,
-  url,
-  title,
-  text,
+  home,
   buttonPrimary,
   buttonSecondary,
 }) {
+
+const {course_date, course_image, course_title, course_description} = home
+
+
+  const alt = `afbeelding voor de cursus:${course_title}`
+
   let buttonOne = "";
   let buttonTwo = "";
   let date = "";
@@ -24,8 +28,8 @@ export default function shortAboutCourse({
       </button>
     );
   }
-  if (startDate) {
-    date = `start ${startDate}`;
+  if (course_date) {
+    date = `start ${course_date}`;
   }
 
   return (
@@ -34,7 +38,8 @@ export default function shortAboutCourse({
         <div className="row">
           <div className="col-8 mx-auto col-lg-6 offset-lg-0 position-relative">
             <Image
-              src={url}
+              alt={alt}
+              src={course_image.url}
               className="short-about-course__image pt-4"
               layout="responsive"
               width="200"
@@ -44,10 +49,10 @@ export default function shortAboutCourse({
           </div>
           <div className="col-lg-5 ml-lg-5 pt-4 d-flex flex-column justify-content-centr">
             <p className="short-about-course__date text-center text-lg-left m-0">
-              {startDate}
+              {date}
             </p>
-            <h2 className="pt-1 text-center text-lg-left">{title}</h2>
-            <p className="pt-2 text-center text-lg-left">{text}</p>
+            <h2 className="pt-1 text-center text-lg-left">{course_title}</h2>
+            <p className="pt-2 text-center text-lg-left">{course_description}</p>
             <div className="d-flex justify-content-center justify-content-lg-start">
               {buttonOne}
               {buttonTwo}
@@ -57,4 +62,10 @@ export default function shortAboutCourse({
       </div>
     </section>
   );
+}
+
+shortAboutCourse.propTypes = {
+  home: PropTypes.object.isRequired,
+  buttonPrimary: PropTypes.string.isRequired,
+  buttonSecondary: PropTypes.string.isRequired,
 }

@@ -1,4 +1,5 @@
 import axios from "axios";
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BASE_URL, UPLOAD_PATH } from "../../../api/baseUrl";
@@ -9,6 +10,7 @@ import AuthContext from "../../../../src/context/AuthContext";
 const postUrl = BASE_URL + UPLOAD_PATH;
 
 export default function PostTeacherCover({ id, teacher_image }) {
+
   const url = teacher_image.url;
   const [submitting, setSubmitting] = useState(false);
   const { register, handleSubmit } = useForm();
@@ -67,4 +69,9 @@ export default function PostTeacherCover({ id, teacher_image }) {
       </div>
     </>
   );
+}
+
+PostTeacherCover.propTypes = {
+  id: PropTypes.string.isRequired,
+  teacher_image: PropTypes.object.isRequired,
 }

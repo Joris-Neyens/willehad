@@ -1,4 +1,5 @@
 import axios from "axios";
+import PropTypes from "prop-types";
 import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -67,4 +68,9 @@ export default function PostAboutCourseImage({ id, about_course_image }) {
       </div>
     </>
   );
+}
+
+PostAboutCourseImage.propTypes = {
+  id: PropTypes.string.isRequired,
+  about_course_image: PropTypes.object.isRequired,
 }

@@ -1,10 +1,11 @@
+import PropTypes from "prop-types";
 import axios from "axios";
-import Link from 'next/link';
+import Link from "next/link";
 import { BASE_URL, COURSES_PATH } from "../../../../src/api/baseUrl";
 import Head from "../../../../src/components/head/Head";
 import AdminLayout from "../../../../src/components/layout/AdminLayout";
 import DashboardMenu from "../../../../src/components/layout/DashboardMenu";
-import DeleteCourse from '../../../../src/components/pages/edit-cursus/DeleteCourse';
+import DeleteCourse from "../../../../src/components/pages/edit-cursus/DeleteCourse";
 import PostCover from "../../../../src/components/pages/edit-cursus/PostCover";
 import PostTeacherCover from "../../../../src/components/pages/edit-cursus/PostTeacherCover";
 import PostVideo from "../../../../src/components/pages/edit-cursus/PostVideo";
@@ -13,16 +14,9 @@ import PutInfo from "../../../../src/components/pages/edit-cursus/PutInfo";
 import SideNav from "../../../../src/components/layout/SideNav";
 
 export default function Course({ course }) {
+  const { id, cover, teacher_image, video, about_course_image } = course;
 
-  const {
-    id,
-    cover,
-    teacher_image,
-    video,
-    about_course_image,
-  } = course;
-
-  const reload = `/admin/dashboard/edit-cursus/${id}`
+  const reload = `/admin/dashboard/edit-cursus/${id}`;
 
   return (
     <>
@@ -92,7 +86,7 @@ export async function getServerSidePaths() {
     console.log(response.data);
     const courses = response.data;
 
-    const paths = courses.map((course) => ({
+    const paths = courses.map(course => ({
       params: { id: course.id },
     }));
 
@@ -116,4 +110,8 @@ export async function getServerSideProps({ params }) {
   return {
     props: { course: course },
   };
+}
+
+Course.propTypes = {
+  course: PropTypes.object.isRequired,
 }

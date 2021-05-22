@@ -1,4 +1,5 @@
 import axios from "axios";
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BASE_URL } from "../../../api/baseUrl";
@@ -73,4 +74,9 @@ export default function PutHomeHeader({ id, header_image }) {
       </div>
     </>
   );
+}
+
+PutHomeHeader.propTypes = {
+  id: PropTypes.string.isRequired,
+  header_image: PropTypes.object.isRequired,
 }

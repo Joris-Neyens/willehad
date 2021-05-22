@@ -1,4 +1,5 @@
 import axios from "axios";
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BASE_URL } from "../../../api/baseUrl";
@@ -73,3 +74,8 @@ export default function PutHomeCourseImg({ id, course_image }) {
     </>
   );
 }
+
+PutHomeCourseImg.propTypes = {
+  id: PropTypes.string.isRequired,
+  course_image: PropTypes.object.isRequired,
+};

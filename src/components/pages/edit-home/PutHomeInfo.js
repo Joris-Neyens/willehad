@@ -10,6 +10,8 @@ import AuthContext from "../../../../src/context/AuthContext";
 const url = BASE_URL + "home";
 
 export default function PutHomeInfo({ home }) {
+
+  console.log(home)
   
   const { course_date, title, header_subtitle, course_title, course_description } = home
     

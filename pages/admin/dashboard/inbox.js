@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import axios from "axios";
 import { BASE_URL } from "../../../src/api/baseUrl";
 import AdminLayout from "../../../src/components/layout/AdminLayout";
@@ -6,7 +7,6 @@ import DashboardMenu from "../../../src/components/layout/DashboardMenu";
 import SideNav from "../../../src/components/layout/SideNav";
 
 export default function inbox({ contacts }) {
-  console.log(contacts);
   return (
     <>
       <Head
@@ -70,4 +70,8 @@ export async function getServerSideProps() {
   return {
     props: { contacts: contacts },
   };
+}
+
+inbox.propTypes = {
+  contacts: PropTypes.array.isRequired,
 }

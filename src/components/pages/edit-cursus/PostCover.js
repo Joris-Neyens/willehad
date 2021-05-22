@@ -1,4 +1,5 @@
 import axios from "axios";
+import PropTypes from "prop-types";
 import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -9,6 +10,7 @@ import AuthContext from "../../../../src/context/AuthContext";
 const postUrl = BASE_URL + UPLOAD_PATH;
 
 export default function PostCover({ id, cover }) {
+
   const url = cover.url;
   const [submitting, setSubmitting] = useState(false);
   const { register, handleSubmit } = useForm();
@@ -66,4 +68,9 @@ export default function PostCover({ id, cover }) {
       </div>
     </>
   );
+}
+
+PostCover.propTypes = {
+  id: PropTypes.string.isRequired,
+  cover: PropTypes.object.isRequired,
 }

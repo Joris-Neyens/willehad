@@ -1,8 +1,11 @@
+import PropTypes from "prop-types";
+
 export default function Registrations({ registrations }) {
   console.log(registrations);
   return (
     <div className="row">
       {registrations.map(function (registration) {
+
         const { group, course_title, name, email, id } = registration;
 
         let groupHtml = "";
@@ -31,3 +34,6 @@ export default function Registrations({ registrations }) {
     </div>
   );
 }
+Registrations.propTypes = {
+  registrations: PropTypes.array.isRequired,
+};

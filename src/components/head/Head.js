@@ -1,4 +1,5 @@
 import NextHead from "next/head";
+import PropTypes from "prop-types";
 
 export default function Head({ title = "", description }) {
   return (
@@ -10,4 +11,9 @@ export default function Head({ title = "", description }) {
       <meta name="description" content={description}></meta>
     </NextHead>
   );
+}
+
+Head.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
 }

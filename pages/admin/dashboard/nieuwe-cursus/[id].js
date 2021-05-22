@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import SideNav from "../../../../src/components/layout/SideNav";
 import DashboardMenu from "../../../../src/components/layout/DashboardMenu";
 import axios from "axios";
@@ -10,8 +11,6 @@ import PostAboutCourseImage from "../../../../src/components/pages/cursus-toevoe
 import { BASE_URL } from "../../../../src/api/baseUrl";
 
 export default function newCourseMedia({ course }) {
-  console.log(course);
-
   const id = course.id;
 
   return (
@@ -30,10 +29,10 @@ export default function newCourseMedia({ course }) {
                 <div className="col-10 pl-5">
                   <h1>Media toevoegen</h1>
                   <h4>{course.name}</h4>
-                    <PostNewCover key={course.title} id={id} />
-                    <PostNewTeacherCover key={course.teacher} id={id} />
-                    <PostAboutCourseImage key={course.type} id={id} />
-                    <PostNewVideo key={id} id={id} />
+                  <PostNewCover key={course.title} id={id} />
+                  <PostNewTeacherCover key={course.teacher} id={id} />
+                  <PostAboutCourseImage key={course.type} id={id} />
+                  <PostNewVideo key={id} id={id} />
                 </div>
               </div>
             </div>
@@ -50,7 +49,7 @@ export async function getStaticPaths() {
     console.log(response.data);
     const courses = response.data;
 
-    const paths = courses.map((course) => ({
+    const paths = courses.map(course => ({
       params: { id: course.id },
     }));
 
@@ -76,4 +75,8 @@ export async function getStaticProps({ params }) {
   return {
     props: { course: course },
   };
+}
+
+newCourseMedia.propTypes = {
+  course: PropTypes.object.isRequired,
 }

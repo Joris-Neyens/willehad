@@ -1,8 +1,8 @@
+import PropTypes from "prop-types";
 import Image from "next/image";
 
 export default function ShortAbout({ course }) {
-
-  const { about_course_image, title, description_long} = course;
+  const { about_course_image, description_long } = course;
 
   return (
     <section className="d-flex align-items-center pb-5 py-lg-5">
@@ -25,4 +25,8 @@ export default function ShortAbout({ course }) {
       </div>
     </section>
   );
+}
+
+ShortAbout.propTypes = {
+  course: PropTypes.object.isRequired,
 }

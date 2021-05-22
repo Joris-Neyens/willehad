@@ -1,14 +1,15 @@
+import PropTypes from "prop-types";
 import axios from "axios";
 import { BASE_URL } from "../../../src/api/baseUrl";
 import Head from "../../../src/components/head/Head";
 import AdminLayout from "../../../src/components/layout/AdminLayout";
 import DashboardMenu from "../../../src/components/layout/DashboardMenu";
 import SideMenu from "../../../src/components/layout/SideNav";
-import Registrations from '../../../src/components/pages/registraties/Registrations';
+import Registrations from "../../../src/components/pages/registraties/Registrations";
 import Newsletters from "../../../src/components/pages/registraties/Newsletters";
 
 export default function register({ registrations, newsletters }) {
-
+  
   return (
     <>
       <Head
@@ -42,8 +43,8 @@ export default function register({ registrations, newsletters }) {
 }
 
 export async function getServerSideProps() {
-    const url = `${BASE_URL}registers`;
-    const newsletterUrl = `${BASE_URL}newsletters`;
+  const url = `${BASE_URL}registers`;
+  const newsletterUrl = `${BASE_URL}newsletters`;
 
   let registrations = null;
 
@@ -54,18 +55,21 @@ export async function getServerSideProps() {
     console.log(error);
   }
 
-    let newsletters = null
-    
-    try {
+  let newsletters = null;
+
+  try {
     const response = await axios.get(newsletterUrl);
     newsletters = response.data;
   } catch (error) {
     console.log(error);
   }
-    
-    
+
   return {
     props: { registrations: registrations, newsletters: newsletters },
   };
 }
 
+register.propTypes = {
+  registrations: PropTypes.array.isRequired,
+  newsletters: PropTypes.array.isRequired,
+};

@@ -1,4 +1,5 @@
 import axios from "axios";
+import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { BASE_URL, UPLOAD_PATH } from "../../../api/baseUrl";
@@ -70,4 +71,9 @@ export default function PostVideo({ id, video }) {
       </div>
     </>
   );
+}
+
+PostVideo.propTypes = {
+  id: PropTypes.string.isRequired,
+  video: PropTypes.array.isRequired,
 }

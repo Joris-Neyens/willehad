@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
@@ -7,16 +8,15 @@ import Modal from "react-bootstrap/Modal";
 import { REGISTER_PATH } from "../../../api/baseUrl";
 
 const schema = yup.object().shape({
-    name: yup.string().required("vul aub je naam in"),
-    email: yup
-      .string()
-      .required("vul aub een geldig email adres in")
-      .email("vul aub een geldig email adres in"),
-  });
+  name: yup.string().required("vul aub je naam in"),
+  email: yup
+    .string()
+    .required("vul aub een geldig email adres in")
+    .email("vul aub een geldig email adres in"),
+});
 
-export default function HeaderModal({ title}) {
-
-  const url = process.env.BASE_URL + REGISTER_PATH
+export default function HeaderModal({ title }) {
+  const url = process.env.BASE_URL + REGISTER_PATH;
 
   const [show, setShow] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -35,8 +35,7 @@ export default function HeaderModal({ title}) {
   });
 
   async function onSubmit(data) {
-
-    console.log(data)
+    console.log(data);
 
     setSubmitting(true);
     setPostError(null);
@@ -91,7 +90,9 @@ export default function HeaderModal({ title}) {
                 <div className="col-7 offset-3 px-0">
                   <select {...register("group")} className="form-control">
                     <option value="group_own">Ik heb zelf een group</option>
-                    <option value="group_existing">Vind een groep voor mij</option>
+                    <option value="group_existing">
+                      Vind een groep voor mij
+                    </option>
                   </select>
                 </div>
               </div>
@@ -122,4 +123,8 @@ export default function HeaderModal({ title}) {
       </Modal>
     </>
   );
+}
+
+HeaderModal.propTypes = {
+  title: PropTypes.string.isRequired,
 }

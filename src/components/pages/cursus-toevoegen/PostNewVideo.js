@@ -1,16 +1,22 @@
+import PropTypes from "prop-types";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { BASE_URL, UPLOAD_PATH } from "../../../api/baseUrl";
+import { useContext } from "react";
+import AuthContext from "../../../../src/context/AuthContext";
 
 const url = BASE_URL + UPLOAD_PATH;
 
 export default function PostNewVideo({ id }) {
   const { register, handleSubmit } = useForm();
   const [submitting, setSubmitting] = useState(false);
-    const [submitButton, setSubmitButton] = useState("upload");
+  const [submitButton, setSubmitButton] = useState("upload");
 
-  const submitData = async (data) => {
+  const { getToken } = useContext(AuthContext);
+  const token = getToken("auth");
+
+  const submitData = async data => {
     setSubmitting(true);
     setSubmitButton("loading..");
     try {
@@ -23,6 +29,10 @@ export default function PostNewVideo({ id }) {
         method: "POST",
         url: url,
         data: formData,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "content-type": "application/json",
+        },
       });
       console.log("Success", response);
     } catch (error) {
@@ -48,4 +58,8 @@ export default function PostNewVideo({ id }) {
       </div>
     </>
   );
+}
+
+PostNewVideo.propTypes = {
+  id: PropTypes.string.isRequired,
 }

@@ -1,59 +1,57 @@
-import axios from 'axios'
-import { BASE_URL, COURSES_PATH } from '../../src/api/baseUrl';
-import Head from '../../src/components/head/Head';
-import Header from '../../src/components/layout/header/Header';
-import Layout from '../../src/components/layout/Layout';
-import AboutCourse from '../../src/components/pages/cursus/AboutCourse'
-import ExplainCourse from '../../src/components/pages/cursus/ExplainCourse';
+import PropTypes from "prop-types";
+import axios from "axios";
+import { BASE_URL, COURSES_PATH } from "../../src/api/baseUrl";
+import Head from "../../src/components/head/Head";
+import Header from "../../src/components/layout/header/Header";
+import Layout from "../../src/components/layout/Layout";
+import AboutCourse from "../../src/components/pages/cursus/AboutCourse";
+import ExplainCourse from "../../src/components/pages/cursus/ExplainCourse";
 import PracticalInfo from "../../src/components/pages/cursus/Practicalinfo";
 import Docent from "../../src/components/pages/cursus/Docent";
 import Curriculum from "../../src/components/pages/cursus/Curriculum";
 
 export default function Course({ course }) {
 
-  
-    const {
-      title,
-      subtitle,
-      cover,
-      teacher,
-      teacher_description,
-      curriculum,
-      teacher_image,
-    } = course;
+  const {
+    title,
+    subtitle,
+    cover,
+    teacher,
+    teacher_description,
+    curriculum,
+    teacher_image,
+  } = course;
 
-    return (
-      <>
-        <Head
-          title={course.title}
-          description={"course info for " + course.title}
-        />
-        <div className="wrapper">
-          <Layout>
-            <Header
-              title={title}
-              subtitle={subtitle}
-              url={cover.url}
-              viewHeight={80}
-              textCol="12"
-              modal="modal"
-            />
-            <AboutCourse course={course} />
-            <ExplainCourse />
-            <PracticalInfo course={course} />
-            <Docent
-              teacher={teacher}
-              teacherInfo={teacher_description}
-              teacherImage={teacher_image}
-            />
-            <Curriculum curriculum={curriculum} />
-          </Layout>
-        </div>
-      </>
-    );
-
+  return (
+    <>
+      <Head
+        title={course.title}
+        description={"course info for " + course.title}
+      />
+      <div className="wrapper">
+        <Layout>
+          <Header
+            title={title}
+            subtitle={subtitle}
+            url={cover.url}
+            viewHeight={80}
+            textCol="12"
+            modal="modal"
+          />
+          <AboutCourse course={course} />
+          <ExplainCourse />
+          <PracticalInfo course={course} />
+          <Docent
+            teacher={teacher}
+            teacherInfo={teacher_description}
+            teacherImage={teacher_image}
+          />
+          <Curriculum curriculum={curriculum} />
+        </Layout>
+      </div>
+    </>
+  );
 }
-
 
 export async function getServerSidePaths() {
   try {
@@ -85,4 +83,8 @@ export async function getServerSideProps({ params }) {
   return {
     props: { course: course },
   };
+}
+
+Course.propTypes = {
+  course: PropTypes.object.isRequired,
 }

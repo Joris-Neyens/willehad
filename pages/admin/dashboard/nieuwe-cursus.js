@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { Form } from "react-bootstrap";
@@ -9,7 +9,8 @@ import AdminLayout from "../../../src/components/layout/AdminLayout";
 import Head from "../../../src/components/head/Head";
 import SideNav from "../../../src/components/layout/SideNav";
 import DashboardMenu from "../../../src/components/layout/DashboardMenu";
-import { BASE_URL, COURSES_PATH} from "../../../src/api/baseUrl";
+import { BASE_URL, COURSES_PATH } from "../../../src/api/baseUrl";
+import AuthContext from "../../../src/context/AuthContext";
 
 const url = BASE_URL + COURSES_PATH;
 
@@ -42,30 +43,40 @@ export default function nieuweCursus() {
 
   const [submitting, setSubmitting] = useState(false);
   const [postError, setPostError] = useState(null);
+  const [submitButton, setSubmitButton] = useState("volgende stap 1/2");
+
+  const { getToken } = useContext(AuthContext);
+  const token = getToken("auth");
+  
 
   const router = useRouter();
 
   const onSubmit = async (data) => {
     setSubmitting(true);
     setPostError(null);
+    setSubmitButton("loading..");
+
     try {
       const response = await axios({
         method: "POST",
         url: url,
         data: data,
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOGJmM2RjYzZkYzgzMDAxNWQ3MmUwYSIsImlhdCI6MTYyMDA0MzcwMiwiZXhwIjoxNjIyNjM1NzAyfQ.HDVFp5zd8oC7wjSz4aOZjJORF5ptlL9pOfjgMjqMbNA",
+          Authorization: `Bearer ${token}`,
           "content-type": "application/json",
         },
       });
 
       const id = response.data._id;
+      if (response) {
+        setSubmitButton("upload succesvol");
+      }
       console.log(response);
 
       router.push(`/admin/dashboard/nieuwe-cursus/${id}`);
     } catch (error) {
       console.log(error);
+      setSubmitButton("upload niet gelukt");
       setPostError(error.toString());
     } finally {
       setSubmitting(false);
@@ -230,7 +241,7 @@ export default function nieuweCursus() {
                           className="button__primary--dark mx-5"
                           type="submit"
                         >
-                          {submitting ? "momentje.." : "volgende stap 1/2"}
+                          {submitButton}
                         </button>
                         {postError && (
                           <span>

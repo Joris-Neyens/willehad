@@ -1,5 +1,7 @@
+
+import PropTypes from "prop-types";
 import axios from "axios";
-import { BASE_URL } from "../src/api/baseUrl";
+import { BASE_URL, HOME_PATH, COURSES_PATH } from "../src/api/baseUrl";
 import Head from "../src/components/head/Head";
 import Header from "../src/components/layout/header/Header";
 import Layout from "../src/components/layout/Layout";
@@ -8,13 +10,8 @@ import Reviews from "../src/components/pages/home/Reviews";
 import ShortAboutCourse from "../src/components/pages/home/ShortAboutCourse";
 import Uitleg from "../src/components/pages/home/Uitleg";
 
+export default function Home({ home, courses }) {
 
-export default function Home({ home }) {
-
-  const {id, title, header_subtitle, course_date, header_image, course_title, course_image, course_description} = home
-
-
-  let primaryLink = "/cursus-aanbod/" + home.id;
   return (
     <div className="wrapper">
       <Layout>
@@ -23,24 +20,22 @@ export default function Home({ home }) {
           description="willehad cursus platform startpagina"
         ></Head>
         <Header
-          url={header_image.url}
+          courses={courses}
+          buttonPrimary="/cursus-aabod"
+          buttonSecondary="/cursus-aanbod"
+          title={home.title}
+          url={home.header_image.url}
+          modal={false}
+          home={home}
           viewHeight={100}
           textCol="4"
-          id={id}
-          alt={("cursus afbeelding:", title)}
-          title={title}
-          header_subtitle={header_subtitle}
-          date={course_date}
-          buttonPrimary={primaryLink}
-          buttonSecondary="/cursus-aanbod/"
+          subtitle={home.header_subtitle}
+          date={home.course_date}
         />
         <Uitleg />
         <ShortAboutCourse
-          url={course_image.url}
-          alt={("afbeelding voor de cursus:", course_title)}
-          startDate={course_date}
-          title={course_title}
-          text={course_description}
+          courses={courses}
+          home={home}
           buttonPrimary="meer info"
           buttonSecondary="meld je aan"
         />
@@ -55,9 +50,11 @@ export default function Home({ home }) {
   );
 }
 export async function getServerSideProps() {
-  const url = BASE_URL + "home";
+  const url = BASE_URL + HOME_PATH;
+  const courseUrl = BASE_URL + COURSES_PATH;
 
   let home = [];
+  let courses = []
 
   try {
     const response = await axios.get(url);
@@ -66,9 +63,24 @@ export async function getServerSideProps() {
   } catch (error) {
     console.log(error);
   }
+
+  try {
+    const response = await axios.get(courseUrl);
+    console.log(response.data);
+    courses = response.data;
+  } catch (error) {
+    console.log(error);
+  }
+
   return {
     props: {
       home: home,
+      courses: courses,
     },
   };
+}
+
+Home.propTypes = {
+  home: PropTypes.object,
+  courses: PropTypes.object,
 }

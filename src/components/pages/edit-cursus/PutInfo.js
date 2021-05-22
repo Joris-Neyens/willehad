@@ -1,13 +1,12 @@
+import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { Form } from "react-bootstrap";
 import { BASE_URL } from "../../../api/baseUrl";
-import { useContext } from "react";
 import AuthContext from "../../../../src/context/AuthContext";
-
 
 export default function PutInfo({ course }) {
   const {
@@ -31,9 +30,8 @@ export default function PutInfo({ course }) {
   const [putError, setPutError] = useState(null);
   const [submitButton, setSubmitButton] = useState("upload");
 
-    const { getToken } = useContext(AuthContext);
-    const token = getToken("auth");
-
+  const { getToken } = useContext(AuthContext);
+  const token = getToken("auth");
 
   const schema = yup.object().shape({
     title: yup.string().required("Vul de cursus titel in"),
@@ -77,9 +75,9 @@ export default function PutInfo({ course }) {
           "content-type": "application/json",
         },
       });
-       if (response) {
-         setSubmitButton("upload succesvol");
-       }
+      if (response) {
+        setSubmitButton("upload succesvol");
+      }
       console.log("Success", response);
     } catch (error) {
       setSubmitButton("upload niet gelukt");
@@ -237,4 +235,8 @@ export default function PutInfo({ course }) {
       </form>
     </div>
   );
+}
+
+PutInfo.protoTypes = {
+  course: PropTypes.object.isRequired,
 }

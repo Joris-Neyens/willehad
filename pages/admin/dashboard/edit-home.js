@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import DashboardMenu from "../../../src/components/layout/DashboardMenu";
 import axios from "axios";
-import AdminLayout from '../../../src/components/layout/AdminLayout';
+import AdminLayout from "../../../src/components/layout/AdminLayout";
 import Head from "../../../src/components/head/Head";
 import SideNav from "../../../src/components/layout/SideNav";
 import PutHomeInfo from "../../../src/components/pages/edit-home/PutHomeInfo";
@@ -9,11 +10,7 @@ import PutHomeCourseImg from "../../../src/components/pages/edit-home/PutHomeCou
 import { BASE_URL } from "../../../src/api/baseUrl";
 
 export default function editHome({ home }) {
-  const {
-    id,
-    header_image,
-    course_image,
-  } = home;
+  const { id, header_image, course_image } = home;
 
   return (
     <div>
@@ -27,9 +24,7 @@ export default function editHome({ home }) {
               <div className="row">
                 <div className="col-10 pl-5">
                   <h1>Edit Home</h1>
-                  <PutHomeInfo
-                    home={home}
-                  />
+                  <PutHomeInfo home={home} />
                   <h4 className="pt-4 my-4">Media</h4>
                   <p>Header</p>
                   <PutHomeHeader id={id} header_image={header_image} />
@@ -59,4 +54,8 @@ export async function getServerSideProps() {
   return {
     props: { home: home },
   };
+}
+
+editHome.propTypes = {
+  home: PropTypes.object.isRequired,
 }

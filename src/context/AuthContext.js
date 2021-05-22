@@ -1,29 +1,29 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext } from "react";
 import localStorage from "localStorage";
+import PropTypes from "prop-types";
 
 const AuthContext = createContext({
-    setToken: () => { },
     getToken: () => { }
 });
 
 export const AuthContextProvider = ({ children }) => {
 
-    const setToken = (token) => {
-        localStorage.setItem("auth", token)
-    
-    }
     const getToken = (key) => {
       const tokenString = localStorage.getItem(key);
       const token = JSON.parse(tokenString)
       return token
       };
 
-    const context = {getToken, setToken}
+  const context = { getToken }
     
-    return (
-      <AuthContext.Provider value={context}>{children}</AuthContext.Provider>
+  return (
+    <AuthContext.Provider value={context}>{children}</AuthContext.Provider>
     );
     
 }
+
+AuthContextProvider.propTypes = {
+  children: PropTypes.node.isRequired
+};
 
 export default AuthContext
