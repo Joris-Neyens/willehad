@@ -1,11 +1,35 @@
+html, body {
+  height: 100%;
+ position: relative;
+}
 body {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
+
+.wrapper {
+ min-height: 100vh;
+ overflow: hidden;
+ display: block;
+ position: relative;
+ padding-bottom: 228.8px;
+}
+
 section.newsletter {
   height: auto;
 }
 .admin {
   height: 75vh
+}
+footer {
+  position: absolute;
+ bottom: 0;
+ width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper{
+    padding-bottom: 500px;
+  }
 }

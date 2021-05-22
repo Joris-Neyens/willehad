@@ -25,30 +25,31 @@ export default function Course({ course }) {
           title={course.title}
           description={"course info for " + course.title}
         />
-        <Layout>
-          <Header
-            title={title}
-            subtitle={subtitle}
-            url={cover.url}
-            viewHeight={80}
-            textCol="12"
-            modal="modal"
-          />
-          <AboutCourse
-            title="Over deze cursus"
-            text={description_long}
-            button={whitePaperFile}
-            url={about_course_image.url}
-          />
-          <ExplainCourse />
-          <PracticalInfo practical_info_1={practical_info_1} practical_info_2={practical_info_2} />
-          <Docent
-            teacher={teacher}
-            teacherInfo={teacher_description}
-            teacherImage={teacher_image}
-          />
-          <Curriculum curriculum={curriculum} />
-        </Layout>
+        <div className="wrapper">
+          <Layout>
+            <Header
+              title={title}
+              subtitle={subtitle}
+              url={cover.url}
+              viewHeight={80}
+              textCol="12"
+              modal="modal"
+            />
+            <AboutCourse
+              course={course}
+            />
+            <ExplainCourse />
+            <PracticalInfo
+              course={course}
+            />
+            <Docent
+              teacher={teacher}
+              teacherInfo={teacher_description}
+              teacherImage={teacher_image}
+            />
+            <Curriculum curriculum={curriculum} />
+          </Layout>
+        </div>
       </>
     );
 }

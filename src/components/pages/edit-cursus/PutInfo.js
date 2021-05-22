@@ -22,7 +22,7 @@ export default function PutInfo({ course }) {
     type,
     subtitle,
     episodes,
-  } = home;
+  } = course;
 
   const [submitting, setSubmitting] = useState(false);
   const [putError, setPutError] = useState(null);
@@ -194,7 +194,6 @@ export default function PutInfo({ course }) {
             <option>Geschiedenis</option>
             <option>Bijbel studie</option>
             <option>Catechese</option>
-            <option>filosofie</option>
           </select>
           <p className="mb-0">Type cursus</p>
           <select

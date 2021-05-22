@@ -8,7 +8,7 @@ export default function Header({
   date,
   buttonPrimary,
   buttonSecondary,
-  type,
+  course_type,
   textCol,
   modal,
 }) {
@@ -26,8 +26,8 @@ export default function Header({
   let headerButtonSecondary = "";
   let headerModal = ""
 
-  if (type) {
-    headerType = <p className="jumbotron__content-type m-0">{type}</p>;
+  if (course_type) {
+    headerType = <p className="jumbotron__content-type m-0">{course_type}</p>;
   }
   if (title) {
     headerTitle = <p className="jumbotron__content-title">{title}</p>;

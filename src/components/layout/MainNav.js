@@ -60,7 +60,7 @@ export default function MainNav() {
           <a id="logo">Willehad</a>
         </Link>
 
-        <Navbar.Toggle className="border-0 " >
+        <Navbar.Toggle className="border-0 ">
           <HamburgerSpring
             buttonColor="#f8f9fa"
             buttonWidth={30}

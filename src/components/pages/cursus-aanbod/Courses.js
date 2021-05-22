@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
-import CourseInfo from './CourseInfo';
+import CourseCards from './CourseCards';
 
 export default function Courses({ courses }) {
   const [courseInfo, setCourseInfo] = useState(courses);
@@ -59,46 +59,47 @@ export default function Courses({ courses }) {
 
   return (
     <>
-      <div className="container position-relative pb-5">
-        <div className="row">
-          <div className="col-11">
-            <h1 className="mb-4">Cursus aanbod</h1>
-            <select
-              className="col-2 offset-10 custom-select mr-sm-2"
-              id="select"
-              onChange={e => sortCourses(e.target.value)}
-            >
-              <option value="prijs" placeholder="prijs">
-                Prijs
-              </option>
-              <option value="laag">Laag</option>
-              <option value="hoog">Hoog</option>
-            </select>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-3">
-            <div className="input-group mb-2 mt-3 mr-sm-2">
-              <div className="input-group-prepend">
-                <div className="input-group-text">
-                  <FontAwesomeIcon
-                    className="search-icon"
-                    icon={faSearch}
-                  ></FontAwesomeIcon>
-                </div>
-              </div>
-              <input
-                className="form-control"
-                onChange={e => searchCourses(e.target.value)}
-                placeholder="zoek title of onderwerp"
-              ></input>
+        <div className="container position-relative pb-5">
+          <div className="row">
+            <div className=" col-12 col-lg-11">
+              <h1 className="mb-4">Cursus aanbod</h1>
+              <select
+                className=" col-4 offset-8 col-lg-2 offset-lg-10 custom-select mr-sm-2"
+                id="select"
+                onChange={e => sortCourses(e.target.value)}
+              >
+                <option value="prijs" placeholder="prijs">
+                  Prijs
+                </option>
+                <option value="laag">Laag</option>
+                <option value="hoog">Hoog</option>
+              </select>
             </div>
           </div>
-          <div className="col-8">
-            <CourseInfo key={courseInfo.id}  courseInfo={courseInfo} />
+          <div className="row">
+            <div className="col-12 col-lg-3">
+              <div className="input-group mb-2 mt-3 mr-sm-2">
+                <div className="input-group-prepend">
+                  <div className="input-group-text">
+                    <FontAwesomeIcon
+                      className="search-icon"
+                      icon={faSearch}
+                    ></FontAwesomeIcon>
+                  </div>
+                </div>
+                <input
+                  className="form-control"
+                  onChange={e => searchCourses(e.target.value)}
+                  placeholder="zoek title of onderwerp"
+                ></input>
+              </div>
+            </div>
+            <div className="col-12 col-lg-8">
+              <CourseCards key={courseInfo.id} courseInfo={courseInfo} />
+            </div>
           </div>
         </div>
-      </div>
+
     </>
   );
 }

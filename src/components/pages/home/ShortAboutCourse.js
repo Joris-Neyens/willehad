@@ -14,12 +14,12 @@ export default function shortAboutCourse({
 
   if (buttonPrimary) {
     buttonOne = (
-      <button className="button__primary col-4 ml-3">{buttonPrimary}</button>
+      <button className="button__primary col-5">{buttonPrimary}</button>
     );
   }
   if (buttonSecondary) {
     buttonTwo = (
-      <button className="button__secondary--dark col-4 ml-3">
+      <button className="button__secondary--dark col-5 ml-3">
         {buttonSecondary}
       </button>
     );
@@ -48,7 +48,7 @@ export default function shortAboutCourse({
             </p>
             <h2 className="pt-1 text-center text-lg-left">{title}</h2>
             <p className="pt-2 text-center text-lg-left">{text}</p>
-            <div className="row offset-2 offset-lg-0 mt-4">
+            <div className="d-flex justify-content-center justify-content-lg-start">
               {buttonOne}
               {buttonTwo}
             </div>

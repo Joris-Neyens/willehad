@@ -58,79 +58,81 @@ export default function contact() {
   return (
     <>
       <Head title="contact" description="wie is Willehad en contactformulier" />
-      <Layout>
-        <main className="contact py-5">
-          <div className="container pb-5">
-            <div className="row">
-              <div className="col-6 offset-3">
-                <h1>Contact</h1>
-                <p>
-                  Willehad had is een initiatief van het{" "}
-                  <Link href="https://www.thomistischinstituut.nl/">
-                    Thomistisch Instituut
-                  </Link>{" "}
-                  en heeft als doel jongeren en gezinnen aan te moedigen op reis
-                  te gaan door de grote intellectuele Traditie van de Katholieke
-                  Kerk door het toegankelijk te maken. Voor vragen of
-                  opmerkingen kunt u gebruik maken van het onderstaand
-                  formulier. Wij doen ons best om u binnen twee werkdagen te
-                  antwoorden.
-                </p>
+      <div className="wrapper">
+        <Layout>
+          <main className="contact py-5">
+            <div className="container">
+              <div className="row">
+                <div className="col-12 col-lg-6 offset-lg-3">
+                  <h1>Contact</h1>
+                  <p>
+                    Willehad had is een initiatief van het{" "}
+                    <Link href="https://www.thomistischinstituut.nl/">
+                      Thomistisch Instituut
+                    </Link>{" "}
+                    en heeft als doel jongeren en gezinnen aan te moedigen op
+                    reis te gaan door de grote intellectuele Traditie van de
+                    Katholieke Kerk door het toegankelijk te maken. Voor vragen
+                    of opmerkingen kunt u gebruik maken van het onderstaand
+                    formulier. Wij doen ons best om u binnen twee werkdagen te
+                    antwoorden.
+                  </p>
+                </div>
+              </div>
+              <div className="row w-100 mx-auto pt-3">
+                <div className="col-12 col-lg-6 offset-lg-3 background-dark  p-3">
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <fieldset disabled={submitting}>
+                      <div className="row">
+                        <div className="col-8">
+                          <label>Naam</label>
+                          <input
+                            {...register("name")}
+                            id="naam"
+                            type="text"
+                            className="form-control"
+                          ></input>
+                          <p className="mb-0">{errors.name?.message}</p>
+                          <label>Email</label>
+                          <input
+                            {...register("email")}
+                            id="email"
+                            type="text"
+                            className="form-control"
+                          ></input>
+                          <p className="mb-0">{errors.email?.message}</p>
+                        </div>
+                        <div className="col-12">
+                          <label>Bericht</label>
+                          <textarea
+                            {...register("message")}
+                            className="form-control"
+                            id="message"
+                            rows="6"
+                          ></textarea>
+                          <p className="mb-0">{errors.message?.message}</p>
+                        </div>
+                      </div>
+                      <button
+                        type="submit"
+                        className="button__primary--dark mt-3 px-4"
+                      >
+                        {submitButton}
+                      </button>
+                      {postError && (
+                        <span>
+                          Sorry er is iets mis gegaan, probeer het later nog een
+                          keer
+                        </span>
+                      )}
+                    </fieldset>
+                  </form>
+                </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-6 offset-3 background-dark  p-3 rounded">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <fieldset disabled={submitting}>
-                    <div className="row">
-                      <div className="col-8">
-                        <label >Naam</label>
-                        <input
-                          {...register("name")}
-                          id="naam"
-                          type="text"
-                          className="form-control"
-                        ></input>
-                        <p className="mb-0">{errors.name?.message}</p>
-                        <label>Email</label>
-                        <input
-                          {...register("email")}
-                          id="email"
-                          type="text"
-                          className="form-control"
-                        ></input>
-                        <p className="mb-0">{errors.email?.message}</p>
-                      </div>
-                      <div className="col-12">
-                        <label>Bericht</label>
-                        <textarea
-                          {...register("message")}
-                          className="form-control"
-                          id="message"
-                          rows="6"
-                        ></textarea>
-                        <p className="mb-0">{errors.message?.message}</p>
-                      </div>
-                    </div>
-                    <button
-                      type="submit"
-                      className="button__primary--dark mt-3 px-4"
-                    >
-                      {submitButton}
-                    </button>
-                    {postError && (
-                      <span>
-                        Sorry er is iets mis gegaan, probeer het later nog een
-                        keer
-                      </span>
-                    )}
-                  </fieldset>
-                </form>
-              </div>
-            </div>
-          </div>
-        </main>
-      </Layout>
+          </main>
+        </Layout>
+      </div>
     </>
   );
 }

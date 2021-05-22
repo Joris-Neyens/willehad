@@ -16,40 +16,42 @@ export default function Home({ home }) {
 
   let primaryLink = "/cursus-aanbod/" + home.id;
   return (
-    <Layout>
-      <Head
-        title="Home"
-        description="willehad cursus platform startpagina"
-      ></Head>
-      <Header
-        url={header_image.url}
-        viewHeight={100}
-        textCol="4"
-        id={id}
-        alt={("cursus afbeelding:", title)}
-        title={title}
-        header_subtitle={header_subtitle}
-        date={course_date}
-        buttonPrimary={primaryLink}
-        buttonSecondary="/cursus-aanbod/"
-      />
-      <Uitleg />
-      <ShortAboutCourse
-        url={ course_image.url }
-        alt={("afbeelding voor de cursus:", course_title)}
-        startDate={course_date}
-        title={course_title}
-        text={course_description}
-        buttonPrimary="meer info"
-        buttonSecondary="meld je aan"
-      />
-      <Newsletter />
-      <Reviews
-        title="verassend"
-        name="jan jansen"
-        review="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
-      />
-    </Layout>
+    <div className="wrapper">
+      <Layout>
+        <Head
+          title="Home"
+          description="willehad cursus platform startpagina"
+        ></Head>
+        <Header
+          url={header_image.url}
+          viewHeight={100}
+          textCol="4"
+          id={id}
+          alt={("cursus afbeelding:", title)}
+          title={title}
+          header_subtitle={header_subtitle}
+          date={course_date}
+          buttonPrimary={primaryLink}
+          buttonSecondary="/cursus-aanbod/"
+        />
+        <Uitleg />
+        <ShortAboutCourse
+          url={course_image.url}
+          alt={("afbeelding voor de cursus:", course_title)}
+          startDate={course_date}
+          title={course_title}
+          text={course_description}
+          buttonPrimary="meer info"
+          buttonSecondary="meld je aan"
+        />
+        <Newsletter />
+        <Reviews
+          title="verassend"
+          name="jan jansen"
+          review="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+        />
+      </Layout>
+    </div>
   );
 }
 export async function getServerSideProps() {

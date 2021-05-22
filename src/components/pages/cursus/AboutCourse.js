@@ -1,35 +1,25 @@
 import Image from "next/image";
 
-export default function ShortAbout({ url, title, text, button }) {
+export default function ShortAbout({ course }) {
 
-  console.log(button)
-
-  let whitepaperButton = ""
-  if (button) {
-    whitepaperButton = 
-      <button className="button__primary--dark col-4">Whitepaper</button>
-    
-  }
+  const { about_course_image, title, description_long} = course;
 
   return (
-    <section className="d-flex align-items-center py-5">
-      <div className="container py-5">
+    <section className="d-flex align-items-center pb-5 py-lg-5">
+      <div className="container py-lg-5">
         <div className="row">
-          <div className="col-5 ml-5">
-            <h2 className="pt-1">{title}</h2>
-            <p className="pt-2">{text}</p>
-            <div className="row mt-4">
-              { whitepaperButton }
-            </div>
+          <div className="col-12 col-md-6 col-lg-5 ml-lg-5 order-2 order-md-1">
+            <h2 className="pt-1">Over de cursus</h2>
+            <p className="pt-2">{description_long}</p>
           </div>
 
-          <div className="col-5 offset-1 my-4">
-                <Image
-                  src={url}
-                  className="text-right__image "
-                  layout="fill"
-             
-                />
+          <div className="col-12 col-md-5 col-lg-5 offset-md-1 my-4 order-1 order-md-2">
+            <Image
+              src={about_course_image.url}
+              className="text-right__image "
+              width="500"
+              height="300"
+            />
           </div>
         </div>
       </div>

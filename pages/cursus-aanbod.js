@@ -12,45 +12,56 @@ console.log(BASE_URL + COURSES_PATH)
 export default function cursusAanbod({ courses }) {
 
     return (
-        <>
-            <Head title="cursus aandbod" description="overzich over alle cursussen vam Willehad" />
-            <Layout>
-                {courses.map(function (course) {
+      <>
+        <Head
+          title="cursus aandbod"
+          description="overzich over alle cursussen vam Willehad"
+        />
+        <div className="wrapper">
+          <Layout>
+            {courses.map(function (course) {
+              const {
+                id,
+                title,
+                cover,
+                type
+              } = course;
 
-                    const { id, title, cover, type_audio, type_course, type_video, type_webinar } = course
+              let course_type = "";
 
-                    let type = ""
+              console.log(type)
 
-                    if (type_audio === true) {
-                        type = "Audio Cursus"
-                    } else if (type_course === true) {
-                        type = "Cursus Traject"
-                    } else if (type_video === true) {
-                        type = "Video Cursus"
-                    } else if (type_webinar === true) {
-                        type = "Webinar"
-                    } 
+              if (type === "Audio") {
+                course_type = "Audio Cursus";
+              } else if (type === "Cursus traject") {
+                course_type = "Cursus Traject";
+              } else if (type === "Video") {
+                course_type = "Video Cursus";
+              } else if (type === "Webinar") {
+                course_type = "Webinar";
+              }
 
-        if (course.featured === true) {
-            let primaryLink = "/cursus-aanbod/" + id;
-            return (
-              <Header
-                    viewHeight={35}
+              if (course.featured === true) {
+                let primaryLink = "/cursus-aanbod/" + id;
+                return (
+                  <Header
+                    viewHeight={50}
                     textCol="8"
-                key={id}
-                title={title}
-                url={cover.url}
-                alt={("cursus afbeelding:", title)}
+                    key={id}
+                    title={title}
+                    url={cover.url}
+                    alt={("cursus afbeelding:", title)}
                     buttonPrimary={primaryLink}
-                type={type}
-              />
-            );
-        }
-                })}
-                <Courses key={courses[0].title} courses={courses}/>
-            </Layout>
-        </>
-    )
+                    course_type={course_type}
+                  />
+                );
+              }
+            })}
+            <Courses key={courses[0].title} courses={courses} />
+          </Layout>
+        </div>
+      </>
+    );
 }
 
 export async function getServerSideProps() {
