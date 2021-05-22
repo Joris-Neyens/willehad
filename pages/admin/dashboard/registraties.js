@@ -3,20 +3,20 @@ import axios from "axios";
 import { BASE_URL } from "../../../src/api/baseUrl";
 import Head from "../../../src/components/head/Head";
 import AdminLayout from "../../../src/components/layout/AdminLayout";
-import DashboardMenu from "../../../src/components/layout/DashboardMenu";
+import DashboardNav from "../../../src/components/layout/DashboardNav";
 import SideMenu from "../../../src/components/layout/SideNav";
 import Registrations from "../../../src/components/pages/registraties/Registrations";
 import Newsletters from "../../../src/components/pages/registraties/Newsletters";
 
 export default function register({ registrations, newsletters }) {
-  
+
   return (
     <>
       <Head
         title="contact inbox"
         description="overzicht over alle inkomende berichten"
       />
-      <DashboardMenu />
+      <DashboardNav />
       <AdminLayout>
         <div className="container-fluid">
           <div className="row">

@@ -6,7 +6,7 @@ export default function Practicalinfo({ course }) {
   const { practical_info_1, practical_info_2, title, id } = course;
 
   return (
-    <section className="py-5 mt-5">
+    <section className="py-lg-5 mt-3 mt-lg-5">
       <div className="text-center pt-5">
         <h2>Praktische informatie</h2>
       </div>

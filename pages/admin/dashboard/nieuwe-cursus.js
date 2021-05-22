@@ -8,7 +8,7 @@ import { Form } from "react-bootstrap";
 import AdminLayout from "../../../src/components/layout/AdminLayout";
 import Head from "../../../src/components/head/Head";
 import SideNav from "../../../src/components/layout/SideNav";
-import DashboardMenu from "../../../src/components/layout/DashboardMenu";
+import DashboardNav from "../../../src/components/layout/DashboardNav";
 import { BASE_URL, COURSES_PATH } from "../../../src/api/baseUrl";
 import AuthContext from "../../../src/context/AuthContext";
 
@@ -85,15 +85,15 @@ export default function nieuweCursus() {
 
   return (
     <>
-      <DashboardMenu />
+      <DashboardNav />
       <AdminLayout>
         <Head title="nieuwe cursus" description="voeg nieuwe cursus toe"></Head>
         <div className="container-fluid">
           <div className="row">
             <SideNav />
-            <div className="col-8 pb-4 mt-5">
+            <div className="col-12 col-lg-8 pb-4 mt-5">
               <div className="row">
-                <div className="col-10 pl-5">
+                <div className="col-12 col-lg-10 pl-lg-5">
                   <h1>Nieuwe cursus</h1>
                   <form className="mb-5 pb-5" onSubmit={handleSubmit(onSubmit)}>
                     <fieldset disabled={submitting}>

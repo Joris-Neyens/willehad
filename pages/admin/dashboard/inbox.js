@@ -3,7 +3,7 @@ import axios from "axios";
 import { BASE_URL } from "../../../src/api/baseUrl";
 import AdminLayout from "../../../src/components/layout/AdminLayout";
 import Head from "../../../src/components/head/Head";
-import DashboardMenu from "../../../src/components/layout/DashboardMenu";
+import DashboardNav from "../../../src/components/layout/DashboardNav";
 import SideNav from "../../../src/components/layout/SideNav";
 
 export default function inbox({ contacts }) {
@@ -13,7 +13,7 @@ export default function inbox({ contacts }) {
         title="contact inbox"
         description="overzicht over alle inkomende berichten"
       />
-      <DashboardMenu />
+      <DashboardNav />
       <AdminLayout>
         <div className="container-fluid">
           <div className="row">

@@ -46,8 +46,11 @@ export default function PostNewCover({ id }) {
   return (
     <>
       <div className="FileUpload mb-5">
-        <p>Cursus cover foto</p>
-        <form onSubmit={handleSubmit(submitData)}>
+        <p className="text-center text-lg-left">Cursus cover foto</p>
+        <form
+          className="d-flex flex-column d-lg-block align-items-center"
+          onSubmit={handleSubmit(submitData)}
+        >
           <fieldset disabled={submitting}>
             <input type="file" {...register("file")} />
           </fieldset>

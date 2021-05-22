@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import DashboardMenu from "../../../src/components/layout/DashboardMenu";
+import DashboardNav from "../../../src/components/layout/DashboardNav";
 import axios from "axios";
 import AdminLayout from "../../../src/components/layout/AdminLayout";
 import Head from "../../../src/components/head/Head";
@@ -16,7 +16,7 @@ export default function editHome({ home }) {
     <div>
       <Head title="edit homepage" description="edit homepage willehad"></Head>
       <AdminLayout>
-        <DashboardMenu />
+        <DashboardNav />
         <div className="container-fluid">
           <div className="row">
             <SideNav />

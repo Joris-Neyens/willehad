@@ -4,7 +4,7 @@ import Link from "next/link";
 import { BASE_URL } from "../../src/api/baseUrl";
 import AdminLayout from "../../src/components/layout/AdminLayout";
 import Head from "../../src/components/head/Head";
-import DashboardMenu from "../../src/components/layout/DashboardMenu";
+import DashboardNav from "../../src/components/layout/DashboardNav";
 import SideNav from "../../src/components/layout/SideNav";
 import LatestEvents from "../../src/components/pages/dashboard/LatestEvents";
 import LatestsNewsletterSub from "../../src/components/pages/dashboard/LatestsNewsletterSub";
@@ -15,11 +15,11 @@ export default function dashboard({ registrations, newsletters }) {
     <>
       <Head title="Dashboard" description="Aanpassingen maken aan de website" />
       <AdminLayout>
-        <DashboardMenu />
+        <DashboardNav />
         <div className="container">
-          <div className="row">
+          <div className="row w-100 mx-auto">
             <SideNav />
-            <main className="col-9 pb-4 mt-5">
+            <main className="col-12 col-lg-9 pb-4 mt-5">
               <div className="row">
                 <div className="col-12 p-0 pl-lg-4 pl-xl-5">
                   <h1>Dashboard</h1>
@@ -40,14 +40,14 @@ export default function dashboard({ registrations, newsletters }) {
                   <div className="d-flex">
                     <div className="w-50">
                       <Link href="/admin/dashboard/nieuwe-cursus">
-                        <div className="mt-5 button__dashboard py-4 background-light text-center shadow">
+                        <div className="mt-5 button__dashboard py-4 background-white text-center shadow">
                           cursus toevoegen
                         </div>
                       </Link>
                     </div>
-                    <div className="w-50 pl-4">
+                    <div className="w-50 pl-2 pl-md-4">
                       <Link href="/admin/dashboard/edit-cursus">
-                        <div className="mt-5 py-4 button__dashboard background-light text-center shadow">
+                        <div className="mt-5 py-4 button__dashboard background-white text-center shadow">
                           cursus aanpassen
                         </div>
                       </Link>

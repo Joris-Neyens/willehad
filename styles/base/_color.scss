@@ -21,9 +21,9 @@ img {
     background-color: $paragraph-background-dark;
 }
 .background-light {
-  background-color: white;
+  background-color: $background !important;
 }
-.background-blue {
- background-color: $primary;
- color: white;
+.background-white {
+ background-color: white;
+
 }

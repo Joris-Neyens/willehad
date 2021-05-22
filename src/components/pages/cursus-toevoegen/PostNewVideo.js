@@ -46,8 +46,11 @@ export default function PostNewVideo({ id }) {
   return (
     <>
       <div className="FileUpload mb-5">
-        <p>Video</p>
-        <form onSubmit={handleSubmit(submitData)}>
+        <p className="text-center text-lg-left">Video</p>
+        <form
+          className="d-flex flex-column d-lg-block align-items-center"
+          onSubmit={handleSubmit(submitData)}
+        >
           <fieldset disabled={submitting}>
             <input type="file" {...register("file")} />
           </fieldset>

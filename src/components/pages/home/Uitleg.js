@@ -69,13 +69,13 @@ export default function Uitleg() {
         </div>
         <div className="d-flex mt-5 justify-content-center">
           <Link href="/cursus-aanbod">
-            <button className="button__primary py-1 px-4" text="cursus aanbod">
+            <button className="button__primary py-1 px-md-4" text="cursus aanbod">
               cursus aanbod
             </button>
           </Link>
           <Link href="/hoe-het-werkt">
             <button
-              className="button__secondary--dark py-1 px-4 ml-4"
+              className="button__secondary--dark py-1 px-md-4 ml-4"
               text="hoe het werkt"
             >
               hoe het werkt

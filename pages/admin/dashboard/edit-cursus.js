@@ -5,14 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import AdminLayout from "../../../src/components/layout/AdminLayout";
 import Head from "../../../src/components/head/Head";
-import DashboardMenu from "../../../src/components/layout/DashboardMenu";
+import DashboardNav from "../../../src/components/layout/DashboardNav";
 import SideNav from "../../../src/components/layout/SideNav";
 
 export default function editCourse({ courses }) {
   return (
     <>
       <Head title="edit homepage" description="edit homepage willehad" />
-      <DashboardMenu />
+      <DashboardNav />
       <AdminLayout>
         <div className="container-fluid">
           <div className="row">

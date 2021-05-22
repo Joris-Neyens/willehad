@@ -4,7 +4,7 @@ import Link from "next/link";
 import { BASE_URL, COURSES_PATH } from "../../../../src/api/baseUrl";
 import Head from "../../../../src/components/head/Head";
 import AdminLayout from "../../../../src/components/layout/AdminLayout";
-import DashboardMenu from "../../../../src/components/layout/DashboardMenu";
+import DashboardNav from "../../../../src/components/layout/DashboardNav";
 import DeleteCourse from "../../../../src/components/pages/edit-cursus/DeleteCourse";
 import PostCover from "../../../../src/components/pages/edit-cursus/PostCover";
 import PostTeacherCover from "../../../../src/components/pages/edit-cursus/PostTeacherCover";
@@ -21,7 +21,7 @@ export default function Course({ course }) {
   return (
     <>
       <Head title="edit cursus" description="edit cursus willehad" />
-      <DashboardMenu />
+      <DashboardNav />
       <AdminLayout>
         <div className="container-fluid">
           <div className="row">

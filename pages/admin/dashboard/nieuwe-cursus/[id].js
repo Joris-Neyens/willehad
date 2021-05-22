@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import SideNav from "../../../../src/components/layout/SideNav";
-import DashboardMenu from "../../../../src/components/layout/DashboardMenu";
+import DashboardNav from "../../../../src/components/layout/DashboardNav";
 import axios from "axios";
 import Head from "../../../../src/components/head/Head";
 import AdminLayout from "../../../../src/components/layout/AdminLayout";
@@ -15,7 +15,7 @@ export default function newCourseMedia({ course }) {
 
   return (
     <>
-      <DashboardMenu />
+      <DashboardNav />
       <Head
         title="nieuwe cursus"
         description="voeg media toe aan nieuwe cursus"
@@ -24,15 +24,14 @@ export default function newCourseMedia({ course }) {
         <div className="container-fluid">
           <div className="row">
             <SideNav />
-            <div className="col-8 pb-4 mt-5">
+            <div className="col-12 col-lg-8 pb-4 mt-5">
               <div className="row">
-                <div className="col-10 pl-5">
-                  <h1>Media toevoegen</h1>
-                  <h4>{course.name}</h4>
-                  <PostNewCover key={course.title} id={id} />
-                  <PostNewTeacherCover key={course.teacher} id={id} />
-                  <PostAboutCourseImage key={course.type} id={id} />
-                  <PostNewVideo key={id} id={id} />
+                <div className="col-12 col-lg-10 pl-lg-5">
+                  <h1 className="text-center text-lg-left">Media toevoegen</h1>
+                    <PostNewCover key={course.title} id={id} />
+                    <PostNewTeacherCover key={course.teacher} id={id} />
+                    <PostAboutCourseImage key={course.type} id={id} />
+                    <PostNewVideo key={id} id={id} />
                 </div>
               </div>
             </div>

@@ -62,7 +62,7 @@ export default function MainNav() {
 
         <Navbar.Toggle className="border-0 ">
           <HamburgerSpring
-            buttonColor="#f8f9fa"
+             buttonColor="#F6F6F6"
             buttonWidth={30}
             barColor="#524E68"
             {...{ isActive, toggleButton }}
