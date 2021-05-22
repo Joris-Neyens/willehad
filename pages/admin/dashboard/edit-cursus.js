@@ -14,63 +14,46 @@ export default function editCourse({ courses }) {
       <Head title="edit homepage" description="edit homepage willehad" />
       <DashboardMenu />
       <AdminLayout>
-        <div className="container-fluid">
-          <div className="row">
-            <SideNav />
-            <div className="col-8 pb-4 mt-5">
-              <div className="row">
-                <div className="col-10 pl-5">
-                  <h1>Edit cursus</h1>
-                  {courses.map(function (course) {
-                    const { id, title, cover } = course;
+          <div className="container-fluid">
+            <div className="row">
+              <SideNav />
+              <div className="col-8 pb-4 mt-5">
+                <div className="row">
+                  <div className="col-10 pl-5">
+                    <h1>Edit cursus</h1>
+                    {courses.map(function (course) {
+                      const { id, title, cover } = course;
 
-                    let url = "/public/under-construction.jpg";
+                      let url = "/public/under-construction.jpg";
 
-                    if (cover) {
-                      url = cover.url;
-                    }
-                    return (
-                      <div key={id}>
-                        <Link href={`edit-cursus/${id}`}>
-                          <div className="p-2 mt-4 course-card shadow-sm">
-                            <div className="row">
-                              <Image
-                                src={url}
-                                className="pl-3"
-                                width="150"
-                                height="100"
-                              />
-                              <div className="col-6 pl-2">
-                                <h4>{title}</h4>
-                                <div className="row pt-5">
-                                  <div className="col-5">
-                                    <Link href={`edit-cursus/${id}`}>
-                                      <div className="button__primary--dark text-center">
-                                        edit cursus
-                                      </div>
-                                    </Link>
-                                  </div>
-
-                                  <div className="col-5">
-                                    <div
-                                      className="button__primary text-center"
-                                    >
-                                      delete course
-                                    </div>
-                                  </div>
+                      if (cover) {
+                        url = cover.url;
+                      }
+                      return (
+                        <div key={id}>
+                          <Link href={`edit-cursus/${id}`}>
+                            <div className="p-2 mt-4 course-card shadow-sm">
+                              <div className="row">
+                                <Image
+                                  src={url}
+                                  className="pl-3"
+                                  width="150"
+                                  height="100"
+                                />
+                                <div className="d-flex align-items-center col-6 pl-2">
+                                  <h4>{title}</h4>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        </Link>
-                      </div>
-                    );
-                  })}
+                          </Link>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
       </AdminLayout>
     </>
   );

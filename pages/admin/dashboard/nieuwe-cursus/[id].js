@@ -30,10 +30,10 @@ export default function newCourseMedia({ course }) {
                 <div className="col-10 pl-5">
                   <h1>Media toevoegen</h1>
                   <h4>{course.name}</h4>
-                  <PostNewCover key={course.title} id={id} />
-                  <PostNewTeacherCover key={course.teacher} id={id} />
-                  <PostAboutCourseImage key={course.type} id={id} />
-                  <PostNewVideo key={id} id={id} />
+                    <PostNewCover key={course.title} id={id} />
+                    <PostNewTeacherCover key={course.teacher} id={id} />
+                    <PostAboutCourseImage key={course.type} id={id} />
+                    <PostNewVideo key={id} id={id} />
                 </div>
               </div>
             </div>

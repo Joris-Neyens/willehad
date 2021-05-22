@@ -11,13 +11,16 @@ import Curriculum from "../../src/components/pages/cursus/Curriculum";
 
 export default function Course({ course }) {
 
-    const { whitepaper, title, description_long, about_course_image, subtitle, cover, teacher, teacher_description, practical_info_1, practical_info_2, curriculum, teacher_image} = course
-
-  let whitePaperFile
   
-  if (whitepaper) {
-    whitePaperFile = whitepaper
-  }
+    const {
+      title,
+      subtitle,
+      cover,
+      teacher,
+      teacher_description,
+      curriculum,
+      teacher_image,
+    } = course;
 
     return (
       <>
@@ -35,13 +38,9 @@ export default function Course({ course }) {
               textCol="12"
               modal="modal"
             />
-            <AboutCourse
-              course={course}
-            />
+            <AboutCourse course={course} />
             <ExplainCourse />
-            <PracticalInfo
-              course={course}
-            />
+            <PracticalInfo course={course} />
             <Docent
               teacher={teacher}
               teacherInfo={teacher_description}
@@ -52,6 +51,7 @@ export default function Course({ course }) {
         </div>
       </>
     );
+
 }
 
 

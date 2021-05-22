@@ -5,6 +5,9 @@ import { useState } from "react";
 import axios from "axios";
 import { Form } from "react-bootstrap";
 import { BASE_URL } from "../../../api/baseUrl";
+import { useContext } from "react";
+import AuthContext from "../../../../src/context/AuthContext";
+
 
 export default function PutInfo({ course }) {
   const {
@@ -27,6 +30,10 @@ export default function PutInfo({ course }) {
   const [submitting, setSubmitting] = useState(false);
   const [putError, setPutError] = useState(null);
   const [submitButton, setSubmitButton] = useState("upload");
+
+    const { getToken } = useContext(AuthContext);
+    const token = getToken("auth");
+
 
   const schema = yup.object().shape({
     title: yup.string().required("Vul de cursus titel in"),
@@ -66,17 +73,19 @@ export default function PutInfo({ course }) {
         url: url,
         data: data,
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOGJmM2RjYzZkYzgzMDAxNWQ3MmUwYSIsImlhdCI6MTYyMDA0MzcwMiwiZXhwIjoxNjIyNjM1NzAyfQ.HDVFp5zd8oC7wjSz4aOZjJORF5ptlL9pOfjgMjqMbNA",
+          Authorization: `Bearer ${token}`,
           "content-type": "application/json",
         },
       });
+       if (response) {
+         setSubmitButton("upload succesvol");
+       }
       console.log("Success", response);
     } catch (error) {
+      setSubmitButton("upload niet gelukt");
       setPutError(error.toString());
     } finally {
       setSubmitting(false);
-      setSubmitButton("upload succesvol");
     }
   };
 

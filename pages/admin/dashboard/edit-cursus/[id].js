@@ -4,6 +4,7 @@ import { BASE_URL, COURSES_PATH } from "../../../../src/api/baseUrl";
 import Head from "../../../../src/components/head/Head";
 import AdminLayout from "../../../../src/components/layout/AdminLayout";
 import DashboardMenu from "../../../../src/components/layout/DashboardMenu";
+import DeleteCourse from '../../../../src/components/pages/edit-cursus/DeleteCourse';
 import PostCover from "../../../../src/components/pages/edit-cursus/PostCover";
 import PostTeacherCover from "../../../../src/components/pages/edit-cursus/PostTeacherCover";
 import PostVideo from "../../../../src/components/pages/edit-cursus/PostVideo";
@@ -35,18 +36,15 @@ export default function Course({ course }) {
               <div className="row">
                 <div className="col-10 pl-5">
                   <h1>Edit cursus</h1>
-                  <PutInfo
-                    course={ course }
-                  />
+                  <div className="py-4">
+                    <DeleteCourse key={cover.id} id={id} />
+                  </div>
+                  <PutInfo course={course} />
                   <h4 className="pt-4 my-4">Media</h4>
                   <div className="row">
                     <div className="col-6">
                       <p>Cover</p>
-                      <PostCover
-                        key={id}
-                        id={id}
-                        cover={cover}
-                      />
+                      <PostCover key={id} id={id} cover={cover} />
                     </div>
                     <div className="col-6">
                       <p>Teacher image</p>

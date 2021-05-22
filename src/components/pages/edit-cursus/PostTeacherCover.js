@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BASE_URL, UPLOAD_PATH } from "../../../api/baseUrl";
 import Image from "next/image";
+import { useContext } from "react";
+import AuthContext from "../../../../src/context/AuthContext";
 
 const postUrl = BASE_URL + UPLOAD_PATH;
 
@@ -11,6 +13,9 @@ export default function PostTeacherCover({ id, teacher_image }) {
   const [submitting, setSubmitting] = useState(false);
   const { register, handleSubmit } = useForm();
   const [submitButton, setSubmitButton] = useState("upload");
+
+  const { getToken } = useContext(AuthContext);
+  const token = getToken("auth");
 
   const submitData = async (data) => {
     setSubmitting(true);
@@ -26,13 +31,20 @@ export default function PostTeacherCover({ id, teacher_image }) {
         method: "POST",
         url: postUrl,
         data: formData,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "content-type": "application/json",
+        },
       });
       console.log("Success", response);
+       if (response) {
+         setSubmitButton("upload succesvol");
+       }
     } catch (error) {
+      setSubmitButton("upload niet gelukt");
       console.log(error);
     } finally {
       setSubmitting(false);
-       setSubmitButton("upload succesvol");
     }
   };
 

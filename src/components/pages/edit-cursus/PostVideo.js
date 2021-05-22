@@ -2,13 +2,18 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { BASE_URL, UPLOAD_PATH } from "../../../api/baseUrl";
+import { useContext } from "react";
+import AuthContext from "../../../../src/context/AuthContext";
 
 const url = BASE_URL + UPLOAD_PATH;
 
 export default function PostVideo({ id, video }) {
   const { register, handleSubmit } = useForm();
   const [submitting, setSubmitting] = useState(false);
-    const [submitButton, setSubmitButton] = useState("upload");
+  const [submitButton, setSubmitButton] = useState("upload");
+    
+  const { getToken } = useContext(AuthContext);
+  const token = getToken("auth");
 
   const submitData = async (data) => {
     setSubmitting(true);
@@ -24,13 +29,20 @@ export default function PostVideo({ id, video }) {
         method: "POST",
         url: url,
         data: formData,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "content-type": "application/json",
+        },
       });
       console.log("Success", response);
+       if (response) {
+         setSubmitButton("upload succesvol");
+       }
     } catch (error) {
+       setSubmitButton("upload niet gelukt");
       console.log(error);
     } finally {
       setSubmitting(false);
-      setSubmitButton("upload succesvol");
     }
   };
 

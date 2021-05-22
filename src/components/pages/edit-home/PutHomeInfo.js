@@ -4,6 +4,8 @@ import * as yup from "yup";
 import { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../../api/baseUrl";
+import { useContext } from "react";
+import AuthContext from "../../../../src/context/AuthContext";
 
 const url = BASE_URL + "home";
 
@@ -13,6 +15,10 @@ export default function PutHomeInfo({ home }) {
     
  const [submitting, setSubmitting] = useState(false);
   const [putError, setPutError] = useState(null);
+  const [submitButton, setSubmitButton] = useState("upload");
+
+  const { getToken } = useContext(AuthContext);
+  const token = getToken("auth");
 
   const schema = yup.object().shape({
     title: yup
@@ -44,6 +50,7 @@ export default function PutHomeInfo({ home }) {
 
     setSubmitting(true);
     setPutError(null);
+     setSubmitButton("loading..");
 
     try {
       const response = await axios({
@@ -51,11 +58,13 @@ export default function PutHomeInfo({ home }) {
         url: url,
         data: data,
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOGJmM2RjYzZkYzgzMDAxNWQ3MmUwYSIsImlhdCI6MTYyMDA0MzcwMiwiZXhwIjoxNjIyNjM1NzAyfQ.HDVFp5zd8oC7wjSz4aOZjJORF5ptlL9pOfjgMjqMbNA",
+          Authorization: `Bearer ${token}`,
           "content-type": "application/json",
         },
       });
+        if (response) {
+          setSubmitButton("upload succesvol");
+        }
       console.log("Success", response);
     } catch (error) {
       console.log(error);
@@ -122,7 +131,7 @@ export default function PutHomeInfo({ home }) {
         </div>
         <div className="d-flex col-8 justify-content-center">
           <button className="button__primary--dark px-4 mt-2">
-            {submitting ? "momentje.." : "Submit"}
+            { submitButton }
           </button>
           {putError && (
             <span>

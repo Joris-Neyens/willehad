@@ -12,11 +12,6 @@ export default function editHome({ home }) {
   const {
     id,
     header_image,
-    course_date,
-    title,
-    subtitle,
-    course_title,
-    course_description,
     course_image,
   } = home;
 
