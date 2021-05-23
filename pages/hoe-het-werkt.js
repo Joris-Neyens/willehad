@@ -28,7 +28,7 @@ export default function hoeHetWerkt() {
               </div>
               <div className="row">
                 <div className="col-12 offset-0 col-lg-6 offset-lg-3 mb-5">
-                  <h2 className="hoe-het-werkt__title pl-2">Samen</h2>
+                  <h2 className="hoe-het-werkt__title py-2 pl-2">Samen</h2>
                   <p>
                     Een essentieel deel van het groeien in geloof is de
                     gemeenschap. We beperken ons zelf als we proberen alles
@@ -50,7 +50,9 @@ export default function hoeHetWerkt() {
                     tijd om niet alleen te groeien in kennis, maar om deze
                     kennis je leven te laten veranderen.
                   </p>
-                  <h2 className="hoe-het-werkt__title pl-2 mt-5">Verdieping</h2>
+                  <h2 className="hoe-het-werkt__title py-2 pl-2 mt-5">
+                    Verdieping
+                  </h2>
                   <p>
                     Leren is meer dan het opnemen van nieuwe informatie. Door
                     kritische vragen te stellen over de inhoud van de cursus kun
@@ -66,7 +68,7 @@ export default function hoeHetWerkt() {
                     uit te dagen, jou inbreng zal de anderen in jou groep ook
                     scherp houden.
                   </p>
-                  <h2 className="hoe-het-werkt__title pl-2 mt-5">
+                  <h2 className="hoe-het-werkt__title py-2 pl-2 mt-5">
                     Begeleiding
                   </h2>
                   <p>
@@ -81,7 +83,7 @@ export default function hoeHetWerkt() {
                     de mogelijkheid om het vuur aan de scheenen van de docent te
                     leggen om zo verder te kunnen in je traject.
                   </p>
-                  <h2 className="hoe-het-werkt__title pl-2 mt-5">
+                  <h2 className="hoe-het-werkt__title py-2 pl-2 mt-5">
                     Na het traject
                   </h2>
                   <p>

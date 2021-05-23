@@ -13,6 +13,7 @@ export default function Uitleg() {
             <div className="row flex-lg-column">
               <div className="col-2 col-md-1 offset-md-1 col-lg-3 mx-lg-auto">
                 <Image
+                  alt="icoon laat afstudeer muts"
                   src="/cursus.png"
                   layout="responsive"
                   width="120"
@@ -32,6 +33,7 @@ export default function Uitleg() {
             <div className="row flex-lg-column">
               <div className="col-2 col-md-1 offset-md-1 col-lg-3 mx-lg-auto">
                 <Image
+                  alt="icoon textbalonnen"
                   src="/samen.png"
                   layout="responsive"
                   width="50"
@@ -51,6 +53,7 @@ export default function Uitleg() {
             <div className="row">
               <div className="col-2 col-md-1 offset-md-1 col-lg-3 mx-lg-auto">
                 <Image
+                  alt="icoon pc met avatar"
                   src="/begeleiding.png"
                   layout="responsive"
                   width="100"

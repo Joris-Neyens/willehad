@@ -82,5 +82,5 @@ export async function getServerSideProps() {
 
 Home.propTypes = {
   home: PropTypes.object,
-  courses: PropTypes.object,
+  courses: PropTypes.array,
 }

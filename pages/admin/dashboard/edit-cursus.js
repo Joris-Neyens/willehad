@@ -17,9 +17,9 @@ export default function editCourse({ courses }) {
         <div className="container-fluid">
           <div className="row">
             <SideNav />
-            <div className="col-8 pb-4 mt-5">
+            <div className="col-lg-8 pb-4 mt-5">
               <div className="row">
-                <div className="col-10 pl-5">
+                <div className="col-lg-10 pl-lg-5">
                   <h1>Edit cursus</h1>
                   {courses.map(function (course) {
                     const { id, title, cover } = course;

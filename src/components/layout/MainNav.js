@@ -2,24 +2,19 @@ import Link from "next/link";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import React, { useState, useCallback } from "react";
-import { HamburgerSpring } from "react-animated-burgers";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
 
 export default function MainNav() {
 
-  const [isActive, setIsActive] = useState(false);
-  const toggleButton = useCallback(
-    () => setIsActive(prevState => !prevState),
-    []
-  );
 
   return (
     <>
-      <div className="menu sticky-top d-none d-lg-block">
+      <div className="menu d-none d-lg-block">
         <div className="container-fluid">
           <nav className="py-2 row">
-            <div className="col-3">
+            <div className="col-3 py-1">
               <Link href="/">
                 <a id="logo">Willehad</a>
               </Link>
@@ -55,19 +50,12 @@ export default function MainNav() {
           </nav>
         </div>
       </div>
-      <Navbar className="d-lg-none sticky-top" bg="light" expand="lg">
+      <Navbar className="d-lg-none" bg="light" expand="lg">
         <Link href="/">
           <a id="logo">Willehad</a>
         </Link>
 
-        <Navbar.Toggle className="border-0 ">
-          <HamburgerSpring
-             buttonColor="#F6F6F6"
-            buttonWidth={30}
-            barColor="#524E68"
-            {...{ isActive, toggleButton }}
-          />
-        </Navbar.Toggle>
+        <Navbar.Toggle className="border-0 "/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Link href="/cursus-aanbod">

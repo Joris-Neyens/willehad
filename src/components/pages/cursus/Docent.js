@@ -15,6 +15,7 @@ export default function Docent({ teacherInfo, teacher, teacherImage }) {
           </div>
           <div className="col-6  offset-3 offset-md-0 mt-md-5 order-1 order-md-2">
             <Image
+              alt={"image of " + teacher}
               className="ml-md-5 mb-3"
               src={teacherImage.url}
               width="300"

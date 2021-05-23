@@ -4,12 +4,13 @@ export default function ExplainCourse() {
     return (
       <section className="background-dark p-md-5">
         <div className="container py-5">
-          <h2 className="pl-5 ml-3">cursus traject</h2>
+          <h2 className="pl-5 ml-3 text-lg-center">cursus traject</h2>
           <div className="row w-100 mx-auto mt-5">
             <div className="col-12 px-0 col-lg-4">
               <div className="row flex-lg-column">
                 <div className="col-2 col-md-1 offset-md-1 col-lg-3 mx-lg-auto">
                   <Image
+                    alt="icoon of afstudeer mutsje"
                     src="/cursus.png"
                     layout="responsive"
                     width="120"
@@ -29,6 +30,7 @@ export default function ExplainCourse() {
               <div className="row flex-lg-column">
                 <div className="col-2 col-md-1 offset-md-1 col-lg-3 mx-lg-auto">
                   <Image
+                    alt="icoon text ballonetjes"
                     src="/samen.png"
                     layout="responsive"
                     width="50"
@@ -48,6 +50,7 @@ export default function ExplainCourse() {
               <div className="row">
                 <div className="col-2 col-md-1 offset-md-1 col-lg-3 mx-lg-auto">
                   <Image
+                    alt="icoon pc met avatar"
                     src="/begeleiding.png"
                     layout="responsive"
                     width="100"

@@ -80,9 +80,9 @@ export default function PutHomeInfo({ home }) {
       <fieldset disabled={submitting}>
         <h4 className="mt-4 mb-3">Header info</h4>
         <p className="m-0">Titel</p>
-        <div className="col-8 px-0 py-2">
+        <div className="px-0 py-2">
           <input
-            className="form-control w-100 p-2 rounded"
+            className="form-control w-100 p-2"
             defaultValue={title}
             type="text"
             {...register("title")}
@@ -90,9 +90,9 @@ export default function PutHomeInfo({ home }) {
           <p className="error"> {errors.title?.message}</p>
         </div>
         <p className="m-0">datum cursus</p>
-        <div className="col-8 px-0 py-2">
+        <div className="px-0 py-2">
           <input
-            className="form-control w-100 p-2 rounded"
+            className="form-control w-100 p-2"
             defaultValue={course_date}
             type="text"
             {...register("course_date")}
@@ -100,9 +100,9 @@ export default function PutHomeInfo({ home }) {
           <p className="error">{errors.course_date?.message}</p>
         </div>
         <p className="m-0">header subtitle</p>
-        <div className="col-8 px-0 py-2">
+        <div className="px-0 py-2">
           <input
-            className="form-control w-100 p-2 rounded"
+            className="form-control w-100 p-2"
             defaultValue={header_subtitle}
             type="text"
             {...register("header_subtitle")}
@@ -111,9 +111,9 @@ export default function PutHomeInfo({ home }) {
         </div>
         <h4 className="mt-5 mb-3">Homepage cursus info</h4>
         <p className="m-0">Naam cursus</p>
-        <div className="col-8 px-0 py-2">
+        <div className="px-0 py-2">
           <input
-            className="form-control w-100 p-2 rounded"
+            className="form-control w-100 p-2"
             defaultValue={course_title}
             type="text"
             {...register("course_title")}
@@ -121,9 +121,9 @@ export default function PutHomeInfo({ home }) {
           <p className="error">{errors.course_title?.message}</p>
         </div>
         <p className="m-0">Cursus beschrijving</p>
-        <div className="col-8 px-0 py-2">
+        <div className="px-0 py-2">
           <textarea
-            className="form-control w-100 rounded"
+            className="form-control w-100"
             rows="8"
             defaultValue={course_description}
             type="text"
@@ -131,8 +131,8 @@ export default function PutHomeInfo({ home }) {
           />
           <p className="error">{errors.course_description?.message}</p>
         </div>
-        <div className="d-flex col-8 justify-content-center">
-          <button className="button__primary--dark px-4 mt-2">
+        <div className="d-flex justify-content-center">
+          <button className="button__primary--dark col-4 px-4 mt-2">
             { submitButton }
           </button>
           {putError && (

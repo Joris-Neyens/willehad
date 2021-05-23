@@ -18,9 +18,9 @@ export default function inbox({ contacts }) {
         <div className="container-fluid">
           <div className="row">
             <SideNav />
-            <div className="col-9 pb-4 mt-5">
+            <div className="col-lg-9 pb-4 mt-5">
               <div className="row">
-                <div className="col-12 pl-5">
+                <div className="col-12 pl-lg-5">
                   <h1>Inbox</h1>
                   <div className="row">
                     {contacts.map(function (contact) {
@@ -28,7 +28,7 @@ export default function inbox({ contacts }) {
                       return (
                         <div
                           key={id}
-                          className="col-lg-10 col-xl-8 m-3 p-3 bg-white"
+                          className="col-lg-10 col-xl-8 m-3 p-2 p-lg-3 bg-white"
                         >
                           <div className="row px-3">
                             <p className="pr-3 m-0">naam: </p>

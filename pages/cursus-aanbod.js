@@ -43,7 +43,6 @@ export default function cursusAanbod({ courses }) {
                   key={id}
                   title={title}
                   url={cover.url}
-                  alt={("cursus afbeelding:", title)}
                   buttonPrimary={primaryLink}
                   course_type={course_type}
                 />

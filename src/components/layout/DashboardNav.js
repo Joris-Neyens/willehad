@@ -2,8 +2,6 @@ import Link from "next/link";
 import localStorage from "localStorage";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import {useState, useCallback} from 'react'
-import { HamburgerSpring } from "react-animated-burgers";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
@@ -16,11 +14,6 @@ export default function DashboardMenu() {
     localStorage.clear()
     router.push("/admin")
   }
-  const [isActive, setIsActive] = useState(false);
-  const toggleButton = useCallback(
-    () => setIsActive(prevState => !prevState),
-    []
-  );
 
   return (
     <div className="menu">
@@ -80,14 +73,7 @@ export default function DashboardMenu() {
             <a id="logo">Willehad</a>
           </Link>
 
-          <Navbar.Toggle className="border-0">
-            <HamburgerSpring
-              buttonColor="#F6F6F6"
-              buttonWidth={30}
-              barColor="#524E68"
-              {...{ isActive, toggleButton }}
-            />
-          </Navbar.Toggle>
+          <Navbar.Toggle className="border-0"/>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Link href="/admin/dashboard  ">

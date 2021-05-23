@@ -18,4 +18,16 @@ $playfair: 'Playfair Display', serif;
     .container {
         min-width: 1400px !important;
     }
+    p {
+        font-size: 18px;
+    }
+    .menu__link {
+        font-size: 16px !important;
+    }
+    footer p, footer a {
+        font-size: 16px !important;
+    }
+    .footer__icon {
+        font-size: 26px !important;
+    }
 }

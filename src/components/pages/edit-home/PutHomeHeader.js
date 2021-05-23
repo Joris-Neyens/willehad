@@ -65,7 +65,7 @@ export default function PutHomeHeader({ id, header_image }) {
               </fieldset>
             </div>
             <div className="col-12">
-              <button className="button__primary--dark px-4 mt-3">
+              <button className="button__primary--dark col-4 px-4 mt-3">
                 { submitButton }
               </button>
             </div>

@@ -20,9 +20,9 @@ export default function editHome({ home }) {
         <div className="container-fluid">
           <div className="row">
             <SideNav />
-            <div className="col-8 pb-4 mt-5">
+            <div className="col-lg-8 pb-4 mt-5">
               <div className="row">
-                <div className="col-10 pl-5">
+                <div className="col-lg-10 pl-lg-5">
                   <h1>Edit Home</h1>
                   <PutHomeInfo home={home} />
                   <h4 className="pt-4 my-4">Media</h4>

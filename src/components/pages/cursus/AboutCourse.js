@@ -15,6 +15,7 @@ export default function ShortAbout({ course }) {
 
           <div className="col-12 col-md-5 col-lg-5 offset-md-1 my-4 order-1 order-md-2">
             <Image
+              alt={"afbeelding bij text over deze cursus"}
               src={about_course_image.url}
               className="text-right__image "
               width="500"

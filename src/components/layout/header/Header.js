@@ -3,7 +3,6 @@ import Link from "next/link";
 import HeaderModal from "./Modal";
 
 export default function Header({
-  courses,
   date,
   title,
   url,
@@ -15,8 +14,6 @@ export default function Header({
   buttonSecondary,
   subtitle,
 }) {
-
-
 
   const styles = {
     backgroundImage: `url(${url})`,

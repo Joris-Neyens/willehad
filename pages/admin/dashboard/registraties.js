@@ -21,9 +21,9 @@ export default function register({ registrations, newsletters }) {
         <div className="container-fluid">
           <div className="row">
             <SideMenu />
-            <div className="col-8 pb-4 mt-5">
+            <div className="col-lg-8 pb-4 mt-5">
               <div className="row">
-                <div className="col-10 pl-5">
+                <div className="col-lg-10 pl-lg-5">
                   <h1>Registraties</h1>
                   <h4 className="mt-5">cursus registraties</h4>
                   <Registrations registrations={registrations} />

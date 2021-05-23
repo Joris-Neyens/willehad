@@ -26,9 +26,9 @@ export default function Course({ course }) {
         <div className="container-fluid">
           <div className="row">
             <SideNav />
-            <div className="col-8 pb-4 mt-5">
+            <div className="col-lg-8 pb-4 mt-5">
               <div className="row">
-                <div className="col-10 pl-5">
+                <div className="col-lg-10 pl-lg-5">
                   <h1>Edit cursus</h1>
                   <div className="py-4">
                     <DeleteCourse key={cover.id} id={id} />
@@ -36,11 +36,11 @@ export default function Course({ course }) {
                   <PutInfo course={course} />
                   <h4 className="pt-4 my-4">Media</h4>
                   <div className="row">
-                    <div className="col-6">
+                    <div className="col-lg-6 mb-5 mb-lg-0">
                       <p>Cover</p>
                       <PostCover key={id} id={id} cover={cover} />
                     </div>
-                    <div className="col-6">
+                    <div className="col-lg-6">
                       <p>Teacher image</p>
                       <PostTeacherCover
                         key={teacher_image.id}
@@ -48,7 +48,7 @@ export default function Course({ course }) {
                         teacher_image={teacher_image}
                       />
                     </div>
-                    <div className="col-6 mt-4">
+                    <div className="col-lg-6 mt-4">
                       <p className="pt-4">
                         Over cursus afbeelding (landingspagina)
                       </p>

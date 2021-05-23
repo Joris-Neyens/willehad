@@ -98,82 +98,97 @@ export default function nieuweCursus() {
                   <form className="mb-5 pb-5" onSubmit={handleSubmit(onSubmit)}>
                     <fieldset disabled={submitting}>
                       <p className="mb-0">titel</p>
-                      <input
-                        className="form-control w-100 p-2 rounder-0"
-                        type="text"
-                        {...register("title")}
-                      />
+                      <div className="py-2">
+                        <input
+                          className="form-control w-100 p-2 rounder-0"
+                          type="text"
+                          {...register("title")}
+                        />
+                      </div>
                       <p className="error"> {errors.title?.message}</p>
                       <p className="mb-0">
                         uitgelicht, belangrijk dat er altijd maar eén cursus
                         uitgelicht is!
                       </p>
-                      <Form.Check
-                        type="switch"
-                        id="featured"
-                        {...register("featured")}
-                      />
+                      <div className="py-2">
+                        <Form.Check
+                          type="switch"
+                          id="featured"
+                          {...register("featured")}
+                        />
+                      </div>
                       <p className="mb-0 mt-2">
                         subtitle voor op de landingpage header image
                       </p>
-                      <input
-                        className="form-control w-100 p-2 rounder-0"
-                        type="text"
-                        {...register("subtitle")}
-                      />
+                      <div className="py-2">
+                        <input
+                          className="form-control w-100 p-2 rounder-0"
+                          type="text"
+                          {...register("subtitle")}
+                        />
+                      </div>
                       <p className="error"> {errors.title?.message}</p>
                       <p className="mb-0">
                         Korte beschrijving (twee zinnen) voor de cursus aanbod
                         pagina
                       </p>
-                      <textarea
-                        rows="2"
-                        className="form-control w-100 p-2"
-                        type="text"
-                        {...register("description_short")}
-                      />
+                      <div className="py-2">
+                        <textarea
+                          rows="2"
+                          className="form-control w-100 p-2"
+                          type="text"
+                          {...register("description_short")}
+                        />
+                      </div>
                       <p className="error">
                         {" "}
                         {errors.description_short?.message}
                       </p>
                       <p className="mb-0">uitgebreide beschrijving</p>
-                      <textarea
-                        rows="6"
-                        className="form-control w-100 p-2"
-                        type="text"
-                        {...register("description_long")}
-                      />
+                      <div className="py-2">
+                        <textarea
+                          rows="6"
+                          className="form-control w-100 p-2"
+                          type="text"
+                          {...register("description_long")}
+                        />
+                      </div>
                       <p className="error">
                         {" "}
                         {errors.description_long?.message}
                       </p>
                       <p className="mb-0">Prijs</p>
-                      <input
-                        className="form-control w-100 p-2"
-                        type="number"
-                        {...register("price")}
-                      />
+                      <div className="py-2">
+                        <input
+                          className="form-control w-100 p-2"
+                          type="number"
+                          {...register("price")}
+                        />
+                      </div>
                       <p className="error"> {errors.price?.message}</p>
                       <p className="mb-0">
                         Praktische informatie 1 (bv. data, voorbereiding)
                       </p>
-                      <textarea
-                        className="form-control w-100"
-                        rows="6"
-                        {...register("practical_info_1")}
-                      />
+                      <div className="py-2">
+                        <textarea
+                          className="form-control w-100"
+                          rows="6"
+                          {...register("practical_info_1")}
+                        />
+                      </div>
                       <p className="error">
-                        {" "}
                         {errors.practical_info_1?.message}
                       </p>
                       <p className="mb-0">
                         Praktische informatie 2 (bv. kosten, hoe aanmelden)
                       </p>
-                      <textarea
-                        className="form-control w-100"
-                        rows="6"
-                        {...register("practical_info_2")}
-                      />
+                      <div className="py-2">
+                        <textarea
+                          className="form-control w-100"
+                          rows="6"
+                          {...register("practical_info_2")}
+                        />
+                      </div>
                       <p className="error">
                         {" "}
                         {errors.practical_info_2?.message}
@@ -182,59 +197,71 @@ export default function nieuweCursus() {
                         Wat gaan ze leren (Om een lijst te maken gebruik enter
                         om volgende regel te schrijven)
                       </p>
-                      <textarea
-                        className="form-control w-100"
-                        rows="6"
-                        {...register("curriculum")}
-                      />
+                      <div className="py-2">
+                        <textarea
+                          className="form-control w-100"
+                          rows="6"
+                          {...register("curriculum")}
+                        />
+                      </div>
                       <p className="error"> {errors.curriculum?.message}</p>
                       <p className="mb-0">Naam docent</p>
-                      <input
-                        className="form-control w-100 p-2"
-                        type="text"
-                        {...register("teacher")}
-                      />
+                      <div className="py-2">
+                        <input
+                          className="form-control w-100 p-2"
+                          type="text"
+                          {...register("teacher")}
+                        />
+                      </div>
                       <p className="error"> {errors.teacher?.message}</p>
                       <p className="mb-0">over de docent</p>
-                      <textarea
-                        className="form-control w-100"
-                        rows="6"
-                        type="text"
-                        {...register("teacher_description")}
-                      />
+                      <div className="py-2">
+                        <textarea
+                          className="form-control w-100"
+                          rows="6"
+                          type="text"
+                          {...register("teacher_description")}
+                        />
+                      </div>
                       <p className="error">
                         {errors.teacher_description?.message}
                       </p>
                       <p className="mb-0">Categorie</p>
-                      <select
-                        id="inputState"
-                        className="form-control"
-                        {...register("category")}
-                      >
-                        <option defaultValue>Theologie</option>
-                        <option>Filosofie</option>
-                        <option>Geschiedenis</option>
-                        <option>Bijbel studie</option>
-                        <option>Catechese</option>
-                        <option>filosofie</option>
-                      </select>
+                      <div className="py-2">
+                        <select
+                          id="inputState"
+                          className="form-control"
+                          {...register("category")}
+                        >
+                          <option defaultValue>Theologie</option>
+                          <option>Filosofie</option>
+                          <option>Geschiedenis</option>
+                          <option>Bijbel studie</option>
+                          <option>Catechese</option>
+                          <option>filosofie</option>
+                        </select>
+                      </div>
                       <p className="mb-0">Type cursus</p>
-                      <select
-                        id="inputState"
-                        className="form-control"
-                        {...register("type")}
-                      >
-                        <option defaultValue>Cursus traject</option>
-                        <option>Video</option>
-                        <option>Audio</option>
-                        <option>Webinar</option>
-                      </select>
+                      <div className="py-2">
+                        <select
+                          id="inputState"
+                          className="form-control"
+                          {...register("type")}
+                        >
+                          <option defaultValue>Cursus traject</option>
+                          <option>Video</option>
+                          <option>Audio</option>
+                          <option>Webinar</option>
+                        </select>
+                      </div>
                       <p className="mb-0">Aantal delen/ hoofdstukken</p>
-                      <input
-                        className="form-control w-100 p-2"
-                        type="number"
-                        {...register("episodes")}
-                      />
+                      <div className="py-2">
+                        <input
+                          className="form-control w-100 p-2"
+                          type="number"
+                          {...register("episodes")}
+                        />
+                      </div>
                       <p className="error"> {errors.price?.message}</p>
                       <div className="d-flex justify-content-center">
                         <button

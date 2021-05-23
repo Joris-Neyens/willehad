@@ -26,14 +26,14 @@ export default function dashboard({ registrations, newsletters }) {
                   <h4 className="pt-3">Laatste cursus registraties</h4>
                   <LatestEvents registrations={registrations} />
                   <Link href="/admin/dashboard/registraties">
-                    <button className="button__primary--dark mt-4 w-25">
+                    <button className="button__primary--dark px-4 mt-4">
                       registraties
                     </button>
                   </Link>
                   <h4 className="pt-5">Laatste newsbrief aanmeldingen</h4>
                   <LatestsNewsletterSub newsletters={newsletters} />
                   <Link href="/admin/dashboard/inbox">
-                    <button className="button__primary--dark mt-4 w-25">
+                    <button className="button__primary--dark px-5 mt-4">
                       inbox
                     </button>
                   </Link>

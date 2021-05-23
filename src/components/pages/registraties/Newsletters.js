@@ -8,7 +8,7 @@ export default function Newsletters({ registrations, newsletters }) {
         const { email, id } = registration;
 
         return (
-          <div key={id} className="background-light px-2 py-1">
+          <div key={id} className="background-white px-2 py-1">
             {email}
           </div>
         );
@@ -18,7 +18,7 @@ export default function Newsletters({ registrations, newsletters }) {
         const { email_address, id } = newsletter;
 
         return (
-          <div key={id} className="background-light px-2 py-1">
+          <div key={id} className="background-white px-2 py-1">
             {email_address}
           </div>
         );
