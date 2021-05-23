@@ -1,10 +1,9 @@
 import Image from "next/image";
+import Link from 'next/link';
 import PropTypes from "prop-types";
 
 export default function shortAboutCourse({
   home,
-  buttonPrimary,
-  buttonSecondary,
 }) {
 
 const {course_date, course_image, course_title, course_description} = home
@@ -12,22 +11,8 @@ const {course_date, course_image, course_title, course_description} = home
 
   const alt = `afbeelding voor de cursus:${course_title}`
 
-  let buttonOne = "";
-  let buttonTwo = "";
   let date = "";
 
-  if (buttonPrimary) {
-    buttonOne = (
-      <button className="button__primary col-5">{buttonPrimary}</button>
-    );
-  }
-  if (buttonSecondary) {
-    buttonTwo = (
-      <button className="button__secondary--dark col-5 ml-3">
-        {buttonSecondary}
-      </button>
-    );
-  }
   if (course_date) {
     date = `start ${course_date}`;
   }
@@ -52,10 +37,18 @@ const {course_date, course_image, course_title, course_description} = home
               {date}
             </p>
             <h2 className="pt-1 text-center text-lg-left">{course_title}</h2>
-            <p className="pt-2 text-center text-lg-left">{course_description}</p>
+            <p className="pt-2 text-center text-lg-left">
+              {course_description}
+            </p>
             <div className="d-flex justify-content-center justify-content-lg-start">
-              {buttonOne}
-              {buttonTwo}
+              <Link href="/hoe-het-werkt">
+                <button className="button__primary col-5">hoe het werkt</button>
+              </Link>
+              <Link href="/cursus-aanbod">
+                <button className="button__secondary--dark col-5 ml-3">
+                  ons aanbod
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -66,6 +59,4 @@ const {course_date, course_image, course_title, course_description} = home
 
 shortAboutCourse.propTypes = {
   home: PropTypes.object.isRequired,
-  buttonPrimary: PropTypes.string.isRequired,
-  buttonSecondary: PropTypes.string.isRequired,
 }

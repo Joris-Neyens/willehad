@@ -91,6 +91,6 @@ export async function getServerSideProps() {
 }
 
 dashboard.propTypes = {
-  registraion: PropTypes.object.isRequired,
-  newsletters: PropTypes.object.isRequired,
+  registraion: PropTypes.object,
+  newsletters: PropTypes.array,
 }

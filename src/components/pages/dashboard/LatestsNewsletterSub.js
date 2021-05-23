@@ -18,6 +18,6 @@ export default function LatestsNewsletterSub({ newsletters }) {
   return <>{newsletter}</>;
 }
 
-LatestsNewsletterSub.PropTypes = {
-  newsletters: PropTypes.object.isRequired,
+LatestsNewsletterSub.propTypes = {
+  newsletters: PropTypes.array,
 }

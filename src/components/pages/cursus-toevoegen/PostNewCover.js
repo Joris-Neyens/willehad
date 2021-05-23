@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import axios from "axios";
+import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BASE_URL, UPLOAD_PATH } from "../../../api/baseUrl";
@@ -12,6 +13,9 @@ export default function PostNewCover({ id }) {
   const { register, handleSubmit } = useForm();
   const [submitting, setSubmitting] = useState(false);
   const [submitButton, setSubmitButton] = useState("upload");
+    const [display, setDisplay] = useState("d-none");
+  const [mediaUrl, setMediaUrl] = useState("/under-construction.jpg");
+
 
     const { getToken } = useContext(AuthContext);
     const token = getToken("auth");
@@ -35,16 +39,23 @@ export default function PostNewCover({ id }) {
         },
       });
       console.log("Success", response);
+      if (response) {
+        setMediaUrl(response.data[0].url);
+        setDisplay("d-block");
+        setSubmitButton("upload succesvol");
+      }
     } catch (error) {
       console.log(error);
     } finally {
       setSubmitting(false);
-      setSubmitButton("upload succesvol");
     }
   };
 
   return (
     <>
+      <div className={display}>
+        <Image src={mediaUrl} width="450" height="250" />
+      </div>
       <div className="FileUpload mb-5">
         <p className="text-center text-lg-left">Cursus cover foto</p>
         <form

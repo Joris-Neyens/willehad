@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 export default function Curriculum({ curriculum }) {
   return (
     <section className="curriculum py-lg-5 my-5">
-      <div className="container py5">
+      <div className="container pt-5">
         <h2 className="text-center">Wat je gaat leren</h2>
 
         <div className="d-flex justify-content-center">

@@ -16,8 +16,6 @@ import SideNav from "../../../../src/components/layout/SideNav";
 export default function Course({ course }) {
   const { id, cover, teacher_image, video, about_course_image } = course;
 
-  const reload = `/admin/dashboard/edit-cursus/${id}`;
-
   return (
     <>
       <Head title="edit cursus" description="edit cursus willehad" />
@@ -64,9 +62,9 @@ export default function Course({ course }) {
                     <PostVideo key={course.title} id={id} video={video} />
                   </div>
                   <div className="d-flex justify-content-center">
-                    <Link href={reload}>
+                    <Link href="/admin/dashboard/edit-cursus">
                       <button className="button__primary mt-4 mb-5 col-6 ">
-                        Zie resultaat
+                        Terug naar overzicht
                       </button>
                     </Link>
                   </div>

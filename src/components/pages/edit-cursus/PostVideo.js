@@ -16,6 +16,30 @@ export default function PostVideo({ id, video }) {
   const { getToken } = useContext(AuthContext);
   const token = getToken("auth");
 
+  const deleteData = async (data) => {
+
+    const deleteCourse = confirm("Bevestig of je de video wilt verwijderen");
+    const deleteUrl = BASE_URL + `upload/files/${data.id}`
+    if (deleteCourse) {
+      try {
+        const response = await axios({
+          method: "DELETE",
+          url: deleteUrl,
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "content-type": "application/json",
+          },
+        });
+        console.log("Success", response);
+        if (response) {
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+      }
+    }
+  }
+
   const submitData = async (data) => {
     setSubmitting(true);
     setSubmitButton("loading..");
@@ -52,9 +76,23 @@ export default function PostVideo({ id, video }) {
       <div className="row">
         {video.map(function (video_info) {
           return (
-            <div key={video_info.id} className="col-lg-6">
-              <video src={video_info.url} className="w-100" />
-              <p className="mb-1">{video_info.name}</p>
+            <div key={video_info.id} className="background-white mb-3">
+              <div className="col-lg-12">
+                <video src={video_info.url} width="360px" height="300px" controls />
+                <p className="mb-0">{video_info.name}</p>
+              </div>
+              <form onSubmit={handleSubmit(deleteData)}>
+                <input
+                  className="d-none"
+                  {...register("id")}
+                  defaultValue={video_info.id}
+                />
+                <div className="col-12 d-flex justify-content-end">
+                  <button className="button__primary col-1 my-1">
+                    x
+                  </button>
+                </div>
+              </form>
             </div>
           );
         })}

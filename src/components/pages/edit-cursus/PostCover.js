@@ -10,16 +10,17 @@ import AuthContext from "../../../../src/context/AuthContext";
 const postUrl = BASE_URL + UPLOAD_PATH;
 
 export default function PostCover({ id, cover }) {
-
-  const url = cover.url;
-  const [submitting, setSubmitting] = useState(false);
+  
   const { register, handleSubmit } = useForm();
+  const [submitting, setSubmitting] = useState(false);
   const [submitButton, setSubmitButton] = useState("upload");
+  const [mediaUrl, setMediaUrl] = useState(cover.url)
 
   const { getToken } = useContext(AuthContext);
   const token = getToken("auth");
 
   const submitData = async (data) => {
+
     setSubmitting(true);
      setSubmitButton("loading..");
     try {
@@ -40,7 +41,9 @@ export default function PostCover({ id, cover }) {
       });
       if (response) {
         setSubmitButton("upload succesvol");
+        setMediaUrl(response.data[0].url);
       }
+      
     } catch (error) {
       setSubmitButton("upload niet gelukt");
       console.log(error);
@@ -53,7 +56,7 @@ export default function PostCover({ id, cover }) {
     <>
       <div className="row">
         <div className="col-12">
-          <Image src={url} width="3000" height="1500" />
+          <Image src={mediaUrl} width="3000" height="1500" />
         </div>
       </div>
       <div className="FileUpload mt-2">

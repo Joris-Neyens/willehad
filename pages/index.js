@@ -21,8 +21,9 @@ export default function Home({ home, courses }) {
         ></Head>
         <Header
           courses={courses}
-          buttonPrimary="/cursus-aabod"
-          buttonSecondary="/cursus-aanbod"
+          headerButtonName="ons aanbod"
+          buttonPrimary="/cursus-aanbod"
+          buttonSecondary="/hoe-het-werkt"
           title={home.title}
           url={home.header_image.url}
           modal={false}
@@ -36,8 +37,6 @@ export default function Home({ home, courses }) {
         <ShortAboutCourse
           courses={courses}
           home={home}
-          buttonPrimary="meer info"
-          buttonSecondary="meld je aan"
         />
         <Newsletter />
         <Reviews

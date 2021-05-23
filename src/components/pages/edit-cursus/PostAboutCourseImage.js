@@ -13,11 +13,10 @@ export default function PostAboutCourseImage({ id, about_course_image }) {
   const { register, handleSubmit } = useForm();
   const [submitting, setSubmitting] = useState(false);
   const [submitButton, setSubmitButton] = useState("upload")
+  const [mediaUrl, setMediaUrl] = useState(about_course_image.url);
   
   const { getToken } = useContext(AuthContext);
   const token = getToken("auth");
-
-  const imageUrl = about_course_image.url;
 
   const submitData = async data => {
     setSubmitting(true);
@@ -40,6 +39,7 @@ export default function PostAboutCourseImage({ id, about_course_image }) {
       console.log("Success", response);
        if (response) {
          setSubmitButton("upload succesvol");
+        setMediaUrl(response.data[0].url);
        }
     } catch (error) {
       setSubmitButton("upload niet gelukt");
@@ -53,7 +53,7 @@ export default function PostAboutCourseImage({ id, about_course_image }) {
     <>
       <div className="row">
         <div id="about-course__image" className="col-12">
-          <Image src={imageUrl} width="3000" height="1500" />
+          <Image src={mediaUrl} width="3000" height="1500" />
         </div>
       </div>
       <div className="FileUpload">

@@ -16,7 +16,7 @@ export default function Uitleg() {
                   alt="icoon laat afstudeer muts"
                   src="/cursus.png"
                   layout="responsive"
-                  width="120"
+                  width="100"
                   height="100"
                 />
               </div>
@@ -36,8 +36,8 @@ export default function Uitleg() {
                   alt="icoon textbalonnen"
                   src="/samen.png"
                   layout="responsive"
-                  width="50"
-                  height="35"
+                  width="100"
+                  height="100"
                 />
               </div>
               <div className="col-10 col-lg-12 mt-lg-4">
@@ -57,7 +57,7 @@ export default function Uitleg() {
                   src="/begeleiding.png"
                   layout="responsive"
                   width="100"
-                  height="80"
+                  height="100"
                 />
               </div>
               <div className="col-10 col-lg-12 mt-lg-4">

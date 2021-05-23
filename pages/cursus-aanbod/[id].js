@@ -9,6 +9,7 @@ import ExplainCourse from "../../src/components/pages/cursus/ExplainCourse";
 import PracticalInfo from "../../src/components/pages/cursus/Practicalinfo";
 import Docent from "../../src/components/pages/cursus/Docent";
 import Curriculum from "../../src/components/pages/cursus/Curriculum";
+import Video from '../../src/components/pages/cursus/Video';
 
 export default function Course({ course }) {
 
@@ -20,7 +21,15 @@ export default function Course({ course }) {
     teacher_description,
     curriculum,
     teacher_image,
+    video
   } = course;
+
+  let videoArray = ""
+
+  if (video) {
+    videoArray = <Video video={video} />;
+  }
+
 
   return (
     <>
@@ -34,9 +43,9 @@ export default function Course({ course }) {
             title={title}
             subtitle={subtitle}
             url={cover.url}
-            viewHeight={80}
+            viewHeight={60}
             textCol="12"
-            modal="modal"
+            modal={true}
           />
           <AboutCourse course={course} />
           <ExplainCourse />
@@ -47,6 +56,7 @@ export default function Course({ course }) {
             teacherImage={teacher_image}
           />
           <Curriculum curriculum={curriculum} />
+         {videoArray}
         </Layout>
       </div>
     </>

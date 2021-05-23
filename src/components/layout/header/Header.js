@@ -13,6 +13,7 @@ export default function Header({
   buttonPrimary,
   buttonSecondary,
   subtitle,
+  headerButtonName,
 }) {
 
   const styles = {
@@ -28,6 +29,8 @@ export default function Header({
   let headerButtonPrimary = "";
   let headerButtonSecondary = "";
   let headerModal = "";
+
+
 
   if (course_type) {
     headerType = <p className="jumbotron__content-type m-0">{course_type}</p>;
@@ -55,7 +58,7 @@ export default function Header({
             className="button__primary col-12 py-1 mb-3"
             title="meer info"
           >
-            meer info
+            { headerButtonName }
           </button>
         </Link>
       </div>
@@ -66,9 +69,9 @@ export default function Header({
       <Link href={buttonSecondary}>
         <button
           className="button__secondary--light col-12 py-1"
-          title="cursus aanbod"
+          title="hoe het werkt"
         >
-          cursus aanbod
+          hoe het werkt
         </button>
       </Link>
     );
@@ -118,4 +121,5 @@ Header.prototype = {
   date: PropTypes.string,
   url: PropTypes.string.isRequired,
   courses: PropTypes.array,
+  headerButtonName: PropTypes.string,
 };

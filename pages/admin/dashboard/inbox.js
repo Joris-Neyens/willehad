@@ -7,6 +7,8 @@ import DashboardNav from "../../../src/components/layout/DashboardNav";
 import SideNav from "../../../src/components/layout/SideNav";
 
 export default function inbox({ contacts }) {
+
+
   return (
     <>
       <Head
@@ -42,6 +44,7 @@ export default function inbox({ contacts }) {
                           <div className="border p-1 col-xl-10">
                             <p className="inbox__message">{message}</p>
                           </div>
+
                         </div>
                       );
                     })}

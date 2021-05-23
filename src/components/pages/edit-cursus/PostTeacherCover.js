@@ -15,6 +15,7 @@ export default function PostTeacherCover({ id, teacher_image }) {
   const [submitting, setSubmitting] = useState(false);
   const { register, handleSubmit } = useForm();
   const [submitButton, setSubmitButton] = useState("upload");
+    const [mediaUrl, setMediaUrl] = useState(teacher_image.url);
 
   const { getToken } = useContext(AuthContext);
   const token = getToken("auth");
@@ -41,6 +42,7 @@ export default function PostTeacherCover({ id, teacher_image }) {
       console.log("Success", response);
        if (response) {
          setSubmitButton("upload succesvol");
+         setMediaUrl(response.data[0].url);
        }
     } catch (error) {
       setSubmitButton("upload niet gelukt");
@@ -54,7 +56,7 @@ export default function PostTeacherCover({ id, teacher_image }) {
     <>
       <div className="row">
         <div className="col-12 w-100">
-          <Image src={url} width="3000" height="1500" />
+          <Image src={mediaUrl} width="3000" height="1500" />
         </div>
       </div>
       <div className="FileUpload mt-2">

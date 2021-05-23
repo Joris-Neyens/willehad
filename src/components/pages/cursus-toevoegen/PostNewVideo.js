@@ -12,6 +12,8 @@ export default function PostNewVideo({ id }) {
   const { register, handleSubmit } = useForm();
   const [submitting, setSubmitting] = useState(false);
   const [submitButton, setSubmitButton] = useState("upload");
+      const [display, setDisplay] = useState("d-none");
+      const [mediaUrl, setMediaUrl] = useState("");
 
   const { getToken } = useContext(AuthContext);
   const token = getToken("auth");
@@ -34,17 +36,26 @@ export default function PostNewVideo({ id }) {
           "content-type": "application/json",
         },
       });
+       if (response) {
+         console.log(response.data[0].url);
+         setDisplay("d-block");
+         setSubmitButton("upload succesvol");
+       }
       console.log("Success", response);
     } catch (error) {
       console.log(error);
     } finally {
       setSubmitting(false);
-      setSubmitButton("upload succesvol");
     }
   };
 
   return (
     <>
+      <div className={display}>
+        <video width="450" height="250" controls >
+          <source src={mediaUrl} />
+        </video>
+      </div>
       <div className="FileUpload mb-5">
         <p className="text-center text-lg-left">Video</p>
         <form
