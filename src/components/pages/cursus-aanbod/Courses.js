@@ -9,16 +9,23 @@ import CourseCards from "./CourseCards";
 export default function Courses({ courses }) {
   const [courseInfo, setCourseInfo] = useState(courses);
 
+  function sortType(value) {
+    if (value === "Alle Categoriën") {
+      setCourseInfo(courses);
+      return
+    }
+    const result = courses.filter(course => course.category === value)
+    setCourseInfo(result)
+  }
+
   const searchCourses = pattern => {
     if (!pattern) {
       setCourseInfo(courses);
       return;
     }
-
     const results = new Fuse(courseInfo, {
       keys: ["title"],
     });
-
     const result = results.search(pattern);
     const matches = [];
     if (!result.length) {
@@ -37,7 +44,6 @@ export default function Courses({ courses }) {
       return;
     }
     const matches = [];
-
     if (input === "laag") {
       const sorted = sort(courses).asc([u => u.price]);
       sorted.forEach(sort => {
@@ -88,6 +94,20 @@ export default function Courses({ courses }) {
                 placeholder="zoek title of onderwerp"
               ></input>
             </div>
+            <select
+              onChange={e => sortType(e.target.value)}
+              className="form-control"
+              id="exampleFormControlSelect1"
+            >
+              <option>Alle Categoriën</option>
+              <option>Filosofie</option>
+              <option>Geschiedenis</option>
+              <option>
+                Bijbel studie
+              </option>
+              <option>Cathechese</option>
+              <option>theology</option>
+            </select>
           </div>
           <div className="col-12 col-lg-8">
             <CourseCards key={courseInfo.id} courseInfo={courseInfo} />

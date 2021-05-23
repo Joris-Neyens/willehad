@@ -238,7 +238,6 @@ export default function nieuweCursus() {
                           <option>Geschiedenis</option>
                           <option>Bijbel studie</option>
                           <option>Catechese</option>
-                          <option>filosofie</option>
                         </select>
                       </div>
                       <p className="mb-0">Type cursus</p>
