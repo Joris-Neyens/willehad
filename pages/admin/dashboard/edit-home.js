@@ -7,7 +7,8 @@ import SideNav from "../../../src/components/layout/SideNav";
 import PutHomeInfo from "../../../src/components/pages/edit-home/PutHomeInfo";
 import PutHomeHeader from "../../../src/components/pages/edit-home/PutHomeHeader";
 import PutHomeCourseImg from "../../../src/components/pages/edit-home/PutHomeCourseImg";
-import { BASE_URL } from "../../../src/api/baseUrl";
+import PutReview from '../../../src/components/pages/edit-home/PutReview';
+import { BASE_URL, HOME_PATH} from "../../../src/api/baseUrl";
 
 export default function editHome({ home }) {
   const { id, header_image, course_image } = home;
@@ -25,6 +26,8 @@ export default function editHome({ home }) {
                 <div className="col-lg-10 pl-lg-5">
                   <h1>Edit Home</h1>
                   <PutHomeInfo home={home} />
+                  <h4 className="pt-4 my-4">Reviews</h4>
+                  <PutReview/>
                   <h4 className="pt-4 my-4">Media</h4>
                   <p>Header</p>
                   <PutHomeHeader id={id} header_image={header_image} />
@@ -41,7 +44,7 @@ export default function editHome({ home }) {
 }
 
 export async function getServerSideProps() {
-  const url = `${BASE_URL}home`;
+  const url = BASE_URL + HOME_PATH;
 
   let home = null;
 
@@ -51,8 +54,11 @@ export async function getServerSideProps() {
   } catch (error) {
     console.log(error);
   }
+    
   return {
-    props: { home: home },
+    props: {
+      home: home,
+    },
   };
 }
 

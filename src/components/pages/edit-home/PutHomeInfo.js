@@ -3,19 +3,24 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useState } from "react";
 import axios from "axios";
-import { BASE_URL } from "../../../api/baseUrl";
+import { BASE_URL, HOME_PATH } from "../../../api/baseUrl";
 import { useContext } from "react";
 import AuthContext from "../../../../src/context/AuthContext";
 
-const url = BASE_URL + "home";
+const url = BASE_URL + HOME_PATH;
 
 export default function PutHomeInfo({ home }) {
+  console.log(home);
 
-  console.log(home)
-  
-  const { course_date, title, header_subtitle, course_title, course_description } = home
-    
- const [submitting, setSubmitting] = useState(false);
+  const {
+    course_date,
+    title,
+    header_subtitle,
+    course_title,
+    course_description,
+  } = home;
+
+  const [submitting, setSubmitting] = useState(false);
   const [putError, setPutError] = useState(null);
   const [submitButton, setSubmitButton] = useState("upload");
 
@@ -29,7 +34,9 @@ export default function PutHomeInfo({ home }) {
     course_date: yup
       .string()
       .required("vul in datum voor de eersvolgende cursus"),
-    header_subtitle: yup.string().required("schijf een zin die de cursus beschrijft"),
+    header_subtitle: yup
+      .string()
+      .required("schijf een zin die de cursus beschrijft"),
     course_title: yup.string().required("Vul cursus titel in"),
     course_description: yup
       .string()
@@ -46,13 +53,12 @@ export default function PutHomeInfo({ home }) {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async (data) => {
-
-    console.log(data)
+  const onSubmit = async data => {
+    console.log(data);
 
     setSubmitting(true);
     setPutError(null);
-     setSubmitButton("loading..");
+    setSubmitButton("loading..");
 
     try {
       const response = await axios({
@@ -64,9 +70,9 @@ export default function PutHomeInfo({ home }) {
           "content-type": "application/json",
         },
       });
-        if (response) {
-          setSubmitButton("upload succesvol");
-        }
+      if (response) {
+        setSubmitButton("upload succesvol");
+      }
       console.log("Success", response);
     } catch (error) {
       console.log(error);
@@ -133,7 +139,7 @@ export default function PutHomeInfo({ home }) {
         </div>
         <div className="d-flex justify-content-center">
           <button className="button__primary--dark col-4 px-4 mt-2">
-            { submitButton }
+            {submitButton}
           </button>
           {putError && (
             <span>
