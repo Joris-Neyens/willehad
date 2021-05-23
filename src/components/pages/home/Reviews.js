@@ -9,7 +9,9 @@ export default function Reviews({ reviews }) {
           key={id}
           className="col-12 col-md-6 offset-md-3 mb-md-4 col-lg-4 offset-lg-0 mb-md-0"
         >
-          <h3 className="col-12 text-center">{title}</h3>
+          <div className="d-flex justify-content-center">
+            <h3 className="review__title d-inline text-center">{title}</h3>
+          </div>
           <p className=" review__name col-12 text-center">{name}</p>
           <p className="col-12 text-center px-4">{review}</p>
         </div>
