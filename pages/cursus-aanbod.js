@@ -18,11 +18,12 @@ export default function cursusAanbod({ courses }) {
       <div className="wrapper">
         <Layout>
           {courses.map(function (course) {
+            
             const { id, title, cover, type } = course;
 
             let course_type = "";
 
-            console.log(type);
+            console.log(course.cover);
 
             if (type === "Audio") {
               course_type = "Audio Cursus";
