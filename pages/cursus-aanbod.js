@@ -3,12 +3,13 @@ import axios from "axios";
 import Head from "../src/components/head/Head";
 import Layout from "../src/components/layout/Layout";
 import Header from "../src/components/layout/header/Header";
+import CourseCover from '../src/components/pages/cursus-aanbod/CourseCover'
 import Courses from "../src/components/pages/cursus-aanbod/Courses";
-import { BASE_URL, COURSES_PATH } from "../src/api/baseUrl";
+import { BASE_URL, HOME_PATH, COURSES_PATH } from "../src/api/baseUrl";
 
 console.log(BASE_URL + COURSES_PATH);
 
-export default function cursusAanbod({ courses }) {
+export default function cursusAanbod({ courses, header }) {
   return (
     <>
       <Head
@@ -17,13 +18,12 @@ export default function cursusAanbod({ courses }) {
       />
       <div className="wrapper">
         <Layout>
+          <CourseCover header={header}/>
           {courses.map(function (course) {
             
             const { id, title, cover, type } = course;
 
             let course_type = "";
-
-            console.log(course.cover);
 
             if (type === "Audio") {
               course_type = "Audio Cursus";
@@ -59,8 +59,10 @@ export default function cursusAanbod({ courses }) {
 
 export async function getServerSideProps() {
   const url = BASE_URL + COURSES_PATH;
+  const headerUrl = BASE_URL + HOME_PATH;
 
   let courses = [];
+  let header = [];
 
   try {
     const response = await axios.get(url);
@@ -69,9 +71,17 @@ export async function getServerSideProps() {
   } catch (error) {
     console.log(error);
   }
+  try {
+    const response = await axios.get(headerUrl);
+    console.log(response.data);
+    header = response.data;
+  } catch (error) {
+    console.log(error);
+  }
   return {
     props: {
       courses: courses,
+      header: header,
     },
   };
 }
