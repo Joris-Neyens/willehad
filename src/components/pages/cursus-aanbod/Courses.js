@@ -7,6 +7,8 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import CourseCards from "./CourseCards";
 
 export default function Courses({ courses }) {
+
+  console.log(courses)
   const [courseInfo, setCourseInfo] = useState(courses);
 
   function sortType(value) {
@@ -105,8 +107,8 @@ export default function Courses({ courses }) {
               <option>
                 Bijbel studie
               </option>
-              <option>Cathechese</option>
-              <option>theology</option>
+              <option>Catechese</option>
+              <option>Theologie</option>
             </select>
           </div>
           <div className="col-12 col-lg-8">
