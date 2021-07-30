@@ -3,7 +3,6 @@ import axios from "axios";
 import Head from "../src/components/head/Head";
 import Layout from "../src/components/layout/Layout";
 import Header from "../src/components/layout/header/Header";
-import CourseCover from '../src/components/pages/cursus-aanbod/CourseCover'
 import Courses from "../src/components/pages/cursus-aanbod/Courses";
 import { BASE_URL, HOME_PATH, COURSES_PATH } from "../src/api/baseUrl";
 
@@ -18,7 +17,6 @@ export default function cursusAanbod({ courses, header }) {
       />
       <div className="wrapper">
         <Layout>
-          <CourseCover header={header}/>
           {courses.map(function (course) {
             
             const { id, title, cover, type } = course;
@@ -46,6 +44,7 @@ export default function cursusAanbod({ courses, header }) {
                   url={cover.url}
                   buttonPrimary={primaryLink}
                   course_type={course_type}
+                  headerButtonName={"meld je aan"}
                 />
               );
             }
