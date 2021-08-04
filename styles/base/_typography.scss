@@ -70,6 +70,9 @@ label {
   color: $background;
   text-transform:uppercase;
 }
+.menu__link--light:hover {
+  color: $background;
+}
 footer p {
   font-weight: 500;
   text-transform: uppercase;
