@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import React, { useState, useCallback } from "react";
+import Container from 'react-bootstrap/Container'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
@@ -11,15 +11,16 @@ export default function MainNav() {
 
   return (
     <>
-      <div className="menu d-none d-lg-block">
-        <div className="container-fluid">
-          <nav className="py-2 row">
-            <div className="col-3 py-1">
+      <Navbar fixed="top" className="menu py-0">
+        <Container className="menu__container">
+            <Nav className="me-auto w-100">
+                <nav className="py-2 row w-100">
+            <div className="py-1">
               <Link href="/">
-                <a id="logo">Willehad</a>
+                <a id="logo" className="pr-4">Willehad</a>
               </Link>
             </div>
-            <div className="col-8 d-none d-lg-flex justify-content-end align-items-center">
+            <div className="d-none d-lg-flex align-items-center">
               <Link href="/cursus-aanbod">
                 <a className="px-3 menu__link" title="cursus aanbod">
                   cursus aanbod
@@ -36,20 +37,19 @@ export default function MainNav() {
                 </a>
               </Link>
             </div>
-
-            <div className="col-1 d-none d-lg-flex justify-content-end align-items-center pr-3">
-              <FontAwesomeIcon
-                className="menu__icon mx-2"
-                icon={faFacebookSquare}
-              />
-              <FontAwesomeIcon
-                className="menu__icon mx-2"
-                icon={faTwitterSquare}
-              />
-            </div>
+            <div className="d-none d-lg-flex col justify-self-end justify-content-end align-items-center pr-3">
+                <Link href="/contact">
+                  <button className="menu__link__dark button__primary--dark px-4">
+                    <a className="menu__link--light" title="login">
+                      login
+                        </a>
+                    </button>
+              </Link>
+                </div>
           </nav>
-        </div>
-      </div>
+            </Nav>
+        </Container>
+      </Navbar>
       <Navbar className="d-lg-none" bg="light" expand="lg">
         <Link href="/">
           <a id="logo">Willehad</a>

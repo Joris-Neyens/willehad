@@ -90,7 +90,7 @@ export default function Header({
           <div className="row w-100">
             <div className={textWidth}>
               <div className="row w-100 pt-5 mt-5">
-                <div className="col-12">
+                <div className="col-12 p-0">
                   {headerType}
                   {headerTitle}
                   {headerDate}

@@ -61,7 +61,7 @@ export default function contact() {
       <div className="wrapper">
         <Layout>
           <main className="contact py-5">
-            <div className="container">
+            <div className="container py-5">
               <div className="row">
                 <div className="col-12 col-lg-6 offset-lg-3">
                   <h1>Contact</h1>
