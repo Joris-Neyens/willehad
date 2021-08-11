@@ -6,58 +6,58 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import CourseCards from "./CourseCards";
 
-export default function Courses({ courses }) {
+export default function Courses({ products, courses }) {
 
-  console.log(courses)
-  const [courseInfo, setCourseInfo] = useState(courses);
+   const [productInfo, setProductInfo] = useState(products);
+  
 
-  function sortType(value) {
-    if (value === "Alle Categoriën") {
-      setCourseInfo(courses);
-      return
-    }
-    const result = courses.filter(course => course.category === value)
-    setCourseInfo(result)
-  }
+  // function sortType(value) {
+  //   if (value === "Alle Categoriën") {
+  //     setCourseInfo(courses);
+  //     return
+  //   }
+  //   const result = courses.filter(course => course.category === value)
+  //   setCourseInfo(result)
+  // }
 
   const searchCourses = pattern => {
     if (!pattern) {
-      setCourseInfo(courses);
+      setProductInfo(products);
       return;
     }
-    const results = new Fuse(courseInfo, {
-      keys: ["title"],
+    const results = new Fuse(productInfo, {
+      keys: ["name"],
     });
     const result = results.search(pattern);
     const matches = [];
     if (!result.length) {
-      setCourseInfo([]);
+      setProductInfo([]);
     } else {
       result.forEach(({ item }) => {
         matches.push(item);
       });
-      setCourseInfo(matches);
+      setProductInfo(matches);
     }
   };
 
   function sortCourses(input) {
     if (input == "prijs") {
-      setCourseInfo(courses);
+      setProductInfo(products);
       return;
     }
     const matches = [];
     if (input === "laag") {
-      const sorted = sort(courses).asc([u => u.price]);
+      const sorted = sort(products).asc([u => u.price]);
       sorted.forEach(sort => {
         matches.push(sort);
       });
     } else if (input === "hoog") {
-      const sorted = sort(courses).desc([u => u.price]);
+      const sorted = sort(products).desc([u => u.price]);
       sorted.forEach(sort => {
         matches.push(sort);
       });
     }
-    setCourseInfo(matches);
+    setProductInfo(matches);
   }
 
   return (
@@ -93,7 +93,7 @@ export default function Courses({ courses }) {
               <input
                 className="form-control"
                 onChange={e => searchCourses(e.target.value)}
-                placeholder="zoek title of onderwerp"
+                placeholder="zoek cursus naam"
               ></input>
             </div>
             <select
@@ -112,7 +112,7 @@ export default function Courses({ courses }) {
             </select>
           </div>
           <div className="col-12 col-lg-8">
-            <CourseCards key={courseInfo.id} courseInfo={courseInfo} />
+            <CourseCards key={products.id} productInfo={productInfo} courses={courses} />
           </div>
         </div>
       </div>
@@ -121,5 +121,5 @@ export default function Courses({ courses }) {
 }
 
 Courses.propTypes = {
-  courses: PropTypes.array.isRequired,
+  products: PropTypes.array.isRequired,
 }

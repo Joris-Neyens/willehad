@@ -60,7 +60,6 @@ export async function getServerSideProps() {
     console.log(error);
   }
     
-    
      try {
       const response = await axios.get(productUrl, header);
 

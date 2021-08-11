@@ -4,11 +4,10 @@ import Head from "../src/components/head/Head";
 import Layout from "../src/components/layout/Layout";
 import Header from "../src/components/layout/header/Header";
 import Courses from "../src/components/pages/cursus-aanbod/Courses";
-import { BASE_URL, HOME_PATH, COURSES_PATH } from "../src/api/baseUrl";
 
-console.log(BASE_URL + COURSES_PATH);
+export default function cursusAanbod({ courses, products }) {
 
-export default function cursusAanbod({ courses, header }) {
+  console.log(products)
   return (
     <>
       <Head
@@ -17,39 +16,26 @@ export default function cursusAanbod({ courses, header }) {
       />
       <div className="wrapper">
         <Layout>
-          {courses.map(function (course) {
+          {products.map(function (product) {
             
-            const { id, title, cover, type } = course;
+            const { id, name, slug, card_image_url} = product;
 
-            let course_type = "";
-
-            if (type === "Audio") {
-              course_type = "Audio Cursus";
-            } else if (type === "Cursus traject") {
-              course_type = "Cursus Traject";
-            } else if (type === "Video") {
-              course_type = "Video Cursus";
-            } else if (type === "Webinar") {
-              course_type = "Webinar";
-            }
-
-            if (course.featured === true) {
-              let primaryLink = "/cursus-aanbod/" + id;
+            if (product.position === 0) {
+              let primaryLink = "https://willehad.thinkific.com/courses/" + slug;
               return (
                 <Header
                   viewHeight={50}
                   textCol="8"
                   key={id}
-                  title={title}
-                  url={cover.url}
+                  title={name}
+                  url={card_image_url}
                   buttonPrimary={primaryLink}
-                  course_type={course_type}
                   headerButtonName={"meld je aan"}
                 />
               );
             }
           })}
-          <Courses key={courses[0].title} courses={courses} />
+          <Courses key={products[0].id} products={products} courses={courses} />
         </Layout>
       </div>
     </>
@@ -57,34 +43,78 @@ export default function cursusAanbod({ courses, header }) {
 }
 
 export async function getServerSideProps() {
-  const url = BASE_URL + COURSES_PATH;
-  const headerUrl = BASE_URL + HOME_PATH;
+    const courseUrl = "https://api.thinkific.com/api/public/v1/courses"
+    const productUrl = "https://api.thinkific.com/api/public/v1/products"
 
-  let courses = [];
-  let header = [];
+    let courses = [];
+    let products = [];
+    
+    const header = {
+       
+        headers: {
+            "X-Auth-API-Key": 'a075749a8ee7defaa77d3ccbf6413888',
+            "X-Auth-Subdomain": 'willehad',
+            "Content-Type": 'application/json',
+        },
+      }
 
   try {
-    const response = await axios.get(url);
+      const response = await axios.get(courseUrl, header);
+
     console.log(response.data);
-    courses = response.data;
+    courses = response.data.items;
   } catch (error) {
     console.log(error);
   }
-  try {
-    const response = await axios.get(headerUrl);
+    
+     try {
+      const response = await axios.get(productUrl, header);
+
     console.log(response.data);
-    header = response.data;
+    products = response.data.items;
   } catch (error) {
     console.log(error);
   }
+ 
   return {
     props: {
-      courses: courses,
-      header: header,
+          courses: courses,
+        products: products,
     },
   };
 }
 
-cursusAanbod.propTypes = {
-  courses: PropTypes.array.isRequired,
-}
+
+
+// export async function getServerSideProps() {
+//   const url = BASE_URL + COURSES_PATH;
+//   const headerUrl = BASE_URL + HOME_PATH;
+
+//   let courses = [];
+//   let header = [];
+
+//   try {
+//     const response = await axios.get(url);
+//     console.log(response.data);
+//     courses = response.data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+//   try {
+//     const response = await axios.get(headerUrl);
+//     console.log(response.data);
+//     header = response.data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+//   return {
+//     props: {
+//       courses: courses,
+//       header: header,
+//     },
+//   };
+// }
+
+// cursusAanbod.propTypes = {
+//   courses: PropTypes.array.isRequired,
+// }
