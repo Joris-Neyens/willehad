@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import CourseCards from "./CourseCards";
 
-export default function Courses({ products, courses }) {
+export default function Courses({ products, courses, shopifyProducts }) {
 
    const [productInfo, setProductInfo] = useState(products);
   

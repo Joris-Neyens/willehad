@@ -11,7 +11,33 @@
   background-position: center center;
 }
 .jumbotron-overlay {
+  position: relative;
+  z-index: 2;
   background: linear-gradient(
+    90deg,
+    rgba(37, 36, 42, 1) 0%,
+    rgba(37, 36, 42, 0) 100%
+  );
+}
+
+
+.video {
+  position: absolute;
+  object-fit: cover;
+}
+
+.jumbotron__video {
+  p {
+    color: white;
+  }
+  position: relative;
+    overflow: hidden;
+}
+
+.jumbotron-overlay__video {
+  position: relative;
+  z-index: 1;
+   background: linear-gradient(
     90deg,
     rgba(37, 36, 42, 1) 0%,
     rgba(37, 36, 42, 0) 100%
