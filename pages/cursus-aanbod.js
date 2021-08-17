@@ -5,9 +5,8 @@ import Layout from "../src/components/layout/Layout";
 import Header from "../src/components/layout/header/Header";
 import Courses from "../src/components/pages/cursus-aanbod/Courses";
 
-export default function cursusAanbod({ courses, products, shopifyProducts }) {
-
-  console.log(shopifyProducts)
+export default function cursusAanbod({ courses, products }) {
+  
   return (
     <>
       <Head
@@ -35,7 +34,7 @@ export default function cursusAanbod({ courses, products, shopifyProducts }) {
               );
             }
           })}
-          <Courses key={products[0].id} products={products} courses={courses} shopifyProducts={shopifyProducts} />
+          <Courses key={products[0].id} products={products} courses={courses}/>
         </Layout>
       </div>
     </>
@@ -45,11 +44,9 @@ export default function cursusAanbod({ courses, products, shopifyProducts }) {
 export async function getServerSideProps() {
     const courseUrl = "https://api.thinkific.com/api/public/v1/courses"
     const productUrl = "https://api.thinkific.com/api/public/v1/products"
-    const shopifyUrl = "https://0d48e5a313d91ccca9770e6629695a73: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@willehad.myshopify.com/admin/api/2021-07/products.json"
 
     let courses = [];
     let products = [];
-    let shopifyProducts = [];
     
     const header = {
        
@@ -77,22 +74,11 @@ export async function getServerSideProps() {
   } catch (error) {
     console.log(error);
   }
-  
-  
-  try {
-      const response = await axios.get(shopifyUrl);
-
-    console.log(response.data);
-    shopifyProducts = response.data.products;
-  } catch (error) {
-    console.log(error);
-  }
  
   return {
     props: {
           courses: courses,
       products: products,
-        shopifyProducts: shopifyProducts,
     },
   };
 }

@@ -6,19 +6,39 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import CourseCards from "./CourseCards";
 
-export default function Courses({ products, courses, shopifyProducts }) {
+export default function Courses({ products, courses }) {
 
-   const [productInfo, setProductInfo] = useState(products);
+  const [productInfo, setProductInfo] = useState(products);
+  console.log(products)
+
+
+
+  let themesObjects = Object.assign(
+    products.map(function (product) {
+      return product.keywords.replace(/\n|,/g, ' ');
+    })
+  );
+
+  themesObjects = themesObjects.join(" ")
+  themesObjects = themesObjects.replace(/\s{2,}/g, " ")
   
 
-  // function sortType(value) {
-  //   if (value === "Alle Categoriën") {
-  //     setCourseInfo(courses);
-  //     return
-  //   }
-  //   const result = courses.filter(course => course.category === value)
-  //   setCourseInfo(result)
-  // }
+  const themesArray = themesObjects.split(" ")
+  const uniqueThemes = Array.from(new Set(themesArray)).join(" ").split(" ");
+
+   function sortType(value) {
+     if (value === "Alle Categoriën") {
+     setProductInfo(products);
+       return
+     }
+
+     const result = products.filter(product => product.keywords.includes(value))
+    
+     setProductInfo(result)
+     
+         
+    }
+       
 
   const searchCourses = pattern => {
     if (!pattern) {
@@ -66,11 +86,7 @@ export default function Courses({ products, courses, shopifyProducts }) {
         <div className="row">
           <div className=" col-12 col-lg-11">
             <h1 className="mb-4">Cursus aanbod</h1>
-            <select
-              className=" col-4 offset-8 col-lg-2 offset-lg-10 custom-select mr-sm-2"
-              id="select"
-              onChange={e => sortCourses(e.target.value)}
-            >
+            <select className=" col-4 offset-8 col-lg-2 offset-lg-10 custom-select mr-sm-2" id="select" onChange={e => sortCourses(e.target.value)}>
               <option value="prijs" placeholder="prijs">
                 Prijs
               </option>
@@ -84,31 +100,18 @@ export default function Courses({ products, courses, shopifyProducts }) {
             <div className="input-group mb-2 mt-3 mr-sm-2">
               <div className="input-group-prepend">
                 <div className="input-group-text">
-                  <FontAwesomeIcon
-                    className="search-icon"
-                    icon={faSearch}
-                  ></FontAwesomeIcon>
+                  <FontAwesomeIcon className="search-icon" icon={faSearch}></FontAwesomeIcon>
                 </div>
               </div>
-              <input
-                className="form-control"
-                onChange={e => searchCourses(e.target.value)}
-                placeholder="zoek cursus naam"
-              ></input>
+              <input className="form-control" onChange={e => searchCourses(e.target.value)} placeholder="zoek cursus naam"></input>
             </div>
-            <select
-              onChange={e => sortType(e.target.value)}
-              className="form-control"
-              id="exampleFormControlSelect1"
-            >
+            <select onChange={e => sortType(e.target.value)} className="form-control" id="exampleFormControlSelect1">
               <option>Alle Categoriën</option>
-              <option>Filosofie</option>
-              <option>Geschiedenis</option>
-              <option>
-                Bijbel studie
-              </option>
-              <option>Catechese</option>
-              <option>Theologie</option>
+              {
+                uniqueThemes.map(function (theme) {
+                  return (<option key={theme}>{theme}</option>)
+                })
+              }
             </select>
           </div>
           <div className="col-12 col-lg-8">

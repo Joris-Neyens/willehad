@@ -13,7 +13,7 @@ export default function CourseCards({ productInfo, courses }) {
 
   return (
     <>
-      {productInfo.map(function (product) {
+      { productInfo.map(function (product) {
         const {
           id,
           name,

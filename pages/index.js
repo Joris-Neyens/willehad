@@ -14,7 +14,7 @@ import Uitleg from "../src/components/pages/home/Uitleg";
 export default function Home({ home, courses, reviews }) {
   console.log(home)
 
-  if (! home.header_image.id) {
+  if (! home.header_video) {
     return (
     <div className="wrapper">
       <Layout>
@@ -28,7 +28,7 @@ export default function Home({ home, courses, reviews }) {
           buttonPrimary="/cursus-aanbod"
           buttonSecondary="/hoe-het-werkt"
           title={home.title}
-          url={url}
+          url={home.header_image.url}
           modal={false}
           home={home}
           viewHeight={100}
