@@ -6,38 +6,66 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import CourseCards from "./CourseCards";
 
-export default function Courses({ products, courses }) {
+export default function Courses({ products, courses, collections }) {
 
   const [productInfo, setProductInfo] = useState(products);
-  console.log(products)
-
-
 
   let themesObjects = Object.assign(
     products.map(function (product) {
       return product.keywords.replace(/\n|,/g, ' ');
     })
   );
-
   themesObjects = themesObjects.join(" ")
   themesObjects = themesObjects.replace(/\s{2,}/g, " ")
-  
-
-  const themesArray = themesObjects.split(" ")
+  const themesArray = themesObjects.split(" ");
   const uniqueThemes = Array.from(new Set(themesArray)).join(" ").split(" ");
 
-   function sortType(value) {
-     if (value === "Alle Categoriën") {
-     setProductInfo(products);
-       return
-     }
+  function filter(target) {
+    let filteredProducts = products;
+    let newProductArray = [];
 
-     const result = products.filter(product => product.keywords.includes(value))
-    
-     setProductInfo(result)
-     
-         
+    let value = target.value;
+    const themesCheckboxes = document.querySelectorAll("#theme");
+    const allThemesCheckbox = document.querySelector("#allThemes");
+    const checked = document.querySelectorAll("input:checked")
+
+
+    products.map(function (product) {
+      let id = product.collection_ids.join(" ")
+      console.log(id)
+      const uniqueId = Array.from(new Set(id)).join(" ")
+      console.log(uniqueId)
+    })
+
+    if (checked.length === 0) {
+      setProductInfo(products);
+      return
     }
+
+    if (value === "alle thema's") {
+      setProductInfo(filteredProducts);
+      themesCheckboxes.forEach(function (themeCheckbox) {
+        themeCheckbox.checked = false;
+      });
+      return;
+    }
+
+    themesCheckboxes.forEach(function (checkbox) {
+      if (checkbox.checked === true) {
+        allThemesCheckbox.checked = false;
+      }
+      if (checkbox.checked === true) {
+        newProductArray.push(checkbox.value);
+      }
+    });
+
+    filteredProducts = products.filter(function (product) {
+      if (newProductArray.includes(product.keywords)) {
+        return true;
+      }
+    });
+    setProductInfo(filteredProducts);
+  }
        
 
   const searchCourses = pattern => {
@@ -60,7 +88,7 @@ export default function Courses({ products, courses }) {
     }
   };
 
-  function sortCourses(input) {
+  function sortByPrice(input) {
     if (input == "prijs") {
       setProductInfo(products);
       return;
@@ -80,13 +108,71 @@ export default function Courses({ products, courses }) {
     setProductInfo(matches);
   }
 
+  function collectionFilter(target) {
+    let filteredProducts = products;
+
+    setProductInfo(products)
+
+    const id = target.value
+
+  let newCategoryArray = [];
+    
+    products.forEach(function (product) {
+
+      
+
+      const productIds = product.collection_ids.map(function (productId) {
+
+        if (productId == id) {
+          newCategoryArray.push(product.collection_ids);
+        }
+      })
+      
+      filteredProducts = products.filter(function (product) {
+        if (newCategoryArray.includes(product.collection_ids)) {
+            return true
+        } 
+      })
+
+      filteredProducts.forEach(function (filteredProd) {
+        setProductInfo(filteredProd)
+      })
+
+
+      
+      
+  //   themesCheckboxes.forEach(function (checkbox) {
+  //     if (checkbox.checked === true) {
+  //       allThemesCheckbox.checked = false;
+  //     }
+  //     if (checkbox.checked === true) {
+  //       newProductArray.push(checkbox.value);
+  //     }
+  //   });
+
+  //   filteredProducts = products.filter(function (product) {
+  //     if (newProductArray.includes(product.keywords)) {
+  //       return true;
+  //     }
+  //   });
+  //   setProductInfo(filteredProducts);
+  // }
+        setProductInfo(filteredProducts);
+
+     
+    })
+
+    
+    
+  }
+
   return (
     <>
       <div className="container position-relative pb-5">
         <div className="row">
           <div className=" col-12 col-lg-11">
             <h1 className="mb-4">Cursus aanbod</h1>
-            <select className=" col-4 offset-8 col-lg-2 offset-lg-10 custom-select mr-sm-2" id="select" onChange={e => sortCourses(e.target.value)}>
+            <select className=" col-4 offset-8 col-lg-2 offset-lg-10 custom-select mr-sm-2" id="select" onChange={e => sortByPrice(e.target.value)}>
               <option value="prijs" placeholder="prijs">
                 Prijs
               </option>
@@ -105,14 +191,32 @@ export default function Courses({ products, courses }) {
               </div>
               <input className="form-control" onChange={e => searchCourses(e.target.value)} placeholder="zoek cursus naam"></input>
             </div>
-            <select onChange={e => sortType(e.target.value)} className="form-control" id="exampleFormControlSelect1">
-              <option>Alle Categoriën</option>
-              {
-                uniqueThemes.map(function (theme) {
-                  return (<option key={theme}>{theme}</option>)
-                })
-              }
-            </select>
+            <div className="themes pt-3">
+              <h6>Categorieën</h6>
+              {collections.map(function (collection) {
+                return (
+                  <div className="form-check" key={collection.id}>
+                    <input className="form-check-input" type="checkbox" value={collection.id} id="theme" onChange={e => collectionFilter(e.target)} />
+                    <label className="form-check-label">{collection.name}</label>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="themes pt-3">
+              <h6>Thema's</h6>
+              <div className="form-check">
+                <input className="form-check-input" type="checkbox" value="alle thema's" id="allThemes" onChange={e => filter(e.target)} />
+                <label className="form-check-label">alle thema's</label>
+              </div>
+              {uniqueThemes.map(function (theme) {
+                return (
+                  <div className="form-check" key={theme}>
+                    <input className="form-check-input" type="checkbox" value={theme} id="theme" onChange={e => filter(e.target)} />
+                    <label className="form-check-label">{theme}</label>
+                  </div>
+                );
+              })}
+            </div>
           </div>
           <div className="col-12 col-lg-8">
             <CourseCards key={products.id} productInfo={productInfo} courses={courses} />
