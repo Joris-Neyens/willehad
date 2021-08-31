@@ -13,16 +13,16 @@ export default function hoeHetWerkt() {
       <div className="wrapper">
         <Layout>
           <Header
-            url="/hoe_het_werkt.jpg"
-            viewHeight={50}
-            textCol="8"
+            url="/video-talk.jpg"
+            viewHeight={70}
+            textCol="6"
             title="Cursus Traject"
-            subtitle="Zo veel meer dan een studie"
+            subtitle="Studeer waar en wanneer jou uit komt, vind samen meer diepgang onder begeleiding van coaches en docenten"
           />
           <main>
             <div className="container hoe-het-werkt">
               <div className="row">
-                <div className="col-12 offset-0 col-lg-6 offset-lg-3">
+                <div className="col-12 offset-0 col-lg-6 offset-lg-3 pt-5">
                   <h1 className="pb-3">Hoe het werkt</h1>
                 </div>
               </div>

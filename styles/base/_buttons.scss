@@ -1,25 +1,27 @@
 
 .button__primary {
     border: none;
-    background-color: $accent;
+    background-color: $secondary;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 22px;
     color: white;
     max-width: 200px;
+        border-radius: 2px;
 }
 .button__primary:hover {
-    background-color: #6C1E1E;
+    background-color: $secondary-dark;
     cursor: pointer;
 }
 .button__primary--dark {
     border: none;
-    background-color: $primary;
+    background-color: $secondary;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 22px;
     color: white;
+    border-radius: 2px;
 }
 .button__primary--dark:hover {
-    background-color: #302e3d;
+    background-color: $secondary-dark;
     cursor: pointer;
 }
 
@@ -27,9 +29,10 @@
     border: 1px solid white;
     background-color: transparent;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 22px;
     color: $white;
     max-width: 200px;
+    border-radius: 2px;
 }
 .button__secondary--light:hover {
     outline: 1px solid white;
@@ -45,15 +48,15 @@
     visibility: hidden;
 }
 .button__secondary--dark {
-    border: 1px solid $accent;
+    border: 1px solid $secondary;
     background-color: transparent;
     font-weight: 400;
-    font-size: 18px;
-    color: $accent;
+    font-size: 22px;
+    color: $secondary;
     max-width: 200px;
 }
 .button__secondary--dark:hover {
-    outline: 1px solid $accent;
+    outline: 1px solid $secondary-dark;
     font-weight: 500;
 }
 

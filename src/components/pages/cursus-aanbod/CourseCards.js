@@ -1,13 +1,5 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMicrophoneAlt,
-  faVideo,
-  faChalkboardTeacher,
-  faComments,
-} from "@fortawesome/free-solid-svg-icons";
-import { faProductHunt } from "@fortawesome/free-brands-svg-icons";
 
 export default function CourseCards({ productInfo, courses }) {
 
@@ -21,9 +13,6 @@ export default function CourseCards({ productInfo, courses }) {
           price,
           description,
           slug,
-          type,
-          category,
-          episodes,
         } = product;
 
         let lessons = "1"
@@ -36,30 +25,7 @@ export default function CourseCards({ productInfo, courses }) {
 
         })
 
-        // let icon = "";
-        // if (type === "Audio") {
-        //   icon = <FontAwesomeIcon icon={faMicrophoneAlt}></FontAwesomeIcon>;
-        // } else if (type === "Video") {
-        //   icon = <FontAwesomeIcon icon={faVideo}></FontAwesomeIcon>;
-        // } else if (type === "Cursus traject") {
-        //   icon = <FontAwesomeIcon icon={faComments}></FontAwesomeIcon>;
-        // } else if (type === "Webinar") {
-        //   icon = <FontAwesomeIcon icon={faChalkboardTeacher}></FontAwesomeIcon>;
-        // }
-
         let imageStyle = "col-4 p-0 card__image my-2";
-
-        // if (category === "Bijbel studie") {
-        //   imageStyle = `col-12 col-lg-4 p-0 card__image my-2 color-bible`;
-        // } else if (category === "Geschiedenis") {
-        //   imageStyle = `col-12 col-lg-4 p-0 card__image my-2 color-history`;
-        // } else if (category === "Theologie") {
-        //   imageStyle = `col-12 col-lg-4 p-0 card__image my-2 color-theology`;
-        // } else if (category === "Filosofie") {
-        //   imageStyle = `col-12 col-lg-4 p-0 card__image my-2 color-philosophy`;
-        // } else if (category === "Catechese") {
-        //   imageStyle = `col-12 col-lg-4 p-0 card__image my-2 color-catechesis`;
-        // }
 
         let styles = {
           backgroundImage: `url(/public/under-construction.jpg)`,
@@ -72,7 +38,7 @@ export default function CourseCards({ productInfo, courses }) {
         }
         return (
           <div key={id}>
-            <Link href={`https://willehad.thinkific.com/courses/${slug}`}>
+            <Link href={`cursus-aanbod/${id}`}>
               <div className="my-3 course-card shadow">
                 <div className="row w-100 mx-auto px-2 px-lg-0 ml-lg-2 ">
                   <div className={imageStyle} style={styles}>

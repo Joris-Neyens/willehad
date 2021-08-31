@@ -3,6 +3,11 @@ body {
   font-weight: 300;
     line-height: 1.7rem;
 }
+p {
+  font-size: 20px;
+  line-height: 1.6;
+
+}
 #logo {
   font-family: $playfair;
 }
@@ -24,18 +29,15 @@ body {
 h1 {
   color: $primary !important;
   font-family: $playfair;
-  font-size: 32px;
+  font-size: 42px;
 }
 h2 {
   font-family: $playfair;
-  font-size: 24px;
-}
-.hoe-het-werkt__title {
-  background-color: #d9a23b6e;
+  font-size: 36px;
 }
 h3 {
   font-family: $playfair;
-  font-size: 20px;
+  font-size: 32px;
 }
 h4 {
   font-size: 18px;
@@ -50,28 +52,6 @@ p.short-about-course__date {
 }
 label {
   font-weight: 400;
-}
-.menu__link {
-  font-weight: 400;
-  font-size: 14px;
-  text-transform: uppercase;
-  color: $primary;
-}
-.menu__link--logout {
-  text-transform: uppercase;
-  font-size: 14px;
-}
-.menu__link--logout:hover {
-  cursor: pointer;
-}
-.menu__link--light {
-  font-weight: 400;
-  font-size: 14px;
-  color: $background;
-  text-transform:uppercase;
-}
-.menu__link--light:hover {
-  color: $background;
 }
 footer p {
   font-weight: 500;
@@ -98,9 +78,6 @@ a::before {
   overflow: hidden;
   visibility: hidden;
 }
-.review__name {
-  font-style: italic;
-}
 .form-control {
   font-weight: 300;
 }
@@ -119,7 +96,4 @@ a::before {
 }
 .course-card p {
   line-height: 1.4em;
-}
-.review__title {
-  border-bottom: 2px solid $secondary;
 }

@@ -1,35 +1,49 @@
 import PropTypes from "prop-types";
 import Image from "next/image";
 
-export default function Docent({ teacherInfo, teacher, teacherImage }) {
+export default function Docent({ product, instructors }) {
+  const { instructor_names } = product
+
+  let teacherName = ""
 
   return (
-    <section className="pb-5 pt-3 background-dark ">
-      <div className="container py-5">
-        <h2 className="text-center pb-3">Ontmoet de docent</h2>
-        <div className="row">
-          <div className="col-12 col-md-6 col-lg-4 offset-lg-2 order-2 oder-md-1">
-            <p className="text-center text-md-left mb-2">Docent</p>
-            <h3 className="text-center text-md-left">{teacher}</h3>
-            <p className="text-center text-md-left">{teacherInfo}</p>
-          </div>
-          <div className="col-6  offset-3 offset-md-0 mt-md-5 order-1 order-md-2">
-            <Image
-              alt={"image of " + teacher}
-              className="ml-md-5 mb-3"
-              src={teacherImage.url}
-              width="300"
-              height="300"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+  <>
+    {instructors.map(function(instructor) {
+
+        let names = instructor.first_name + " " + instructor.last_name
+      if (instructor_names === names) {
+
+        let title = ""
+        if (instructor.title) {
+          title = instructor.title
+        }
+        
+        teacherName = title + " " + instructor.first_name + " " + instructor.last_name
+
+        return (
+          <section key={instructor.id} className="pb-5 pt-3 background-dark ">
+            <div className="container py-5">
+              <h2 className="text-center pb-3">Ontmoet de docent</h2>
+              <div className="row">
+                <div className="col-12 col-md-6 col-lg-4 offset-lg-2 order-2 oder-md-1 mt-5">
+                  <Image alt={"image of " + teacherName} className="ml-md-5 mb-3" src={instructor.avatar_url} width="300" height="300" />
+                </div>
+                <div className="col-4 offset-3 offset-md-0 order-1 order-md-2">
+                   <p className="text-center text-md-left mb-2">Docent</p>
+                  <h3 className="text-center text-md-left">{teacherName}</h3>
+                  <p className="text-center text-md-left">{instructor.bio}</p>
+              </div>
+              </div>
+              </div>
+          </section>
+        );
+      } 
+      })
+    }
+    </>
   );
 }
 
 Docent.propTypes = {
-  teacherInfo: PropTypes.string.isRequired,
-  teacher: PropTypes.string.isRequired,
-  teacherImage: PropTypes.object.isRequired,
+  product: PropTypes.object.isRequired,
 }

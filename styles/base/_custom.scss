@@ -1,13 +1,18 @@
 $background: #F6F6F6;
+$lightgrey-background: #E9E7DF;
+$lightgold: #e0dbc5;
 $primary: #524E68;
-$secondary: #D9A13B;
+$secondary: #b68832;
+$secondary-dark: #946e29;
+$secondary-light: #d9a13b;
 $accent: #8C2A2A;
 $transparant-background: rgba($color: #d9a13b, $alpha: 0.35);
 $transparant-background-red: rgba($color: #8C2A2A, $alpha: 0.20);
 $paragraph-background-dark: #C5C5CC;
+$sans-serif: 'proxima-nova', sans-serif;
+$playfair: 'freight-big-pro', serif;
 
-$sans-serif:'Roboto', sans-serif;
-$playfair: 'Playfair Display', serif;
+
 
 @media (min-width: 1600px) { 
     .container {

@@ -13,7 +13,7 @@ body {
  overflow: hidden;
  display: block;
  position: relative;
- padding-bottom: 228.8px;
+ padding-bottom: 219.8px;
 }
 
 section.newsletter {
@@ -32,4 +32,7 @@ footer {
   .wrapper{
     padding-bottom: 500px;
   }
+}
+.courses-container {
+  min-height: 100vh;
 }

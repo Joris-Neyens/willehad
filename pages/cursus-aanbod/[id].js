@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import axios from "axios";
-import { BASE_URL, COURSES_PATH } from "../../src/api/baseUrl";
+import { THINKIFIC_URL, API_KEY } from "../../src/api/thinkific";
 import Head from "../../src/components/head/Head";
 import Header from "../../src/components/layout/header/Header";
 import Layout from "../../src/components/layout/Layout";
@@ -10,67 +10,61 @@ import PracticalInfo from "../../src/components/pages/cursus/Practicalinfo";
 import Docent from "../../src/components/pages/cursus/Docent";
 import Curriculum from "../../src/components/pages/cursus/Curriculum";
 import Video from '../../src/components/pages/cursus/Video';
+import { faZhihu } from "@fortawesome/free-brands-svg-icons";
 
-export default function Course({ course }) {
+export default function Course({ product, instructors, chapters}) {
 
   const {
-    title,
-    subtitle,
-    cover,
-    teacher,
-    teacher_description,
-    curriculum,
-    teacher_image,
-    video
-  } = course;
+    name,
+    seo_title,
+    card_image_url,
+  } = product;
 
-  let videoArray = ""
+  // let videoArray = ""
 
-  if (video) {
-    videoArray = <Video video={video} />;
-  }
-
+  // if (video) {
+  //   videoArray = <Video video={video} />;
+  // }
 
   return (
     <>
-      <Head
-        title={course.title}
-        description={"course info for " + course.title}
-      />
+      <Head title={name} description={"course info for " + seo_title} />
       <div className="wrapper">
         <Layout>
-          <Header
-            title={title}
-            subtitle={subtitle}
-            url={cover.url}
-            viewHeight={60}
-            textCol="12"
-            modal={true}
-          />
-          <AboutCourse course={course} />
+          <Header title={name} subtitle={seo_title} url={card_image_url} viewHeight={60} textCol="12" modal={true} />
+          <AboutCourse product={product} />
           <ExplainCourse />
-          <PracticalInfo course={course} />
-          <Docent
-            teacher={teacher}
-            teacherInfo={teacher_description}
-            teacherImage={teacher_image}
-          />
-          <Curriculum curriculum={curriculum} />
-         {videoArray}
+          {/* 
+          <PracticalInfo product={product} />
+          */}
+          <Curriculum chapters={chapters} />
+          {/* 
+          {videoArray} */}
+          <Docent product={product} instructors={instructors} />
         </Layout>
       </div>
     </>
   );
 }
 
+const header = {
+  headers: {
+    "X-Auth-API-Key": `${API_KEY}`,
+    "X-Auth-Subdomain": "willehad",
+    "Content-Type": "application/json",
+  },
+};
+
 export async function getServerSidePaths() {
+
+  const url = THINKIFIC_URL + "/products"
   try {
-    const response = await axios.get(BASE_URL + COURSES_PATH);
+    const response = await axios.get(url, header);
     console.log(response.data);
     const courses = response.data;
 
     const paths = courses.map(course => ({
-      params: { id: course.id },
+      params: { slug: course.id },
     }));
 
     return { paths, fallback: false };
@@ -80,21 +74,67 @@ export async function getServerSidePaths() {
 }
 
 export async function getServerSideProps({ params }) {
-  const url = `${BASE_URL}courses/${params.id}`;
 
-  let course = null;
+  const url = `${THINKIFIC_URL}/products/${params.id}`;
+  const instructorsUrl = THINKIFIC_URL + "/instructors";
+  const coursesUrl = THINKIFIC_URL + "/courses";
+
+  let instructors = [];
+  let product = null;
+  let chapters = [];
+  let courses = null;
 
   try {
-    const response = await axios.get(url);
-    course = response.data;
+    const response = await axios.get(url, header);
+    product = response.data;
   } catch (error) {
     console.log(error);
   }
+  try {
+    const response = await axios.get(instructorsUrl, header);
+    instructors = response.data.items;
+  } catch (error) {
+    console.log(error);
+  }
+    try {
+      const response = await axios.get(coursesUrl, header);
+      courses = response.data.items;
+    } catch (error) {
+      console.log(error);
+    }
+
+  
+  const filteredId = courses.filter(function (course) {
+    if (course.name === product.name) {
+      return course
+    }
+  })
+  const chapterID = filteredId[0].id
+  const chaptersUrl = THINKIFIC_URL + "/courses/" + chapterID + "/chapters?page=1&limit=25";
+
+    try {
+      const response = await axios.get(chaptersUrl, header);
+      chapters = response.data.items;
+    } catch (error) {
+      console.log(error);
+    }
+
+  
+
+
+
   return {
-    props: { course: course },
+    props: {
+      product: product,
+      instructors: instructors,
+      courses: courses,
+      chapters: chapters,
+    },
   };
 }
 
 Course.propTypes = {
-  course: PropTypes.object.isRequired,
+  product: PropTypes.object.isRequired,
+  instructors: PropTypes.array.isRequired,
+  // chapters: PropTypes.array.isRequired,
 }

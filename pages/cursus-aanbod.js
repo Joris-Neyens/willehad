@@ -4,9 +4,10 @@ import Head from "../src/components/head/Head";
 import Layout from "../src/components/layout/Layout";
 import Header from "../src/components/layout/header/Header";
 import Courses from "../src/components/pages/cursus-aanbod/Courses";
+import { API_KEY, THINKIFIC_URL } from "../src/api/thinkific";
 
 export default function cursusAanbod({ courses, products, collections }) {
-  
+
   return (
     <>
       <Head
@@ -20,11 +21,10 @@ export default function cursusAanbod({ courses, products, collections }) {
             const { id, name, slug, card_image_url} = product;
 
             if (product.position === 0) {
-              let primaryLink = "https://willehad.thinkific.com/courses/" + slug;
+              let primaryLink = "cursus-aanbod/" + slug;
               return (
                 <Header
                   viewHeight={50}
-                  textCol="8"
                   key={id}
                   title={name}
                   url={card_image_url}
@@ -42,9 +42,9 @@ export default function cursusAanbod({ courses, products, collections }) {
 }
 
 export async function getServerSideProps() {
-    const courseUrl = "https://api.thinkific.com/api/public/v1/courses"
-  const productUrl = "https://api.thinkific.com/api/public/v1/products"
-      const collectionsUrl = "https://api.thinkific.com/api/public/v1/collections";
+    const courseUrl = THINKIFIC_URL + "/courses"
+  const productUrl = THINKIFIC_URL + "/products";
+  const collectionsUrl = THINKIFIC_URL + "/collections";
 
     let courses = [];
   let products = [];
@@ -53,12 +53,13 @@ export async function getServerSideProps() {
     const header = {
        
         headers: {
-            "X-Auth-API-Key": 'a075749a8ee7defaa77d3ccbf6413888',
+            "X-Auth-API-Key": `${API_KEY}`,
             "X-Auth-Subdomain": 'willehad',
             "Content-Type": 'application/json',
         },
       }
-
+  const url = THINKIFIC_URL + "/products"
+  
   try {
       const response = await axios.get(courseUrl, header);
 
@@ -75,6 +76,8 @@ export async function getServerSideProps() {
   } catch (error) {
     console.log(error);
      }
+  
+  
   
   try {
     const response = await axios.get(collectionsUrl, header);
@@ -94,37 +97,8 @@ export async function getServerSideProps() {
   };
 }
 
-
-
-// export async function getServerSideProps() {
-//   const url = BASE_URL + COURSES_PATH;
-//   const headerUrl = BASE_URL + HOME_PATH;
-
-//   let courses = [];
-//   let header = [];
-
-//   try {
-//     const response = await axios.get(url);
-//     console.log(response.data);
-//     courses = response.data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-//   try {
-//     const response = await axios.get(headerUrl);
-//     console.log(response.data);
-//     header = response.data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-//   return {
-//     props: {
-//       courses: courses,
-//       header: header,
-//     },
-//   };
-// }
-
-// cursusAanbod.propTypes = {
-//   courses: PropTypes.array.isRequired,
-// }
+cursusAanbod.propTypes = {
+  courses: PropTypes.array.isRequired,
+  products: PropTypes.array.isRequired,
+  collections: PropTypes.array.isRequired,
+};

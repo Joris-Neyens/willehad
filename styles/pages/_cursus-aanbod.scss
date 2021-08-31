@@ -5,6 +5,13 @@
 -ms-transform: scale(-1, 1);
 transform: scale(-1, 1);
  }
+
+ .filter {
+     background: white;
+ }
+.filter h6 {
+    border-bottom: 1px solid rgb(201, 201, 201) !important;
+} 
 .course__cover {
     color: $background;
 
@@ -17,6 +24,14 @@ transform: scale(-1, 1);
     p {
         font-size: 20px;
     }
+}
+.course-card p {
+  font-size: 16px;
+}
+.course-card h2 {
+  font-size: 32px;
+  color: white;
+   text-shadow: 1px 1px #0a0a0a;
 }
 
 @media (max-width: 767px) {
@@ -33,3 +48,42 @@ transform: scale(-1, 1);
 }
 
 } 
+.input-group-text {
+    border-radius: 0;
+}
+#select {
+    border-radius: 0;
+}
+
+.form-check-input {
+    margin-left: 0px !important;
+}
+.custom-control-input {
+    z-index: 4;
+    border-radius: 0;
+}
+
+ .custom-checkbox .custom-control-input ~ .custom-control-label::before {
+  border-radius: 0;
+}
+
+ .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: rgb(255, 255, 255)!important;
+  border-radius: 0;
+}
+
+.custom-checkbox .custom-control-input:checked:focus ~ .custom-control-label::before {
+  box-shadow: none;
+  border-radius: 0;
+  
+}
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: none;
+}
+.custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+  background-color: rgb(168, 168, 168) !important; 
+  
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after{
+  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='rgb(82, 78, 104)' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+}

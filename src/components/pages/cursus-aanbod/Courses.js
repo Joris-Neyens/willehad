@@ -8,6 +8,8 @@ import CourseCards from "./CourseCards";
 
 export default function Courses({ products, courses, collections }) {
 
+  console.log(products)
+
   const [productInfo, setProductInfo] = useState(products);
 
   let themesObjects = Object.assign(
@@ -21,50 +23,81 @@ export default function Courses({ products, courses, collections }) {
   const uniqueThemes = Array.from(new Set(themesArray)).join(" ").split(" ");
 
   function filter(target) {
+    
+
     let filteredProducts = products;
-    let newProductArray = [];
+    let newThemesArray = [];
+    let newCategoryArray = [];
 
     let value = target.value;
+
+
+
     const themesCheckboxes = document.querySelectorAll("#theme");
     const allThemesCheckbox = document.querySelector("#allThemes");
-    const checked = document.querySelectorAll("input:checked")
+    const checked = document.querySelectorAll("input:checked");
 
 
-    products.map(function (product) {
-      let id = product.collection_ids.join(" ")
-      console.log(id)
-      const uniqueId = Array.from(new Set(id)).join(" ")
-      console.log(uniqueId)
-    })
 
-    if (checked.length === 0) {
-      setProductInfo(products);
-      return
-    }
+    filteredProducts.forEach(function (product) {
+      themesCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked === true) {
+          allThemesCheckbox.checked = false;
+          newThemesArray.push(checkbox.value);
+        }
+        const productIds = product.collection_ids.map(function (productId) {
+          if (productId == value) {
+            newCategoryArray.push(product.collection_ids);
+          }
+        });
 
-    if (value === "alle thema's") {
-      setProductInfo(filteredProducts);
-      themesCheckboxes.forEach(function (themeCheckbox) {
-        themeCheckbox.checked = false;
-      });
-      return;
-    }
+        
+        
+            if (value === "laag") {
+              filteredProducts.sort((a, b) => (a.price > b.price ? 1 : -1));
+              setProductInfo(filteredProducts);
+            }
+            if (value === "hoog") {
+              filteredProducts.sort((a, b) => (a.price < b.price ? 1 : -1));
+              setProductInfo(filteredProducts);
+            }
+        
+        filteredProducts = products.filter(function (product) {
+          if (newCategoryArray.includes(product.collection_ids)) {
+            return true;
+          }
+        });
 
-    themesCheckboxes.forEach(function (checkbox) {
-      if (checkbox.checked === true) {
-        allThemesCheckbox.checked = false;
-      }
-      if (checkbox.checked === true) {
-        newProductArray.push(checkbox.value);
-      }
+        setProductInfo(filteredProducts)
+        // filteredProducts = products.filter(function (product) {
+        //   console.log(newProductArray)
+        //   if (newProductArray.includes(product.keywords)) {
+        //     return true;
+        //   }
+        // });
+
+          });
+
+      // console.log(filteredProducts);
+      // if (checked.length === 0) {
+      //     setProductInfo(products);
+      //     return;
+      //   }
+
+      //   if (value === "alle thema's") {
+      //     setProductInfo(filteredProducts);
+      //     themesCheckboxes.forEach(function (themeCheckbox) {
+      //       themeCheckbox.checked = false;
+      //     });
+      //     return;
+      //   }
+    
     });
+    
 
-    filteredProducts = products.filter(function (product) {
-      if (newProductArray.includes(product.keywords)) {
-        return true;
-      }
-    });
-    setProductInfo(filteredProducts);
+        
+
+      
   }
        
 
@@ -88,91 +121,58 @@ export default function Courses({ products, courses, collections }) {
     }
   };
 
-  function sortByPrice(input) {
-    if (input == "prijs") {
-      setProductInfo(products);
-      return;
-    }
-    const matches = [];
-    if (input === "laag") {
-      const sorted = sort(products).asc([u => u.price]);
-      sorted.forEach(sort => {
-        matches.push(sort);
-      });
-    } else if (input === "hoog") {
-      const sorted = sort(products).desc([u => u.price]);
-      sorted.forEach(sort => {
-        matches.push(sort);
-      });
-    }
-    setProductInfo(matches);
-  }
+  // function sortByPrice(input) {
+  //   if (input == "prijs") {
+  //     setProductInfo(products);
+  //     return;
+  //   }
 
-  function collectionFilter(target) {
-    let filteredProducts = products;
-
-    setProductInfo(products)
-
-    const id = target.value
-
-  let newCategoryArray = [];
-    
-    products.forEach(function (product) {
-
-      
-
-      const productIds = product.collection_ids.map(function (productId) {
-
-        if (productId == id) {
-          newCategoryArray.push(product.collection_ids);
-        }
-      })
-      
-      filteredProducts = products.filter(function (product) {
-        if (newCategoryArray.includes(product.collection_ids)) {
-            return true
-        } 
-      })
-
-      filteredProducts.forEach(function (filteredProd) {
-        setProductInfo(filteredProd)
-      })
-
-
-      
-      
-  //   themesCheckboxes.forEach(function (checkbox) {
-  //     if (checkbox.checked === true) {
-  //       allThemesCheckbox.checked = false;
-  //     }
-  //     if (checkbox.checked === true) {
-  //       newProductArray.push(checkbox.value);
-  //     }
-  //   });
-
-  //   filteredProducts = products.filter(function (product) {
-  //     if (newProductArray.includes(product.keywords)) {
-  //       return true;
-  //     }
-  //   });
-  //   setProductInfo(filteredProducts);
+  //   console.log(products)
+  //   const matches = [];
+  //   if (input === "laag") {
+  //     const sorted = sort(products).asc([u => JSON.parse(u.price)]);
+  //     sorted.forEach(sort => {
+  //       matches.push(sort);
+  //     });
+  //   } else if (input === "hoog") {
+  //     const sorted = sort(products).desc([u => JSON.parse(u.price)]);
+  //     sorted.forEach(sort => {
+  //       matches.push(sort);
+  //     });
+  //   }
+  //   setProductInfo(matches);
   // }
-        setProductInfo(filteredProducts);
 
-     
-    })
 
-    
-    
-  }
+  // function collectionFilter(target) {
+  //   let filteredProducts = products;
+
+  //   const valie = target.value;
+  //   let newCategoryArray = [];
+
+  //   products.forEach(function (product) {
+  //     const productIds = product.collection_ids.map(function (productId) {
+  //       if (productId == value) {
+  //         newCategoryArray.push(product.collection_ids);
+
+  //       }
+  //     });
+  //     filteredProducts = products.filter(function (product) {
+  //       if (newCategoryArray.includes(product.collection_ids)) {
+  //         return true;
+  //       }
+  //     });
+  //        setProductInfo(filteredProducts);
+  //   });
+  // }
 
   return (
     <>
-      <div className="container position-relative pb-5">
+      <div className="container courses-container position-relative pb-5">
         <div className="row">
           <div className=" col-12 col-lg-11">
-            <h1 className="mb-4">Cursus aanbod</h1>
-            <select className=" col-4 offset-8 col-lg-2 offset-lg-10 custom-select mr-sm-2" id="select" onChange={e => sortByPrice(e.target.value)}>
+            <h1 className="mb-4 pt-5">Cursus aanbod</h1>
+            <select className=" col-4 offset-8 col-lg-2 offset-lg-10 custom-select mr-sm-2" id="select" onChange={e => filter(e.target)}>
               <option value="prijs" placeholder="prijs">
                 Prijs
               </option>
@@ -191,31 +191,48 @@ export default function Courses({ products, courses, collections }) {
               </div>
               <input className="form-control" onChange={e => searchCourses(e.target.value)} placeholder="zoek cursus naam"></input>
             </div>
-            <div className="themes pt-3">
-              <h6>Categorieën</h6>
-              {collections.map(function (collection) {
-                return (
-                  <div className="form-check" key={collection.id}>
-                    <input className="form-check-input" type="checkbox" value={collection.id} id="theme" onChange={e => collectionFilter(e.target)} />
-                    <label className="form-check-label">{collection.name}</label>
-                  </div>
-                );
-              })}
-            </div>
-            <div className="themes pt-3">
-              <h6>Thema's</h6>
-              <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="alle thema's" id="allThemes" onChange={e => filter(e.target)} />
-                <label className="form-check-label">alle thema's</label>
+            <div className="themes filter pt-3">
+              <div>
+                <h6 className="px-2 pb-1">Categorieën</h6>
               </div>
-              {uniqueThemes.map(function (theme) {
-                return (
-                  <div className="form-check" key={theme}>
-                    <input className="form-check-input" type="checkbox" value={theme} id="theme" onChange={e => filter(e.target)} />
-                    <label className="form-check-label">{theme}</label>
-                  </div>
-                );
-              })}
+              <div className="px-2 pb-2 mb-2">
+                {collections.map(function (collection) {
+                  return (
+                    <div className="custom-control custom-checkbox" key={collection.id}>
+                      <input
+                        className="form-check-input custom-control-input"
+                        id={collection.id}
+                        type="checkbox"
+                        value={collection.id}
+                        id="category"
+                        onChange={e => filter(e.target)}
+                      />
+                      <label className="form-check-label custom-control-label" for={collection.id}>
+                        {collection.name}
+                      </label>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="themes filter pt-3">
+              <div>
+                <h6 className="px-2 pb-1">Thema's</h6>
+              </div>
+              <div className="px-2 pb-2">
+                <div className="custom-control custom-checkbox">
+                  <input className="custom-control-input" type="checkbox" value="alle thema's" id="allThemes" onChange={e => filter(e.target)} />
+                  <label className="form-check-label custom-control-label">alle thema's</label>
+                </div>
+                {uniqueThemes.map(function (theme) {
+                  return (
+                    <div className="custom-control custom-checkbox" key={theme}>
+                      <input className="form-check-input custom-control-input" type="checkbox" value={theme} id="theme" onChange={e => filter(e.target)} />
+                      <label className="form-check-label custom-control-label">{theme}</label>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
           <div className="col-12 col-lg-8">

@@ -1,16 +1,39 @@
 
 #logo {
-  color: $primary;
+  color: $background;
   font-size: 36px;
 }
 .menu__icon {
   font-size: 20px;
 }
 .menu {
-  background-color: $background;
+  background-color: #292836;
 }
 .menu__container {
   height: 60.45px;
 }
-
-
+.menu__link {
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: $background;
+}
+.menu__link:hover {
+  color: $secondary;
+}
+.menu__link--logout {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.menu__link--logout:hover {
+  cursor: pointer;
+}
+.menu__link--light {
+  font-weight: 400;
+  font-size: 14px;
+  color: $background;
+  text-transform:uppercase;
+}
+.menu__link--light:hover {
+  color: $background;
+}

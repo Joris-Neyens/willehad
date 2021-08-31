@@ -7,16 +7,12 @@ export default function VideoHeader({
   video,
   course_type,
   viewHeight,
-  textCol,
   modal,
   buttonPrimary,
   buttonSecondary,
   subtitle,
   headerButtonName,
 }) {
-
-  const textWidth = `col-12 col-lg-${textCol}`;
-
   let height = { height: `${viewHeight}vh` };
   let headerType = "";
   let headerTitle = "";
@@ -39,7 +35,7 @@ export default function VideoHeader({
   }
   if (date) {
     headerDate = (
-      <p className="jumbotron__content-date col-6 col-sm-4 col-md-3 col-lg-6 col-xl-5 px-0">
+      <p className="jumbotron__content-date col-5 px-0">
         {date}
       </p>
     );
@@ -76,7 +72,7 @@ export default function VideoHeader({
 
   return (
       <div className="jumbotron__video container-fluid rounded-0 p-0">
-        <video className="video" width="100%" style={height} preload muted autoPlay loop>
+        <video className="video" width="100%" style={height} muted autoPlay loop>
             <source src={video} />
         </video>
             <div className="jumbotron-overlay__video">
@@ -84,10 +80,10 @@ export default function VideoHeader({
                 className="container d-flex align-items-center jumbotron__content"
                 style={height}
                 >
-                    <div className="row w-100">
-                        <div className={textWidth}>
+          <div className="row w-50 justify-content-center">
+                        <div className="col-12 col-lg-8">
                             <div className="row w-100 pt-5 mt-5">
-                                <div className="col-12 p-0">
+                                <div className="p-0">
                                     {headerType}
                                     {headerTitle}
                                     {headerDate}

@@ -11,3 +11,18 @@
     white-space: pre-line;
     line-height: 2.4rem;
 }
+.about-course {
+    p {
+        max-width: 900px;
+    }
+}
+.curriculum {
+    border-bottom: 1px solid #49465e31;
+    cursor: pointer;
+}
+.curriculum:hover {
+    color: $secondary;
+}
+.curriculum__plus {
+    font-size: 32px;
+}
