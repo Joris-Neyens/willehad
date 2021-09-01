@@ -82,7 +82,7 @@ export default function VideoHeader({
                 >
           <div className="row w-50 justify-content-center">
                         <div className="col-12 col-lg-8">
-                            <div className="row w-100 pt-5 mt-5">
+                            <div className="row w-100 mx-auto pt-5 mt-5">
                                 <div className="p-0">
                                     {headerType}
                                     {headerTitle}

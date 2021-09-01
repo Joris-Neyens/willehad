@@ -11,7 +11,7 @@ export default function MainNav() {
 
   return (
     <>
-      <Navbar fixed="top" className="menu py-0">
+      <Navbar fixed="top" className="menu py-0 d-none d-lg-block">
         <Container className="menu__container">
           <Nav className="me-auto w-100">
             <nav className="py-2 row w-100">
@@ -57,31 +57,41 @@ export default function MainNav() {
           </Nav>
         </Container>
       </Navbar>
-      <Navbar className="d-lg-none" bg="light" expand="lg">
-        <Link href="/">
-          <a id="logo">Willehad</a>
-        </Link>
-
-        <Navbar.Toggle className="border-0 " />
+      <Navbar className="menu d-lg-none p-0" expand="lg">
+        <div className="row w-100">
+          <div className="col-6 offset-3 d-flex justify-content-center py-3">
+            <Link href="/">
+              <a id="logo">Willehad</a>
+            </Link>
+          </div>
+          <Navbar.Toggle className="navbar-dark col-1 offset-2 border-0 p-0" />
+        </div>
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Link href="/cursus-aanbod">
-              <a className="text-right menu__link py-3">cursus aanbod</a>
-            </Link>
-            <Link href="/hoe-het-werkt">
-              <a className="text-right menu__link py-3">hoe het werkt</a>
-            </Link>
-            <Link href="/over-Willehad">
-              <a className="text-right menu__link py-3">Over Willehad</a>
-            </Link>
-            <Link href="/contact" className="text-right menu__link">
-              <a className="text-right menu__link py-3">contact</a>
-            </Link>
-            <div className="d-flex justify-content-end py-3">
-              <FontAwesomeIcon className="menu__icon mx-2" icon={faFacebookSquare} />
-              <FontAwesomeIcon className="menu__icon mx-2" icon={faTwitterSquare} />
-            </div>
-          </Nav>
+          <div className="container py-4">
+            <Nav className="w-100 d-flex justify-content-right">
+              <Link href="/cursus-aanbod">
+                <a className="text-right menu__link py-3">cursus aanbod</a>
+              </Link>
+              <Link href="/hoe-het-werkt">
+                <a className="text-right menu__link py-3">hoe het werkt</a>
+              </Link>
+              <Link href="/over-Willehad">
+                <a className="text-right menu__link py-3">Over Willehad</a>
+              </Link>
+              <Link href="/contact" className="text-right menu__link">
+                <a className="text-right menu__link py-3">contact</a>
+              </Link>
+              <div className="d-flex justify-content-end pt-4">
+                <Link href="/contact">
+                  <button className="menu__link__dark button__primary--dark px-4">
+                    <a className="menu__link--light" title="login">
+                      login
+                    </a>
+                  </button>
+                </Link>
+              </div>
+            </Nav>
+          </div>
         </Navbar.Collapse>
       </Navbar>
     </>

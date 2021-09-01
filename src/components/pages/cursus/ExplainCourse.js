@@ -2,26 +2,18 @@ import Image from 'next/image';
 
 export default function ExplainCourse() {
     return (
-      <section className="p-md-5">
-        <div className="container py-5">
-          <h2 className="pl-5 ml-3 pl-lg-0 ml-lg-0 text-lg-center">cursus traject</h2>
-          <div className="row w-100 mx-auto mt-5">
-            <div className="col-12 px-0 col-lg-4">
-              <div className="row flex-lg-column">
-                <div className="col-2 col-md-1 offset-md-1 col-lg-3 mx-lg-auto">
-                  <Image alt="icoon of afstudeer mutsje" src="/cursus.png" layout="responsive" width="100" height="100" />
-                </div>
+      <section className="pt-2">
+        <div className="background-dark py-5 mt-5">
+          <div className="container py-5">
+            <h2 className="pl-5 ml-3 pl-lg-0 ml-lg-0 text-lg-center">cursus traject</h2>
+            <div className="row w-100 mx-auto">
+              <div className="col-12 px-0 col-lg-4">
                 <div className="col-10 col-lg-12 mt-lg-4">
-                  <h3 className="text-lg-center">Online cursus</h3>
+                  <h2 className="text-lg-center">Online cursus</h2>
                   <p className="text-lg-center px-lg-4">Studeer online de rijke intellectuele traditie van de Katholieke kerk op een toegankelijke manier</p>
                 </div>
               </div>
-            </div>
-            <div className="col-12 px-0 col-lg-4">
-              <div className="row flex-lg-column">
-                <div className="col-2 col-md-1 offset-md-1 col-lg-3 mx-lg-auto">
-                  <Image alt="icoon text ballonetjes" src="/samen.png" layout="responsive" width="100" height="100" />
-                </div>
+              <div className="col-12 px-0 col-lg-4">
                 <div className="col-10 col-lg-12 mt-lg-4">
                   <h3 className="text-lg-center">Samen</h3>
                   <p className="text-lg-center px-lg-4">
@@ -29,12 +21,7 @@ export default function ExplainCourse() {
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="col-12 px-0 col-lg-4">
-              <div className="row">
-                <div className="col-2 col-md-1 offset-md-1 col-lg-3 mx-lg-auto">
-                  <Image alt="icoon pc met avatar" src="/begeleiding.png" layout="responsive" width="100" height="100" />
-                </div>
+              <div className="col-12 px-0 col-lg-4">
                 <div className="col-10 col-lg-12 mt-lg-4">
                   <h3 className="text-lg-center">Begeleiding</h3>
                   <p className="text-lg-center px-lg-4">
@@ -43,9 +30,9 @@ export default function ExplainCourse() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="d-flex justify-content-center pt-4 ">
-            <button className="button__primary px-3 py-2">Lees meer</button>
+            <div className="d-flex justify-content-center pt-4 ">
+              <button className="button__primary px-3 py-2">Lees meer</button>
+            </div>
           </div>
         </div>
       </section>

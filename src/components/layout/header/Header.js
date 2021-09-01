@@ -81,13 +81,13 @@ export default function Header({
   }
 
   return (
-    <div className="jumbotron container-fluid rounded-0 p-0 mb-0 pt-2 mt-5" style={styles}>
+    <div className="jumbotron container-fluid rounded-0 p-0 mb-0 pt-lg-2 mt-lg-5" style={styles}>
       <div className="jumbotron-overlay">
         <div
           className="container d-flex align-items-center jumbotron__content"
           style={height}
         >
-          <div className="row w-100">
+          <div className="row w-100 mx-auto">
             <div className={textWidth}>
               <div className="row w-100 pt-5 mt-5">
                 <div className="col-12 p-0">

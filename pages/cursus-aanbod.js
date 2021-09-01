@@ -7,34 +7,21 @@ import Courses from "../src/components/pages/cursus-aanbod/Courses";
 import { API_KEY, THINKIFIC_URL } from "../src/api/thinkific";
 
 export default function cursusAanbod({ courses, products, collections }) {
-
   return (
     <>
-      <Head
-        title="cursus aandbod"
-        description="overzich over alle cursussen vam Willehad"
-      />
+      <Head title="cursus aandbod" description="overzich over alle cursussen vam Willehad" />
       <div className="wrapper">
         <Layout>
           {products.map(function (product) {
-            
-            const { id, name, slug, card_image_url} = product;
+            const { id, name, slug, card_image_url } = product;
 
             if (product.position === 0) {
               let primaryLink = "cursus-aanbod/" + slug;
-              return (
-                <Header
-                  viewHeight={50}
-                  key={id}
-                  title={name}
-                  url={card_image_url}
-                  buttonPrimary={primaryLink}
-                  headerButtonName={"meld je aan"}
-                />
-              );
+              return <Header viewHeight={50} key={id} title={name} url={card_image_url} buttonPrimary={primaryLink} headerButtonName={"meld je aan"} />;
             }
           })}
-          <Courses key={products[0].id} products={products} courses={courses} collections={collections}/>
+          
+          <Courses key={products[0].id} products={products} courses={courses} collections={collections} />
         </Layout>
       </div>
     </>
@@ -42,6 +29,7 @@ export default function cursusAanbod({ courses, products, collections }) {
 }
 
 export async function getServerSideProps() {
+  
     const courseUrl = THINKIFIC_URL + "/courses"
   const productUrl = THINKIFIC_URL + "/products";
   const collectionsUrl = THINKIFIC_URL + "/collections";
@@ -86,6 +74,7 @@ export async function getServerSideProps() {
   } catch (error) {
     console.log(error);
   }
+  
  
   return {
     props: {

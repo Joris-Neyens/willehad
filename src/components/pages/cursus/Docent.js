@@ -21,7 +21,7 @@ export default function Docent({ product, instructors }) {
         teacherName = title + " " + instructor.first_name + " " + instructor.last_name
 
         return (
-          <section key={instructor.id} className="pb-5 pt-3 background-dark ">
+          <section key={instructor.id} className="pb-5 pt-3 background-blue">
             <div className="container py-5">
               <h2 className="text-center pb-3">Ontmoet de docent</h2>
               <div className="row">

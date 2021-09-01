@@ -33,14 +33,12 @@ export default function Course({ product, instructors, chapters}) {
         <Layout>
           <Header title={name} subtitle={seo_title} url={card_image_url} viewHeight={60} textCol="12" modal={true} />
           <AboutCourse product={product} />
-          <ExplainCourse />
-          {/* 
-          <PracticalInfo product={product} />
-          */}
           <Curriculum chapters={chapters} />
+          <ExplainCourse />
           {/* 
           {videoArray} */}
           <Docent product={product} instructors={instructors} />
+          <PracticalInfo />
         </Layout>
       </div>
     </>

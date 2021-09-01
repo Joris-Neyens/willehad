@@ -32,19 +32,16 @@ export default function Footer() {
             </Link>
           </div>
           <div className="col-12 col-md-6 d-flex justify-content-center justify-content-md-end p-0">
-            <FontAwesomeIcon
-              className="footer__icon mx-2"
-              icon={faFacebookSquare}
-            />
-            <FontAwesomeIcon
-              className="footer__icon mx-2"
-              icon={faTwitterSquare}
-            />
+            <FontAwesomeIcon className="footer__icon mx-2" icon={faFacebookSquare} />
+            <FontAwesomeIcon className="footer__icon mx-2" icon={faTwitterSquare} />
           </div>
         </div>
-        <p className="footer__terms text-center mt-5">
-          Terms &amp; Conditions Privacy Policy 2021 Willhad
-        </p>
+        <div className="w-100 d-flex justify-content-center pb-4 pt-4">
+          <Link href="/privacyverklaring" className="footer__terms text-center mt-5">
+            Privacyverklaring
+          </Link>
+          <div>&nbsp;| Copyright © Thomistisch Instituut</div>
+        </div>
       </div>
     </footer>
   );

@@ -18,5 +18,8 @@ img {
 }
 .background-white {
  background-color: white;
-
+}
+.background-blue {
+  background: $primary;
+  color: $background;
 }

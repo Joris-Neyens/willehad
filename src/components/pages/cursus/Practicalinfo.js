@@ -1,9 +1,8 @@
 import PropTypes from "prop-types";
 import Modal from "../../layout/header/Modal";
 
-export default function Practicalinfo({ course }) {
+export default function Practicalinfo() {
 
-  const { practical_info_1, practical_info_2, title, id } = course;
 
   return (
     <section className="py-lg-5 mt-3 mt-lg-5">
@@ -13,14 +12,22 @@ export default function Practicalinfo({ course }) {
       <div className="container pt-4">
         <div className="row">
           <div className="col-12 col-md-6 col-lg-5 offset-lg-1">
-            <p>{practical_info_1}</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor sed viverra
+              ipsum nunc aliquet. Est ante in nibh mauris cursus. Habitant morbi tristique senectus et. Nunc sed augue lacus viverra vitae. Condimentum lacinia
+              quis vel eros donec ac odio tempor orci. Eu mi bibendum neque egestas congue.
+            </p>
           </div>
           <div className="col-12 col-md-6 col-lg-5">
-            <p>{practical_info_2}</p>
+            <p>
+              Molestie nunc non blandit massa. Sed enim ut sem viverra aliquet eget. Ultrices mi tempus imperdiet nulla malesuada. Sit amet mattis vulputate
+              enim nulla aliquet porttitor lacus luctus. Vestibulum sed arcu non odio euismod. Nunc non blandit massa enim nec. Leo a diam sollicitudin tempor
+              id eu nisl nunc mi.{" "}
+            </p>
           </div>
         </div>
         <div className="py-4 d-flex justify-content-center">
-          <Modal key={id} title={title} />
+          <Modal />
         </div>
       </div>
     </section>
