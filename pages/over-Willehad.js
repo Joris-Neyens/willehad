@@ -46,7 +46,7 @@ export default function overWillehad() {
                   <div className="over-willehad__image">
                     <Image
                       alt="Panelen met portretten van de Martelaren van Gorcum in de katholieke kerk in Boschkapelle (Reliwiki, foto Edward Ippel, Hoorn, 9 oktober 2009)"
-                      src="/martelarenvangorcum.jpg"
+                      src="/martelarenvangorcum.JPG"
                       layout="responsive"
                       width="100"
                       height="50"
