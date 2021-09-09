@@ -34,6 +34,6 @@ export default function Practicalinfo() {
   );
 }
 
-Practicalinfo.propTypes = {
-  course: PropTypes.object.isRequired,
-}
+// Practicalinfo.propTypes = {
+//   course: PropTypes.object.isRequired,
+// }

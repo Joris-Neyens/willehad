@@ -9,7 +9,7 @@ export default function Header({
   course_type,
   viewHeight,
   textCol,
-  modal,
+  // modal,
   buttonPrimary,
   buttonSecondary,
   subtitle,
@@ -28,7 +28,7 @@ export default function Header({
   let headerDate = "";
   let headerButtonPrimary = "";
   let headerButtonSecondary = "";
-  let headerModal = "";
+  // let headerModal = "";
 
 
 
@@ -76,9 +76,9 @@ export default function Header({
       </Link>
     );
   }
-  if (modal === true) {
-    headerModal = <HeaderModal key={title} title={title} />;
-  }
+  // if (modal === true) {
+  //   headerModal = <HeaderModal key={title} title={title} />;
+  // }
 
   return (
     <div className="jumbotron container-fluid rounded-0 p-0 mb-0 pt-lg-2 mt-lg-5" style={styles}>
@@ -98,7 +98,7 @@ export default function Header({
                   <div className="row pl-3">
                     {headerButtonPrimary}
                     {headerButtonSecondary}
-                    {headerModal}
+                    {/* {headerModal} */}
                   </div>
                 </div>
               </div>
@@ -113,7 +113,7 @@ export default function Header({
 Header.prototype = {
   viewHeight: PropTypes.number,
   textCol: PropTypes.string,
-  modal: PropTypes.bool,
+  // modal: PropTypes.bool,
   buttonPrimary: PropTypes.string,
   buttonSecondary: PropTypes.string,
   title: PropTypes.string.isRequired,

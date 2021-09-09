@@ -207,7 +207,7 @@ export default function Courses({ products, courses, collections }) {
                         id="category"
                         onChange={e => filter(e.target)}
                       />
-                      <label className="form-check-label custom-control-label" for={collection.id}>
+                      <label className="form-check-label custom-control-label" htmlFor={collection.id}>
                         {collection.name}
                       </label>
                     </div>

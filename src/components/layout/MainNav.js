@@ -3,9 +3,6 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebookSquare, faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
-
 export default function MainNav() {
 
 

@@ -125,6 +125,6 @@ export default function HeaderModal({ title }) {
   );
 }
 
-HeaderModal.propTypes = {
-  title: PropTypes.string.isRequired,
-}
+// HeaderModal.propTypes = {
+//   title: PropTypes.string.isRequired,
+// }
