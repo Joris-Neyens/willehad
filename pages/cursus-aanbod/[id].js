@@ -30,15 +30,14 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
       <Head title={name} description={"course info for " + seo_title} />
       <div className="wrapper">
         <Layout>
-          <Header title={name} subtitle={seo_title} url={card_image_url} viewHeight={60} textCol="12" modal={false} />
-          <a href={ webUrl }><button className="primaryButton">Go here</button></a>
+          <Header title={name} buttonPrimary={webUrl} headerButtonName="schrijf je nu in" subtitle={seo_title} url={card_image_url} viewHeight={60} textCol="12" modal={false} />
           <AboutCourse product={courseProduct} />
           <Curriculum chapters={chapters} />
           <ExplainCourse />
           {/* 
           {videoArray} */}
           <Docent product={courseProduct} instructors={instructors} />
-          <PracticalInfo />
+          <PracticalInfo webUrl={webUrl} />
         </Layout>
       </div>
     </>

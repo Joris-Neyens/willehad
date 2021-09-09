@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
-import Modal from "../../layout/header/Modal";
 
-export default function Practicalinfo() {
+export default function Practicalinfo({webUrl}) {
 
 
   return (
@@ -27,7 +26,7 @@ export default function Practicalinfo() {
           </div>
         </div>
         <div className="py-4 d-flex justify-content-center">
-          <Modal />
+          <a href={webUrl}><button className="button__primary px-4 py-2">schrijf je nu in</button></a>
         </div>
       </div>
     </section>
