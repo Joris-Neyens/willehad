@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 import axios from "axios";
 import Client from "shopify-buy";
 import { THINKIFIC_URL, API_KEY } from "../../src/api/thinkific";
+import { SHOPIFY_TOKEN } from "../../src/api/shopify";
 import Head from "../../src/components/head/Head";
 import Header from "../../src/components/layout/header/Header";
 import Layout from "../../src/components/layout/Layout";
@@ -12,7 +12,6 @@ import PracticalInfo from "../../src/components/pages/cursus/Practicalinfo";
 import Docent from "../../src/components/pages/cursus/Docent";
 import Curriculum from "../../src/components/pages/cursus/Curriculum";
 import Video from '../../src/components/pages/cursus/Video';
-import { faZhihu } from "@fortawesome/free-brands-svg-icons";
 
 export default function Course({ courseProduct, instructors, chapters, fetchedCheckout }) {
   const { name, seo_title, card_image_url } = courseProduct;
@@ -120,7 +119,7 @@ export async function getServerSideProps({ params }) {
   
   const client = Client.buildClient({
     domain: "willehad.myshopify.com",
-    storefrontAccessToken: "aaf4165bde6a7acc1f9664256d29304a",
+    storefrontAccessToken: SHOPIFY_TOKEN,
   });
  
     try {

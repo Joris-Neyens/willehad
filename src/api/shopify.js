@@ -1,0 +1,1 @@
+export const SHOPIFY_TOKEN = process.env.SHOPIFY_TOKEN;

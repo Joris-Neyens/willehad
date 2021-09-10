@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Link from 'next/link';
 
 export default function ExplainCourse() {
     return (
@@ -31,7 +31,7 @@ export default function ExplainCourse() {
               </div>
             </div>
             <div className="d-flex justify-content-center pt-4 ">
-              <button className="button__primary px-3 py-2">Lees meer</button>
+              <Link href="/hoe-het-werkt"><button className="button__primary px-3 py-2">Lees meer</button></Link>
             </div>
           </div>
         </div>
