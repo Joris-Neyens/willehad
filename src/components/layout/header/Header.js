@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
+import Image from 'next/image'
 import HeaderModal from "./Modal";
+
+
 
 export default function Header({
   date,
@@ -16,9 +19,6 @@ export default function Header({
   headerButtonName,
 }) {
 
-  const styles = {
-    backgroundImage: `url(${url})`,
-  };
   const textWidth = `col-12 col-lg-${textCol}`;
 
   let height = { height: `${viewHeight}vh` };
@@ -81,12 +81,21 @@ export default function Header({
   // }
 
   return (
-    <div className="jumbotron container-fluid rounded-0 p-0 mb-0 pt-lg-2 mt-lg-5" style={styles}>
-      <div className="jumbotron-overlay">
-        <div
-          className="container d-flex align-items-center jumbotron__content"
-          style={height}
-        >
+    <div className="header">
+      <div className="header__image">
+        <div className="header__image--container position-relative" style={height}>
+          <Image
+            className="headerImage"
+            src={url}
+            layout="fill"
+            objectFit="cover"
+            priority="true"
+            quality={50}
+          />
+        </div>
+      </div>
+      <div className="header__image--content">
+        <div className="container d-flex align-items-center jumbotron__content" style={height}>
           <div className="row w-100 mx-auto">
             <div className={textWidth}>
               <div className="row w-100 pt-5 mt-5">
@@ -113,7 +122,6 @@ export default function Header({
 Header.prototype = {
   viewHeight: PropTypes.number,
   textCol: PropTypes.string,
-  // modal: PropTypes.bool,
   buttonPrimary: PropTypes.string,
   buttonSecondary: PropTypes.string,
   title: PropTypes.string.isRequired,

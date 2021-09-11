@@ -5,21 +5,26 @@
   border-bottom: 2px solid $secondary;
   font-style: italic;
 }
-.jumbotron {
-  background-repeat: none;
-  background-size: cover;
-  background-position: center center;
+.header {
+  padding-top: 57.7px;
 }
-.jumbotron-overlay {
-  position: relative;
-  z-index: 2;
-  background: linear-gradient(
+.header__image {
+       position: absolute;
+    height: 60vh;
+}
+.header__image--content {
+      position: relative;
+    z-index: 2;
+    background: linear-gradient(
     90deg,
     rgba(37, 36, 42, 0.733) 0%,
     rgba(37, 36, 42, 0) 100%
   );
+    color: rgb(235, 235, 235);
 }
-
+.header__image--container {
+  width: 100vw;
+}
 
 .video {
   position: absolute;

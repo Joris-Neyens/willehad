@@ -5,9 +5,6 @@ import axios from "axios";
 import Head from "../../../../src/components/head/Head";
 import AdminLayout from "../../../../src/components/layout/AdminLayout";
 import PostNewVideo from "../../../../src/components/pages/cursus-toevoegen/PostNewVideo";
-import PostNewCover from "../../../../src/components/pages/cursus-toevoegen/PostNewCover";
-import PostNewTeacherCover from "../../../../src/components/pages/cursus-toevoegen/PostNewTeacherCover";
-import PostAboutCourseImage from "../../../../src/components/pages/cursus-toevoegen/PostAboutCourseImage";
 import { BASE_URL } from "../../../../src/api/baseUrl";
 
 export default function newCourseMedia({ course }) {
@@ -28,9 +25,6 @@ export default function newCourseMedia({ course }) {
               <div className="row">
                 <div className="col-12 col-lg-10 pl-lg-5">
                   <h1 className="text-center text-lg-left">Media toevoegen</h1>
-                    <PostNewCover key={course.title} id={id} />
-                    <PostNewTeacherCover key={course.teacher} id={id} />
-                    <PostAboutCourseImage key={course.type} id={id} />
                     <PostNewVideo key={id} id={id} />
                 </div>
               </div>

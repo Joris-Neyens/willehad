@@ -20,7 +20,6 @@ export default function cursusAanbod({ courses, products, collections }) {
               return <Header viewHeight={50} key={id} title={name} url={card_image_url} buttonPrimary={primaryLink} headerButtonName={"meld je aan"} />;
             }
           })}
-          
           <Courses key={products[0].id} products={products} courses={courses} collections={collections} />
         </Layout>
       </div>

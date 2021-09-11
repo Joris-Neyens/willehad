@@ -3,6 +3,7 @@ import axios from "axios";
 import Client from "shopify-buy";
 import { THINKIFIC_URL, API_KEY } from "../../src/api/thinkific";
 import { SHOPIFY_TOKEN } from "../../src/api/shopify";
+import { BASE_URL, COURSES_PATH } from '../../src/api/baseUrl'
 import Head from "../../src/components/head/Head";
 import Header from "../../src/components/layout/header/Header";
 import Layout from "../../src/components/layout/Layout";
@@ -11,30 +12,30 @@ import ExplainCourse from "../../src/components/pages/cursus/ExplainCourse";
 import PracticalInfo from "../../src/components/pages/cursus/Practicalinfo";
 import Docent from "../../src/components/pages/cursus/Docent";
 import Curriculum from "../../src/components/pages/cursus/Curriculum";
-import Video from '../../src/components/pages/cursus/Video';
 
-export default function Course({ courseProduct, instructors, chapters, fetchedCheckout }) {
+export default function Course({ courseProduct, instructors, chapters, fetchedCheckout, strapiCourses }) {
   const { name, seo_title, card_image_url } = courseProduct;
 
   const webUrl = fetchedCheckout.webUrl
-
-  // let videoArray = ""
-
-  // if (video) {
-  //   videoArray = <Video video={video} />;
-  // }
 
   return (
     <>
       <Head title={name} description={"course info for " + seo_title} />
       <div className="wrapper">
         <Layout>
-          <Header title={name} buttonPrimary={webUrl} headerButtonName="schrijf je nu in" subtitle={seo_title} url={card_image_url} viewHeight={60} textCol="12" modal={false} />
-          <AboutCourse product={courseProduct} />
+          <Header
+            title={name}
+            buttonPrimary={webUrl}
+            headerButtonName="schrijf je nu in"
+            subtitle={seo_title}
+            url={card_image_url}
+            viewHeight={60}
+            textCol="12"
+            modal={false}
+          />
+          <AboutCourse strapiCourses={strapiCourses} product={courseProduct} />
           <Curriculum chapters={chapters} />
           <ExplainCourse />
-          {/* 
-          {videoArray} */}
           <Docent product={courseProduct} instructors={instructors} />
           <PracticalInfo webUrl={webUrl} />
         </Layout>
@@ -70,6 +71,17 @@ export async function getServerSidePaths() {
 }
 
 export async function getServerSideProps({ params }) {
+
+  const strapiCourseUrl = BASE_URL + COURSES_PATH;
+  let strapiCourses = [];
+  
+   try {
+     const response = await axios.get(strapiCourseUrl);
+     console.log(response.data);
+     strapiCourses = response.data;
+   } catch (error) {
+     console.log(error);
+   }
 
   const url = `${THINKIFIC_URL}/products/${params.id}`;
   const instructorsUrl = THINKIFIC_URL + "/instructors";
@@ -152,8 +164,6 @@ export async function getServerSideProps({ params }) {
 
   console.log("lineitem = ", lineItemsToAdd)
 
-
-
   try {
    await client.checkout.addLineItems(checkout.id, lineItemsToAdd).then(checkout => {
     console.log(checkout.lineItems);
@@ -172,11 +182,9 @@ export async function getServerSideProps({ params }) {
     console.log(error)
   }
   
-
-
-
   return {
     props: {
+      strapiCourses: strapiCourses,
       courseProduct: courseProduct,
       instructors: instructors,
       courses: courses,

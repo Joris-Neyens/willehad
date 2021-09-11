@@ -33,9 +33,7 @@ export default function Courses({ products, courses, collections }) {
 
     products.map(function (product) {
       let id = product.collection_ids.join(" ")
-      console.log(id)
       const uniqueId = Array.from(new Set(id)).join(" ")
-      console.log(uniqueId)
     })
 
     if (checked.length === 0) {

@@ -20,15 +20,6 @@ export default function SideNav() {
           <Link href="/admin/dashboard/edit-home">Edit home</Link>
         </div>
       </div>
-      <div className="side-nav__communicatie pt-3 mt-3">
-        <div className="px-3 border-bottom">
-          <h4>communicatie</h4>
-        </div>
-        <div className="px-3 pb-3 pt-1">
-          <Link href="/admin/dashboard/registraties">Registraties</Link>
-          <Link href="/admin/dashboard/inbox">Inbox</Link>
-        </div>
-      </div>
     </div>
   );
 }
