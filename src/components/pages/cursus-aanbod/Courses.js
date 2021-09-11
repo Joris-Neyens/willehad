@@ -8,8 +8,6 @@ import CourseCards from "./CourseCards";
 
 export default function Courses({ products, courses, collections }) {
 
-  console.log(products)
-
   const [productInfo, setProductInfo] = useState(products);
 
   let themesObjects = Object.assign(
@@ -23,81 +21,51 @@ export default function Courses({ products, courses, collections }) {
   const uniqueThemes = Array.from(new Set(themesArray)).join(" ").split(" ");
 
   function filter(target) {
-    
 
     let filteredProducts = products;
-    let newThemesArray = [];
-    let newCategoryArray = [];
+    let newProductArray = [];
 
     let value = target.value;
-
-
-
     const themesCheckboxes = document.querySelectorAll("#theme");
     const allThemesCheckbox = document.querySelector("#allThemes");
-    const checked = document.querySelectorAll("input:checked");
+    const checked = document.querySelectorAll("input:checked")
 
 
+    products.map(function (product) {
+      let id = product.collection_ids.join(" ")
+      console.log(id)
+      const uniqueId = Array.from(new Set(id)).join(" ")
+      console.log(uniqueId)
+    })
 
-    filteredProducts.forEach(function (product) {
-      themesCheckboxes.forEach(function (checkbox) {
-        if (checkbox.checked === true) {
-          allThemesCheckbox.checked = false;
-          newThemesArray.push(checkbox.value);
-        }
-        const productIds = product.collection_ids.map(function (productId) {
-          if (productId == value) {
-            newCategoryArray.push(product.collection_ids);
-          }
-        });
+    if (checked.length === 0) {
+      setProductInfo(products);
+      return
+    }
 
-        
-        
-            if (value === "laag") {
-              filteredProducts.sort((a, b) => (a.price > b.price ? 1 : -1));
-              setProductInfo(filteredProducts);
-            }
-            if (value === "hoog") {
-              filteredProducts.sort((a, b) => (a.price < b.price ? 1 : -1));
-              setProductInfo(filteredProducts);
-            }
-        
-        filteredProducts = products.filter(function (product) {
-          if (newCategoryArray.includes(product.collection_ids)) {
-            return true;
-          }
-        });
+    if (value === "alle thema's") {
+      setProductInfo(filteredProducts);
+      themesCheckboxes.forEach(function (themeCheckbox) {
+        themeCheckbox.checked = false;
+      });
+      return;
+    }
 
-        setProductInfo(filteredProducts)
-        // filteredProducts = products.filter(function (product) {
-        //   console.log(newProductArray)
-        //   if (newProductArray.includes(product.keywords)) {
-        //     return true;
-        //   }
-        // });
-
-          });
-
-      // console.log(filteredProducts);
-      // if (checked.length === 0) {
-      //     setProductInfo(products);
-      //     return;
-      //   }
-
-      //   if (value === "alle thema's") {
-      //     setProductInfo(filteredProducts);
-      //     themesCheckboxes.forEach(function (themeCheckbox) {
-      //       themeCheckbox.checked = false;
-      //     });
-      //     return;
-      //   }
-    
+    themesCheckboxes.forEach(function (checkbox) {
+      if (checkbox.checked === true) {
+        allThemesCheckbox.checked = false;
+      }
+      if (checkbox.checked === true) {
+        newProductArray.push(checkbox.value);
+      }
     });
-    
 
-        
-
-      
+    filteredProducts = products.filter(function (product) {
+      if (newProductArray.includes(product.keywords)) {
+        return true;
+      }
+    });
+    setProductInfo(filteredProducts);
   }
        
 
@@ -121,50 +89,51 @@ export default function Courses({ products, courses, collections }) {
     }
   };
 
-  // function sortByPrice(input) {
-  //   if (input == "prijs") {
-  //     setProductInfo(products);
-  //     return;
-  //   }
+  function sortByPrice(input) { 
+    
+    if (input.value == "prijs") {
+      setProductInfo(products);
+      return;
+    }
 
-  //   console.log(products)
-  //   const matches = [];
-  //   if (input === "laag") {
-  //     const sorted = sort(products).asc([u => JSON.parse(u.price)]);
-  //     sorted.forEach(sort => {
-  //       matches.push(sort);
-  //     });
-  //   } else if (input === "hoog") {
-  //     const sorted = sort(products).desc([u => JSON.parse(u.price)]);
-  //     sorted.forEach(sort => {
-  //       matches.push(sort);
-  //     });
-  //   }
-  //   setProductInfo(matches);
-  // }
+    console.log(products)
+    const matches = [];
+    if (input.value === "laag") {
+      const sorted = sort(products).asc([u => JSON.parse(u.price)]);
+      sorted.forEach(sort => {
+        matches.push(sort);
+      });
+    } else if (input.value === "hoog") {
+      const sorted = sort(products).desc([u => JSON.parse(u.price)]);
+      sorted.forEach(sort => {
+        matches.push(sort);
+      });
+    }
+    setProductInfo(matches);
+  }
 
 
-  // function collectionFilter(target) {
-  //   let filteredProducts = products;
+  function collectionFilter(target) {
+    let filteredProducts = products;
 
-  //   const valie = target.value;
-  //   let newCategoryArray = [];
+    const value = target.value;
+    let newCategoryArray = [];
 
-  //   products.forEach(function (product) {
-  //     const productIds = product.collection_ids.map(function (productId) {
-  //       if (productId == value) {
-  //         newCategoryArray.push(product.collection_ids);
+    products.forEach(function (product) {
+      const productIds = product.collection_ids.map(function (productId) {
+        if (productId == value) {
+          newCategoryArray.push(product.collection_ids);
 
-  //       }
-  //     });
-  //     filteredProducts = products.filter(function (product) {
-  //       if (newCategoryArray.includes(product.collection_ids)) {
-  //         return true;
-  //       }
-  //     });
-  //        setProductInfo(filteredProducts);
-  //   });
-  // }
+        }
+      });
+      filteredProducts = products.filter(function (product) {
+        if (newCategoryArray.includes(product.collection_ids)) {
+          return true;
+        }
+      });
+         setProductInfo(filteredProducts);
+    });
+  }
 
   return (
     <>
@@ -172,7 +141,7 @@ export default function Courses({ products, courses, collections }) {
         <div className="row">
           <div className=" col-12 col-lg-11">
             <h1 className="mb-4 pt-5">Cursus aanbod</h1>
-            <select className=" col-4 offset-8 col-lg-2 offset-lg-10 custom-select mr-sm-2" id="select" onChange={e => filter(e.target)}>
+            <select className=" col-4 offset-8 col-lg-2 offset-lg-10 custom-select mr-sm-2" id="select" onChange={e => sortByPrice(e.target)}>
               <option value="prijs" placeholder="prijs">
                 Prijs
               </option>
@@ -205,7 +174,7 @@ export default function Courses({ products, courses, collections }) {
                         type="checkbox"
                         value={collection.id}
                         id="category"
-                        onChange={e => filter(e.target)}
+                        onChange={e => collectionFilter(e.target)}
                       />
                       <label className="form-check-label custom-control-label" htmlFor={collection.id}>
                         {collection.name}
