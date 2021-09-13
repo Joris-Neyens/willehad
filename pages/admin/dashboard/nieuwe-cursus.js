@@ -5,18 +5,16 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { API_KEY, THINKIFIC_URL } from "../../../src/api/thinkific";
+import { BASE_URL, COURSES_PATH } from "../../../src/api/baseUrl";
 import AdminLayout from "../../../src/components/layout/AdminLayout";
 import Head from "../../../src/components/head/Head";
 import SideNav from "../../../src/components/layout/SideNav";
 import DashboardNav from "../../../src/components/layout/DashboardNav";
-import { BASE_URL, COURSES_PATH } from "../../../src/api/baseUrl";
 import AuthContext from "../../../src/context/AuthContext";
 
 const url = BASE_URL + COURSES_PATH;
 
-export default function nieuweCursus({ products }) {
-  
-  console.log("products", products)
+export default function nieuweCursus({ products, strapiCourses }) {
 
   const schema = yup.object().shape({
     title: yup.string().required("Vul de cursus titel in"),
@@ -35,7 +33,8 @@ export default function nieuweCursus({ products }) {
 
   const [submitting, setSubmitting] = useState(false);
   const [postError, setPostError] = useState(null);
-  const [submitButton, setSubmitButton] = useState("voeg video toe");
+  const [submitButton, setSubmitButton] = useState("volgende");
+  const [existingError, setExistingError] = ("")
 
   const { getToken } = useContext(AuthContext);
   const token = getToken("auth");
@@ -44,6 +43,7 @@ export default function nieuweCursus({ products }) {
   const router = useRouter();
 
   const onSubmit = async (data) => {
+
     setSubmitting(true);
     setPostError(null);
     setSubmitButton("loading..");
@@ -75,6 +75,48 @@ export default function nieuweCursus({ products }) {
     }
   };
 
+  let existingCourses = []
+
+  strapiCourses.map(function (strapiCourse) {
+    existingCourses.push(strapiCourse.title)
+  })
+
+  const existing = new Map();
+
+  existing.set(existingCourses)
+
+  let options = []
+
+  products.forEach(function (product) {
+    options.push(<option value={product.name} key={product.name}>{product.name}</option>)
+  });
+
+  const [courseExisting, setCourseExisting] = useState("");
+  const [button, setButton] = useState(
+    <button className="button__primary--dark px-4 py-1 disabled" type="submit" disabled>
+      {submitButton}
+    </button>
+  );
+
+  function selectTitle(e) {
+    const value = e.target.value
+
+    const existing = existingCourses.includes(value)
+    if (existing === true) {
+      setCourseExisting("Deze cursus is al aangemaakt")
+    } if (existing === false) {
+      setCourseExisting("")
+      setButton(
+        <button className="button__primary--dark px-4 py-1" type="submit">
+          {submitButton}
+        </button>
+      );
+
+    }
+      
+  }
+
+
   return (
     <>
       <DashboardNav />
@@ -87,25 +129,22 @@ export default function nieuweCursus({ products }) {
               <div className="row">
                 <div className="col-12 col-lg-10 pl-lg-5">
                   <h1>Nieuwe cursus</h1>
-                  <form className="mb-5 pb-5" onSubmit={handleSubmit(onSubmit)}>
+                  <form className="mb-5 pb-5" onChange={selectTitle} onSubmit={handleSubmit(onSubmit)}>
                     <fieldset disabled={submitting}>
                       <select className="form-select col-12" {...register("title")}>
-                        {products.map(function (product) {
-                          return <option>{product.name}</option>;
-                        })}
+                        <option>Cursus naam:</option>
+                        {options}
                       </select>
                       <p className="error"> {errors.title?.message}</p>
                       <p className="mb-0">Cursus omschrijving voor cursus pagina</p>
                       <div className="py-2">
-                        <textarea rows="12" className="form-control w-100 p-2" type="text" {...register("description_long")} />
+                        <textarea rows="12" className="form-control w-100 p-2" type="text" placeholder={courseExisting}  {...register("description_long")} />
                       </div>
                       <p className="error"> {errors.description_long?.message}</p>
-
                       <div className="d-flex">
-                        <button className="button__primary--dark px-4 py-1" type="submit">
-                          {submitButton}
-                        </button>
+                          {button}
                         {postError && <span>Er is iets misgegaan, probeer het later nog een keer of neem contact op met de admin</span>}
+                        {existingError}
                       </div>
                     </fieldset>
                   </form>
@@ -123,6 +162,9 @@ export async function getServerSideProps() {
   const productUrl = THINKIFIC_URL + "/products";
   let products = [];
 
+  const strapiUrl = BASE_URL + COURSES_PATH;
+  let strapiCourses = []
+
   const header = {
     headers: {
       "X-Auth-API-Key": `${API_KEY}`,
@@ -138,10 +180,18 @@ export async function getServerSideProps() {
   } catch (error) {
     console.log(error);
   }
-
+  
+  try {
+    const response = await axios.get(strapiUrl);
+    console.log(response.data);
+    strapiCourses = response.data;
+  } catch (error) {
+    console.log(error);
+  }
   return {
     props: {
       products: products,
+      strapiCourses: strapiCourses,
     },
   };
 }
