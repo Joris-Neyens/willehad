@@ -9,40 +9,21 @@ import AuthContext from "../../../../src/context/AuthContext";
 const url = BASE_URL + UPLOAD_PATH;
 
 export default function PostVideo({ id, video }) {
+
   const { register, handleSubmit } = useForm();
   const [submitting, setSubmitting] = useState(false);
-  const [submitButton, setSubmitButton] = useState("upload");
+  const [submitButton, setSubmitButton] = useState(<button className="button__primary--dark col-4  py-1 mt-3">upload</button>);
+  const [videoHtml, setVideoHtml] = useState(<video src={video.url} width="100%" height="full" controls />);
+
     
   const { getToken } = useContext(AuthContext);
   const token = getToken("auth");
 
-  const deleteData = async (data) => {
-
-    const deleteCourse = confirm("Bevestig of je de video wilt verwijderen");
-    const deleteUrl = BASE_URL + `upload/files/${data.id}`
-    if (deleteCourse) {
-      try {
-        const response = await axios({
-          method: "DELETE",
-          url: deleteUrl,
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "content-type": "application/json",
-          },
-        });
-        console.log("Success", response);
-        if (response) {
-        }
-      } catch (error) {
-        console.log(error);
-      } finally {
-      }
-    }
-  }
-
   const submitData = async (data) => {
     setSubmitting(true);
-    setSubmitButton("loading..");
+    setSubmitButton(<button className="button__primary--dark col-4  py-1 mt-3">
+      <span className="mr-3 mb-2 spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Loading...</button >);
     try {
       const formData = new FormData();
       formData.append("files", data.file[0]);
@@ -60,8 +41,10 @@ export default function PostVideo({ id, video }) {
         },
       });
       console.log("Success", response);
-       if (response) {
-         setSubmitButton("upload succesvol");
+       if (response.status === 200) {
+         setSubmitButton(<button className="button__primary--dark col-4  py-1 mt-3">upload succesvol</button>);
+         setVideoHtml(<video src={response.data[0].url} width="100%" height="full" controls />);
+        
        }
     } catch (error) {
        setSubmitButton("upload niet gelukt");
@@ -73,38 +56,20 @@ export default function PostVideo({ id, video }) {
 
   return (
     <>
-      <div className="row">
-        {video.map(function (video_info) {
-          return (
-            <div key={video_info.id} className="background-white mb-3">
-              <div className="col-lg-12">
-                <video src={video_info.url} width="360px" height="300px" controls />
-                <p className="mb-0">{video_info.name}</p>
+      <div className="row px-3">
+            <div key={video.id} className="mb-3">
+              <div className="col-lg-12 p-0">
+                {videoHtml}
               </div>
-              <form onSubmit={handleSubmit(deleteData)}>
-                <input
-                  className="d-none"
-                  {...register("id")}
-                  defaultValue={video_info.id}
-                />
-                <div className="col-12 d-flex justify-content-end">
-                  <button className="button__primary col-1 my-1">
-                    x
-                  </button>
-                </div>
-              </form>
             </div>
-          );
-        })}
+
       </div>
-      <div className="FileUpload p-0  mt-2 col-lg-6">
+      <div className="FileUpload p-0  mt-2 col-lg-12">
         <form onSubmit={handleSubmit(submitData)}>
           <fieldset disabled={submitting}>
             <input type="file" {...register("file")} />
           </fieldset>
-          <button className="button__primary--dark col-12 mt-3">
             {submitButton}
-          </button>
         </form>
       </div>
     </>
@@ -113,5 +78,5 @@ export default function PostVideo({ id, video }) {
 
 PostVideo.propTypes = {
   id: PropTypes.string.isRequired,
-  video: PropTypes.array.isRequired,
+  video: PropTypes.object.isRequired,
 }

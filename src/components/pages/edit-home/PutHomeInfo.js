@@ -10,14 +10,11 @@ import AuthContext from "../../../../src/context/AuthContext";
 const url = BASE_URL + HOME_PATH;
 
 export default function PutHomeInfo({ home }) {
-  console.log(home);
 
   const {
     course_date,
     title,
     header_subtitle,
-    course_title,
-    course_description,
   } = home;
 
   const [submitting, setSubmitting] = useState(false);
@@ -37,12 +34,6 @@ export default function PutHomeInfo({ home }) {
     header_subtitle: yup
       .string()
       .required("schijf een zin die de cursus beschrijft"),
-    course_title: yup.string().required("Vul cursus titel in"),
-    course_description: yup
-      .string()
-      .required(
-        "Schrijf een korte beschijving van de cursus voor de hoofdpagina"
-      ),
   });
 
   const {
@@ -54,7 +45,6 @@ export default function PutHomeInfo({ home }) {
   });
 
   const onSubmit = async data => {
-    console.log(data);
 
     setSubmitting(true);
     setPutError(null);
@@ -82,9 +72,9 @@ export default function PutHomeInfo({ home }) {
     }
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="pt-5 mt-5" onSubmit={handleSubmit(onSubmit)}>
       <fieldset disabled={submitting}>
-        <h4 className="mt-4 mb-3">Header info</h4>
+        <h4 className="mt-4 mb-3">Header afbeelding/video text</h4>
         <p className="m-0">Titel</p>
         <div className="px-0 py-2">
           <input
@@ -115,30 +105,7 @@ export default function PutHomeInfo({ home }) {
           />
           <p className="error">{errors.header_subtitle?.message}</p>
         </div>
-        <h4 className="mt-5 mb-3">Homepage cursus info</h4>
-        <p className="m-0">Naam cursus</p>
-        <div className="px-0 py-2">
-          <input
-            className="form-control w-100 p-2"
-            defaultValue={course_title}
-            type="text"
-            {...register("course_title")}
-          />
-          <p className="error">{errors.course_title?.message}</p>
-        </div>
-        <p className="m-0">Cursus beschrijving</p>
-        <div className="px-0 py-2">
-          <textarea
-            className="form-control w-100"
-            rows="8"
-            defaultValue={course_description}
-            type="text"
-            {...register("course_description")}
-          />
-          <p className="error">{errors.course_description?.message}</p>
-        </div>
-        <div className="d-flex justify-content-center">
-          <button className="button__primary--dark col-4 px-4 mt-2">
+          <button className="button__primary--dark col-4 px-4 py-1 mt-2">
             {submitButton}
           </button>
           {putError && (
@@ -147,7 +114,6 @@ export default function PutHomeInfo({ home }) {
               contact op met de admin
             </span>
           )}
-        </div>
       </fieldset>
     </form>
   );

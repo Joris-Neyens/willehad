@@ -32,18 +32,8 @@ export default function editCourse({ courses }) {
                     return (
                       <div key={id}>
                         <Link href={`edit-cursus/${id}`}>
-                          <div className="p-2 mt-4 course-card shadow-sm">
-                            <div className="row">
-                              <Image
-                                src={url}
-                                className="pl-3"
-                                width="150"
-                                height="100"
-                              />
-                              <div className="d-flex align-items-center col-6 pl-2">
-                                <h4>{title}</h4>
-                              </div>
-                            </div>
+                          <div className="p-4 mt-4 course-card shadow-sm">
+                            <h4 className="m-0">{title}</h4>
                           </div>
                         </Link>
                       </div>

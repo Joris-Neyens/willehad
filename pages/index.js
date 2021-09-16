@@ -2,13 +2,13 @@
 import PropTypes from "prop-types";
 import axios from "axios";
 import { BASE_URL, HOME_PATH, COURSES_PATH, REVIEWS_PATH } from "../src/api/baseUrl";
+import { API_KEY, THINKIFIC_URL } from "../src/api/thinkific";
 import Head from "../src/components/head/Head";
 import Header from "../src/components/layout/header/Header";
 import VideoHeader from "../src/components/layout/header/VideoHeader";
 import Layout from "../src/components/layout/Layout";
 import Newsletter from "../src/components/pages/home/Newsletter";
 import Reviews from "../src/components/pages/home/Reviews";
-import ShortAboutCourse from "../src/components/pages/home/ShortAboutCourse";
 import Uitleg from "../src/components/pages/home/Uitleg";
 import HomepageAbout from "../src/components/pages/home/HomepageAbout";
 
@@ -37,10 +37,6 @@ export default function Home({ home, courses, reviews }) {
           date={home.course_date}
         />
         <Uitleg />
-        <ShortAboutCourse
-          courses={courses}
-          home={home}
-        />
         <Newsletter />
         <Reviews reviews={reviews} />
       </Layout>
@@ -69,7 +65,6 @@ export default function Home({ home, courses, reviews }) {
           <Reviews reviews={reviews} />
           <Newsletter />
           <HomepageAbout />
-          {/* <ShortAboutCourse courses={courses} home={home} /> */}
         </Layout>
       </div>
     );

@@ -14,7 +14,8 @@ export default function PutHomeHeader({ id, header_image }) {
   const url = header_image.url;
   const [submitting, setSubmitting] = useState(false);
   const { register, handleSubmit } = useForm();
-  const [submitButton, setSubmitButton] = useState("upload");
+  const [videoUrl, setVideoUrl] = useState(url)
+  const [submitButton, setSubmitButton] = useState(<button className="button__primary--dark col-4  py-1 mt-3">upload afbeelding</button>);
 
   const { getToken } = useContext(AuthContext);
   const token = getToken("auth");
@@ -22,7 +23,12 @@ export default function PutHomeHeader({ id, header_image }) {
   const submitData = async (data) => {
       console.log(data.file[0]);
     setSubmitting(true);
-     setSubmitButton("loading..");
+     setSubmitButton(
+       <button className="button__primary--dark col-4  py-1 mt-3">
+         <span className="mr-3 mb-2 spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+         Loading...
+       </button>
+     );
     try {
       const formData = new FormData();
       formData.append("files", data.file[0]);
@@ -39,12 +45,14 @@ export default function PutHomeHeader({ id, header_image }) {
           "content-type": "application/json",
         },
       });
-      if (response) {
-        setSubmitButton("upload succesvol");
-      }
       console.log("Success", response);
+      if (response.status === 200) {
+        setSubmitButton(<button className="button__primary--dark col-4  py-1 mt-3">upload succesvol</button>);
+        setVideoUrl(response.data[0].url)
+      }
     } catch (error) {
-        setSubmitButton("upload niet gelukt");
+      setSubmitButton(<div><button className="button__primary--dark col-4  py-1 mt-3">probeer opnieuw</button>
+      <p className="alert">upload niet gelukt</p></div>);
       console.log(error);
     } finally {
       setSubmitting(false);
@@ -54,7 +62,7 @@ export default function PutHomeHeader({ id, header_image }) {
   return (
     <>
       <div className="col-12 p-0">
-        <Image src={url} width="3000" height="1500" />
+        <Image src={videoUrl} width="3000" height="1500" />
       </div>
       <div className="FileUpload mt-2">
         <form className="mb-5" onSubmit={handleSubmit(submitData)}>
@@ -65,9 +73,7 @@ export default function PutHomeHeader({ id, header_image }) {
               </fieldset>
             </div>
             <div className="col-12">
-              <button className="button__primary--dark col-4 px-4 mt-3">
                 { submitButton }
-              </button>
             </div>
           </div>
         </form>

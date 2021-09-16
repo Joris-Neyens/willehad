@@ -6,15 +6,12 @@ import Head from "../../../../src/components/head/Head";
 import AdminLayout from "../../../../src/components/layout/AdminLayout";
 import DashboardNav from "../../../../src/components/layout/DashboardNav";
 import DeleteCourse from "../../../../src/components/pages/edit-cursus/DeleteCourse";
-import PostCover from "../../../../src/components/pages/edit-cursus/PostCover";
-import PostTeacherCover from "../../../../src/components/pages/edit-cursus/PostTeacherCover";
 import PostVideo from "../../../../src/components/pages/edit-cursus/PostVideo";
-import PostAboutCourseImage from "../../../../src/components/pages/edit-cursus/PostAboutCourseImage";
 import PutInfo from "../../../../src/components/pages/edit-cursus/PutInfo";
 import SideNav from "../../../../src/components/layout/SideNav";
 
 export default function Course({ course }) {
-  const { id, cover, teacher_image, video, about_course_image } = course;
+  const { id, video} = course;
 
   return (
     <>
@@ -26,47 +23,24 @@ export default function Course({ course }) {
             <SideNav />
             <div className="col-lg-8 pb-4 mt-5">
               <div className="row">
-                <div className="col-lg-10 pl-lg-5">
+                <div className="col-lg-12 pl-lg-5 pr-0">
                   <h1>Edit cursus</h1>
                   <div className="py-4">
-                    <DeleteCourse key={cover.id} id={id} />
+                    <DeleteCourse key={id} id={id} />
                   </div>
                   <PutInfo course={course} />
-                  <h4 className="pt-4 my-4">Media</h4>
                   <div className="row">
-                    <div className="col-lg-6 mb-5 mb-lg-0">
-                      <p>Cover</p>
-                      <PostCover key={id} id={id} cover={cover} />
+                    <div className="col-12">
+                      <p className="pt-4">Video</p>
+                      <PostVideo key={course.title} id={id} video={video} />
                     </div>
-                    <div className="col-lg-6">
-                      <p>Teacher image</p>
-                      <PostTeacherCover
-                        key={teacher_image.id}
-                        id={teacher_image.id}
-                        teacher_image={teacher_image}
-                      />
+                    <div className="col-12">
+                      <Link href="/admin/dashboard">
+                        <button className="button__alarm mt-5 mb-5 py-1 col-4 ">
+                          Dashboard
+                        </button>
+                      </Link>
                     </div>
-                    <div className="col-lg-6 mt-4">
-                      <p className="pt-4">
-                        Over cursus afbeelding (landingspagina)
-                      </p>
-                      <PostAboutCourseImage
-                        key={about_course_image.id}
-                        id={id}
-                        about_course_image={about_course_image}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-12 p-0">
-                    <p className="pt-4">Video</p>
-                    <PostVideo key={course.title} id={id} video={video} />
-                  </div>
-                  <div className="d-flex justify-content-center">
-                    <Link href="/admin/dashboard/edit-cursus">
-                      <button className="button__primary mt-4 mb-5 col-6 ">
-                        Terug naar overzicht
-                      </button>
-                    </Link>
                   </div>
                 </div>
               </div>

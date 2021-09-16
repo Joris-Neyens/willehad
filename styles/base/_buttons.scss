@@ -5,7 +5,6 @@
     font-weight: 400;
     font-size: 22px;
     color: white;
-    max-width: 200px;
         border-radius: 2px;
 }
 .button__primary:hover {
@@ -14,14 +13,14 @@
 }
 .button__primary--dark {
     border: none;
-    background-color: $secondary;
+    background-color: $primary;
     font-weight: 400;
     font-size: 22px;
     color: white;
     border-radius: 2px;
 }
 .button__primary--dark:hover {
-    background-color: $secondary-dark;
+    background-color: #44435c;
     cursor: pointer;
 }
 
@@ -80,4 +79,15 @@
 }
 button.disabled {
     background-color: #886423;
+}
+.button__alarm {
+    border: none;
+    background-color: $accent;
+    font-weight: 400;
+    font-size: 22px;
+    color: white;
+        border-radius: 2px;
+}
+.button__alarm:hover {
+    background-color: #702020;
 }

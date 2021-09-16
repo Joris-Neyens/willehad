@@ -75,21 +75,21 @@ export default function nieuweCursus({ products, strapiCourses }) {
     }
   };
 
-  let existingCourses = []
-
-  strapiCourses.map(function (strapiCourse) {
-    existingCourses.push(strapiCourse.title)
-  })
-
-  const existing = new Map();
-
-  existing.set(existingCourses)
-
   let options = []
 
   products.forEach(function (product) {
     options.push(<option value={product.name} key={product.name}>{product.name}</option>)
   });
+
+    let existingCourses = [];
+
+    strapiCourses.map(function (strapiCourse) {
+      existingCourses.push(strapiCourse.title);
+    });
+
+    const existing = new Map();
+
+    existing.set(existingCourses);
 
   const [courseExisting, setCourseExisting] = useState("");
   const [button, setButton] = useState(
@@ -99,11 +99,9 @@ export default function nieuweCursus({ products, strapiCourses }) {
   );
 
   function selectTitle(e) {
-    const value = e.target.value
-
-    const existing = existingCourses.includes(value)
+ 
     if (existing === true) {
-      setCourseExisting("Deze cursus is al aangemaakt")
+      setCourseExisting(`Deze cursus is al aangemaakt, ga naar "edit cursus" om een cursus aan te passen`)
     } if (existing === false) {
       setCourseExisting("")
       setButton(
@@ -111,9 +109,7 @@ export default function nieuweCursus({ products, strapiCourses }) {
           {submitButton}
         </button>
       );
-
     }
-      
   }
 
 

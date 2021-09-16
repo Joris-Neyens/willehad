@@ -71,8 +71,9 @@ export default function PutReview() {
     };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="pt-5 mt-5" onSubmit={handleSubmit(onSubmit)}>
       <fieldset disabled={submitting}>
+        <h4 className="pb-3 pt-5">Reviews</h4>
         <p className="m-0">Review title</p>
         <div className="px-0 py-2">
           <input
@@ -101,8 +102,7 @@ export default function PutReview() {
           />
           <p className="error">{errors.review?.message}</p>
         </div>
-        <div className="d-flex justify-content-center">
-          <button className="button__primary--dark col-4 px-4 mt-2">
+          <button className="button__primary--dark col-4 px-4 py-1 mt-2">
             {submitButton}
           </button>
           {putError && (
@@ -111,7 +111,6 @@ export default function PutReview() {
               contact op met de admin
             </span>
           )}
-        </div>
           </fieldset>
           <p>De laatste 3 reviews komen op de startpagina</p>
     </form>

@@ -11,16 +11,25 @@ const url = BASE_URL + UPLOAD_PATH;
 export default function PostNewVideo({ id }) {
   const { register, handleSubmit } = useForm();
   const [submitting, setSubmitting] = useState(false);
-  const [submitButton, setSubmitButton] = useState("upload");
-      const [display, setDisplay] = useState("d-none");
-      const [mediaUrl, setMediaUrl] = useState("");
+  const [submitButton, setSubmitButton] = useState(
+    <button className="button__primary--dark col-4 mt-3" type="submit">
+      upload
+    </button>
+  );
+  const [display, setDisplay] = useState("d-none");
+  const [video, setVideo] = useState("");
 
   const { getToken } = useContext(AuthContext);
   const token = getToken("auth");
 
   const submitData = async data => {
     setSubmitting(true);
-    setSubmitButton("loading..");
+    setSubmitButton(
+      <button className="button__primary--dark col-4 mt-3" type="submit" disabled>
+        <span className="mr-3 mb-2 spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Loading...
+      </button>
+    );
     try {
       const formData = new FormData();
       formData.append("files", data.file[0]);
@@ -36,38 +45,49 @@ export default function PostNewVideo({ id }) {
           "content-type": "application/json",
         },
       });
-       if (response) {
-         console.log(response.data[0].url);
+       if (response.status === 200) {
+         console.log(response);
+         setVideo(
+           <video width="450" height="250" controls>
+             <source src={response.data[0].url} type="video/mp4" />
+           </video>
+         );
          setDisplay("d-block");
-         setSubmitButton("upload succesvol");
+         setSubmitButton(
+           <button className="button__primary--dark col-4 mt-3" type="submit" disabled>
+             upload succesvol
+           </button>
+         );
+         setSubmitting(true);
        }
-      console.log("Success", response);
     } catch (error) {
       console.log(error);
-    } finally {
+      setSubmitButton(
+        <div>
+          <button className="button__primary--dark col-4 mt-3" type="submit">
+            probeer opnieuw
+          </button>
+          <p className="register__alarm">Opload niet gelukt</p>
+        </div>
+      );
       setSubmitting(false);
+    } finally {
+      
     }
   };
 
   return (
     <>
       <div className={display}>
-        <video width="450" height="250" controls >
-          <source src={mediaUrl} />
-        </video>
+        {video}
       </div>
       <div className="FileUpload mb-5">
         <p className="text-center text-lg-left">Video</p>
-        <form
-          className="d-flex flex-column d-lg-block align-items-center"
-          onSubmit={handleSubmit(submitData)}
-        >
+        <form className="d-flex flex-column d-lg-block align-items-center" onSubmit={handleSubmit(submitData)}>
           <fieldset disabled={submitting}>
             <input type="file" {...register("file")} />
           </fieldset>
-          <button className="button__primary--dark col-4 mt-3" type="submit">
-            {submitButton}
-          </button>
+          {submitButton}
         </form>
       </div>
     </>

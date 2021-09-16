@@ -7,6 +7,8 @@ import Courses from "../src/components/pages/cursus-aanbod/Courses";
 import { API_KEY, THINKIFIC_URL } from "../src/api/thinkific";
 
 export default function cursusAanbod({ courses, products, collections }) {
+
+  console.log(courses)
   return (
     <>
       <Head title="cursus aandbod" description="overzich over alle cursussen vam Willehad" />

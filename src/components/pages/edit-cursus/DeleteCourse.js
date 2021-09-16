@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import AuthContext from "../../../../src/context/AuthContext";
 
 export default function DeleteCourse({ id }) {
-  const [deleteButton, setDeleteButton] = useState("Delete cursus");
+  const [deleteButton, setDeleteButton] = useState("verwijder cursus");
 
   const { getToken } = useContext(AuthContext);
   const token = getToken("auth");
@@ -15,7 +15,7 @@ export default function DeleteCourse({ id }) {
   const router = useRouter();
 
   async function handleClick() {
-    setDeleteButton("loading..");
+
     const deleteCourse = confirm("Bevestig of je de cursus wilt verwijderen");
 
     if (deleteCourse) {
@@ -40,7 +40,7 @@ export default function DeleteCourse({ id }) {
 
   return (
     <div>
-      <button onClick={handleClick} className="button__primary mx-auto">
+      <button onClick={handleClick} className="button__alarm px-4 py-1">
         {deleteButton}
       </button>
     </div>
