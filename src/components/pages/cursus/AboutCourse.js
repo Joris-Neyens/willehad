@@ -23,10 +23,10 @@ export default function ShortAbout({ product, strapiCourses }) {
           <p className="pt-2 mx-auto">{course[0].description_long}</p>
         </div>
         <div className="col-6">
-          <Player src={course[0].video.url}>
-            <BigPlayButton position="center" />
-            <LoadingSpinner />
-          </Player>
+            <Player src={course[0].video.url}>
+              <BigPlayButton position="center" />
+              <LoadingSpinner />
+            </Player>
         </div>
       </div>
     );

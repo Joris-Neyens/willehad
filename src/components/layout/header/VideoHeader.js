@@ -1,5 +1,5 @@
 import Link from "next/link";
-import HeaderModal from "./Modal";
+// import HeaderModal from "./Modal";
 
 export default function VideoHeader({
   date,
@@ -7,7 +7,7 @@ export default function VideoHeader({
   video,
   course_type,
   viewHeight,
-  modal,
+  // modal,
   buttonPrimary,
   buttonSecondary,
   subtitle,
@@ -42,7 +42,7 @@ export default function VideoHeader({
   }
   if (buttonPrimary) {
     headerButtonPrimary = (
-      <div className="col-12 p-0">
+      <div className="col-8 p-0">
         <Link href={buttonPrimary}>
           <button
             className="button__primary col-12 py-1 mb-3"
@@ -66,40 +66,36 @@ export default function VideoHeader({
       </Link>
     );
   }
-  if (modal === true) {
-    headerModal = <HeaderModal key={title} title={title} />;
-  }
+  // if (modal === true) {
+  //   headerModal = <HeaderModal key={title} title={title} />;
+  // }
 
   return (
-      <div className="jumbotron__video container-fluid rounded-0 p-0">
-        <video className="video" width="100%" style={height} muted autoPlay loop>
-            <source src={video} />
-        </video>
-            <div className="jumbotron-overlay__video">
-                <div
-                className="container d-flex align-items-center jumbotron__content"
-                style={height}
-                >
+    <div className="jumbotron__video container-fluid rounded-0 p-0">
+      <video className="video" width="100%" style={height} muted autoPlay loop disablePictureInPicture controlsList="nodownload">
+        <source src={video} />
+      </video>
+      <div className="jumbotron-overlay__video">
+        <div className="container d-flex align-items-center jumbotron__content" style={height}>
           <div className="row w-50 justify-content-center">
-                        <div className="col-12 col-lg-8">
-                            <div className="row w-100 mx-auto pt-5 mt-5">
-                                <div className="p-0">
-                                    {headerType}
-                                    {headerTitle}
-                                    {headerDate}
-                                    {headerSubtitle}
-                                    <div className="row pl-3">
-                                        {headerButtonPrimary}
-                                        {headerButtonSecondary}
-                                        {headerModal}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div className="col-12 col-lg-8">
+              <div className="row w-100 mx-auto pt-5 mt-5">
+                <div className="p-0">
+                  {headerType}
+                  {headerTitle}
+                  {headerDate}
+                  {headerSubtitle}
+                  <div className="row pl-3">
+                    {headerButtonPrimary}
+                    {headerButtonSecondary}
+                    {/* {headerModal} */}
+                  </div>
                 </div>
+              </div>
             </div>
-        
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

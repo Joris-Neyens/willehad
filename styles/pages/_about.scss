@@ -9,3 +9,6 @@ margin: auto;
 .over-willehad__image {
      box-shadow: 20px 20px $lightgold;
 }
+.over-willehad img {
+     filter: grayscale(100) !important;
+}

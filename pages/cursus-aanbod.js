@@ -1,3 +1,5 @@
+import React from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import Head from "../src/components/head/Head";
@@ -7,6 +9,16 @@ import Courses from "../src/components/pages/cursus-aanbod/Courses";
 import { API_KEY, THINKIFIC_URL } from "../src/api/thinkific";
 
 export default function cursusAanbod({ courses, products, collections }) {
+
+  const [courseUrl, setCourseUrl] = useState("");
+
+  React.useEffect(() => {
+    products.forEach(function (product) {
+      if (product.position === 0) {
+        setCourseUrl("/cursus-aanbod/" + product.id);
+      }
+    });
+  }, [products]);
 
   console.log(courses)
   return (
@@ -19,7 +31,7 @@ export default function cursusAanbod({ courses, products, collections }) {
 
             if (product.position === 0) {
               let primaryLink = "cursus-aanbod/" + slug;
-              return <Header viewHeight={50} key={id} title={name} url={card_image_url} buttonPrimary={primaryLink} headerButtonName={"meld je aan"} />;
+              return <Header viewHeight={50} key={id} title={name} url={card_image_url} buttonPrimary={courseUrl} headerButtonName={"cursus info"} />;
             }
           })}
           <Courses key={products[0].id} products={products} courses={courses} collections={collections} />

@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 export default function ExplainCourse() {
     return (
-      <section className="pt-2">
-        <div className="background-dark py-5 mt-5">
+      <section>
+        <div className="background-dark py-5">
           <div className="container py-5">
             <h2 className="pl-5 ml-3 pl-lg-0 ml-lg-0 text-lg-center">cursus traject</h2>
             <div className="row w-100 mx-auto">

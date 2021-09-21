@@ -12,12 +12,12 @@ import ExplainCourse from "../../src/components/pages/cursus/ExplainCourse";
 import PracticalInfo from "../../src/components/pages/cursus/Practicalinfo";
 import Docent from "../../src/components/pages/cursus/Docent";
 import Curriculum from "../../src/components/pages/cursus/Curriculum";
+import Reviews from '../../src/components/pages/cursus/Reviews';
 
-export default function Course({ courseProduct, instructors, chapters, fetchedCheckout, strapiCourses }) {
+export default function Course({ courseProduct, instructors, chapters, fetchedCheckout, strapiCourses, reviews }) {
   const { name, seo_title, card_image_url } = courseProduct;
 
   const webUrl = fetchedCheckout.webUrl
-
   return (
     <>
       <Head title={name} description={"course info for " + seo_title} />
@@ -34,8 +34,9 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
             modal={false}
           />
           <AboutCourse strapiCourses={strapiCourses} product={courseProduct} />
-          <Curriculum chapters={chapters} />
+          <Curriculum chapters={chapters}/>
           <ExplainCourse />
+          <Reviews reviews={reviews} />
           <Docent product={courseProduct} instructors={instructors} />
           <PracticalInfo webUrl={webUrl} />
         </Layout>
@@ -118,8 +119,8 @@ export async function getServerSideProps({ params }) {
       return course
     }
   })
-  const chapterID = filteredId[0].id
-  const chaptersUrl = THINKIFIC_URL + "/courses/" + chapterID + "/chapters?page=1&limit=25";
+  const courseId = filteredId[0].id
+  const chaptersUrl = THINKIFIC_URL + "/courses/" + courseId + "/chapters?page=1&limit=25";
 
     try {
       const response = await axios.get(chaptersUrl, header);
@@ -181,6 +182,19 @@ export async function getServerSideProps({ params }) {
   } catch (error) {
     console.log(error)
   }
+
+  const reviewsUrl = THINKIFIC_URL + "/course_reviews?course_id=" + courseId
+  let reviews = []
+  
+  try {
+    const response = await axios.get(reviewsUrl, header);
+    reviews = response.data;
+  } catch (error) {
+    console.log(error);
+  }
+
+
+  console.log("reviewsUrl = ", reviewsUrl)
   
   return {
     props: {
@@ -191,6 +205,7 @@ export async function getServerSideProps({ params }) {
       chapters: chapters,
       checkout: checkout,
       fetchedCheckout: fetchedCheckout,
+      reviews: reviews,
 
     },
   };
@@ -199,5 +214,5 @@ export async function getServerSideProps({ params }) {
 Course.propTypes = {
   courseProduct: PropTypes.object.isRequired,
   instructors: PropTypes.array.isRequired,
-  // chapters: PropTypes.array.isRequired,
+  chapters: PropTypes.array,
 }

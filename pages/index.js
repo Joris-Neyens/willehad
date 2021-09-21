@@ -1,6 +1,7 @@
-
+import React from 'react';
 import PropTypes from "prop-types";
 import axios from "axios";
+import { useState } from "react";
 import { BASE_URL, HOME_PATH, COURSES_PATH, REVIEWS_PATH } from "../src/api/baseUrl";
 import { API_KEY, THINKIFIC_URL } from "../src/api/thinkific";
 import Head from "../src/components/head/Head";
@@ -12,8 +13,18 @@ import Reviews from "../src/components/pages/home/Reviews";
 import Uitleg from "../src/components/pages/home/Uitleg";
 import HomepageAbout from "../src/components/pages/home/HomepageAbout";
 
-export default function Home({ home, courses, reviews }) {
-  console.log(home)
+export default function Home({ home, courses, reviews, thinkificProducts, courseReviews }) {
+
+  console.log(courseReviews)
+  const [courseUrl, setCourseUrl] = useState("")
+
+  React.useEffect(() => {
+    thinkificProducts.forEach(function (product) {
+       if (product.position === 0) {
+         setCourseUrl("/cursus-aanbod/" + product.id)
+       }
+     })
+  }, [thinkificProducts]);
 
   if (! home.header_video) {
     return (
@@ -25,8 +36,8 @@ export default function Home({ home, courses, reviews }) {
         ></Head>
         <Header
           courses={courses}
-          headerButtonName="ons aanbod"
-          buttonPrimary="/cursus-aanbod"
+          headerButtonName="cursus info"
+          buttonPrimary={courseUrl}
           buttonSecondary="/hoe-het-werkt"
           title={home.title}
           url={home.header_image.url}
@@ -49,9 +60,8 @@ export default function Home({ home, courses, reviews }) {
           <Head title="Home" description="willehad cursus platform startpagina"></Head>
           <VideoHeader
             courses={courses}
-            headerButtonName="ons aanbod"
-            buttonPrimary="/cursus-aanbod"
-            buttonSecondary="/hoe-het-werkt"
+            headerButtonName="cursus info"
+            buttonPrimary={courseUrl}
             title={home.title}
             video={home.header_video.url}
             modal={false}
@@ -81,10 +91,36 @@ export async function getServerSideProps() {
   let home = [];
   let courses = [];
   let reviews = [];
+  let thinkificProducts = [];
+  let courseReviews = []
+
+  const thinkificUrl = THINKIFIC_URL + "/products";
+  const reviewUrl = THINKIFIC_URL + "/course_reviews"
+
+  const header = {
+    headers: {
+      "X-Auth-API-Key": `${API_KEY}`,
+      "X-Auth-Subdomain": "willehad",
+      "Content-Type": "application/json",
+    },
+  };
+
+   try {
+     const response = await axios.get(thinkificUrl, header);
+   } catch (error) {
+     console.log(error);
+   }
+    try {
+      const response = await axios.get(reviewUrl, header);
+      console.log("course-review = ", response)
+      courseReviews = response.data.items;
+    } catch (error) {
+      console.log(error);
+    }
+ 
 
   try {
     const response = await axios.get(url);
-    console.log(response.data);
     home = response.data;
   } catch (error) {
     console.log(error);
@@ -92,7 +128,6 @@ export async function getServerSideProps() {
 
   try {
     const response = await axios.get(courseUrl);
-    console.log(response.data);
     courses = response.data;
   } catch (error) {
     console.log(error);
@@ -100,7 +135,6 @@ export async function getServerSideProps() {
 
   try {
     const response = await axios.get(reviewsUrl);
-    console.log(response.data);
     reviews = response.data;
   } catch (error) {
     console.log(error);
@@ -111,6 +145,8 @@ export async function getServerSideProps() {
       home: home,
       courses: courses,
       reviews: reviews,
+      thinkificProducts: thinkificProducts,
+      courseReviews: courseReviews,
     },
   };
 }
@@ -119,4 +155,5 @@ Home.propTypes = {
   home: PropTypes.object,
   courses: PropTypes.array,
   reviews: PropTypes.array,
+  thinkificProducts: PropTypes.array,
 }

@@ -3,8 +3,6 @@ import Link from "next/link";
 import Image from 'next/image'
 import HeaderModal from "./Modal";
 
-
-
 export default function Header({
   date,
   title,
@@ -52,7 +50,7 @@ export default function Header({
   }
   if (buttonPrimary) {
     headerButtonPrimary = (
-      <div className="col-12 p-0">
+      <div className="col-4 p-0">
         <Link href={buttonPrimary}>
           <button
             className="button__primary col-12 py-1 mb-3"

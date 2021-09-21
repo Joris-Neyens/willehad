@@ -17,12 +17,22 @@
     }
 }
 .curriculum {
-    border-bottom: 1px solid #49465e31;
+    border-bottom: 1px solid #9c96c931;
     cursor: pointer;
 }
 .curriculum:hover {
     color: $secondary;
 }
+.reviews__review {
+    max-width: 600px;
+    margin: 0 auto;
+}
 .curriculum__plus {
     font-size: 32px;
+}
+.reviews svg {
+    font-size: 32px;
+    padding: 5px;
+    border-radius: 3px;   
+    color: $secondary;
 }
