@@ -1,11 +1,14 @@
 import Link from "next/link";
+import { useState } from "react";
+import Hamburger from "hamburger-react";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 
 export default function MainNav() {
 
-
+  const [isOpen, setOpen] = useState(false);
+ 
   return (
     <>
       <Navbar fixed="top" className="menu py-0 d-none d-lg-block">
@@ -91,6 +94,52 @@ export default function MainNav() {
           </div>
         </Navbar.Collapse>
       </Navbar>
+      <div className="d-flex justify-content-right">
+        <div className="hamburger d-none">
+          <Hamburger
+            laber="show menu"
+            size={30}
+            toggled={isOpen}
+            toggle={setOpen}
+            color="#F6F6F6"
+            onToggle={toggled => {
+              const hamburgerMenu = document.querySelector(".hamburger__menu");
+              if (toggled) {
+                hamburgerMenu.classList.remove("hamburger__menu--close");
+                hamburgerMenu.classList.add("hamburger__menu--open");
+              } else {
+                hamburgerMenu.classList.add("hamburger__menu--close");
+                hamburgerMenu.classList.remove("hamburger__menu--open");
+              }
+            }}
+          />
+        </div>
+      </div>
+      <div className="position-absolute hamburger__menu hamburger__menu--open  d-none ">
+        <div className="background-blue py-5 px-5">
+          <Link href="/cursus-aanbod">
+            <a className="text-right menu__link">cursus aanbod</a>
+          </Link>
+          <Link href="/hoe-het-werkt">
+            <a className="text-right menu__link">hoe het werkt</a>
+          </Link>
+          <Link href="/over-Willehad">
+            <a className="text-right menu__link">Over Willehad</a>
+          </Link>
+          <Link href="/contact" className="text-right menu__link">
+            <a className="text-right menu__link">contact</a>
+          </Link>
+          <div className="d-flex justify-content-end pt-4">
+            <Link href="https://willehad.thinkific.com/users/sign_in">
+              <button className="menu__link__dark button__primary px-4">
+                <a className="menu__link--light" title="login">
+                  login
+                </a>
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

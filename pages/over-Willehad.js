@@ -15,7 +15,7 @@ export default function overWillehad() {
           title="Over Willehad"
           subtitle="Online cursus platform om de intellectuele Traditie van de Katholieke Kerk toegankelijk te maken voor jongeren en jonge gezinnen"
         />
-        <section className="avoer-willehad">
+        <section className="">
           <div className="py-5 about__intro">
             <div className="container">
               <div className="row">
@@ -32,7 +32,7 @@ export default function overWillehad() {
                 <div className="col-6">
                   <div className="h-100 d-flex align-items-center">
                     <div className="w-100">
-                  <Image src="/searching.jpg" layout="responsive"
+                      <Image src="/under-construction.jpg" layout="responsive"
                         width="300px"
                     height="200px"/>
                 </div>

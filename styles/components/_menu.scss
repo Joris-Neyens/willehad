@@ -27,3 +27,24 @@
 .menu__link--light:hover {
   color: $background;
 }
+.hamburger {
+  width: 48px;
+  position: absolute;
+  right: 0;
+  z-index: 5;
+}
+.hamburger__menu {
+  transition: width 2s;
+}
+
+.hamburger__menu--open {
+  z-index: 4;
+  width: 500px;
+  margin-left: 20%;
+  transition: width 2s;
+
+  a.text-right {
+    line-height: 4em;
+    font-size: 18px;
+  }
+}
