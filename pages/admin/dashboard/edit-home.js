@@ -8,11 +8,11 @@ import PostHeaderVideo from '../../../src/components/pages/edit-home/postHeaderV
 import PutHomeInfo from "../../../src/components/pages/edit-home/PutHomeInfo";
 import PutHomeHeader from "../../../src/components/pages/edit-home/PutHomeHeader";
 import PutReview from '../../../src/components/pages/edit-home/PutReview';
-import { BASE_URL, HOME_PATH} from "../../../src/api/baseUrl";
+import DeleteReviews from '../../../src/components/pages/edit-home/DeleteReviews'
+import { BASE_URL, HOME_PATH , REVIEWS_PATH} from "../../../src/api/baseUrl";
 
-export default function editHome({ home }) {
+export default function editHome({ home, reviews }) {
   const { id, header_image, header_video } = home;
-  console.log(home)
 
   return (
     <div>
@@ -30,7 +30,8 @@ export default function editHome({ home }) {
                   <PutHomeHeader id={id} header_image={header_image} />
                   <PostHeaderVideo id={id} videoUrl={header_video} />
                   <PutHomeInfo home={home}/>
-                  {/* <PutReview /> */}
+                  <PutReview reviews={reviews} />
+                  <DeleteReviews reviews={reviews} />
                 </div>
               </div>
             </div>
@@ -43,8 +44,10 @@ export default function editHome({ home }) {
 
 export async function getServerSideProps() {
   const url = BASE_URL + HOME_PATH;
+  const reviewsUrl = BASE_URL + REVIEWS_PATH;
 
   let home = null;
+  let reviews = null;
 
   try {
     const response = await axios.get(url);
@@ -52,10 +55,17 @@ export async function getServerSideProps() {
   } catch (error) {
     console.log(error);
   }
+  try {
+    const response = await axios.get(reviewsUrl);
+    reviews = response.data;
+  } catch (error) {
+    console.log(error);
+  }
     
   return {
     props: {
       home: home,
+      reviews: reviews,
     },
   };
 }

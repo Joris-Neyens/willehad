@@ -9,13 +9,12 @@ import Header from "../src/components/layout/header/Header";
 import VideoHeader from "../src/components/layout/header/VideoHeader";
 import Layout from "../src/components/layout/Layout";
 import Newsletter from "../src/components/pages/home/Newsletter";
-import Reviews from "../src/components/pages/home/Reviews";
+import ReviewsHome from "../src/components/pages/home/ReviewsHome";
 import Uitleg from "../src/components/pages/home/Uitleg";
 import HomepageAbout from "../src/components/pages/home/HomepageAbout";
 
 export default function Home({ home, courses, reviews, thinkificProducts, courseReviews }) {
 
-  console.log(courseReviews)
   const [courseUrl, setCourseUrl] = useState("")
 
   React.useEffect(() => {
@@ -49,7 +48,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, course
         />
         <Uitleg />
         <Newsletter />
-        <Reviews reviews={reviews} />
+        <ReviewsHome reviews={reviews} />
       </Layout>
     </div>
   );
@@ -72,7 +71,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, course
             date={home.course_date}
           />
           <Uitleg />
-          <Reviews reviews={reviews} />
+          <ReviewsHome reviews={reviews} />
           <Newsletter />
           <HomepageAbout />
         </Layout>
@@ -92,10 +91,8 @@ export async function getServerSideProps() {
   let courses = [];
   let reviews = [];
   let thinkificProducts = [];
-  let courseReviews = []
 
   const thinkificUrl = THINKIFIC_URL + "/products";
-  const reviewUrl = THINKIFIC_URL + "/course_reviews"
 
   const header = {
     headers: {
@@ -104,20 +101,6 @@ export async function getServerSideProps() {
       "Content-Type": "application/json",
     },
   };
-
-   try {
-     const response = await axios.get(thinkificUrl, header);
-   } catch (error) {
-     console.log(error);
-   }
-    try {
-      const response = await axios.get(reviewUrl, header);
-      console.log("course-review = ", response)
-      courseReviews = response.data.items;
-    } catch (error) {
-      console.log(error);
-    }
- 
 
   try {
     const response = await axios.get(url);
@@ -146,7 +129,7 @@ export async function getServerSideProps() {
       courses: courses,
       reviews: reviews,
       thinkificProducts: thinkificProducts,
-      courseReviews: courseReviews,
+
     },
   };
 }

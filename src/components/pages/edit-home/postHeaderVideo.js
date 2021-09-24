@@ -11,9 +11,6 @@ const url = BASE_URL + UPLOAD_PATH;
 
 export default function PostVideo({ id, videoUrl }) {
 
-    console.log(videoUrl)
-
-
   const { register, handleSubmit } = useForm();
   const [submitting, setSubmitting] = useState(false);
   const [submitButton, setSubmitButton] = useState(<button className="button__primary--dark col-4  py-1 mt-3">upload video</button>);

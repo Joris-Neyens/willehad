@@ -27,3 +27,20 @@ img {
 .alert {
   color: $accent;
 }
+#nprogress .bar {
+  background: $secondary;
+
+}
+#nprogress .peg {
+  box-shadow: none;
+
+}
+#nprogress .spinner-icon {
+  display: none;
+  border-top-color: $secondary;
+  border-left-color: $secondary;
+  margin-top: 5px;
+}
+.glow {
+  box-shadow: none;
+}

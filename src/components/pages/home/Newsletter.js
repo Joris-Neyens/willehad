@@ -51,7 +51,7 @@ export default function Newsletter() {
         
   
   return (
-    <section className="newsletter py-5 my-5">
+    <section className="newsletter py-5 mb-5">
       <div className="container">
         <div className="row h-100">
           <div className=" col-sm-8 col-md-6 offset-sm-2 offset-md-3 col-lg-4 offset-lg-2 pb-4 py-lg-4">

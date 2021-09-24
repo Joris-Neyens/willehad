@@ -6,6 +6,12 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function Reviews({ reviews }) {
 
+  let styles = { display: "block" };
+
+  if (reviews.length < 2) {
+    styles = { display: "none" };
+  }
+
     const star = <FontAwesomeIcon className="reviews__star" icon={faStar} />;
 
     const responsive = {
@@ -30,7 +36,7 @@ export default function Reviews({ reviews }) {
     
 
     return (
-      <div className="background-blue pt-5">
+      <div className="background-blue pt-5" style={styles}>
         <div className="reviews container py-5">
           <Carousel
             responsive={responsive}
