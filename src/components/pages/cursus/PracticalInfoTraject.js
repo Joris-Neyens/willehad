@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 
-export default function Practicalinfo({webUrl}) {
+export default function PracticalinfoTraject({webUrl}) {
 
 
   return (
     <section className="py-lg-5 mt-3 mt-lg-5">
       <div className="text-center pt-5">
-        <h2>Praktische informatie</h2>
+        <h2>Praktische informatie (traject)</h2>
       </div>
       <div className="container pt-4">
         <div className="row">

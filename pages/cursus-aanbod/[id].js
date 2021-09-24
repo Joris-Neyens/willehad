@@ -9,15 +9,51 @@ import Header from "../../src/components/layout/header/Header";
 import Layout from "../../src/components/layout/Layout";
 import AboutCourse from "../../src/components/pages/cursus/AboutCourse";
 import ExplainCourse from "../../src/components/pages/cursus/ExplainCourse";
-import PracticalInfo from "../../src/components/pages/cursus/Practicalinfo";
+import PracticalInfoTraject from "../../src/components/pages/cursus/PracticalInfoTraject";
+import PracticalInfoZelfstandig from "../../src/components/pages/cursus/PracticalInfoZelfstandig";
 import Docent from "../../src/components/pages/cursus/Docent";
 import Curriculum from "../../src/components/pages/cursus/Curriculum";
 import Reviews from '../../src/components/pages/cursus/Reviews';
 
-export default function Course({ courseProduct, instructors, chapters, fetchedCheckout, strapiCourses, reviews }) {
+export default function Course({ courseProduct, instructors, chapters, fetchedCheckout, strapiCourses, reviews, collections }) {
   const { name, seo_title, card_image_url } = courseProduct;
+  const webUrl = fetchedCheckout.webUrl;
+  const productCollectionIds = courseProduct.collection_ids;
 
-  const webUrl = fetchedCheckout.webUrl
+  const collectionArrays = productCollectionIds.map(function (prodColId) {
+
+    return collections.map(function (collection) {
+      if (prodColId === collection.id) {
+        return collection.name
+      }
+    })
+  })
+
+  let collectionNames = []
+
+  collectionArrays.map(function (collectionArray) {
+    collectionArray.map(function (collectionName) {
+      collectionNames.push(collectionName)
+    })
+  })
+
+  let collectionName = "";
+
+  collectionNames.map(function (name) {
+    if (name === "traject" || name === "zelfstandig") {
+      collectionName = name;
+    }
+  });
+
+  let practicalInfo = ""
+
+  if (collectionName === "traject") {
+    practicalInfo = <PracticalInfoTraject webUrl={webUrl}/>
+  }
+  if (collectionName === "zelfstandig") {
+    practicalInfo = <PracticalInfoZelfstandig webUrl={webUrl} />;
+  }
+
   return (
     <>
       <Head title={name} description={"course info for " + seo_title} />
@@ -38,7 +74,7 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
           <ExplainCourse />
           <Reviews reviews={reviews} />
           <Docent product={courseProduct} instructors={instructors} />
-          <PracticalInfo webUrl={webUrl} />
+          {practicalInfo}
         </Layout>
       </div>
     </>
@@ -87,12 +123,14 @@ export async function getServerSideProps({ params }) {
   const url = `${THINKIFIC_URL}/products/${params.id}`;
   const instructorsUrl = THINKIFIC_URL + "/instructors";
   const coursesUrl = THINKIFIC_URL + "/courses";
+  const collectionsUrl = THINKIFIC_URL + "/collections";
 
   let instructors = [];
   let courseProduct = null;
   let chapters = [];
   let courses = null;
   let checkout = null;
+  let collections = [];
 
   try {
     const response = await axios.get(url, header);
@@ -106,6 +144,15 @@ export async function getServerSideProps({ params }) {
   } catch (error) {
     console.log(error);
   }
+
+  try {
+    const response = await axios.get(collectionsUrl, header);
+    console.log(response.data);
+    collections = response.data.items;
+  } catch (error) {
+    console.log(error);
+  }
+
     try {
       const response = await axios.get(coursesUrl, header);
       courses = response.data.items;
@@ -206,6 +253,7 @@ export async function getServerSideProps({ params }) {
       checkout: checkout,
       fetchedCheckout: fetchedCheckout,
       reviews: reviews,
+      collections: collections,
 
     },
   };

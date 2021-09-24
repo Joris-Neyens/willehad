@@ -19,8 +19,7 @@ export default function cursusAanbod({ courses, products, collections }) {
       }
     });
   }, [products]);
-
-  console.log(courses)
+  
   return (
     <>
       <Head title="cursus aandbod" description="overzich over alle cursussen vam Willehad" />

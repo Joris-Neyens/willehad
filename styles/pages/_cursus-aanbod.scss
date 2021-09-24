@@ -25,6 +25,9 @@ transform: scale(-1, 1);
         font-size: 20px;
     }
 }
+.course-card {
+    border-radius: 5px;
+}
 .course-card p {
   font-size: 16px;
 }
@@ -49,18 +52,17 @@ transform: scale(-1, 1);
 
 } 
 .input-group-text {
-    border-radius: 0;
+    border-radius: 5px;
 }
 #select {
-    border-radius: 0;
+    border-radius: 5px;
 }
-
 .form-check-input {
-    margin-left: 0px !important;
+    margin-left: 5px !important;
 }
 .custom-control-input {
     z-index: 4;
-    border-radius: 0;
+    border-radius: 5px;
 }
 
  .custom-checkbox .custom-control-input ~ .custom-control-label::before {
