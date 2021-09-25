@@ -14,16 +14,30 @@ import Uitleg from "../src/components/pages/home/Uitleg";
 import HomepageAbout from "../src/components/pages/home/HomepageAbout";
 
 export default function Home({ home, courses, reviews, thinkificProducts, courseReviews }) {
+  console.log(thinkificProducts);
+  let courseUrl = ""
 
-  const [courseUrl, setCourseUrl] = useState("")
-
-  React.useEffect(() => {
-    thinkificProducts.forEach(function (product) {
+  thinkificProducts.forEach(function (product) {
        if (product.position === 0) {
-         setCourseUrl("/cursus-aanbod/" + product.id)
+         courseUrl = "/cursus-aanbod/" + product.id
        }
-     })
-  }, [thinkificProducts]);
+  })
+
+  console.log(courseUrl)
+  
+
+
+  // const [courseUrl, setCourseUrl] = useState("")
+
+  // React.useEffect(() => {
+  //   thinkificProducts.forEach(function (product) {
+  //      if (product.position === 0) {
+  //        setCourseUrl("/cursus-aanbod/" + product.id)
+  //      }
+  //    })
+  // }, [thinkificProducts]);
+
+
 
   if (! home.header_video) {
     return (
@@ -86,13 +100,14 @@ export async function getServerSideProps() {
   const url = BASE_URL + HOME_PATH;
   const courseUrl = BASE_URL + COURSES_PATH;
   const reviewsUrl = BASE_URL + REVIEWS_PATH;
+    const thinkificUrl = THINKIFIC_URL + "/products";
 
   let home = [];
   let courses = [];
   let reviews = [];
   let thinkificProducts = [];
 
-  const thinkificUrl = THINKIFIC_URL + "/products";
+
 
   const header = {
     headers: {
@@ -108,6 +123,15 @@ export async function getServerSideProps() {
   } catch (error) {
     console.log(error);
   }
+
+
+  try {
+    const response = await axios.get(thinkificUrl, header);
+    thinkificProducts = response.data.items;
+  } catch (error) {
+    console.log(error);
+  }
+
 
   try {
     const response = await axios.get(courseUrl);

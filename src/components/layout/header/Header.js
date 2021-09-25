@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
 import Image from 'next/image'
-import HeaderModal from "./Modal";
 
 export default function Header({
   date,
@@ -10,7 +9,6 @@ export default function Header({
   course_type,
   viewHeight,
   textCol,
-  // modal,
   buttonPrimary,
   buttonSecondary,
   subtitle,
@@ -26,31 +24,24 @@ export default function Header({
   let headerDate = "";
   let headerButtonPrimary = "";
   let headerButtonSecondary = "";
-  // let headerModal = "";
 
 
 
   if (course_type) {
-    headerType = <p className="jumbotron__content-type m-0">{course_type}</p>;
+    headerType = <p className="jumbotron__content-type m-0 text-center text-lg-left">{course_type}</p>;
   }
   if (title) {
-    headerTitle = <p className="jumbotron__content-title">{title}</p>;
+    headerTitle = <p className="jumbotron__content-title text-center text-lg-left">{title}</p>;
   }
   if (subtitle) {
-    headerSubtitle = (
-      <p className="jumbotron__content-subtitle">{subtitle}</p>
-    );
+    headerSubtitle = <p className="jumbotron__content-subtitle text-center text-lg-left">{subtitle}</p>;
   }
   if (date) {
-    headerDate = (
-      <p className="jumbotron__content-date col-6 col-sm-4 col-md-3 col-lg-6 col-xl-5 px-0">
-        {date}
-      </p>
-    );
+    headerDate = <p className="jumbotron__content-date col-6 col-sm-4 col-md-3 col-lg-6 col-xl-5 px-0 text-center text-lg-left">{date}</p>;
   }
   if (buttonPrimary) {
     headerButtonPrimary = (
-      <div className="col-4 p-0">
+      <div className="col-4 offset-4  offset-lg-0 p-0">
         <Link href={buttonPrimary}>
           <button
             className="button__primary col-12 py-1 mb-3"
@@ -74,9 +65,6 @@ export default function Header({
       </Link>
     );
   }
-  // if (modal === true) {
-  //   headerModal = <HeaderModal key={title} title={title} />;
-  // }
 
   return (
     <div className="header">
@@ -102,10 +90,9 @@ export default function Header({
                   {headerTitle}
                   {headerDate}
                   {headerSubtitle}
-                  <div className="row pl-3">
+                  <div className="row pl-lg-3">
                     {headerButtonPrimary}
                     {headerButtonSecondary}
-                    {/* {headerModal} */}
                   </div>
                 </div>
               </div>

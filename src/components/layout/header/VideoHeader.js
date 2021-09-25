@@ -1,5 +1,4 @@
 import Link from "next/link";
-// import HeaderModal from "./Modal";
 
 export default function VideoHeader({
   date,
@@ -7,7 +6,6 @@ export default function VideoHeader({
   video,
   course_type,
   viewHeight,
-  // modal,
   buttonPrimary,
   buttonSecondary,
   subtitle,
@@ -20,29 +18,30 @@ export default function VideoHeader({
   let headerDate = "";
   let headerButtonPrimary = "";
   let headerButtonSecondary = "";
-  let headerModal = "";
+
+  console.log(buttonPrimary)
 
   if (course_type) {
     headerType = <p className="jumbotron__content-type m-0">{course_type}</p>;
   }
   if (title) {
-    headerTitle = <p className="jumbotron__content-title">{title}</p>;
+    headerTitle = <p className="jumbotron__content-title text-center text-lg-left">{title}</p>;
   }
   if (subtitle) {
     headerSubtitle = (
-      <p className="jumbotron__content-subtitle">{subtitle}</p>
+      <p className="jumbotron__content-subtitle text-center text-lg-left">{subtitle}</p>
     );
   }
   if (date) {
     headerDate = (
-      <p className="jumbotron__content-date col-5 px-0">
+      <p className="jumbotron__content-date offset-3 offset-lg-0 col-5 col-lg-6 px-0 text-center text-lg-left">
         {date}
       </p>
     );
   }
   if (buttonPrimary) {
     headerButtonPrimary = (
-      <div className="col-8 p-0">
+      <div className="col-8 offset-2 offset-lg-0 p-0">
         <Link href={buttonPrimary}>
           <button
             className="button__primary col-12 py-1 mb-3"
@@ -66,9 +65,6 @@ export default function VideoHeader({
       </Link>
     );
   }
-  // if (modal === true) {
-  //   headerModal = <HeaderModal key={title} title={title} />;
-  // }
 
   return (
     <div className="jumbotron__video container-fluid rounded-0 p-0">
@@ -77,7 +73,7 @@ export default function VideoHeader({
       </video>
       <div className="jumbotron-overlay__video">
         <div className="container d-flex align-items-center jumbotron__content" style={height}>
-          <div className="row w-50 justify-content-center">
+          <div className="row w-md-50 justify-content-center mx-auto mx-lg-0">
             <div className="col-12 col-lg-8">
               <div className="row w-100 mx-auto pt-5 mt-5">
                 <div className="p-0">
@@ -85,10 +81,9 @@ export default function VideoHeader({
                   {headerTitle}
                   {headerDate}
                   {headerSubtitle}
-                  <div className="row pl-3">
+                  <div className="row pl-lg-3">
                     {headerButtonPrimary}
                     {headerButtonSecondary}
-                    {/* {headerModal} */}
                   </div>
                 </div>
               </div>
