@@ -73,7 +73,7 @@ export default function Newsletter() {
                     className="form-control "
                   ></input>
                 </div>
-                <div className="col-12 col-md-6 col-lg-4 pl-2 pr-0 d-flex align-items-center">
+                <div className="col-12 col-md-6 col-lg-4 pl-0 pl-md-2 pr-0 d-flex align-items-center">
                   {postError && (
                     <span>
                       Sorry er is iets mis gegaan, probeer het later nog een

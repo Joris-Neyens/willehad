@@ -133,13 +133,34 @@ export default function Courses({ products, courses, collections }) {
     });
   }
 
+  function openFilters() {
+    const hideFilters = document.querySelectorAll(".hideFilter");
+    const revealFilters = document.querySelector(".reveal-filters")
+
+    hideFilters.forEach(function (filter) {
+      filter.classList.toggle("d-none");
+    }) 
+
+      
+    if (revealFilters.innerHTML === "meer filters +") {
+      revealFilters.innerHTML = "minder filters -";
+    } else {
+      revealFilters.innerHTML = "meer filters +";
+    }
+  }
+
+
   return (
     <>
       <div className="container courses-container position-relative pb-5">
         <div className="row">
           <div className=" col-12 col-lg-12">
             <h1 className="mb-4 pt-5">Cursus aanbod</h1>
-            <select className=" col-4 offset-8 col-lg-2 offset-lg-10 custom-select mr-sm-2" id="select" onChange={e => sortByPrice(e.target)}>
+            <select
+              className="d-none d-lg-block col-md-4 offset-md-8 col-lg-2 offset-lg-10 custom-select mr-sm-2"
+              id="select"
+              onChange={e => sortByPrice(e.target)}
+            >
               <option value="prijs" placeholder="prijs">
                 Prijs
               </option>
@@ -158,7 +179,25 @@ export default function Courses({ products, courses, collections }) {
               </div>
               <input className="form-control" onChange={e => searchCourses(e.target.value)} placeholder="zoek cursus naam"></input>
             </div>
-            <div className="themes filter pt-3">
+            <div className="pt-2 d-lg-none" onClick={openFilters}>
+              <p className="text-right reveal-filters">meer filters +</p>
+            </div>
+            <div className="hideFilter d-none row pb-3">
+              <div className="col-12">
+                <select
+                  className="d-lg-block custom-select mr-sm-2"
+                  id="select"
+                  onChange={e => sortByPrice(e.target)}
+                >
+                  <option value="prijs" placeholder="prijs">
+                    Prijs
+                  </option>
+                  <option value="laag">Laag</option>
+                  <option value="hoog">Hoog</option>
+                </select>
+              </div>
+            </div>
+            <div className="hideFilter themes d-none d-lg-block filter pt-3">
               <div>
                 <h6 className="px-2 pb-1">Categorieën</h6>
               </div>
@@ -182,7 +221,7 @@ export default function Courses({ products, courses, collections }) {
                 })}
               </div>
             </div>
-            <div className="themes filter pt-3">
+            <div className="hideFilter themes d-none d-lg-block filter pt-3">
               <div>
                 <h6 className="px-2 pb-1">Thema's</h6>
               </div>

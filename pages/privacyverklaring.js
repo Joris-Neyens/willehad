@@ -4,7 +4,7 @@ import Head from "../src/components/head/Head";
 
 export default function privacyverklaring() {
     return (
-      <div className="wrapper pt-5 mt-5">
+      <div className="wrapper pt-lg-5 mt-lg-5">
         <Layout>
           <Head title="privacyverklaring" description="privacyverklaring willehad.nl"></Head>
           <div className="privacyverklaring container py-5 mb-5">

@@ -12,6 +12,10 @@ transform: scale(-1, 1);
 .filter h6 {
     border-bottom: 1px solid rgb(201, 201, 201) !important;
 } 
+.reveal-filters:hover {
+    cursor: pointer;
+    font-weight: 500;
+}
 .course__cover {
     color: $background;
 

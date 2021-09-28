@@ -34,7 +34,7 @@ export default function VideoHeader({
   }
   if (date) {
     headerDate = (
-      <p className="jumbotron__content-date offset-3 offset-lg-0 col-5 col-lg-6 px-0 text-center text-lg-left">
+      <p className="jumbotron__content-date offset-3 offset-lg-0 col-6 col-md-5 col-lg-6 px-0 text-center text-lg-left">
         {date}
       </p>
     );

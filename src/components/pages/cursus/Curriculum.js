@@ -25,7 +25,7 @@ export default function Curriculum({ chapters }) {
         <div onClick={openCurriculum} className="py-lg-3 curriculum">
           <div className="row w-100 d-flex justify-content-between">
             <div>
-              <h2 className="px-2 px-lg-5 text-center">Curriculum</h2>
+              <h2 className="px-2 px-lg-5 text-center">Lessen</h2>
             </div>
             <div className="d-flex align-items-center">
               <p className="m-0 curriculum__plus">+</p>

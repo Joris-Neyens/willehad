@@ -20,13 +20,13 @@ export default function Footer() {
             </Link>
           </div>
           <div className="col-12 text-center py-3 py-md-0 text-md-left  col-md-2">
-            <p className="d-block mb-1">cursus traject</p>
+            <p className="d-block mb-1">Cursus traject</p>
             <Link href="/hoe-het-werkt">
-              <a className="d-block">uitleg</a>
+              <a className="d-block">Uitleg</a>
             </Link>
           </div>
           <div className="col-12 text-center py-3 py-md-0 text-md-left col-md-2">
-            <p className="d-block mb-1">cursus</p>
+            <p className="d-block mb-1">Cursus</p>
             <Link href="/cursus-aanbod">
               <a className="d-block">Alle cursussen</a>
             </Link>
@@ -37,10 +37,16 @@ export default function Footer() {
           </div>
         </div>
         <div className="w-100 d-flex justify-content-center pb-4 pt-4">
-          <Link href="/privacyverklaring" className="footer__terms text-center mt-5">
-            Privacyverklaring
-          </Link>
-          <div>&nbsp;| Copyright © Thomistisch Instituut</div>
+          <div className="row">
+            <div className="col-12 col-md-auto px-0 d-flex justify-content-center">
+              <Link href="/privacyverklaring" className="footer__terms  mt-5">
+                Privacyverklaring
+              </Link>
+            </div>
+            <div className="col-12 col-md-auto px-0 d-flex justify-content-center">
+              <span className="d-none d-md-block">&nbsp;|&nbsp;</span> Copyright © Thomistisch Instituut
+            </div>
+          </div>
         </div>
       </div>
     </footer>

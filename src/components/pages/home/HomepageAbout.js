@@ -18,7 +18,7 @@ export default function HomepageAbout() {
         </div>
         <div className="d-flex justify-content-center">
           <Link href="/over-Willehad">
-            <button className="button__primary px-4 py-1 mt-3">lees meer</button>
+            <button className="button__primary px-4 py-1 mt-3">Lees meer</button>
           </Link>
         </div>
       </div>

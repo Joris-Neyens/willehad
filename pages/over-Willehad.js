@@ -19,24 +19,22 @@ export default function overWillehad() {
           <div className="py-5 about__intro">
             <div className="container">
               <div className="row">
-                <div className="col-6">
-                  <h2 className="pb-3">Grote Vragen</h2>
-                  <p>
+                <div className="col-12 col-lg-6">
+                  <h2 className="text-center text-lg-left pb-3">Grote Vragen</h2>
+                  <p className="text-center text-lg-left">
                     Vroeg of laat krijgt iedereen te maken met de grote vragen des levens: Waarom besta ik? Waartoe ben ik op aarde? Bestaat God en wie is hij?
-                    Gelovigen en niet-gelovigen zullen hiermee geconfronteerd worden door zichzelf of anderen. Deze vragen zijn niet nieuw, en de queeste om ze te
-                    beantwoorden evenmin. De rijke Rooms Katholieke Traditie kent vele wijze mannen en vrouwen die hierop een antwoord hebben getracht te
+                    Gelovigen en niet-gelovigen zullen hiermee geconfronteerd worden door zichzelf of anderen. Deze vragen zijn niet nieuw, en de queeste om ze
+                    te beantwoorden evenmin. De rijke Rooms Katholieke Traditie kent vele wijze mannen en vrouwen die hierop een antwoord hebben getracht te
                     formuleren. Helaas is deze Traditie soms moeilijk bereikbaar, omdat het niet eenvoudig in het Nederlands beschikbaar is en het voor een
                     gemiddelde leek training vergt om het te begrijpen.
                   </p>
                 </div>
-                <div className="col-6">
+                <div className="col-10 offset-1 col-lg-6 offset-lg-0 pt-5 pb-3 pb-lg-0 pt-lg-0">
                   <div className="h-100 d-flex align-items-center">
                     <div className="w-100">
-                      <Image src="/under-construction.jpg" layout="responsive"
-                        width="300px"
-                    height="200px"/>
-                </div>
-                </div>
+                      <Image src="/under-construction.jpg" layout="responsive" width="300px" height="200px" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -44,7 +42,7 @@ export default function overWillehad() {
 
           <div className="container">
             <div className="row pb-5">
-              <div className="col-5">
+              <div className="col-10 offset-1 col-lg-5 offset-lg-0">
                 <div className="h-100 d-flex align-items-center">
                   <div className="w-100 px-4">
                     <div className="over-willehad__image">
@@ -59,19 +57,19 @@ export default function overWillehad() {
                   </div>
                 </div>
               </div>
-              <div className="col-6 offset-1 pt-5 mb-5">
-                <h2 className="pb-3">Willehad.nl</h2>
-                <p>
+              <div className="col- 12 col-lg-6 offset-lg-1  pt-5 mb-5 order-first oder-lg-last">
+                <h2 className="pb-3 text-center text-lg-left">Willehad.nl</h2>
+                <p className="text-center text-lg-left">
                   Willehad.nl wil jongeren en gezinnen aanmoedigen op reis te gaan door de grote intellectuele Traditie van de Katholieke Kerk, die vaak zo
                   verborgen ligt in stoffige boeken en deze toegankelijk maken. Willehad.nl is een initiatief van het Thomistisch Instituut en staat onder het
                   patronaat van Willehad van Bremen en Willehad de Deen. Willehad van Bremen missioneerde in Friesland, Groningen en Drenthe als een van de
-                  opvolgers van Willibrord en Bonifatius. Willehad de Deen is priester en een van de 19 Martelaren van Gorcum. Hij stierf in Brielle als 90 jarige
-                  franciscaan.
+                  opvolgers van Willibrord en Bonifatius. Willehad de Deen is priester en een van de 19 Martelaren van Gorcum. Hij stierf in Brielle als 90
+                  jarige franciscaan.
                 </p>
               </div>
             </div>
           </div>
-          </section>
+        </section>
       </Layout>
     </div>
   );

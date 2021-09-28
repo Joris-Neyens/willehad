@@ -73,7 +73,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, course
           <Head title="Home" description="willehad cursus platform startpagina"></Head>
           <VideoHeader
             courses={courses}
-            headerButtonName="cursus info"
+            headerButtonName="Cursus info"
             buttonPrimary={courseUrl}
             title={home.title}
             video={home.header_video.url}
