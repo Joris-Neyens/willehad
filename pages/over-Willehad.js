@@ -57,7 +57,7 @@ export default function overWillehad() {
                   </div>
                 </div>
               </div>
-              <div className="col- 12 col-lg-6 offset-lg-1  pt-5 mb-5 order-first oder-lg-last">
+              <div className="col- 12 col-lg-6 offset-lg-1  pt-5 mb-5 order-first order-lg-last">
                 <h2 className="pb-3 text-center text-lg-left">Willehad.nl</h2>
                 <p className="text-center text-lg-left">
                   Willehad.nl wil jongeren en gezinnen aanmoedigen op reis te gaan door de grote intellectuele Traditie van de Katholieke Kerk, die vaak zo

@@ -41,7 +41,7 @@ export default function Header({
   }
   if (buttonPrimary) {
     headerButtonPrimary = (
-      <div className="col-10 offset-1 col-md-4 offset-md-4  offset-lg-0 p-0">
+      <div className="col-8 offset-2 col-lg-4 offset-lg-0 offset-lg-0 p-0">
         <Link href={buttonPrimary}>
           <button
             className="button__primary col-12 py-1 mb-3"
@@ -84,7 +84,7 @@ export default function Header({
         <div className="container d-flex align-items-center jumbotron__content" style={height}>
           <div className="row w-100 mx-auto">
             <div className={textWidth}>
-              <div className="row w-100 pt-5 mt-5">
+              <div className="row w-100 mx-auto pt-5 mt-5">
                 <div className="col-12 p-0">
                   {headerType}
                   {headerTitle}
