@@ -41,7 +41,7 @@ export default function Header({
   }
   if (buttonPrimary) {
     headerButtonPrimary = (
-      <div className="col-4 offset-4  offset-lg-0 p-0">
+      <div className="col-10 offset-1 col-md-4 offset-md-4  offset-lg-0 p-0">
         <Link href={buttonPrimary}>
           <button
             className="button__primary col-12 py-1 mb-3"
