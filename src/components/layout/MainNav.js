@@ -58,17 +58,18 @@ export default function MainNav() {
         </Container>
       </Navbar>
       <Navbar className="menu d-lg-none p-0" expand="lg">
-        <div className="row w-100">
-          <div className="col-6 offset-3 d-flex justify-content-center py-3">
-            <Link href="/">
-              <a id="logo">Willehad</a>
-            </Link>
+          <div className="w-100 d-flex justify-content-between px-2">
+            <div className="d-flex py-3">
+              <Link href="/">
+                <a id="logo">Willehad</a>
+              </Link>
+            </div>
+            <Navbar.Toggle className="navbar-dark col-1 border-0 p-0" />
           </div>
-          <Navbar.Toggle className="navbar-dark col-1 offset-2 border-0 p-0" />
-        </div>
+       
         <Navbar.Collapse id="basic-navbar-nav">
           <div className="container py-4">
-            <Nav className="w-100 d-flex justify-content-right">
+            <Nav className="w-100 d-flex">
               <Link href="/cursus-aanbod">
                 <a className="text-right menu__link py-3">cursus aanbod</a>
               </Link>
