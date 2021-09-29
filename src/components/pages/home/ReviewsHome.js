@@ -21,11 +21,12 @@ export default function ReviewsHome({ reviews }) {
         items: 2,
       },
       desktop: {
-        breakpoint: { max: 3000, min: 1024 },
+        breakpoint: {
+          max: 3000, min: 992},
         items: 2,
       },
       tablet: {
-        breakpoint: { max: 1024, min: 768 },
+        breakpoint: { max: 991, min: 768 },
         items: 1,
       },
       mobile: {

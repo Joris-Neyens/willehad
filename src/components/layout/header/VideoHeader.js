@@ -25,26 +25,26 @@ export default function VideoHeader({
     headerType = <p className="jumbotron__content-type m-0">{course_type}</p>;
   }
   if (title) {
-    headerTitle = <p className="jumbotron__content-title text-center text-lg-left">{title}</p>;
+    headerTitle = <p className="jumbotron__content-title">{title}</p>;
   }
   if (subtitle) {
     headerSubtitle = (
-      <p className="jumbotron__content-subtitle text-center text-lg-left">{subtitle}</p>
+      <p className="jumbotron__content-subtitle pt-4 pb-3">{subtitle}</p>
     );
   }
   if (date) {
     headerDate = (
-      <p className="jumbotron__content-date offset-3 offset-lg-0 col-6 col-md-5 col-lg-6 px-0 text-center text-lg-left">
+      <p className="jumbotron__content-date col-auto d-inline px-0">
         {date}
       </p>
     );
   }
   if (buttonPrimary) {
     headerButtonPrimary = (
-      <div className="col-8 offset-2 offset-lg-0 p-0">
+      <div className="col-12 px-lg-0">
         <Link href={buttonPrimary}>
           <button
-            className="button__primary col-12 py-1 mb-3"
+            className="button__primary col-12 px-5 py-1 mb-3"
             title="meer info"
           >
             { headerButtonName }
@@ -73,9 +73,9 @@ export default function VideoHeader({
       </video>
       <div className="jumbotron-overlay__video">
         <div className="container d-flex align-items-center jumbotron__content" style={height}>
-          <div className="row w-md-50 justify-content-center mx-auto mx-lg-0">
+          <div className="row w-md-50 justify-content-lg-center mx-lg-0">
             <div className="col-12 col-lg-8">
-              <div className="row w-100 mx-auto pt-5 mt-5">
+              <div className="row col-8 col-md-6 pt-5 mt-5">
                 <div className="p-0">
                   {headerType}
                   {headerTitle}

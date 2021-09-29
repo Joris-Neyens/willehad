@@ -54,33 +54,33 @@ export default function Newsletter() {
     <section className="newsletter py-5 mb-5">
       <div className="container">
         <div className="row h-100">
-          <div className=" col-sm-8 col-md-6 offset-sm-2 offset-md-3 col-lg-4 offset-lg-2 pb-4 py-lg-4">
-            <p className="text-center text-lg-left m-0">
+          <div className=" col-12 col-md-7 pb-4 ">
+            <p className="text-lg-left m-0">
               Wekelijkse podcast, nieuws over nieuwe cursussen en
               ontwikkelingen. Ontvang onze nieuwsbrief direct via email.
             </p>
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="col-sm-8 offset-sm-2 offset-lg-0 col-lg-6 d-flex align-items-center"
+            className="col-12 col-md-5 d-flex align-items-center"
           >
             <fieldset className="w-100" disabled={submitting}>
               <div className="row w-100 mx-auto">
-                <div className="col-12 col-md-6 offset-md-0 px-0 col-lg-5 d-flex align-items-center">
+                <div className="col-12 col-md-12 offset-md-0 px-0 d-flex align-items-center">
                   <input
                     {...register("email_address")}
                     placeholder="email adres"
                     className="form-control "
                   ></input>
                 </div>
-                <div className="col-12 col-md-6 col-lg-4 pl-0 pl-md-2 pr-0 d-flex align-items-center">
+                <div className="col-12 col-md-12 pl-0 pl-md-0 mt-md-3 pr-0 d-flex align-items-center">
                   {postError && (
                     <span>
                       Sorry er is iets mis gegaan, probeer het later nog een
                       keer
                     </span>
                   )}
-                  <button className="button__primary w-100 mx-auto mt-3 mt-md-0 pt-2 pb-1 px-4">
+                  <button className="col-12 button__primary w-100 mx-lg-auto mt-3 mt-md-0 pt-2 pb-1 px-4">
                     {submitButton}
                   </button>
                 </div>

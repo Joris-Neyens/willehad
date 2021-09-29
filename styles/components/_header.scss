@@ -2,8 +2,24 @@
   color: white;
 }
 .jumbotron__content-date {
+  font-size: 22px;
   border-bottom: 2px solid $secondary;
   font-style: italic;
+}
+.jumbotron__content-title {
+  font-family: $playfair;
+  font-size: 84px;
+  line-height: 78px;
+}
+.jumbotron__content-subtitle {
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 42px;
+}
+.jumbotron__content-type {
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 .header__image {
        position: absolute;

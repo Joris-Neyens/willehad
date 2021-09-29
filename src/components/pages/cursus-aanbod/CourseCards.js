@@ -32,7 +32,7 @@ export default function CourseCards({ productInfo, courses, collections }) {
         let collectionName = ""
 
         allNames.map(function (name) {
-          if (name === "traject" || name === "zelfstandig") {
+          if (name === "cursus traject" || name === "zelfstudie cursus") {
             collectionName = name;
           }
         });

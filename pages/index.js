@@ -13,18 +13,51 @@ import ReviewsHome from "../src/components/pages/home/ReviewsHome";
 import Uitleg from "../src/components/pages/home/Uitleg";
 import HomepageAbout from "../src/components/pages/home/HomepageAbout";
 
-export default function Home({ home, courses, reviews, thinkificProducts, courseReviews }) {
-  console.log(thinkificProducts);
+export default function Home({ home, courses, reviews, thinkificProducts, courseReviews, collections }) {
+  
+  console.log(collections)
+
+
   let courseUrl = ""
+  let productCollection = []
 
   thinkificProducts.forEach(function (product) {
        if (product.position === 0) {
          courseUrl = "/cursus-aanbod/" + product.id
+
+         productCollection.push(product)
        }
   })
+  productCollection = productCollection[0]
 
-  console.log(courseUrl)
-  
+  console.log(productCollection);
+
+
+
+
+  const filteredCollection = collections.map(function (collection) {
+    return productCollection.collection_ids.map(function (productCollectionId) {
+      if (collection.id === productCollectionId) {
+        return collection.name;
+      }
+    });
+  });
+
+  let allNames = [];
+
+  filteredCollection.map(function (collectionNames) {
+    collectionNames.map(function (name) {
+      allNames.push(name);
+    });
+  });
+
+  let collectionName = "";
+
+  allNames.map(function (name) {
+    if (name === "cursus traject" || name === "zelfstudie cursus") {
+      collectionName = name;
+    }
+  });
 
 
   // const [courseUrl, setCourseUrl] = useState("")
@@ -79,10 +112,11 @@ export default function Home({ home, courses, reviews, thinkificProducts, course
             video={home.header_video.url}
             modal={false}
             home={home}
-            viewHeight={85}
+            viewHeight={98}
             textCol="4"
             subtitle={home.header_subtitle}
             date={home.course_date}
+            course_type={collectionName}
           />
           <Uitleg />
           <ReviewsHome reviews={reviews} />
@@ -101,11 +135,13 @@ export async function getServerSideProps() {
   const courseUrl = BASE_URL + COURSES_PATH;
   const reviewsUrl = BASE_URL + REVIEWS_PATH;
     const thinkificUrl = THINKIFIC_URL + "/products";
+    const collectionsUrl = THINKIFIC_URL + "/collections";
 
   let home = [];
   let courses = [];
   let reviews = [];
   let thinkificProducts = [];
+  let collections = [];
 
 
 
@@ -132,6 +168,15 @@ export async function getServerSideProps() {
     console.log(error);
   }
 
+   try {
+     const response = await axios.get(collectionsUrl, header);
+     console.log(response.data);
+     collections = response.data.items;
+   } catch (error) {
+     console.log(error);
+   }
+  
+
 
   try {
     const response = await axios.get(courseUrl);
@@ -153,6 +198,7 @@ export async function getServerSideProps() {
       courses: courses,
       reviews: reviews,
       thinkificProducts: thinkificProducts,
+      collections: collections,
 
     },
   };

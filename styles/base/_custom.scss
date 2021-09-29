@@ -12,7 +12,27 @@ $paragraph-background-dark: #C5C5CC;
 $sans-serif: 'proxima-nova', sans-serif;
 $playfair: 'freight-big-pro', serif;
 
-
+@media (max-width: 767px) { 
+    p {
+        font-size: 16px !important;
+        line-height: 32px !important;
+    }
+    .jumbotron__content-title {
+  font-size: 58px !important;
+  line-height: 68px !important;
+}
+.jumbotron__content-subtitle {
+  font-size: 22px !important;
+}
+.jumbotron__content-type {
+  font-size: 22px !important;
+}
+.jumbotron__content-date {
+  font-size: 20px !important;
+  border-bottom: 2px solid $secondary;
+  font-style: italic;
+}
+}
 
 @media (min-width: 1600px) { 
     .container {
@@ -22,9 +42,6 @@ $playfair: 'freight-big-pro', serif;
 @media (min-width: 2000px) { 
     .container {
         min-width: 1400px !important;
-    }
-    p {
-        font-size: 18px;
     }
     .menu__link {
         font-size: 16px !important;
