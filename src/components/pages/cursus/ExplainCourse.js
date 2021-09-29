@@ -4,12 +4,12 @@ export default function ExplainCourse() {
     return (
       <section>
         <div className="background-dark py-5">
-          <div className="container py-5">
-            <h2 className="pl-5 ml-3 pl-lg-0 ml-lg-0 text-lg-center">cursus traject</h2>
+          <div className="container py-lg-5">
+            <h2 className="py-3 py-lg-0 pl-lg-5 ml-3 pl-lg-0 ml-lg-0 text-lg-center">Over het traject</h2>
             <div className="row w-100 mx-auto">
               <div className="col-12 px-0 col-lg-4">
                 <div className="col-10 col-lg-12 mt-lg-4">
-                  <h2 className="text-lg-center">Online cursus</h2>
+                  <h3 className="text-lg-center">Online cursus</h3>
                   <p className="text-lg-center px-lg-4">Studeer online de rijke intellectuele traditie van de Katholieke kerk op een toegankelijke manier</p>
                 </div>
               </div>
@@ -30,7 +30,7 @@ export default function ExplainCourse() {
                 </div>
               </div>
             </div>
-            <div className="d-flex justify-content-center pt-4 ">
+            <div className="d-flex ml-3 ml-lg-0 justify-content-lg-center pt-4 ">
               <Link href="/hoe-het-werkt"><button className="button__primary px-3 py-2">Lees meer</button></Link>
             </div>
           </div>

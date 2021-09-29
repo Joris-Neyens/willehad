@@ -36,3 +36,11 @@
     border-radius: 3px;   
     color: $secondary;
 }
+.teacher-card {
+    background: $background !important;
+}
+@media (min-width: 768px) { 
+    .teacher-card {
+        background: $lightgrey-background !important;
+    }
+}

@@ -18,11 +18,11 @@ export default function ShortAbout({ product, strapiCourses }) {
         );
   } else {
     description = (
-      <div className="row mt-5">
-        <div className="col-6">
-          <p className="pt-2 mx-auto">{course[0].description_long}</p>
+      <div className="row mt-4 mt-lg-5">
+        <div className="col-12 col-lg-6">
+          <p className="pt-5 pt-lg-2 mx-auto">{course[0].description_long}</p>
         </div>
-        <div className="col-6">
+        <div className="col-12 col-lg-6 order-first order-lg-last">
             <Player src={course[0].video.url}>
               <BigPlayButton position="center" />
               <LoadingSpinner />
@@ -34,9 +34,9 @@ export default function ShortAbout({ product, strapiCourses }) {
 }
 
   return (
-    <section className="pb-5 py-lg-5 background-dark about-course">
+    <section className="pb-5 pt-5 py-lg-5 background-dark about-course">
       <div className="container py-lg-5">
-        <h2 className="pt-1 text-center">Over de cursus</h2>
+        <h2 className="pt-1 text-lg-center">Over de cursus</h2>
         {description}
       </div>
     </section>
