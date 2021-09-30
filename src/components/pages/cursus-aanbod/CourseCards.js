@@ -59,7 +59,7 @@ export default function CourseCards({ productInfo, courses, collections }) {
         }
         return (
           <div key={id}>
-            <Fade bottom>
+            <Fade>
             <Link href={`cursus-aanbod/${id}`}>
               <div className="my-3 course-card shadow">
                 <div className="row w-100 mx-auto px-2 px-lg-0 ml-lg-2 ">
