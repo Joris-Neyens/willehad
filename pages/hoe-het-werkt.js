@@ -41,7 +41,7 @@ export default function hoeHetWerkt() {
                     Dit is geen lage drempel en dat is ook niet de bedoeling. Om echt verder te komen moet het een beetje pijn doen. Het is tijd om niet alleen
                     te groeien in kennis, maar om deze kennis je leven te laten veranderen.
                   </p>
-                  <Fade bottom>
+                  <Fade>
                     <h2 className="hoe-het-werkt__title py-2 pl-2 mt-5">Verdieping</h2>
                     <div>
                       <p>
@@ -55,7 +55,7 @@ export default function hoeHetWerkt() {
                       </p>
                     </div>
                   </Fade>
-                  <Fade bottom>
+                  <Fade>
                     <h2 className="hoe-het-werkt__title py-2 pl-2 mt-5">Begeleiding</h2>
                     <div>
                       <p>
@@ -68,7 +68,7 @@ export default function hoeHetWerkt() {
                       </p>
                     </div>
                   </Fade>
-                  <Fade bottom>
+                  <Fade>
                     <h2 className="hoe-het-werkt__title py-2 pl-2 mt-5">Na het traject</h2>
                     <div>
                       <p>

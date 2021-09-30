@@ -70,7 +70,7 @@ export default function MainNav() {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Fade right>
-            <div className="container py-4">
+            <div className="container-fluid py-4 px-4">
               <Nav className="w-100 d-flex justify-content-end">
                 <Link href="/cursus-aanbod">
                   <a className="text-right menu__link py-3">cursus aanbod</a>

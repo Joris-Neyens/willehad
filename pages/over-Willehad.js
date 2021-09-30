@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Layout from "../src/components/layout/Layout";
+import Reveal from "react-reveal/Reveal";
 import Head from "../src/components/head/Head";
 import Header from "../src/components/layout/header/Header";
 
@@ -46,27 +47,31 @@ export default function overWillehad() {
               <div className="col-10 offset-lg-1 col-lg-5 offset-lg-0">
                 <div className="h-100 pt-lg-5 mt-lg-5 pt-xl-0 mt-xl-0">
                   <div className="w-100 px-lg-4">
-                    <div className="over-willehad__image">
-                      <Image
-                        alt="Panelen met portretten van de Martelaren van Gorcum in de katholieke kerk in Boschkapelle (Reliwiki, foto Edward Ippel, Hoorn, 9 oktober 2009)"
-                        src="/martelarenvangorcum.JPG"
-                        layout="responsive"
-                        width="100"
-                        height="50"
-                      />
-                    </div>
+                    <Reveal>
+                      <div className="over-willehad__image">
+                        <Image
+                          alt="Panelen met portretten van de Martelaren van Gorcum in de katholieke kerk in Boschkapelle (Reliwiki, foto Edward Ippel, Hoorn, 9 oktober 2009)"
+                          src="/martelarenvangorcum.JPG"
+                          layout="responsive"
+                          width="100"
+                          height="50"
+                        />
+                      </div>
+                    </Reveal>
                   </div>
                 </div>
               </div>
-              <div className="col-12 col-lg-6  pt-5 pt-lg-0 mb-5 order-last">
-                <p>
-                  Willehad.nl wil jongeren en gezinnen aanmoedigen op reis te gaan door de grote intellectuele Traditie van de Katholieke Kerk, die vaak zo
-                  verborgen ligt in stoffige boeken en deze toegankelijk maken. Willehad.nl is een initiatief van het Thomistisch Instituut en staat onder het
-                  patronaat van Willehad van Bremen en Willehad de Deen. Willehad van Bremen missioneerde in Friesland, Groningen en Drenthe als een van de
-                  opvolgers van Willibrord en Bonifatius. Willehad de Deen is priester en een van de 19 Martelaren van Gorcum. Hij stierf in Brielle als 90
-                  jarige franciscaan.
-                </p>
-              </div>
+              <Reveal bottom>
+                <div className="col-12 col-lg-6  pt-5 pt-lg-0 mb-5 order-last">
+                  <p>
+                    Willehad.nl wil jongeren en gezinnen aanmoedigen op reis te gaan door de grote intellectuele Traditie van de Katholieke Kerk, die vaak zo
+                    verborgen ligt in stoffige boeken en deze toegankelijk maken. Willehad.nl is een initiatief van het Thomistisch Instituut en staat onder het
+                    patronaat van Willehad van Bremen en Willehad de Deen. Willehad van Bremen missioneerde in Friesland, Groningen en Drenthe als een van de
+                    opvolgers van Willibrord en Bonifatius. Willehad de Deen is priester en een van de 19 Martelaren van Gorcum. Hij stierf in Brielle als 90
+                    jarige franciscaan.
+                  </p>
+                </div>
+              </Reveal>
             </div>
           </div>
         </section>

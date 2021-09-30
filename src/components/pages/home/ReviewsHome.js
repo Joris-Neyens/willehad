@@ -38,7 +38,7 @@ export default function ReviewsHome({ reviews }) {
 
   return (
     <>
-      <div className="background-blue pt-5" style={styles}>
+      <div className="background-blue" style={styles}>
         <div className="reviews container py-5">
           <Carousel
             responsive={responsive}

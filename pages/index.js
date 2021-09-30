@@ -117,6 +117,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, course
             subtitle={home.header_subtitle}
             date={home.course_date}
             course_type={collectionName}
+            url={home.header_image.url}
           />
           <Uitleg />
           <ReviewsHome reviews={reviews} />
