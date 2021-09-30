@@ -41,9 +41,9 @@ export default function Header({
   }
 if (buttonPrimary) {
   headerButtonPrimary = (
-    <div className="col-12 px-lg-0">
+    <div className="col-auto col-lg-12 px-lg-0">
       <Link href={buttonPrimary}>
-        <button className="button__primary col-12 px-5 py-1 mb-3" title="meer info">
+        <button className="button__primary col-md-auto col-lg-12 px-5 py-1 mb-3" title="meer info">
           {headerButtonName}
         </button>
       </Link>
@@ -72,9 +72,9 @@ if (buttonPrimary) {
       </div>
       <div className="header__image--content">
         <div className="container d-flex align-items-center jumbotron__content" style={height}>
-          <div className="row w-md-50 mx-lg-0 pr-0">
+          <div className="row w-100 mx-auto w-md-50 mx-lg-0 pr-0">
             <div className="col-12 col-lg-8 pr-0">
-              <div className="row col-12 pt-lg-5 mt-lg-5 pr-0">
+              <div className="row col-12 pt-lg-5 mt-lg-5 px-0">
                 <div className="p-0">
                   {headerType}
                   {headerTitle}
