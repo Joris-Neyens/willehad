@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import Head from "../src/components/head/Head";
 import Layout from "../src/components/layout/Layout";
-import Header from "../src/components/layout/header/Header";
+import CursusAanbodHeader from "../src/components/layout/header/CursusAanbodHeader";
 import Courses from "../src/components/pages/cursus-aanbod/Courses";
 import { API_KEY, THINKIFIC_URL } from "../src/api/thinkific";
 
@@ -30,7 +30,9 @@ export default function cursusAanbod({ courses, products, collections }) {
 
             if (product.position === 0) {
               let primaryLink = "cursus-aanbod/" + slug;
-              return <Header viewHeight={50} key={id} title={name} url={card_image_url} buttonPrimary={courseUrl} headerButtonName={"cursus info"} />;
+              return (
+                <CursusAanbodHeader viewHeight={60} key={id} title={name} textCol="6"  url={card_image_url} buttonPrimary={courseUrl} headerButtonName={"cursus info"} course_type="Nieuwe cursus" />
+              );
             }
           })}
           <Courses key={products[0].id} products={products} courses={courses} collections={collections} />

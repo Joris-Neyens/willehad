@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import Link from "next/link";
 import Image from 'next/image'
 
-export default function Header({
+export default function CursusAanbodHeader({
   date,
   title,
   url,
@@ -34,7 +34,7 @@ export default function Header({
     headerTitle = <p className="jumbotron__content-title">{title}</p>;
   }
   if (subtitle) {
-    headerSubtitle = <p className="jumbotron__content-subtitle--header">{subtitle}</p>;
+    headerSubtitle = <p className="jumbotron__content-subtitle">{subtitle}</p>;
   }
   if (date) {
     headerDate = <p className="jumbotron__content-date col-6 col-sm-4 col-md-3 col-lg-6 col-xl-5 px-0">{date}</p>;
@@ -67,14 +67,21 @@ if (buttonPrimary) {
     <div className="header">
       <div className="header__image">
         <div className="header__image--container position-relative" style={height}>
-          <Image className="headerImage" src={url} layout="fill" objectFit="cover" priority="true" quality={50} />
+          <Image
+            className="headerImage"
+            src={url}
+            layout="fill"
+            objectFit="cover"
+            priority="true"
+            quality={50}
+          />
         </div>
       </div>
       <div className="header__image--content">
         <div className="container d-flex align-items-center jumbotron__content" style={height}>
-          <div className="row w-md-50 mx-lg-0 pr-0">
-            <div className="col-12 col-lg-8 pr-0">
-              <div className="row col-12 pt-lg-5 mt-lg-5 pr-0">
+          <div className="row w-md-50 justify-content-lg-center mx-lg-0">
+            <div className="col-12 col-lg-8">
+              <div className="row col-8 col-md-6 pt-lg-5 mt-lg-5">
                 <div className="p-0">
                   {headerType}
                   {headerTitle}
@@ -94,7 +101,7 @@ if (buttonPrimary) {
   );
 }
 
-Header.prototype = {
+CursusAanbodHeader.prototype = {
   viewHeight: PropTypes.number,
   textCol: PropTypes.string,
   buttonPrimary: PropTypes.string,

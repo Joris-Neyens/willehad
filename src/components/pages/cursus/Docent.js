@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Image from "next/image";
-import Fade from 'react-reveal/Fade'
 import Slide from "react-reveal/Slide";
+import Fade from "react-reveal/Fade";
 
 
 export default function Docent({ product, instructors }) {
@@ -43,15 +43,15 @@ export default function Docent({ product, instructors }) {
             <div className="container d-none d-md-block pt-0 py-md-5">
               <div className="row">
                 <h2 className="pb-3 col-12 text-center">Ontmoet de docent</h2>
-                <div className="teacher-image-wrapper col-6 mt-3 mt-md-5">
-                  <Image alt={"image of " + teacherName} className="" src={instructor.avatar_url} width="350" height="200" layout="responsive" />
+                <div className="teacher-image-wrapper col-6 col-lg-4 col-xl-3 offset-lg-2 offset-xl-3 pt-3 mt-3">
+                  <Image alt={"image of " + teacherName} className="" src={instructor.avatar_url} width="200" height="200" layout="responsive" />
                 </div>
-                <Slide bottom>
-                  <div className="col-6 pt-4">
+                <Fade>
+                  <div className="col-6 col-lg-5 col-xl-4 pt-4">
                     <h3>{teacherName}</h3>
                     <p>{instructor.bio}</p>
                   </div>
-                </Slide>
+                </Fade>
               </div>
             </div>
           </section>
