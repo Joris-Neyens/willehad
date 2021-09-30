@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import Fade from "react-reveal/Fade";
 import Hamburger from "hamburger-react";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
@@ -58,41 +59,43 @@ export default function MainNav() {
         </Container>
       </Navbar>
       <Navbar className="menu d-lg-none p-0" expand="lg">
-          <div className="w-100 d-flex justify-content-between px-2">
-            <div className="d-flex py-3">
-              <Link href="/">
-                <a id="logo">Willehad</a>
-              </Link>
-            </div>
-            <Navbar.Toggle className="navbar-dark col-1 border-0 p-0" />
+        <div className="w-100 d-flex justify-content-between px-2">
+          <div className="d-flex py-3">
+            <Link href="/">
+              <a id="logo">Willehad</a>
+            </Link>
           </div>
-       
+          <Navbar.Toggle className="navbar-dark col-1 border-0 p-0" />
+        </div>
+
         <Navbar.Collapse id="basic-navbar-nav">
-          <div className="container py-4">
-            <Nav className="w-100 d-flex">
-              <Link href="/cursus-aanbod">
-                <a className="text-right menu__link py-3">cursus aanbod</a>
-              </Link>
-              <Link href="/hoe-het-werkt">
-                <a className="text-right menu__link py-3">hoe het werkt</a>
-              </Link>
-              <Link href="/over-Willehad">
-                <a className="text-right menu__link py-3">Over Willehad</a>
-              </Link>
-              <Link href="/contact" className="text-right menu__link">
-                <a className="text-right menu__link py-3">contact</a>
-              </Link>
-              <div className="d-flex justify-content-end pt-4">
-                <Link href="https://willehad.thinkific.com/users/sign_in">
-                  <button className="menu__link__dark button__primary px-4">
-                    <a className="menu__link--light" title="login">
-                      login
-                    </a>
-                  </button>
+          <Fade right>
+            <div className="container py-4">
+              <Nav className="w-100 d-flex justify-content-end">
+                <Link href="/cursus-aanbod">
+                  <a className="text-right menu__link py-3">cursus aanbod</a>
                 </Link>
-              </div>
-            </Nav>
-          </div>
+                <Link href="/hoe-het-werkt">
+                  <a className="text-right menu__link py-3">hoe het werkt</a>
+                </Link>
+                <Link href="/over-Willehad">
+                  <a className="text-right menu__link py-3">Over Willehad</a>
+                </Link>
+                <Link href="/contact" className="text-right menu__link">
+                  <a className="text-right menu__link py-3">contact</a>
+                </Link>
+                <div className="d-flex justify-content-end pt-4">
+                  <Link href="https://willehad.thinkific.com/users/sign_in">
+                    <button className="menu__link__dark button__primary px-4">
+                      <a className="menu__link--light" title="login">
+                        login
+                      </a>
+                    </button>
+                  </Link>
+                </div>
+              </Nav>
+            </div>
+          </Fade>
         </Navbar.Collapse>
       </Navbar>
       <div className="d-flex justify-content-right">
