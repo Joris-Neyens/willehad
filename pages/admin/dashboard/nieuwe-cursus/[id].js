@@ -24,7 +24,7 @@ export default function newCourseMedia({ course }) {
             <div className="col-12 col-lg-8 pb-4 mt-5">
               <div className="row">
                 <div className="col-12 col-lg-10 pl-lg-5">
-                  <h1 className="text-center text-lg-left">Media toevoegen</h1>
+                  <h1>Media toevoegen</h1>
                     <PostNewVideo key={id} id={id} />
                 </div>
               </div>

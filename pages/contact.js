@@ -62,7 +62,7 @@ export default function contact() {
         <Layout>
           <Header
             url="/contact.jpg"
-            viewHeight={70}
+            viewHeight={80}
             textCol="6"
             title="Contact"
             subtitle="Hebt u een vraag of opmering? Laat ons een berichtje achter."

@@ -18,12 +18,12 @@ export default function Course({ course }) {
       <Head title="edit cursus" description="edit cursus willehad" />
       <DashboardNav />
       <AdminLayout>
-        <div className="container-fluid">
+        <div className="container w-100 container-lg-fluid">
           <div className="row">
             <SideNav />
-            <div className="col-lg-8 pb-4 mt-5">
-              <div className="row">
-                <div className="col-lg-12 pl-lg-5 pr-0">
+            <div className="col-12 col-lg-8 pb-4 mt-5">
+              <div className="row w-100 mx-auto">
+                <div className="col-lg-12 pl-0 pl-lg-5 pr-0">
                   <h1>Edit cursus</h1>
                   <div className="py-4">
                     <DeleteCourse key={id} id={id} />
@@ -36,9 +36,7 @@ export default function Course({ course }) {
                     </div>
                     <div className="col-12">
                       <Link href="/admin/dashboard">
-                        <button className="button__alarm mt-5 mb-5 py-1 col-4 ">
-                          Dashboard
-                        </button>
+                        <button className="button__alarm mt-5 mb-5 py-1 col-12 col-md-6 col-4 ">Dashboard</button>
                       </Link>
                     </div>
                   </div>

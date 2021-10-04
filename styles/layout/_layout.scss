@@ -13,14 +13,11 @@ body {
  overflow: hidden;
  display: block;
  position: relative;
- padding-bottom: 331.6px;
+ padding-bottom: 261.6px;
 }
 
 section.newsletter {
   height: auto;
-}
-.admin {
-  height: 75vh
 }
 footer {
   position: absolute;
@@ -30,9 +27,6 @@ footer {
 
 @media only screen and (max-width: 768px) {
   .wrapper{
-    padding-bottom: 485px;
+    padding-bottom: 481.6px;
   }
-}
-.courses-container {
-  min-height: 100vh;
 }

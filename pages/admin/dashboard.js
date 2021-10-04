@@ -21,19 +21,19 @@ export default function dashboard() {
               <div className="row">
                 <div className="col-12 p-0 pl-lg-4 pl-xl-5">
                   <h1>Dashboard</h1>
-                  <div className="w-75">
+                  <div className="w-lg-75">
                     <Link href="/admin/dashboard/nieuwe-cursus">
-                      <div className="mt-5 button__dashboard py-4 background-white text-center shadow">cursus toevoegen</div>
+                      <div className="mt-5 button__dashboard py-5 background-white text-center shadow-sm">cursus toevoegen</div>
                     </Link>
                   </div>
-                  <div className="w-75">
+                  <div className="w-lg-75">
                     <Link href="/admin/dashboard/edit-cursus">
-                      <div className="mt-3 py-4 button__dashboard background-white text-center shadow">cursus aanpassen</div>
+                      <div className="mt-4 py-5 button__dashboard background-white text-center shadow-sm">cursus aanpassen</div>
                     </Link>
                   </div>
-                  <div className="w-75">
+                  <div className="w-lg-75">
                     <Link href="/admin/dashboard/edit-home">
-                      <div className="mt-3 py-4 button__dashboard background-white text-center shadow">edit home</div>
+                      <div className="mt-4 py-5 button__dashboard background-white text-center shadow-sm">edit home</div>
                     </Link>
                   </div>
                 </div>

@@ -9,3 +9,23 @@
 .dashboard h4:hover {
   cursor: pointer;
 }
+.side-nav__dashboard a {
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.button__dashboard:hover {
+    transform: scale(1.01);
+    font-weight: 400 !important;
+    cursor: pointer;
+}
+.button__dashboard:active {
+    box-shadow: none !important;
+    color: white;
+}
+
+.course-card:hover {
+    cursor: pointer;
+    
+}

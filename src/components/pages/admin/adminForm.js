@@ -53,46 +53,24 @@ export default function adminForm() {
 
   return (
     <>
-      <Head title="Admin" description="login voor admin"/>
-      <section className="admin mb-5">
+      <Head title="Admin" description="login voor admin" />
+      <section className="admin pb-5">
         <div className="container h-100 d-flex flex-column justify-content-center align-items-center">
           <h1>Admin</h1>
           <div className="row w-100">
             <div className="col-12 col-lg-4 offset-lg-4">
-              <form
-                className="background-dark py-4 px-3"
-                onSubmit={handleSubmit(onSubmit)}
-              >
-                {loginError && (
-                  <span>
-                    Als je email en wachtwoord niet werken, neem contact op met
-                    de admin
-                  </span>
-                )}
+              <form className="background__transparent shadow-sm py-4 px-3" onSubmit={handleSubmit(onSubmit)}>
+                {loginError && <span>Als je email en wachtwoord niet werken, neem contact op met de admin</span>}
                 <fieldset disabled={submitting}>
-                  <input
-                    placeholder="email"
-                    id="email"
-                    className="form-control w-75 mt-3 mx-auto"
-                    {...register("identifier")}
-                  />
+                  <input placeholder="email" id="email" className="form-control w-75 mt-3 mx-auto" {...register("identifier")} />
 
                   <p>{errors.identifier?.message}</p>
 
-                  <input
-                    type="password"
-                    placeholder="paswoord"
-                    id="email"
-                    className="form-control w-75 mx-auto"
-                    {...register("password")}
-                  />
+                  <input type="password" placeholder="paswoord" id="email" className="form-control w-75 mx-auto" {...register("password")} />
 
                   <p>{errors.password?.message}</p>
                   <div className="d-flex justify-content-center">
-                    <button
-                      className="button__primary py-1 px-5"
-                      type="submit"
-                    >
+                    <button className="button__primary py-1 px-5" type="submit">
                       {submitting ? "momentje.." : "login"}
                     </button>
                   </div>

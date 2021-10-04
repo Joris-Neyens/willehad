@@ -29,7 +29,7 @@ export default function Footer() {
             </Link>
           </div>
           <div className="col-12 py-3">
-          <h3 className="text-center">Willehad</h3>
+            <Link href="/"><h3 className="text-center footer__logo">Willehad</h3></Link>
           </div>
           <div className="col-12 d-flex justify-content-center p-0">
             <FontAwesomeIcon className="footer__icon mx-2" icon={faFacebookSquare} />

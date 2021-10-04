@@ -58,7 +58,7 @@ export default function MainNav() {
           </Nav>
         </Container>
       </Navbar>
-      <Navbar className="menu d-lg-none p-0" expand="lg">
+      <Navbar fixed="top" className="menu d-lg-none p-0" expand="lg">
         <div className="w-100 d-flex justify-content-between px-2">
           <div className="d-flex py-3">
             <Link href="/">

@@ -83,7 +83,7 @@ export default function PutInfo({ course }) {
             />
           </div>
           <p className="error"> {errors.description_long?.message}</p>
-          <button className="button__primary--dark col-4 py-1" type="submit">
+          <button className="button__primary--dark col-12 col-md-6 col-lg-4 py-1" type="submit">
             {submitButton}
           </button>
           {putError && (

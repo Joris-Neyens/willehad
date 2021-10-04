@@ -15,7 +15,7 @@ export default function PutHomeHeader({ id, header_image }) {
   const [submitting, setSubmitting] = useState(false);
   const { register, handleSubmit } = useForm();
   const [videoUrl, setVideoUrl] = useState(url)
-  const [submitButton, setSubmitButton] = useState(<button className="button__primary--dark col-4  py-1 mt-3">upload afbeelding</button>);
+  const [submitButton, setSubmitButton] = useState(<button className="button__primary--dark col-12 col-md-6 col-4  py-1 mt-3">upload afbeelding</button>);
 
   const { getToken } = useContext(AuthContext);
   const token = getToken("auth");

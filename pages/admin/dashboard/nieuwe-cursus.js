@@ -81,35 +81,62 @@ export default function nieuweCursus({ products, strapiCourses }) {
     options.push(<option value={product.name} key={product.name}>{product.name}</option>)
   });
 
-    let existingCourses = [];
-
-    strapiCourses.map(function (strapiCourse) {
-      existingCourses.push(strapiCourse.title);
-    });
-
-    const existing = new Map();
-
-    existing.set(existingCourses);
 
   const [courseExisting, setCourseExisting] = useState("");
   const [button, setButton] = useState(
-    <button className="button__primary--dark px-4 py-1 disabled" type="submit" disabled>
+    <button className="button__primary--dark col-12 col-md-auto px-4 py-1" type="submit" disabled>
       {submitButton}
     </button>
   );
 
   function selectTitle(e) {
- 
-    if (existing === true) {
-      setCourseExisting(`Deze cursus is al aangemaakt, ga naar "edit cursus" om een cursus aan te passen`)
-    } if (existing === false) {
-      setCourseExisting("")
+
+    const selectedCourse = e.target.value;
+
+    let existingCourses = [];
+
+
+    strapiCourses.map(function (strapiCourse) {
+      existingCourses.push(strapiCourse.title);
+
+      if (selectedCourse === "Cursus naam") {
+        <button className="button__primary--dark col-12 col-md-auto px-4 py-1" type="submit" disabled>
+          {submitButton}
+        </button>;
+      }
+    });
+
+    if(existingCourses.includes(selectedCourse)) {
+      setCourseExisting(`Deze cursus is al aangemaakt, ga naar "edit cursus" om een cursus aan te passen`);
+      setButton(
+        <button className="button__primary--dark col-12 col-md-auto px-4 py-1" type="submit" disabled>
+          {submitButton}
+        </button>
+      );
+    } else {
+
+      setCourseExisting("");
       setButton(
         <button className="button__primary--dark px-4 py-1" type="submit">
           {submitButton}
         </button>
       );
     }
+
+
+
+    
+
+    // if (existing === true) {
+    //   setCourseExisting(`Deze cursus is al aangemaakt, ga naar "edit cursus" om een cursus aan te passen`)
+    // } if (existing === false) {
+    //   setCourseExisting("")
+    //   setButton(
+    //     <button className="button__primary--dark px-4 py-1" type="submit">
+    //       {submitButton}
+    //     </button>
+    //   );
+    // }
   }
 
 

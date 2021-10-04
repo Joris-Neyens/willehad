@@ -184,11 +184,7 @@ export default function Courses({ products, courses, collections }) {
             </div>
             <div className="hideFilter d-none row pb-3">
               <div className="col-12">
-                <select
-                  className="d-lg-block custom-select mr-sm-2"
-                  id="select"
-                  onChange={e => sortByPrice(e.target)}
-                >
+                <select className="d-lg-block custom-select mr-sm-2" id="select" onChange={e => sortByPrice(e.target)}>
                   <option value="prijs" placeholder="prijs">
                     Prijs
                   </option>
@@ -197,7 +193,7 @@ export default function Courses({ products, courses, collections }) {
                 </select>
               </div>
             </div>
-            <div className="hideFilter themes d-none d-lg-block filter pt-3">
+            <div className="hideFilter themes d-none d-lg-block filter pt-3 shadow-sm">
               <div>
                 <h6 className="px-2 pb-1">Categorieën</h6>
               </div>
@@ -221,18 +217,24 @@ export default function Courses({ products, courses, collections }) {
                 })}
               </div>
             </div>
-            <div className="hideFilter themes d-none d-lg-block filter pt-3">
+            <div className="hideFilter themes d-none d-lg-block filter pt-3 shadow-sm">
               <div>
                 <h6 className="px-2 pb-1">Thema's</h6>
               </div>
               <div className="px-2 pb-2">
                 <div className="custom-control custom-checkbox">
-                  <input className="custom-control-input" type="checkbox" value="alle thema's" id="allThemes" onChange={e => filter(e.target)} />
+                  <input
+                    className="custom-control-input form-check-input"
+                    type="checkbox"
+                    value="alle thema's"
+                    id="allThemes"
+                    onChange={e => filter(e.target)}
+                  />
                   <label className="form-check-label custom-control-label">alle thema's</label>
                 </div>
                 {uniqueThemes.map(function (theme) {
                   return (
-                    <div className="custom-control custom-checkbox" key={theme}>
+                    <div className="custom-control custom-checkbox filter__item" key={theme}>
                       <input className="form-check-input custom-control-input" type="checkbox" value={theme} id="theme" onChange={e => filter(e.target)} />
                       <label className="form-check-label custom-control-label">{theme}</label>
                     </div>

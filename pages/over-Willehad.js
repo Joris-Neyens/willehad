@@ -11,7 +11,7 @@ export default function overWillehad() {
         <Head title="over willehad" description="Over online cursus platform Willehad"></Head>
         <Header
           url="/youth-hanging.jpg"
-          viewHeight={70}
+          viewHeight={80}
           textCol="6"
           title="Over Willehad"
           subtitle="Online cursus platform om de intellectuele Traditie van de Katholieke Kerk toegankelijk te maken voor jongeren en jonge gezinnen"

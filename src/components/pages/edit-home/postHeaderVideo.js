@@ -13,7 +13,7 @@ export default function PostVideo({ id, videoUrl }) {
 
   const { register, handleSubmit } = useForm();
   const [submitting, setSubmitting] = useState(false);
-  const [submitButton, setSubmitButton] = useState(<button className="button__primary--dark col-4  py-1 mt-3">upload video</button>);
+  const [submitButton, setSubmitButton] = useState(<button className="button__primary--dark col-12 col-md-6 col-4  py-1 mt-3">upload video</button>);
   const [deleteButton, setDeleteButton] = useState("");
    const [videoHtml, setVideoHtml] = useState("");
     const [videoId, setVideoId] = useState(id);
@@ -22,7 +22,7 @@ export default function PostVideo({ id, videoUrl }) {
     React.useEffect(() => {
         if (videoUrl) {
             setVideoHtml(<video src={videoUrl.url} width="100%" height="full" controls />);
-           setDeleteButton(<button className="button__alarm col-4  py-1 mt-3">verwijder video</button>)
+           setDeleteButton(<button className="button__alarm col-12 col-md-6 col-4  py-1 mt-3">verwijder video</button>);
         }   
         }, [videoUrl])
 
@@ -106,7 +106,7 @@ export default function PostVideo({ id, videoUrl }) {
     
   return (
     <>
-      <div className="row px-3">
+      <div className="row w-100 px-3">
         <div key={id} className="mb-3">
           <div className="col-lg-12 p-0">{videoHtml}</div>
         </div>

@@ -25,7 +25,7 @@ export default function PostNewVideo({ id }) {
   const submitData = async data => {
     setSubmitting(true);
     setSubmitButton(
-      <button className="button__primary--dark col-4 mt-3" type="submit" disabled>
+      <button className="button__primary--dark col-12 col-md-auto mt-3" type="submit" disabled>
         <span className="mr-3 mb-2 spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
         Loading...
       </button>
@@ -48,13 +48,13 @@ export default function PostNewVideo({ id }) {
        if (response.status === 200) {
          console.log(response);
          setVideo(
-           <video width="450" height="250" controls>
+           <video width="100%" controls>
              <source src={response.data[0].url} type="video/mp4" />
            </video>
          );
          setDisplay("d-block");
          setSubmitButton(
-           <button className="button__primary--dark col-4 mt-3" type="submit" disabled>
+           <button className="button__primary--dark col-12 col-md-auto mt-3" type="submit" disabled>
              upload succesvol
            </button>
          );
@@ -64,7 +64,7 @@ export default function PostNewVideo({ id }) {
       console.log(error);
       setSubmitButton(
         <div>
-          <button className="button__primary--dark col-4 mt-3" type="submit">
+          <button className="button__primary--dark col-12 col-md-auto mt-3" type="submit">
             probeer opnieuw
           </button>
           <p className="register__alarm">Opload niet gelukt</p>
@@ -77,20 +77,20 @@ export default function PostNewVideo({ id }) {
   };
 
   return (
-    <>
+    <div>
       <div className={display}>
         {video}
       </div>
       <div className="FileUpload mb-5">
-        <p className="text-center text-lg-left">Video</p>
-        <form className="d-flex flex-column d-lg-block align-items-center" onSubmit={handleSubmit(submitData)}>
+        <p >Video</p>
+        <form className="d-flex flex-column d-lg-block" onSubmit={handleSubmit(submitData)}>
           <fieldset disabled={submitting}>
             <input type="file" {...register("file")} />
           </fieldset>
           {submitButton}
         </form>
       </div>
-    </>
+    </div>
   );
 }
 

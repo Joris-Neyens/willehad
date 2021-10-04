@@ -12,7 +12,7 @@ export default function PostVideo({ id, video }) {
 
   const { register, handleSubmit } = useForm();
   const [submitting, setSubmitting] = useState(false);
-  const [submitButton, setSubmitButton] = useState(<button className="button__primary--dark col-4  py-1 mt-3">upload</button>);
+  const [submitButton, setSubmitButton] = useState(<button className="button__primary--dark col-12 col-md-6 col-4  py-1 mt-3">upload</button>);
   const [videoHtml, setVideoHtml] = useState(<video src={video.url} width="100%" height="full" controls />);
 
     
@@ -21,9 +21,12 @@ export default function PostVideo({ id, video }) {
 
   const submitData = async (data) => {
     setSubmitting(true);
-    setSubmitButton(<button className="button__primary--dark col-4  py-1 mt-3">
-      <span className="mr-3 mb-2 spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-      Loading...</button >);
+    setSubmitButton(
+      <button className="button__primary--dark col-12 col-md-6 col-4  py-1 mt-3">
+        <span className="mr-3 mb-2 spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Loading...
+      </button>
+    );
     try {
       const formData = new FormData();
       formData.append("files", data.file[0]);
@@ -56,7 +59,7 @@ export default function PostVideo({ id, video }) {
 
   return (
     <>
-      <div className="row px-3">
+      <div className="row w-100 mx-auto ">
             <div key={video.id} className="mb-3">
               <div className="col-lg-12 p-0">
                 {videoHtml}

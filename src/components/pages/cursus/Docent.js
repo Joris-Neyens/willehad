@@ -25,7 +25,7 @@ export default function Docent({ product, instructors }) {
 
         return (
           <section key={instructor.id} className="pb-5 pt-3 background-dark">
-            <div className="container d-md-none pt-0 py-md-5">
+            <div className="container d-md-none pt-0 py-5">
               <Slide bottom>
                 <div className="row">
                   <div className="teacher-card mx-2">

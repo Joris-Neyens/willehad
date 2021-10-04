@@ -40,7 +40,7 @@ export default function DeleteCourse({ id }) {
 
   return (
     <div>
-      <button onClick={handleClick} className="button__alarm px-4 py-1">
+      <button onClick={handleClick} className="button__alarm col-12 col-md-auto px-4 py-1">
         {deleteButton}
       </button>
     </div>

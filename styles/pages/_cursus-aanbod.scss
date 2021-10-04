@@ -5,6 +5,10 @@
 -ms-transform: scale(-1, 1);
 transform: scale(-1, 1);
  }
+ .courses-container {
+  min-height: 100vh;
+  margin-bottom: 200px;
+}
 
  .filter {
      background: white;
@@ -67,6 +71,9 @@ transform: scale(-1, 1);
 .custom-control-input {
     z-index: 4;
     border-radius: 5px;
+}
+.form-check-input:hover {
+    cursor: pointer !important;
 }
 
  .custom-checkbox .custom-control-input ~ .custom-control-label::before {

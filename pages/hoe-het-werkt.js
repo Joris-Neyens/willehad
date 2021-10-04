@@ -12,7 +12,7 @@ export default function hoeHetWerkt() {
         <Layout>
           <Header
             url="/video-talk.jpg"
-            viewHeight={70}
+            viewHeight={80}
             textCol="6"
             title="Cursus Traject"
             subtitle="Studeer waar en wanneer jou uit komt, vind samen meer diepgang onder begeleiding van coaches en docenten"

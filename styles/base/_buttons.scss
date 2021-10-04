@@ -67,16 +67,6 @@
     overflow: hidden;
     visibility: hidden;
 }
-.button__dashboard:hover {
-    background-color: $primary;
-    color: white;
-    cursor: pointer;
-}
-.button__dashboard:active {
-    box-shadow: none !important;
-    background-color: $primary;
-    color: white;
-}
 button.disabled {
     background-color: #886423;
 }
