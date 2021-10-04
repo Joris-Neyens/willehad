@@ -132,7 +132,13 @@ export default function MainNav() {
           </div>
         </div>
       </div>
-      <div className="menu-transparent">
+      <div className="menu-transparent position-fixed" onClick={closeMenu => {
+          const hamburgerMenu = document.querySelector(".hamburger__menu");
+          const hamburgerWrapper = document.querySelector(".menu-transparent");
+          hamburgerMenu.classList.add("hamburger__menu--close");
+          hamburgerMenu.classList.remove("hamburger__menu--open");
+          hamburgerWrapper.classList.remove("on");
+      }}>
         <div className="position-absolute w-100 hamburger__menu hamburger__menu--close d-lg-none">
           <div className="hamburger-menu__wrapper w-100 h-100 d-flex justify-content-end">
             <div className="background-blue py-5 px-sm-5 px-4">
