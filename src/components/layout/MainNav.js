@@ -137,7 +137,8 @@ export default function MainNav() {
           const hamburgerWrapper = document.querySelector(".menu-transparent");
           hamburgerMenu.classList.add("hamburger__menu--close");
           hamburgerMenu.classList.remove("hamburger__menu--open");
-          hamburgerWrapper.classList.remove("on");
+        hamburgerWrapper.classList.remove("on");
+        setOpen(false)
       }}>
         <div className="position-absolute w-100 hamburger__menu hamburger__menu--close d-lg-none">
           <div className="hamburger-menu__wrapper w-100 h-100 d-flex justify-content-end">
