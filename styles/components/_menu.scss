@@ -36,6 +36,7 @@
 .hamburger__menu {
   height: 100vh;
   transition: margin 700ms;
+  transition-timing-function: ease-in;
 }
 .hamburger__menu--close {
   z-index: 4;
@@ -76,16 +77,27 @@
 
   .background-blue {
       width: 50vw;
-      height: 100vh;
-      margin: 0;
+      height: 100%;
   }
   }
   .hamburger__menu--close {
   
-  width: 40vw;
+  width: 50vw;
   
 }
 
+}
+.menu-transparent {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 4;
+}
+.menu-transparent.on {
+  background-color: rgba(0, 0, 0, 0.63);
+}
+.menu-transparent.off {
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .navbar-toggler-icon {
