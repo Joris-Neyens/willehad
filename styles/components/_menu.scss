@@ -36,12 +36,14 @@
 .hamburger__menu {
   height: 100vh;
   transition: margin 700ms;
-  transition-timing-function: ease-in;
+  transition-timing-function: ease-out;
 }
 .hamburger__menu--close {
   z-index: 4;
-  margin-left: 100%;
-  
+  margin-left: 100vw;
+  .background-blue {
+    width: 80vw;
+  }
   a.text-right {
     line-height: 4em;
     font-size: 18px;
@@ -59,12 +61,10 @@
 }
 .hamburger__menu--open {
   z-index: 4;
-
   .background-blue {
       width: 80vw;
       height: 100vh;
   }
-
   a.text-right {
     line-height: 4em;
     font-size: 18px;
@@ -72,16 +72,17 @@
 }
 
 @media (min-width: 576px) { 
-  .hamburger__menu--open {
-
-  .background-blue {
-      width: 50vw;
-      height: 100%;
-  }
-  }
   .hamburger__menu--close {
-  width: 50vw;
-}
+    .background-blue {
+    width: 45vw;
+  }
+  }
+  .hamburger__menu--open {
+    .background-blue {
+        width: 45vw;
+        height: 100%;
+    }
+  }
 
 }
 .menu-transparent {
@@ -91,7 +92,7 @@
   z-index: 4;
 }
 .menu-transparent.on {
-  background-color: rgba(0, 0, 0, 0.63);
+  background-color: rgba(0, 0, 0, 0.466);
 }
 .menu-transparent.off {
   background-color: rgba(0, 0, 0, 0);
