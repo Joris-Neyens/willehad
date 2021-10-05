@@ -91,11 +91,16 @@
   position: absolute;
   z-index: 4;
 }
+.menu-transparent {
+  display: none;
+}
 .menu-transparent.on {
+  display: block;
   background-color: rgba(0, 0, 0, 0.466);
 }
 .menu-transparent.off {
-  background-color: rgba(0, 0, 0, 0);
+  display: none;
+  z-index: -10;
 }
 
 .navbar-toggler-icon {

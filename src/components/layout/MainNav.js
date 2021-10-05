@@ -132,41 +132,43 @@ export default function MainNav() {
           </div>
         </div>
       </div>
-      <div className="menu-transparent position-fixed" onClick={closeMenu => {
-          const hamburgerMenu = document.querySelector(".hamburger__menu");
-          const hamburgerWrapper = document.querySelector(".menu-transparent");
-          hamburgerMenu.classList.add("hamburger__menu--close");
-          hamburgerMenu.classList.remove("hamburger__menu--open");
-        hamburgerWrapper.classList.remove("on");
-        setOpen(false)
-      }}>
-        <div className="position-absolute w-100 hamburger__menu hamburger__menu--close d-lg-none">
-          <div className="hamburger-menu__wrapper w-100 h-100 d-flex justify-content-end">
-            <div className="background-blue py-5 px-sm-5 px-4">
-              <Link href="/">
-                <a className="text-right menu__link">Home</a>
+      <div className="menu-transparent position-fixed"></div>
+      <div className="position-fixed w-100 hamburger__menu hamburger__menu--close d-lg-none">
+        <div
+          className="hamburger-menu__wrapper w-100 h-100 d-flex justify-content-end"
+          onClick={closeMenu => {
+            const hamburgerMenu = document.querySelector(".hamburger__menu");
+            const hamburgerWrapper = document.querySelector(".menu-transparent");
+            hamburgerMenu.classList.add("hamburger__menu--close");
+            hamburgerMenu.classList.remove("hamburger__menu--open");
+            hamburgerWrapper.classList.remove("on");
+            setOpen(false);
+          }}
+        >
+          <div className="background-blue py-5 px-sm-5 px-4">
+            <Link href="/">
+              <a className="text-right menu__link">Home</a>
+            </Link>
+            <Link href="/cursus-aanbod">
+              <a className="text-right menu__link">cursus aanbod</a>
+            </Link>
+            <Link href="/hoe-het-werkt">
+              <a className="text-right menu__link">hoe het werkt</a>
+            </Link>
+            <Link href="/over-Willehad">
+              <a className="text-right menu__link">Over Willehad</a>
+            </Link>
+            <Link href="/contact" className="text-right menu__link">
+              <a className="text-right menu__link">contact</a>
+            </Link>
+            <div className="d-flex justify-content-end pt-4">
+              <Link href="https://willehad.thinkific.com/users/sign_in">
+                <button className="menu__link__dark button__primary px-4">
+                  <a className="menu__link--light" title="login">
+                    login
+                  </a>
+                </button>
               </Link>
-              <Link href="/cursus-aanbod">
-                <a className="text-right menu__link">cursus aanbod</a>
-              </Link>
-              <Link href="/hoe-het-werkt">
-                <a className="text-right menu__link">hoe het werkt</a>
-              </Link>
-              <Link href="/over-Willehad">
-                <a className="text-right menu__link">Over Willehad</a>
-              </Link>
-              <Link href="/contact" className="text-right menu__link">
-                <a className="text-right menu__link">contact</a>
-              </Link>
-              <div className="d-flex justify-content-end pt-4">
-                <Link href="https://willehad.thinkific.com/users/sign_in">
-                  <button className="menu__link__dark button__primary px-4">
-                    <a className="menu__link--light" title="login">
-                      login
-                    </a>
-                  </button>
-                </Link>
-              </div>
             </div>
           </div>
         </div>
