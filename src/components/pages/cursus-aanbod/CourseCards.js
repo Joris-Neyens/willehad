@@ -14,9 +14,12 @@ export default function CourseCards({ productInfo, courses, collections }) {
       {productInfo.map(function (product) {
         const { id, name, card_image_url, price, description, slug } = product;
 
+        console.log(product.status)
+
         if (product.status === "published") {
+
+          console.log(product)
           
-       
 
           const filteredCollection = collections.map(function (collection) {
             return product.collection_ids.map(function (productCollectionId) {

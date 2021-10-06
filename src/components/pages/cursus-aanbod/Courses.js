@@ -10,9 +10,13 @@ export default function Courses({ products, courses, collections }) {
 
   const [productInfo, setProductInfo] = useState(products);
 
+
   let themesObjects = Object.assign(
     products.map(function (product) {
-      return product.keywords.replace(/\n|,/g, ' ');
+
+      if (product.status === "published") {
+        return product.keywords.replace(/\n|,/g, ' ');
+      }
     })
   );
   themesObjects = themesObjects.join(" ")
