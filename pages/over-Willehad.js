@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Layout from "../src/components/layout/Layout";
 import Reveal from "react-reveal/Reveal";
+import Fade from "react-reveal/Fade";
 import Head from "../src/components/head/Head";
 import Header from "../src/components/layout/header/Header";
 
@@ -61,7 +62,7 @@ export default function overWillehad() {
                   </div>
                 </div>
               </div>
-              <Reveal bottom>
+              <Fade>
                 <div className="col-12 col-lg-6  pt-5 pt-lg-0 mb-5 order-last">
                   <p>
                     Willehad.nl wil jongeren en gezinnen aanmoedigen op reis te gaan door de grote intellectuele Traditie van de Katholieke Kerk, die vaak zo
@@ -71,7 +72,7 @@ export default function overWillehad() {
                     jarige franciscaan.
                   </p>
                 </div>
-              </Reveal>
+              </Fade>
             </div>
           </div>
         </section>

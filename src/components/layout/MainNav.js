@@ -101,7 +101,7 @@ export default function MainNav() {
       </Navbar> */}
       <div className="container">
         <div className="d-flex logo-container position-absolute py-3">
-          <div classname="hamburger-logo">
+          <div className="hamburger-logo">
             <Link href="/">
               <a className="pr-4">Willehad</a>
             </Link>
