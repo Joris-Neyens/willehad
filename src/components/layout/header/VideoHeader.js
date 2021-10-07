@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
+
 
 
 export default function VideoHeader({
@@ -72,9 +74,8 @@ export default function VideoHeader({
   return (
     <div className="jumbotron__video container-fluid rounded-0 p-0">
       <video className="video d-none d-lg-block" width="100%" style={height} muted autoPlay loop disablePictureInPicture controlsList="nodownload">
-        <source src={video} />
+        <source src="/rome.mp4" />
       </video>
-        <Image className="headerImage d-lg-none" style={height} src={url} layout="fill" objectFit="cover" priority="true" quality={50} />
       <div className="jumbotron-overlay__video">
         <div className="container d-flex align-items-center jumbotron__content" style={height}>
           <div className="row w-md-50 justify-content-lg-center mx-lg-0">

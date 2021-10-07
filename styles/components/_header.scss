@@ -46,6 +46,11 @@
   position: absolute;
   object-fit: cover;
 }
+.video video {
+  min-height: 98vh !important;
+  width: auto !important;
+}
+
 
 .jumbotron__video {
   p {

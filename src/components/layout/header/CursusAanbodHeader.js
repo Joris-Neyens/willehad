@@ -72,8 +72,7 @@ if (buttonPrimary) {
             src={url}
             layout="fill"
             objectFit="cover"
-            priority="true"
-            quality={50}
+            loading="eager"
           />
         </div>
       </div>
