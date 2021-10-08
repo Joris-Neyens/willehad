@@ -164,24 +164,26 @@ export default function Courses({ products, courses, collections }) {
   return (
     <>
       <div className="container courses-container position-relative pb-5">
-        <div className="row">
+        <div className="row display-none">
           <div className=" col-12 col-lg-12">
             <h1 className="mb-4 pt-5">Cursus aanbod</h1>
-            <select
-              className="d-none d-lg-block col-md-4 offset-md-8 col-lg-2 offset-lg-10 custom-select mr-sm-2"
-              id="select"
-              onChange={e => sortByPrice(e.target)}
-            >
-              <option value="prijs" placeholder="prijs">
-                Prijs
-              </option>
-              <option value="laag">Laag</option>
-              <option value="hoog">Hoog</option>
-            </select>
+            <div className="d-none">
+              <select
+                className="d-none d-lg-block col-md-4 offset-md-8 col-lg-2 offset-lg-10 custom-select mr-sm-2"
+                id="select"
+                onChange={e => sortByPrice(e.target)}
+              >
+                <option value="prijs" placeholder="prijs">
+                  Prijs
+                </option>
+                <option value="laag">Laag</option>
+                <option value="hoog">Hoog</option>
+              </select>
+            </div>
           </div>
         </div>
         <div className="row">
-          <div className="col-12 col-lg-3">
+          <div className="col-12 col-lg-3 d-none">
             <div className="input-group mb-2 mt-3 mr-sm-2">
               <div className="input-group-prepend">
                 <div className="input-group-text">
@@ -254,7 +256,7 @@ export default function Courses({ products, courses, collections }) {
               </div>
             </div>
           </div>
-          <div className="col-12 col-lg-9">
+          <div className="col-12 col-lg-12">
             <CourseCards key={products.id} productInfo={productInfo} courses={courses} collections={collections} />
           </div>
         </div>
