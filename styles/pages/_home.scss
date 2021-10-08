@@ -1,5 +1,15 @@
 .uitleg {
     background: $lightgrey-background;
+    min-height: 65vh;
+}
+.reviews {
+    min-height: 40vh;
+}
+.newsletter {
+    min-height: 30vh;
+}
+.home__about {
+    min-height: 55vh;
 }
 .home__about img {
     border-radius: 50%;
@@ -7,4 +17,7 @@
     height: 220px;
     padding-top: 8px;
 
+}
+.homepage-about__text {
+    max-width: 900px;
 }

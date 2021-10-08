@@ -24,7 +24,7 @@ export default function VideoHeader({
   let headerButtonPrimary = "";
   let headerButtonSecondary = "";
 
-  console.log(buttonPrimary)
+  console.log(url)
 
   if (course_type) {
     headerType = <p className="jumbotron__content-type m-0">{course_type}</p>;
@@ -73,8 +73,21 @@ export default function VideoHeader({
 
   return (
     <div className="jumbotron__video container-fluid rounded-0 p-0">
-      <video className="video d-none d-lg-block" width="100%" style={height} muted autoPlay loop disablePictureInPicture controlsList="nodownload">
-        <source src="/rome.mp4" />
+      <video
+        className="video d-none d-lg-block"
+        width="100%"
+        style={height}
+        preload="metadata"
+        muted
+        autoPlay
+        loop
+        disablePictureInPicture
+        controlsList="nodownload"
+      >
+        <div className="header__image--container position-relative d-lg-none" style={height}>
+          <img className="headerImage" src={url} style={{ objectfit: "cover", height: "100%", width: "100%" }} />
+        </div>
+        <source src="/rome.mp4#t=0.1" />
       </video>
       <div className="jumbotron-overlay__video">
         <div className="container d-flex align-items-center jumbotron__content" style={height}>

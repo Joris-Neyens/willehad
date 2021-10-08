@@ -51,10 +51,10 @@ export default function Newsletter() {
         
   
   return (
-    <section className="newsletter py-5 mb-5">
+    <section className="newsletter d-flex justify-content-center py-5 mb-5">
       <div className="container">
         <div className="row h-100">
-          <div className=" col-12 col-md-7 pb-4 ">
+          <div className="col-12 col-md-6 offset-lg-1 pb-4 d-flex align-items-center">
             <p className="text-lg-left m-0">
               Wekelijkse podcast, nieuws over nieuwe cursussen en
               ontwikkelingen. Ontvang onze nieuwsbrief direct via email.
@@ -62,7 +62,7 @@ export default function Newsletter() {
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="col-12 col-md-5 d-flex align-items-center"
+            className="col-12 col-md-4 d-flex align-items-center"
           >
             <fieldset className="w-100" disabled={submitting}>
               <div className="row w-100 mx-auto">

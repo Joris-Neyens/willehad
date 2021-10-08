@@ -39,9 +39,8 @@ export default function ReviewsHome({ reviews }) {
   return (
     <>
       <div className="background-blue" style={styles}>
-        <div className="reviews container py-5">
+        <div className="reviews container py-5 d-flex justify-content-center">
           <Carousel
-            responsive={responsive}
             swipeable={true}
             draggable={true}
             showDots={false}
@@ -56,6 +55,7 @@ export default function ReviewsHome({ reviews }) {
             removeArrowOnDeviceType={["tablet", "mobile"]}
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px"
+            className="w-100"
           >
             {reviews.map(function (review) {
               const n = review.rating;

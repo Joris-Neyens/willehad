@@ -39,6 +39,9 @@
 .teacher-card {
     background: $background !important;
 }
+.explain-course {
+    min-height: 50vh;
+}
 @media (min-width: 768px) { 
     .teacher-card {
         background: $lightgrey-background !important;

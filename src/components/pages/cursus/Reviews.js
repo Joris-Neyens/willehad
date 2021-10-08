@@ -40,7 +40,7 @@ export default function Reviews({ reviews }) {
 
     return (
       <div className="background-blue pt-5" style={styles}>
-        <div className="reviews container py-5">
+        <div className="reviews container py-5 d-flex">
           <Carousel
             responsive={responsive}
             swipeable={true}

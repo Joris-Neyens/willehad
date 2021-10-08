@@ -3,8 +3,8 @@ import Fade from "react-reveal/Fade";
 
 export default function HomepageAbout() {
     return (
-      <div className="container pb-5 home__about pt-5 my-5">
-        <h1 className="text-md-center pb-3">Over Willehad</h1>
+      <div className="container pb-5 home__about pt-5 my-5 d-flex flex-column justify-content-center">
+        <h1 className="text-md-center pb-5">Over Willehad</h1>
         <div className="row">
           <div className="text-md-left col-12 col-md-5 offset-md-1 offset-md-0 ">
             <Fade>
@@ -19,7 +19,7 @@ export default function HomepageAbout() {
             <img src="/willehaddedeen-1.jpg"/>
           </div>
         </div>
-        <div className="d-md-flex justify-content-center">
+        <div className="d-md-flex justify-content-center py-5">
           <Link href="/over-Willehad">
             <button className="button__primary px-4 py-1 mt-3">Lees meer</button>
           </Link>

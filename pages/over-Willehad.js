@@ -18,11 +18,11 @@ export default function overWillehad() {
           subtitle="Online cursus platform om de intellectuele Traditie van de Katholieke Kerk toegankelijk te maken voor jongeren en jonge gezinnen"
         />
         <section className="">
-          <div className="py-5 about__intro">
+          <div className="py-5 about__intro d-flex align-items-center">
             <div className="container">
+              <h2 className="pb-3 mx-0">Grote Vragen</h2>
               <div className="row">
                 <div className="py-3 col-12 col-md-6">
-                  <h2 className="pb-3">Grote Vragen</h2>
                   <p>
                     Vroeg of laat krijgt iedereen te maken met de grote vragen des levens: Waarom besta ik? Waartoe ben ik op aarde? Bestaat God en wie is hij?
                     Gelovigen en niet-gelovigen zullen hiermee geconfronteerd worden door zichzelf of anderen. Deze vragen zijn niet nieuw, en de queeste om ze
@@ -31,19 +31,17 @@ export default function overWillehad() {
                     gemiddelde leek training vergt om het te begrijpen.
                   </p>
                 </div>
-                <div className="d-none d-md-block col-5 col-lg-4 col-xl-3 ml-5 offset-0 pt-5 pb-0 pt-0">
-                  <div className="h-100">
+                <div className="d-none d-md-block col-5 col-lg-4 col-xl-3 ml-5 offset-0 pb-0 pt-0">
                     <div className="w-100">
-                      <Image src="/under-construction.jpg" layout="responsive" width="200px" height="300px" />
+                      <Image src="/under-construction.jpg" layout="responsive" width="300px" height="300px" />
                     </div>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="container">
-            <h2 className="pb-3 pt-5 text-lg-center">Willehad.nl</h2>
+          <div className="container about__willehad d-flex flex-column justify-content-center">
+            <h2 className="pb-4 pt-5 offset-lg-6">Willehad.nl</h2>
             <div className="row pb-5">
               <div className="col-10 offset-lg-1 col-lg-5 offset-lg-0">
                 <div className="h-100 pt-lg-5 mt-lg-5 pt-xl-0 mt-xl-0">

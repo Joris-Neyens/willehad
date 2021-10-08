@@ -81,7 +81,7 @@ export default function hoeHetWerkt() {
                       </p>
                     </div>
                   </Fade>
-                  <div className="d-flex justify-content-center">
+                  <div className="d-flex justify-content-center py-5">
                     <Link href="/cursus-aanbod">
                       <button className="button__primary mt-3 px-4 py-1">Cursus aanbod</button>
                     </Link>
