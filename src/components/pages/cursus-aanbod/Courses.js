@@ -165,7 +165,7 @@ export default function Courses({ products, courses, collections }) {
     <>
       <div className="container courses-container position-relative pb-5">
         <div className="row display-none">
-          <div className=" col-12 col-lg-12">
+          <div className=" col-12 col-lg-12 px-lg-0">
             <h1 className="mb-4 pt-5">Cursus aanbod</h1>
             <div className="d-none">
               <select
@@ -256,7 +256,7 @@ export default function Courses({ products, courses, collections }) {
               </div>
             </div>
           </div>
-          <div className="col-12 col-lg-12">
+          <div className="col-12 col-lg-12 px-lg-0">
             <CourseCards key={products.id} productInfo={productInfo} courses={courses} collections={collections} />
           </div>
         </div>
