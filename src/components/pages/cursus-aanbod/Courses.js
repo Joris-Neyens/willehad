@@ -11,18 +11,26 @@ export default function Courses({ products, courses, collections }) {
   const [productInfo, setProductInfo] = useState(products);
 
 
-  let themesObjects = Object.assign(
-    products.map(function (product) {
+  let publishedProducts = products.filter(function (product) {
+    if (product.status === "published") {
+      return product.keywords
+    }
+  })
 
-      if (product.status === "published") {
-        return product.keywords.replace(/\n|,/g, ' ');
-      }
+  console.log(publishedProducts)
+
+
+  let themesObjects = Object.assign(
+    publishedProducts.map(function (product) {
+          return product.keywords.replace(/\n|,/g, ' ');
     })
   );
+
   themesObjects = themesObjects.join(" ")
   themesObjects = themesObjects.replace(/\s{2,}/g, " ")
   const themesArray = themesObjects.split(" ");
   const uniqueThemes = Array.from(new Set(themesArray)).join(" ").split(" ");
+
 
   function filter(target) {
 
@@ -98,7 +106,6 @@ export default function Courses({ products, courses, collections }) {
       return;
     }
 
-    console.log(products)
     const matches = [];
     if (input.value === "laag") {
       const sorted = sort(products).asc([u => JSON.parse(u.price)]);

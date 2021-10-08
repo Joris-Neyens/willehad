@@ -67,7 +67,7 @@ if (buttonPrimary) {
     <div className="header">
       <div className="header__image">
         <div className="header__image--container position-relative" style={height}>
-          <Image className="headerImage" src={url} layout="fill" objectFit="cover" loading="eager" />
+          <img className="headerImage" style={{ objectFit: "cover", height: viewHeight + "vh", width: "100vw" }} src={url}/>
         </div>
       </div>
       <div className="header__image--content">
