@@ -1,12 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
-import { faMinus } from "@fortawesome/free-solid-svg-icons";
-
-
+import { useState, useEffect } from "react";
 
 export default function VideoHeader({
   date,
-    title,
+  title,
   video,
   course_type,
   viewHeight,
@@ -16,6 +13,11 @@ export default function VideoHeader({
   headerButtonName,
   url,
 }) {
+  
+  const size = useWindowSize();
+
+  console.log(size)
+
   let height = { height: `${viewHeight}vh` };
   let headerType = "";
   let headerTitle = "";
@@ -71,24 +73,21 @@ export default function VideoHeader({
     );
   }
 
+
+  let videoHtml = ""
+  
+  
+  if (size.width < 992) {
+    videoHtml = <video className="video" width="100%" style={height} preload="metadata" muted loop disablePictureInPicture controlsList="nodownload"><source src="/rome.mp4#t=0.1" /></video>
+  } if (size.width > 991) {
+      videoHtml = <video className="video" width="100%" style={height} autoPlay preload="metadata" muted loop disablePictureInPicture controlsList="nodownload"><source src="/rome.mp4#t=0.1" /></video>
+  }
+    
+ 
+
   return (
     <div className="jumbotron__video container-fluid rounded-0 p-0">
-      <video
-        className="video d-none d-lg-block"
-        width="100%"
-        style={height}
-        preload="metadata"
-        muted
-        autoPlay
-        loop
-        disablePictureInPicture
-        controlsList="nodownload"
-      >
-        <div className="header__image--container position-relative d-lg-none" style={height}>
-          <img className="headerImage" src={url} style={{ objectfit: "cover", height: "100%", width: "100%" }} />
-        </div>
-        <source src="/rome.mp4#t=0.1" />
-      </video>
+      {videoHtml}
       <div className="jumbotron-overlay__video">
         <div className="container d-flex align-items-center jumbotron__content" style={height}>
           <div className="row w-md-50 justify-content-lg-center mx-lg-0">
@@ -111,5 +110,29 @@ export default function VideoHeader({
       </div>
     </div>
   );
+
+  
 }
 
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+  });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      function handleResize() {
+        setWindowSize({
+          width: window.innerWidth,
+        });
+      }
+
+      window.addEventListener("resize", handleResize);
+
+      handleResize();
+
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+  return windowSize;
+}

@@ -74,31 +74,29 @@ export default function Home({ home, courses, reviews, thinkificProducts, course
 
   if (! home.header_video) {
     return (
-    <div className="wrapper">
-      <Layout>
-        <Head
-          title="Home"
-          description="willehad cursus platform startpagina"
-        ></Head>
-        <Header
-          courses={courses}
-          headerButtonName="cursus info"
-          buttonPrimary={courseUrl}
-          buttonSecondary="/hoe-het-werkt"
-          title={home.title}
-          url={home.header_image.url}
-          modal={false}
-          home={home}
-          viewHeight={80}
-          subtitle={home.header_subtitle}
-          date={home.course_date}
-        />
-        <Uitleg />
-        <Newsletter />
-        <ReviewsHome reviews={reviews} />
-      </Layout>
-    </div>
-  );
+      <div className="wrapper">
+        <Layout>
+          <Head title="Home" description="willehad cursus platform startpagina"></Head>
+          <Header
+            courses={courses}
+            headerButtonName="cursus info"
+            buttonPrimary={courseUrl}
+            buttonSecondary="/hoe-het-werkt"
+            title={home.title}
+            url={home.header_image.url}
+            modal={false}
+            home={home}
+            viewHeight={80}
+            subtitle={home.header_subtitle}
+            date={home.course_date}
+          />
+          <Uitleg />
+          <ReviewsHome reviews={reviews} />
+          <Newsletter />
+          <HomepageAbout />
+        </Layout>
+      </div>
+    );
   } else {
     return (
       <div className="wrapper">

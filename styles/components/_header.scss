@@ -1,6 +1,5 @@
-.header {
-  margin-top: 56.95px;
-}
+
+
 .jumbotron p {
   color: white;
 }
@@ -90,4 +89,10 @@
     .jumbotron__content-type {
       font-size: 18px !important;
     }
+}
+
+@media (min-width: 992px) { 
+  .header {
+  margin-top: 56.95px;
+}
 }
