@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useState } from "react";
 import axios from "axios";
+import Reveal from "react-reveal/Reveal";
 import Head from "../src/components/head/Head";
 import Header from "../src/components/layout/header/Header";
 import Layout from "../src/components/layout/Layout";
@@ -61,40 +62,43 @@ export default function contact() {
       <div className="wrapper">
         <Layout>
           <Header
-            url="/contact.jpg"
-            viewHeight={80}
+            url="/contact-1.jpg"
+            viewHeight={70}
             textCol="6"
-            title="Contact"
-            subtitle="Hebt u een vraag of opmering? Laat ons een berichtje achter."
+            topic="Willehad cursus platform"
+            title="neem contact op"
+            subtitle="Hebt u een vraag of opmering? Schroom niet en laat ons een berichtje achter."
           />
           <main className="contact py-5">
             <div className="container">
               <div className="row w-100 mx-auto pt-3">
-                <div className="col-12 col-lg-6 offset-lg-3 p-3">
-                  <form onSubmit={handleSubmit(onSubmit)}>
-                    <fieldset disabled={submitting}>
-                      <div className="row">
-                        <div className="col-12">
-                          <label>Naam</label>
-                          <input {...register("name")} id="naam" type="text" className="form-control"></input>
-                          <p className="mb-0">{errors.name?.message}</p>
-                          <label className="pt-2">Email</label>
-                          <input {...register("email")} id="email" type="text" className="form-control"></input>
-                          <p className="mb-0">{errors.email?.message}</p>
+                <Reveal>
+                  <div className="col-12 p-3">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                      <fieldset disabled={submitting}>
+                        <div className="row">
+                          <div className="col-lg-6">
+                            <label>Naam</label>
+                            <input {...register("name")} id="naam" type="text" className="form-control"></input>
+                            <p className="mb-0">{errors.name?.message}</p>
+                            <label className="pt-2">Email</label>
+                            <input {...register("email")} id="email" type="text" className="form-control"></input>
+                            <p className="mb-0">{errors.email?.message}</p>
+                          </div>
+                          <div className="col-lg-8 pt-2">
+                            <label>Bericht</label>
+                            <textarea {...register("message")} className="form-control" id="message" rows="8"></textarea>
+                            <p className="mb-0">{errors.message?.message}</p>
+                          </div>
                         </div>
-                        <div className="col-12 pt-2">
-                          <label>Bericht</label>
-                          <textarea {...register("message")} className="form-control" id="message" rows="6"></textarea>
-                          <p className="mb-0">{errors.message?.message}</p>
-                        </div>
-                      </div>
-                      <button type="submit" className="button__primary--dark mt-3 px-4">
-                        {submitButton}
-                      </button>
-                      {postError && <span>Sorry er is iets mis gegaan, probeer het later nog een keer</span>}
-                    </fieldset>
-                  </form>
-                </div>
+                        <button type="submit" className="button__primary--dark mt-3 py-1 px-5">
+                          {submitButton}
+                        </button>
+                        {postError && <span>Sorry er is iets mis gegaan, probeer het later nog een keer</span>}
+                      </fieldset>
+                    </form>
+                  </div>
+                </Reveal>
               </div>
             </div>
           </main>

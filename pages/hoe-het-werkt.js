@@ -12,22 +12,23 @@ export default function hoeHetWerkt() {
         <Layout>
           <Header
             url="/video-talk.jpg"
-            viewHeight={80}
+            viewHeight={70}
             textCol="6"
-            title="Cursus Traject"
+            topic="Cursus traject"
+            title="Zo veel meer dan een online cursus"
             subtitle="Studeer waar en wanneer jou uit komt, vind samen meer diepgang onder begeleiding van coaches en docenten"
             priority
           />
           <main>
             <div className="container hoe-het-werkt">
               <div className="row">
-                <div className="col-12 offset-0 col-lg-6 offset-lg-3 pt-5">
+                <div className="col-12 offset-0 col-lg-6 pt-5">
                   <h1 className="pb-3">Hoe het werkt</h1>
                 </div>
               </div>
               <div className="row">
-                <div className="col-12 offset-0 col-lg-6 offset-lg-3 mb-5">
-                  <h2 className="hoe-het-werkt__title py-2 pl-2">Samen</h2>
+                <div className="col-12 offset-0 col-lg-8 mb-5">
+                  <h2 className="hoe-het-werkt__title py-2">Samen</h2>
                   <p>
                     Een essentieel deel van het groeien in geloof is de gemeenschap. We beperken ons zelf als we proberen alles alleen te doen. Laat jezelf
                     uitdagen door anderen, stel elkaar kritische vragen, hou elkaar verwantwoordelijk voor de doelen die we onszelf zetten. Als we durven samen
@@ -42,7 +43,7 @@ export default function hoeHetWerkt() {
                     te groeien in kennis, maar om deze kennis je leven te laten veranderen.
                   </p>
                   <Fade>
-                    <h2 className="hoe-het-werkt__title py-2 pl-2 mt-5">Verdieping</h2>
+                    <h2 className="hoe-het-werkt__title py-2 mt-5">Verdieping</h2>
                     <div>
                       <p>
                         Leren is meer dan het opnemen van nieuwe informatie. Door kritische vragen te stellen over de inhoud van de cursus kun jij samen met
@@ -56,7 +57,7 @@ export default function hoeHetWerkt() {
                     </div>
                   </Fade>
                   <Fade>
-                    <h2 className="hoe-het-werkt__title py-2 pl-2 mt-5">Begeleiding</h2>
+                    <h2 className="hoe-het-werkt__title py-2 mt-5">Begeleiding</h2>
                     <div>
                       <p>
                         Een coach zal jou groep helpen om dieper te gaan met het cursus materiaal. Een coach zal jou niet vertellen wat je moet doen, maar zal
@@ -69,7 +70,7 @@ export default function hoeHetWerkt() {
                     </div>
                   </Fade>
                   <Fade>
-                    <h2 className="hoe-het-werkt__title py-2 pl-2 mt-5">Na het traject</h2>
+                    <h2 className="hoe-het-werkt__title py-2 mt-5">Na het traject</h2>
                     <div>
                       <p>
                         Een cursus is bedoeld om ons op weg te helpen. Na de cursus is het aan jou om deze weg op te gaan. Door samen met de groep te blijven
@@ -81,7 +82,7 @@ export default function hoeHetWerkt() {
                       </p>
                     </div>
                   </Fade>
-                  <div className="d-flex justify-content-center py-5">
+                  <div className="py-5">
                     <Link href="/cursus-aanbod">
                       <button className="button__primary mt-3 px-4 py-1">Cursus aanbod</button>
                     </Link>

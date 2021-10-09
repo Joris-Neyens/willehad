@@ -54,10 +54,10 @@ export default function Newsletter() {
     <section className="newsletter d-flex justify-content-center py-5 mb-5">
       <div className="container">
         <div className="row h-100">
-          <div className="col-12 col-md-6 offset-lg-1 pb-4 d-flex align-items-center">
-            <p className="text-lg-left m-0">
-              Wekelijkse podcast, nieuws over nieuwe cursussen en
-              ontwikkelingen. Ontvang onze nieuwsbrief direct via email.
+          <div className="col-12 col-md-6 offset-lg-1 pb-4 d-flex flex-column justify-content-center">
+            <h2 className="">Nieuwsbrief</h2>
+            <p className="text-lg-left m-0 ">
+              Blijf op de hoogte van nieuwe cursussen, activiteiten en aanbiedingen.
             </p>
           </div>
           <form
@@ -70,7 +70,7 @@ export default function Newsletter() {
                   <input
                     {...register("email_address")}
                     placeholder="email adres"
-                    className="form-control "
+                    className="form-control text-center"
                   ></input>
                 </div>
                 <div className="col-12 col-md-12 pl-0 pl-md-0 mt-md-3 pr-0 d-flex align-items-center">

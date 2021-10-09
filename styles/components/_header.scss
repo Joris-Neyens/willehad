@@ -1,3 +1,6 @@
+.header {
+  margin-top: 56.95px;
+}
 .jumbotron p {
   color: white;
 }
@@ -11,6 +14,11 @@
   font-size: 84px;
   line-height: 78px;
 }
+.jumbotron__content-title__header {
+  font-family: $playfair;
+  font-size: 72px;
+  line-height: 72px;
+}
 .jumbotron__content-subtitle {
   font-size: 28px;
   font-weight: 300;
@@ -20,7 +28,7 @@
   font-size: 22px !important;
 }
 .jumbotron__content-type {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -72,5 +80,14 @@
 @media (max-width: 769px) { 
     .jumbotron__content-title {
       font-size: 48px;
+    }
+    .jumbotron__content-title__header {
+      font-family: $playfair;
+      font-size: 56px !important;
+      line-height: 1em !important;
+
+    }
+    .jumbotron__content-type {
+      font-size: 18px !important;
     }
 }

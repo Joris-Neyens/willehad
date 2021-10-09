@@ -57,6 +57,7 @@ export default function Reviews({ reviews }) {
             removeArrowOnDeviceType={["tablet", "mobile"]}
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px"
+            className="w-100"
           >
             {reviews.items.map(function (review) {
               const n = review.rating;

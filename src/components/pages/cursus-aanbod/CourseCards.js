@@ -67,7 +67,7 @@ export default function CourseCards({ productInfo, courses, collections }) {
                     <div className="row w-100 mx-auto px-2 px-lg-0 ml-lg-2 ">
                       <div className="col-12 col-lg-4 px-0">
                         <div className="card__image">
-                          <Image src={card_image_url} layout="fill" className="py-2" priority />
+                          <img src={card_image_url} style={{width: "100%", height: "100%"}} className="py-2" />
                         </div>
                         <div className="card__image--content my-2 d-flex align-items-center">
                           <h2 className="ml-2 w-100 text-center text-lg-left">{name}</h2>

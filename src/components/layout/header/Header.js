@@ -13,6 +13,7 @@ export default function Header({
   buttonSecondary,
   subtitle,
   headerButtonName,
+  topic,
 }) {
 
   const textWidth = `col-12 col-md-${textCol} col-lg-4 px-0`;
@@ -27,11 +28,11 @@ export default function Header({
 
 
 
-  if (course_type) {
-    headerType = <p className="jumbotron__content-type m-0">{course_type}</p>;
+  if (topic) {
+    topic = <p className="jumbotron__content-type m-0">{topic}</p>;
   }
   if (title) {
-    headerTitle = <p className="jumbotron__content-title">{title}</p>;
+    headerTitle = <p className="jumbotron__content-title__header">{title}</p>;
   }
   if (subtitle) {
     headerSubtitle = <p className="jumbotron__content-subtitle--header">{subtitle}</p>;
@@ -73,10 +74,10 @@ if (buttonPrimary) {
       <div className="header__image--content">
         <div className="container d-flex align-items-center jumbotron__content" style={height}>
           <div className="row w-100 mx-auto w-md-50 mx-lg-0 pr-0">
-            <div className="col-12 col-lg-8 pr-0">
-              <div className="row col-12 pt-lg-5 mt-lg-5 px-0">
+            <div className="col-12 col-lg-7 pr-0">
+              <div className="row col-12 px-0">
                 <div className="p-0">
-                  {headerType}
+                  {topic}
                   {headerTitle}
                   {headerDate}
                   {headerSubtitle}
