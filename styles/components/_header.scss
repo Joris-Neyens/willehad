@@ -1,5 +1,9 @@
-
-
+.header {
+  padding-top: 65.2px;
+}
+.jumbotron__video {
+  padding-top: 65.2px !important;
+}
 .jumbotron p {
   color: white;
 }
@@ -93,6 +97,9 @@
 
 @media (min-width: 992px) { 
   .header {
-  margin-top: 56.95px;
+  padding-top: 56.95px;
+}
+.jumbotron__video {
+  padding-top: 56.95px !important;
 }
 }

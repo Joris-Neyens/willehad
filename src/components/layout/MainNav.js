@@ -99,36 +99,38 @@ export default function MainNav() {
           </Fade>
         </Navbar.Collapse>
       </Navbar> */}
-      <div className="container">
-        <div className="d-flex logo-container position-absolute py-3">
-          <div className="hamburger-logo">
-            <Link href="/">
-              <a className="pr-4">Willehad</a>
-            </Link>
+      <div className="hamburger__wrapper w-100 position-fixed d-lg-none">
+        <div className="container hamburger__container d-flex justify-content-between">
+          <div className="logo-container py-3">
+            <div className="hamburger-logo">
+              <Link href="/">
+                <a className="pr-4">Willehad</a>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="d-flex justify-content-right">
-          <div className="hamburger py-1 mr-2">
-            <Hamburger
-              laber="show menu"
-              size={30}
-              toggled={isOpen}
-              toggle={setOpen}
-              color="#F6F6F6"
-              onToggle={toggled => {
-                const hamburgerMenu = document.querySelector(".hamburger__menu");
-                const hamburgerWrapper = document.querySelector(".menu-transparent");
-                if (toggled) {
-                  hamburgerMenu.classList.remove("hamburger__menu--close");
-                  hamburgerMenu.classList.add("hamburger__menu--open");
-                  hamburgerWrapper.classList.add("on");
-                } else {
-                  hamburgerMenu.classList.add("hamburger__menu--close");
-                  hamburgerMenu.classList.remove("hamburger__menu--open");
-                  hamburgerWrapper.classList.remove("on");
-                }
-              }}
-            />
+          <div className="d-flex align-items-center">
+            <div className="hamburger py-1">
+              <Hamburger
+                laber="show menu"
+                size={30}
+                toggled={isOpen}
+                toggle={setOpen}
+                color="#F6F6F6"
+                onToggle={toggled => {
+                  const hamburgerMenu = document.querySelector(".hamburger__menu");
+                  const hamburgerWrapper = document.querySelector(".menu-transparent");
+                  if (toggled) {
+                    hamburgerMenu.classList.remove("hamburger__menu--close");
+                    hamburgerMenu.classList.add("hamburger__menu--open");
+                    hamburgerWrapper.classList.add("on");
+                  } else {
+                    hamburgerMenu.classList.add("hamburger__menu--close");
+                    hamburgerMenu.classList.remove("hamburger__menu--open");
+                    hamburgerWrapper.classList.remove("on");
+                  }
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -145,7 +147,7 @@ export default function MainNav() {
             setOpen(false);
           }}
         >
-          <div className="background-blue py-5 px-sm-5 px-4">
+          <div className="background-blue hamburger__content py-5 px-sm-5 px-4">
             <Link href="/">
               <a className="text-right menu__link">Home</a>
             </Link>

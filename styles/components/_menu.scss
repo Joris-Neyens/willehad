@@ -27,9 +27,12 @@
 .menu__link--light:hover {
   color: $background;
 }
+.hamburger__wrapper {
+  background-color: $primary;
+  z-index: 10;
+}
 .hamburger {
   width: 48px;
-  position: absolute;
   right: 0;
   z-index: 5;
 }
@@ -37,6 +40,9 @@
   height: 100vh;
   transition: margin 700ms;
   transition-timing-function: ease-out;
+}
+.hamburger__content {
+  margin-top: 65.2px;
 }
 .hamburger__menu--close {
   z-index: 4;
