@@ -48,7 +48,7 @@ export default function MainNav() {
               </div>
               <div className="d-none d-lg-flex col justify-self-end justify-content-end align-items-center pr-3">
                 <Link href="https://willehad.thinkific.com/users/sign_in">
-                  <button className="menu__link__dark button__primary px-4">
+                  <button className="menu__link__dark button__alarm px-4">
                     <a className="menu__link--light" title="login">
                       login
                     </a>
@@ -161,9 +161,9 @@ export default function MainNav() {
             <Link href="/contact" className="text-right menu__link">
               <a className="text-right menu__link">contact</a>
             </Link>
-            <div className="d-flex justify-content-end pt-4">
+            <div className="d-flex pt-5">
               <Link href="https://willehad.thinkific.com/users/sign_in">
-                <button className="menu__link__dark button__primary px-4">
+                <button className="menu__link__dark button__alarm px-4">
                   <a className="menu__link--light" title="login">
                     login
                   </a>
