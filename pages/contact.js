@@ -66,7 +66,7 @@ export default function contact() {
             viewHeight={70}
             textCol="6"
             topic="Willehad cursus platform"
-            title="neem contact op"
+            title="Contact informatie"
             subtitle="Hebt u een vraag of opmering? Schroom niet en laat ons een berichtje achter."
           />
           <main className="contact py-5">
