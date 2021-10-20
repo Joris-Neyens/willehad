@@ -64,25 +64,31 @@ export default function CourseCards({ productInfo, courses, collections }) {
               <Fade>
                 <Link href={`cursus-aanbod/${id}`}>
                   <div className="my-3 course-card shadow">
-                    <div className="row w-100 mx-auto px-2 px-lg-0 ml-lg-2 ">
-                      <div className="col-12 col-lg-4 px-0">
+                    <div className="row w-100 mx-auto px-2">
+                      <div className="col-12 px-0">
                         <div className="card__image">
                           <img src={card_image_url} style={{ width: "100%", height: "100%" }} className="py-2" />
                         </div>
-                        <div className="card__image--content my-2 d-flex align-items-center">
-                          <h2 className="ml-2 w-100 text-center text-lg-left">{name}</h2>
+                        <div className="card__image--content my-2 d-flex flex-column justify-content-center align-items-center ">
+                          <h2 className="ml-2 w-100 text-center mt-4">{name}</h2>
+                          <button className="button__secondary--light ml-2 text-center px-4 py-1">Meer info</button>
                         </div>
                       </div>
-                      <div className="px-1 py-2 col-12 col-lg-8 px-md-4 d-flex flex-column justify-content-between">
+                      <div className="px-1 py-2 col-12 col-lg-12 px-md-4 d-flex flex-column justify-content-between">
                         <div>
-                          <h4 className="text-center text-lg-left mb-1">{collectionName}</h4>
-                          <h3 className="text-center text-lg-left">{name}</h3>
-                          <p className="mb-1 text-center text-lg-left">{description}</p>
+                          <h4 className="text-center mb-1">{collectionName}</h4>
+                          <h3 className="text-center ">{name}</h3>
+                          <p className="mb-1 text-center mx-auto">{description}</p>
                         </div>
-                        <div className="d-flex flex-row justify-content-center justify-content-lg-start pb-3 pt-3 py-lg-0">
-                          <p className="col-4 col-md-3 p-bold px-0 mb-0">{lessons} lessen</p>
-                          <p className="mb-0 col-4 col-md-3 px-0">€{price},-</p>
-                          <p className="mb-0"><b>thema: </b>{keywords}</p>
+                        <div className="d-flex justify-content-center">
+                          <div className="card__details w-100 d-flex flex-column flex-md-row align-items-center justify-content-center pb-3 pt-lg-4">
+                            <p className="col-4 col-md-3 text-center text-md-left p-bold px-0 mb-0">{lessons} lessen</p>
+                            <p className="mb-0 col-4 col-md-3 text-center text-md-left px-0">€{price},-</p>
+                            <p className="mb-0">
+                              <b>thema: </b>
+                              {keywords}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>

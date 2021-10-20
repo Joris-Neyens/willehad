@@ -4,7 +4,7 @@
   font-size: 36px;
 }
 .menu {
-  background-color: $primary;
+  background-color: $background-dark;
 }
 .menu__container {
   height: 60.45px;
@@ -22,10 +22,10 @@
   font-weight: 400;
   font-size: 16px;
   color: $background;
-  text-transform:uppercase;
+  text-transform: uppercase;
 }
 .menu__link--light:hover {
-  color: $background;
+  color: $secondary;
 }
 .hamburger__wrapper {
   background-color: $primary;

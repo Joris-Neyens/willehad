@@ -8,8 +8,13 @@
         border-radius: 2px;
 }
 .button__primary:hover {
-    background-color: $secondary-dark;
+    background-color: rgba(255, 255, 255, 0);
+    outline: 2px solid $secondary;
+    color: $secondary;
     cursor: pointer;
+    a {
+        color: $secondary;
+    }
 }
 .button__primary--dark {
     border: none;
@@ -25,7 +30,7 @@
 }
 
 .button__secondary--light {
-    border: 1px solid white;
+    border: 2px solid white;
     background-color: transparent;
     font-weight: 400;
     font-size: 22px;
@@ -34,8 +39,7 @@
     border-radius: 2px;
 }
 .button__secondary--light:hover {
-    outline: 1px solid white;
-    font-weight: 500;
+    outline: 0.75px solid white;
 }
 
 .button__secondary--light::before {
@@ -47,16 +51,18 @@
     visibility: hidden;
 }
 .button__secondary--dark {
-    border: 1px solid $secondary;
+    border: 2px solid $secondary;
     background-color: transparent;
+    border-radius: 2px !important;
     font-weight: 400;
     font-size: 22px;
     color: $secondary;
     max-width: 200px;
 }
 .button__secondary--dark:hover {
-    outline: 1px solid $secondary-dark;
-    font-weight: 500;
+     outline: 1px solid $secondary;
+    border-color: $secondary;
+    font-weight: 400;
 }
 
 .button__secondary--dark::before {

@@ -13,7 +13,7 @@ import Uitleg from "../src/components/pages/home/Uitleg";
 import HomepageAbout from "../src/components/pages/home/HomepageAbout";
 import ActiveNewsletter from '../src/components/pages/home/ActiveNewsletter';
 
-export default function Home({ home, courses, reviews, thinkificProducts, courseReviews, collections }) {
+export default function Home({ home, courses, reviews, thinkificProducts, collections }) {
 
   let courseUrl = ""
   let productCollection = []
@@ -50,18 +50,6 @@ export default function Home({ home, courses, reviews, thinkificProducts, course
       collectionName = name;
     }
   });
-
-
-  // const [courseUrl, setCourseUrl] = useState("")
-
-  // React.useEffect(() => {
-  //   thinkificProducts.forEach(function (product) {
-  //      if (product.position === 0) {
-  //        setCourseUrl("/cursus-aanbod/" + product.id)
-  //      }
-  //    })
-  // }, [thinkificProducts]);
-
 
 
   if (! home.header_video) {
@@ -102,7 +90,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, course
             video={home.header_video.url}
             modal={false}
             home={home}
-            viewHeight={98}
+            viewHeight={90}
             textCol="4"
             subtitle={home.header_subtitle}
             date={home.course_date}
