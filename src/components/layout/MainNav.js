@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
-import Fade from "react-reveal/Fade";
+import { useState, useEffect } from "react";
 import Hamburger from "hamburger-react";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -10,7 +9,11 @@ import Container from 'react-bootstrap/Container';
 export default function MainNav() {
 
   const [isOpen, setOpen] = useState(false);
- 
+
+  // let scroll = checkScroll();
+
+  // console.log(scroll)
+  
   return (
     <>
       <Navbar fixed="top" className="menu py-0 d-none d-lg-block">
@@ -48,7 +51,7 @@ export default function MainNav() {
               </div>
               <div className="d-none d-lg-flex col justify-self-end justify-content-end align-items-center pr-3">
                 <Link href="https://willehad.thinkific.com/users/sign_in">
-                  <button className="menu__link__dark button__alarm px-4">
+                  <button className="menu__link__dark button__primary px-4">
                     <a className="menu__link--light" title="login">
                       login
                     </a>
@@ -59,46 +62,7 @@ export default function MainNav() {
           </Nav>
         </Container>
       </Navbar>
-      {/* <Navbar fixed="top" className="menu d-none p-0" expand="lg">
-        <div className="w-100 d-flex justify-content-between px-2">
-          <div className="d-flex py-3">
-            <Link href="/">
-              <a id="logo">Willehad</a>
-            </Link>
-          </div>
-          <Navbar.Toggle className="navbar-dark col-1 border-0 p-0" />
-        </div>
 
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Fade right>
-            <div className="container-fluid py-4 px-4">
-              <Nav className="w-100 d-flex justify-content-end">
-                <Link href="/cursus-aanbod">
-                  <a className="text-right menu__link py-3">cursus aanbod</a>
-                </Link>
-                <Link href="/hoe-het-werkt">
-                  <a className="text-right menu__link py-3">hoe het werkt</a>
-                </Link>
-                <Link href="/over-Willehad">
-                  <a className="text-right menu__link py-3">Over Willehad</a>
-                </Link>
-                <Link href="/contact" className="text-right menu__link">
-                  <a className="text-right menu__link py-3">contact</a>
-                </Link>
-                <div className="d-flex justify-content-end pt-4">
-                  <Link href="https://willehad.thinkific.com/users/sign_in">
-                    <button className="menu__link__dark button__primary px-4">
-                      <a className="menu__link--light" title="login">
-                        login
-                      </a>
-                    </button>
-                  </Link>
-                </div>
-              </Nav>
-            </div>
-          </Fade>
-        </Navbar.Collapse>
-      </Navbar> */}
       <div className="hamburger__wrapper w-100 position-fixed d-lg-none">
         <div className="container hamburger__container d-flex justify-content-between">
           <div className="logo-container py-3">
@@ -165,7 +129,7 @@ export default function MainNav() {
             </Link>
             <div className="d-flex pt-5">
               <Link href="https://willehad.thinkific.com/users/sign_in">
-                <button className="menu__link__dark button__alarm px-4">
+                <button className="menu__link__dark button__primary px-4">
                   <a className="menu__link--light" title="login">
                     login
                   </a>
@@ -178,3 +142,27 @@ export default function MainNav() {
     </>
   );
 }
+
+// function checkScroll() {
+
+//   const [scroll, setScroll] = useState(0);
+
+//   let lastScroll = 0;
+
+//   useEffect(() => {
+//     document.addEventListener("scroll", () => {
+//       const currentScroll = window.scrollY;
+//       if (currentScroll <= lastScroll) {
+//         return
+//       }
+
+//       if (currentScroll > lastScroll) {
+//         setScroll("down")
+//       } else if (currentScroll < lastScroll) {
+//         setScroll("up")
+//       }
+//     });
+//   }, []);
+
+//   return scroll
+// }

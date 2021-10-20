@@ -8,15 +8,12 @@ import Head from "../src/components/head/Head";
 import Header from "../src/components/layout/header/Header";
 import VideoHeader from "../src/components/layout/header/VideoHeader";
 import Layout from "../src/components/layout/Layout";
-import Newsletter from "../src/components/pages/home/Newsletter";
 import ReviewsHome from "../src/components/pages/home/ReviewsHome";
 import Uitleg from "../src/components/pages/home/Uitleg";
 import HomepageAbout from "../src/components/pages/home/HomepageAbout";
+import ActiveNewsletter from '../src/components/pages/home/ActiveNewsletter';
 
 export default function Home({ home, courses, reviews, thinkificProducts, courseReviews, collections }) {
-  
-  console.log(collections)
-
 
   let courseUrl = ""
   let productCollection = []
@@ -29,11 +26,6 @@ export default function Home({ home, courses, reviews, thinkificProducts, course
        }
   })
   productCollection = productCollection[0]
-
-  console.log(productCollection);
-
-
-
 
   const filteredCollection = collections.map(function (collection) {
     return productCollection.collection_ids.map(function (productCollectionId) {
@@ -92,7 +84,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, course
           />
           <Uitleg />
           <ReviewsHome reviews={reviews} />
-          <Newsletter />
+          <ActiveNewsletter />
           <HomepageAbout />
         </Layout>
       </div>
@@ -119,7 +111,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, course
           />
           <Uitleg />
           <ReviewsHome reviews={reviews} />
-          <Newsletter />
+          <ActiveNewsletter />
           <HomepageAbout />
         </Layout>
       </div>

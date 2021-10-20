@@ -16,8 +16,6 @@ export default function VideoHeader({
   
   const size = useWindowSize();
 
-  console.log(size)
-
   let height = { height: `${viewHeight}vh` };
   let headerType = "";
   let headerTitle = "";
@@ -25,8 +23,6 @@ export default function VideoHeader({
   let headerDate = "";
   let headerButtonPrimary = "";
   let headerButtonSecondary = "";
-
-  console.log(url)
 
   if (course_type) {
     headerType = <p className="jumbotron__content-type m-0">{course_type}</p>;
@@ -118,7 +114,6 @@ function useWindowSize() {
   const [windowSize, setWindowSize] = useState({
     width: undefined,
   });
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       function handleResize() {
@@ -126,11 +121,8 @@ function useWindowSize() {
           width: window.innerWidth,
         });
       }
-
       window.addEventListener("resize", handleResize);
-
       handleResize();
-
       return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
