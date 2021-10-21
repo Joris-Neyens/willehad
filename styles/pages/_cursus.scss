@@ -36,12 +36,17 @@
     border-radius: 3px;   
     color: $secondary;
 }
-.teacher-card {
-    background: $background !important;
-}
 .explain-course {
     min-height: 50vh;
 }
+.teacher-image-wrapper {
+    z-index: 5;
+}.teacher__card--bio {
+    margin-left: 47%;
+}
+
+
+
 @media (min-width: 768px) { 
     .teacher-card {
         background: $lightgrey-background !important;

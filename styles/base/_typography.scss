@@ -9,7 +9,10 @@ p {
 
 }
 #logo {
-  font-family: $playfair;
+  font-family: $logo-font;
+}
+.footer__logo {
+      font-family: $logo-font;
 }
 .error {
   color: $accent;

@@ -1,17 +1,15 @@
 $background: #F6F6F6;
 $background-dark: #282833;
 $lightgrey-background: #E9E7DF;
-$lightgold: #e0dbc5;
 $primary: #524E68;
 $secondary: #D9A13B;
 $secondary-dark: #b6872f;
-$secondary-light: #d9a13b;
-$accent: #8C2A2A;
+$accent: #8B2929;
 $transparant-background: rgba($color: #d9a13b, $alpha: 0.35);
-$transparant-background-red: rgba($color: #8C2A2A, $alpha: 0.20);
 $paragraph-background-dark: #C5C5CC;
 $sans-serif: 'proxima-nova', sans-serif;
 $playfair: 'freight-big-pro', serif;
+$logo-font: 'playfair-display', serif;
 
 @media (max-width: 767px) { 
     p {
@@ -41,9 +39,9 @@ $playfair: 'freight-big-pro', serif;
     }
 }
 @media (min-width: 2000px) { 
-    .container {
-        min-width: 1400px !important;
-    }
+    // .container {
+    //     min-width: 1400px !important;
+    // }
     .menu__link {
         font-size: 16px !important;
     }

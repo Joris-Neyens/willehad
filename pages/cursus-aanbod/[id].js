@@ -40,14 +40,15 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
   let collectionName = "";
 
   collectionNames.map(function (name) {
-    if (name === "traject" || name === "zelfstandig") {
+    if (name === "cursus traject" || name === "zelfstandig") {
       collectionName = name;
     }
   });
 
   let practicalInfo = ""
 
-  if (collectionName === "traject") {
+
+  if (collectionName === "cursus traject") {
     practicalInfo = <PracticalInfoTraject webUrl={webUrl}/>
   }
   if (collectionName === "zelfstandig") {

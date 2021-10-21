@@ -16,6 +16,22 @@
         color: $secondary;
     }
 }
+.button__primary:active {
+    background-color: $secondary-dark;
+    color: $background;
+    cursor: pointer;
+    a {
+        color: $background;
+    }
+}
+.button__primary:focus {
+    background-color: $secondary-dark;
+    color: $background;
+    cursor: pointer;
+    a {
+        color: $background;
+    }
+}
 .button__primary--dark {
     border: none;
     background-color: $primary;

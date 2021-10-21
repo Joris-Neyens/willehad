@@ -28,11 +28,11 @@ export default function Docent({ product, instructors }) {
             <div className="container d-md-none pt-0 py-5">
               <Slide bottom>
                 <div className="row">
-                  <div className="teacher-card mx-2">
-                    <div className="teacher-image-wrapper col-12 rder-1 mt-3">
+                  <div className="teacher-card background-light mx-2">
+                    <div className="teacher-image-wrapper col-12 mt-3">
                       <Image alt={"image of " + teacherName} className="" src={instructor.avatar_url} width="350" height="200" layout="responsive" />
                     </div>
-                    <div className="order-3 pt-4 px-3">
+                    <div className="order-3 pt-4 px-3 pb-3">
                       <h3>{teacherName}</h3>
                       <p>{instructor.bio}</p>
                     </div>
@@ -43,15 +43,19 @@ export default function Docent({ product, instructors }) {
             <div className="container d-none d-md-block pt-0 py-md-5">
               <div className="row">
                 <h2 className="pb-3 col-12 text-center">Ontmoet de docent</h2>
-                <div className="teacher-image-wrapper col-6 col-lg-4 col-xl-3 offset-lg-2 offset-xl-3 pt-3 mt-3">
-                  <Image alt={"image of " + teacherName} className="" src={instructor.avatar_url} width="200" height="200" layout="responsive" />
+                <div className="position-relative d-flex align-items-lg-center">
+                  <Slide left>
+                    <div className="teacher-image-wrapper position-absolute mt-5 mt-lg-0 col-6 col-lg-4 offset-lg-2 offset-xl-2">
+                      <Image alt={"image of " + teacherName} className="" src={instructor.avatar_url} width="200" height="200" layout="responsive" />
+                    </div>
+                  </Slide>
+                  <Fade>
+                    <div className="teacher__card--bio col-6 col-xl-5 py-4 px-5 background-light">
+                      <h3>{teacherName}</h3>
+                      <p>{instructor.bio}</p>
+                    </div>
+                  </Fade>
                 </div>
-                <Fade>
-                  <div className="col-6 col-lg-5 col-xl-4 pt-4">
-                    <h3>{teacherName}</h3>
-                    <p>{instructor.bio}</p>
-                  </div>
-                </Fade>
               </div>
             </div>
           </section>

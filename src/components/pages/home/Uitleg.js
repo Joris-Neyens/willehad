@@ -10,15 +10,6 @@ export default function Uitleg() {
           <Fade bottom>
             <div className="col-12 px-0 col-lg-4">
               <div className="row flex-lg-column">
-                {/* <div className="col-2 col-md-1 offset-md-1 col-lg-3 mx-lg-auto">
-                  <Image
-                    alt="icoon laat afstudeer muts"
-                    src="/cursus.png"
-                    layout="responsive"
-                    width="100"
-                    height="100"
-                  />
-                </div> */}
                 <div className="text-lect text-lg-center col-md-10 offset-md-1 offset-lg-0 col-lg-12 mt-lg-4">
                   <h3 className="text-lg-center">Verdieping</h3>
                   <p className="text-lg-center px-lg-4">Studeer online de rijke intellectuele traditie van de Katholieke kerk op een toegankelijke manier</p>
@@ -27,15 +18,6 @@ export default function Uitleg() {
             </div>
             <div className="col-12 px-0 col-lg-4">
               <div className="row flex-lg-column">
-                {/* <div className="col-2 col-md-1 offset-md-1 col-lg-3 mx-lg-auto">
-                  <Image
-                    alt="icoon textbalonnen"
-                    src="/samen.png"
-                    layout="responsive"
-                    width="100"
-                    height="100"
-                  />
-                </div> */}
                 <div className="text-left text-lg-center col-md-10 offset-md-1 offset-lg-0 col-lg-12 mt-lg-4 pt-4 pt-lg-0">
                   <h3 className="text-lg-center">Samen</h3>
                   <p className="text-lg-center px-lg-4">
@@ -46,15 +28,6 @@ export default function Uitleg() {
             </div>
             <div className="col-12 px-0 col-lg-4">
               <div className="row">
-                {/* <div className="col-2 col-md-1 offset-md-1 col-lg-3 mx-lg-auto">
-                  <Image
-                    alt="icoon pc met avatar"
-                    src="/begeleiding.png"
-                    layout="responsive"
-                    width="100"
-                    height="100"
-                  />
-                </div> */}
                 <div className="text-left text-lg-center col-md-10 offset-md-1 offset-lg-0 col-lg-12 mt-lg-4 pt-4 pt-lg-0">
                   <h3 className="text-lg-center">Begeleiding</h3>
                   <p className="text-lg-center px-lg-4">
@@ -83,5 +56,9 @@ export default function Uitleg() {
         </div>
       </div>
     </section>
+
+
+    
+    
   );
 }
