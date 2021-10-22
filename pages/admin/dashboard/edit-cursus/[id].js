@@ -6,13 +6,15 @@ import Head from "../../../../src/components/head/Head";
 import AdminLayout from "../../../../src/components/layout/AdminLayout";
 import DashboardNav from "../../../../src/components/layout/DashboardNav";
 import DeleteCourse from "../../../../src/components/pages/edit-cursus/DeleteCourse";
+import PostHeaderVideo from "../../../../src/components/pages/edit-cursus/PostVideo";
+import PostHeaderImage from "../../../../src/components/pages/edit-cursus/PostVideo";
 import PostVideo from "../../../../src/components/pages/edit-cursus/PostVideo";
 import PutInfo from "../../../../src/components/pages/edit-cursus/PutInfo";
 import SideNav from "../../../../src/components/layout/SideNav";
 
 export default function Course({ course }) {
-  const { id, video} = course;
-
+  const { id, video, cover, cover_video } = course;
+  
   return (
     <>
       <Head title="edit cursus" description="edit cursus willehad" />
@@ -31,8 +33,18 @@ export default function Course({ course }) {
                   <PutInfo course={course} />
                   <div className="row">
                     <div className="col-12">
-                      <p className="pt-4">Video</p>
-                      <PostVideo key={course.title} id={id} video={video} />
+                      <div className="py-5">
+                        <p className="pt-4">Header Video</p>
+                        <PostHeaderVideo key={course.description_long} id={id} cover_video={cover_video} />
+                      </div>
+                      <div className="py-5">
+                        <p className="pt-4">Header image</p>
+                        <PostHeaderImage key={course.id} id={id} cover_video={cover} />
+                      </div>
+                      <div className="py-5">
+                        <p>Cursus beschrijving video</p>
+                        <PostVideo key={course.title} id={id} video={video} />
+                      </div>
                     </div>
                     <div className="col-12">
                       <Link href="/admin/dashboard">

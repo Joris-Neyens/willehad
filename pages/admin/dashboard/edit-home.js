@@ -6,7 +6,7 @@ import Head from "../../../src/components/head/Head";
 import SideNav from "../../../src/components/layout/SideNav";
 import PostHeaderVideo from '../../../src/components/pages/edit-home/postHeaderVideo';
 import PutHomeInfo from "../../../src/components/pages/edit-home/PutHomeInfo";
-import PutHomeHeader from "../../../src/components/pages/edit-home/PutHomeHeader";
+/* import PutHomeHeader from "../../../src/components/pages/edit-home/PutHomeHeader"; */
 import PutReview from '../../../src/components/pages/edit-home/PutReview';
 import DeleteReviews from '../../../src/components/pages/edit-home/DeleteReviews'
 import { BASE_URL, HOME_PATH , REVIEWS_PATH} from "../../../src/api/baseUrl";
@@ -27,7 +27,7 @@ export default function editHome({ home, reviews }) {
                 <div className="col-lg-10 pl-lg-5">
                   <h1>Edit Home</h1>
                   <p>Header</p>
-                  <PutHomeHeader id={id} header_image={header_image} />
+{/*                   <PutHomeHeader id={id} header_image={header_image} /> */}
                   <PostHeaderVideo id={id} videoUrl={header_video} />
                   <PutHomeInfo home={home}/>
                   <PutReview reviews={reviews} />

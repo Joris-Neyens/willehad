@@ -4,6 +4,8 @@ import DashboardNav from "../../../../src/components/layout/DashboardNav";
 import axios from "axios";
 import Head from "../../../../src/components/head/Head";
 import AdminLayout from "../../../../src/components/layout/AdminLayout";
+import PostHeaderVideo from "../../../../src/components/pages/cursus-toevoegen/PostHeaderVideo";
+import PostHeaderImage from "../../../../src/components/pages/cursus-toevoegen/PostHeaderImage";
 import PostNewVideo from "../../../../src/components/pages/cursus-toevoegen/PostNewVideo";
 import { BASE_URL } from "../../../../src/api/baseUrl";
 
@@ -13,10 +15,7 @@ export default function newCourseMedia({ course }) {
   return (
     <>
       <DashboardNav />
-      <Head
-        title="nieuwe cursus"
-        description="voeg media toe aan nieuwe cursus"
-      />
+      <Head title="nieuwe cursus" description="voeg media toe aan nieuwe cursus" />
       <AdminLayout>
         <div className="container-fluid">
           <div className="row">
@@ -25,7 +24,12 @@ export default function newCourseMedia({ course }) {
               <div className="row">
                 <div className="col-12 col-lg-10 pl-lg-5">
                   <h1>Media toevoegen</h1>
-                    <PostNewVideo key={id} id={id} />
+                  <h4>Header video toevoegen</h4>
+                  <PostHeaderVideo key={id + 3} id={id} />
+                  <h4>Header afbeelding toevoegen</h4>
+                  <PostHeaderImage key={id + 2} id={id} />
+                  <h4>cursus uitleg video toevoegen</h4>
+                  <PostNewVideo key={id} id={id} />
                 </div>
               </div>
             </div>

@@ -123,10 +123,6 @@ export default function nieuweCursus({ products, strapiCourses }) {
       );
     }
 
-
-
-    
-
     // if (existing === true) {
     //   setCourseExisting(`Deze cursus is al aangemaakt, ga naar "edit cursus" om een cursus aan te passen`)
     // } if (existing === false) {
