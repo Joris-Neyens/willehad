@@ -6,8 +6,8 @@ import Head from "../../../../src/components/head/Head";
 import AdminLayout from "../../../../src/components/layout/AdminLayout";
 import DashboardNav from "../../../../src/components/layout/DashboardNav";
 import DeleteCourse from "../../../../src/components/pages/edit-cursus/DeleteCourse";
-import PostHeaderVideo from "../../../../src/components/pages/edit-cursus/PostVideo";
-import PostHeaderImage from "../../../../src/components/pages/edit-cursus/PostVideo";
+import PostHeaderVideo from "../../../../src/components/pages/edit-cursus/PostHeaderVideo";
+import PostHeaderImage from "../../../../src/components/pages/edit-cursus/PostHeaderImage";
 import PostVideo from "../../../../src/components/pages/edit-cursus/PostVideo";
 import PutInfo from "../../../../src/components/pages/edit-cursus/PutInfo";
 import SideNav from "../../../../src/components/layout/SideNav";
@@ -39,7 +39,7 @@ export default function Course({ course }) {
                       </div>
                       <div className="py-5">
                         <p className="pt-4">Header image</p>
-                        <PostHeaderImage key={course.id} id={id} cover_video={cover} />
+                        <PostHeaderImage key={course.id} id={id} cover={cover} />
                       </div>
                       <div className="py-5">
                         <p>Cursus beschrijving video</p>

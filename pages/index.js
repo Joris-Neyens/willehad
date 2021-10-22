@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import axios from "axios";
-import { useState } from "react";
 import { BASE_URL, HOME_PATH, COURSES_PATH, REVIEWS_PATH } from "../src/api/baseUrl";
 import { API_KEY, THINKIFIC_URL } from "../src/api/thinkific";
 import Head from "../src/components/head/Head";
@@ -95,7 +94,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, collec
             subtitle={home.header_subtitle}
             date={home.course_date}
             course_type={collectionName}
-            url={home.header_image.url}
+            url={home.header_video.url}
           />
           <Uitleg />
           <ReviewsHome reviews={reviews} />

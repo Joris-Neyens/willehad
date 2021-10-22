@@ -1,21 +1,11 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-export default function VideoHeader({
-  date,
-  title,
-  video,
-  course_type,
-  viewHeight,
-  buttonPrimary,
-  buttonSecondary,
-  subtitle,
-  headerButtonName,
-  url,
-}) {
-  
+export default function CursusHeader({ date, title, video, course_type, viewHeight, buttonPrimary, buttonSecondary, subtitle, headerButtonName, url }) {
   const size = useWindowSize();
 
+    console.log(subtitle)
+    
   let height = { height: `${viewHeight}vh` };
   let headerType = "";
   let headerTitle = "";
@@ -28,29 +18,20 @@ export default function VideoHeader({
     headerType = <p className="jumbotron__content-type m-0">{course_type}</p>;
   }
   if (title) {
-    headerTitle = <p className="jumbotron__content-title">{title}</p>;
+    headerTitle = <p className="jumbotron__content-title__header">{title}</p>;
   }
   if (subtitle) {
-    headerSubtitle = (
-      <p className="jumbotron__content-subtitle pt-4 pb-3">{subtitle}</p>
-    );
+    headerSubtitle = <p className="jumbotron__content-subtitle--header pb-2">{subtitle}</p>;
   }
   if (date) {
-    headerDate = (
-      <p className="jumbotron__content-date col-auto d-inline px-0">
-        {date}
-      </p>
-    );
+    headerDate = <p className="jumbotron__content-date col-auto d-inline px-0">{date}</p>;
   }
   if (buttonPrimary) {
     headerButtonPrimary = (
-      <div className="col-12 px-lg-0">
+      <div className="col-auto col-lg-12 px-lg-0">
         <Link href={buttonPrimary}>
-          <button
-            className="button__primary col-12 px-5 py-1 mb-3"
-            title="meer info"
-          >
-            { headerButtonName }
+          <button className="button__primary col-md-auto col-lg-12 px-5 py-1 mb-3" title="meer info">
+            {headerButtonName}
           </button>
         </Link>
       </div>
@@ -59,24 +40,28 @@ export default function VideoHeader({
   if (buttonSecondary) {
     headerButtonSecondary = (
       <Link href={buttonSecondary}>
-        <button
-          className="button__secondary--light col-12 py-1"
-          title="hoe het werkt"
-        >
+        <button className="button__secondary--light col-12 py-1" title="hoe het werkt">
           hoe het werkt
         </button>
       </Link>
     );
   }
 
+  let videoHtml = "";
 
-  let videoHtml = ""
-  
-  
   if (size.width < 992) {
-    videoHtml = <video className="video" width="100%" style={height} preload="metadata" muted loop disablePictureInPicture controlsList="nodownload"><source src={url} /></video>
-  } if (size.width > 991) {
-    videoHtml = <video className="video" width="100%" style={height} autoPlay preload="metadata" muted loop disablePictureInPicture controlsList="nodownload"><source src={url} /></video>
+    videoHtml = (
+      <video className="video" width="100%" style={height} preload="metadata" muted loop disablePictureInPicture controlsList="nodownload">
+        <source src={url} />
+      </video>
+    );
+  }
+  if (size.width > 991) {
+    videoHtml = (
+      <video className="video" width="100%" style={height} autoPlay preload="metadata" muted loop disablePictureInPicture controlsList="nodownload">
+        <source src={url} />
+      </video>
+    );
   }
 
   return (
@@ -84,9 +69,9 @@ export default function VideoHeader({
       {videoHtml}
       <div className="jumbotron-overlay__video">
         <div className="container d-flex align-items-center jumbotron__content" style={height}>
-          <div className="row w-md-50 justify-content-lg-center mx-lg-0">
-            <div className="col-12 col-lg-8">
-              <div className="row col-8 col-md-6 pt-lg-5 mt-lg-5">
+          <div className="rrow w-100 mx-auto w-md-50 mx-lg-0 pr-0">
+            <div className="col-12 col-lg-7 pr-0">
+              <div className="row col-12 px-0">
                 <div className="p-0">
                   {headerType}
                   {headerTitle}
@@ -104,8 +89,6 @@ export default function VideoHeader({
       </div>
     </div>
   );
-
-  
 }
 
 function useWindowSize() {

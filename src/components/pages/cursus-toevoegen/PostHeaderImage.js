@@ -1,9 +1,7 @@
 import axios from "axios";
-import PropTypes from "prop-types";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BASE_URL } from "../../../api/baseUrl";
-import Image from "next/image";
 import { useContext } from "react";
 import AuthContext from "../../../context/AuthContext";
 

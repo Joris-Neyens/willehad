@@ -27,14 +27,14 @@ export default function Header({
 
 
 
-  if (topic) {
-    topic = <p className="jumbotron__content-type m-0">{topic}</p>;
-  }
+   if (course_type) {
+     headerType = <p className="jumbotron__content-type m-0">{course_type}</p>;
+   }
   if (title) {
     headerTitle = <p className="jumbotron__content-title__header">{title}</p>;
   }
   if (subtitle) {
-    headerSubtitle = <p className="jumbotron__content-subtitle--header">{subtitle}</p>;
+    headerSubtitle = <p className="jumbotron__content-subtitle--header pb-2">{subtitle}</p>;
   }
   if (date) {
     headerDate = <p className="jumbotron__content-date col-6 col-sm-4 col-md-3 col-lg-6 col-xl-5 px-0">{date}</p>;
@@ -67,7 +67,7 @@ if (buttonPrimary) {
     <div className="header">
       <div className="header__image">
         <div className="header__image--container position-relative" style={height}>
-          <img className="headerImage" style={{ objectFit: "cover", height: viewHeight + "vh", width: "100vw" }} src={url}/>
+          <img className="headerImage" style={{ objectFit: "cover", height: viewHeight + "vh", width: "100vw" }} src={url} />
         </div>
       </div>
       <div className="header__image--content">
@@ -76,7 +76,7 @@ if (buttonPrimary) {
             <div className="col-12 col-lg-7 pr-0">
               <div className="row col-12 px-0">
                 <div className="p-0">
-                  {topic}
+                  {headerType}
                   {headerTitle}
                   {headerDate}
                   {headerSubtitle}

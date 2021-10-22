@@ -5,6 +5,7 @@ import { THINKIFIC_URL, API_KEY } from "../../src/api/thinkific";
 import { SHOPIFY_TOKEN } from "../../src/api/shopify";
 import { BASE_URL, COURSES_PATH } from '../../src/api/baseUrl'
 import Head from "../../src/components/head/Head";
+import CursusHeader from "../../src/components/layout/header/CursusHeader";
 import Header from "../../src/components/layout/header/Header";
 import Layout from "../../src/components/layout/Layout";
 import AboutCourse from "../../src/components/pages/cursus/AboutCourse";
@@ -55,31 +56,95 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
     practicalInfo = <PracticalInfoZelfstandig webUrl={webUrl} />;
   }
 
-  return (
-    <>
-      <Head title={name} description={"course info for " + seo_title} />
-      <div className="wrapper">
-        <Layout>
-          <Header
-            title={name}
-            buttonPrimary={webUrl}
-            headerButtonName="schrijf je nu in"
-            subtitle={seo_title}
-            url={card_image_url}
-            viewHeight={60}
-            textCol="12"
-            modal={false}
-          />
-          <AboutCourse strapiCourses={strapiCourses} product={courseProduct} />
-          <Curriculum chapters={chapters}/>
-          <ExplainCourse />
-          <Reviews reviews={reviews} />
-          <Docent product={courseProduct} instructors={instructors} />
-          {practicalInfo}
-        </Layout>
-      </div>
-    </>
-  );
+  let productCollection = courseProduct;
+
+
+    const filteredCollection = collections.map(function (collection) {
+      return productCollection.collection_ids.map(function (productCollectionId) {
+        if (collection.id === productCollectionId) {
+          return collection.name;
+        }
+      });
+    });
+
+    let allNames = [];
+
+    filteredCollection.map(function (collectionNames) {
+      collectionNames.map(function (name) {
+        allNames.push(name);
+      });
+    });
+
+    let collectionTitle = "";
+
+    allNames.map(function (name) {
+      if (name === "cursus traject" || name === "zelfstudie cursus") {
+        collectionTitle = name;
+      }
+    });
+
+  const course = strapiCourses.filter(function (strapiCourse) {
+    if (courseProduct.name === strapiCourse.title) {
+      return strapiCourse
+    }
+  })
+
+  if (! course[0].cover_video) {
+    return (
+      <>
+        <Head title={name} description={"course info for " + seo_title} />
+        <div className="wrapper">
+          <Layout>
+            <Header
+              title={name}
+              buttonPrimary={webUrl}
+              headerButtonName="schrijf je nu in"
+              subtitle={seo_title}
+              url={course[0].cover.url}
+              viewHeight={60}
+              textCol="12"
+              modal={false}
+              course_type={collectionTitle}
+            />
+            <AboutCourse strapiCourses={strapiCourses} product={courseProduct} />
+            <Curriculum chapters={chapters} />
+            <ExplainCourse />
+            <Reviews reviews={reviews} />
+            <Docent product={courseProduct} instructors={instructors} />
+            {practicalInfo}
+          </Layout>
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Head title={name} description={"course info for " + seo_title} />
+        <div className="wrapper">
+          <Layout>
+            <CursusHeader
+              title={name}
+              buttonPrimary={webUrl}
+              headerButtonName="schrijf je nu in"
+              subtitle={seo_title}
+              modal={false}
+              viewHeight={60}
+              course_type={collectionTitle}
+              url={course[0].cover_video.url}
+            />
+            <AboutCourse strapiCourses={strapiCourses} product={courseProduct} />
+            <Curriculum chapters={chapters} />
+            <ExplainCourse />
+            <Reviews reviews={reviews} />
+            <Docent product={courseProduct} instructors={instructors} />
+            {practicalInfo}
+          </Layout>
+        </div>
+      </>
+    );
+  }
+
+  
 }
 
 const header = {

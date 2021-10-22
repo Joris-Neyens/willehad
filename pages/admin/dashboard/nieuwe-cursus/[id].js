@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Link from "next/link";
 import SideNav from "../../../../src/components/layout/SideNav";
 import DashboardNav from "../../../../src/components/layout/DashboardNav";
 import axios from "axios";
@@ -30,6 +31,9 @@ export default function newCourseMedia({ course }) {
                   <PostHeaderImage key={id + 2} id={id} />
                   <h4>cursus uitleg video toevoegen</h4>
                   <PostNewVideo key={id} id={id} />
+                  <Link href="/admin/dashboard">
+                    <button className="button__alarm col-4">Dashboard</button>
+                  </Link>
                 </div>
               </div>
             </div>
