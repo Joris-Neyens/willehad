@@ -27,24 +27,19 @@ export default function overWillehad() {
                 <div className="row">
                   <div className="image__card background-light mx-2">
                     <div className="image__card--wrapper col-12 mt-3">
-                      <Image
-                        alt="Under construction"
-                        className=""
-                        src="/underConstruction.jpg"
-                        width="350"
-                        height="200"
-                        layout="responsive"
-                        placeholder="blur"
-                      />
+                      <img alt="Under construction" className="" src="/underConstruction.jpg" width="100%" />
                     </div>
                     <div className="pt-4 px-3 pb-3">
                       <h3>Grote Vragen</h3>
                       <p>
                         Vroeg of laat krijgt iedereen te maken met de grote vragen des levens: Waarom besta ik? Waartoe ben ik op aarde? Bestaat God en wie is
                         hij? Gelovigen en niet-gelovigen zullen hiermee geconfronteerd worden door zichzelf of anderen. Deze vragen zijn niet nieuw, en de
-                        queeste om ze te beantwoorden evenmin. De rijke Rooms Katholieke Traditie kent vele wijze mannen en vrouwen die hierop een antwoord
-                        hebben getracht te formuleren. Helaas is deze Traditie soms moeilijk bereikbaar, omdat het niet eenvoudig in het Nederlands beschikbaar
-                        is en het voor een gemiddelde leek training vergt om het te begrijpen.
+                        queeste om ze te beantwoorden evenmin.
+                      </p>
+                      <p>
+                        De rijke Rooms Katholieke Traditie kent vele wijze mannen en vrouwen die hierop een antwoord hebben getracht te formuleren. Helaas is
+                        deze Traditie soms moeilijk bereikbaar, omdat het niet eenvoudig in het Nederlands beschikbaar is en het voor een gemiddelde leek
+                        training vergt om het te begrijpen.
                       </p>
                     </div>
                   </div>
@@ -60,23 +55,18 @@ export default function overWillehad() {
                       <p>
                         Vroeg of laat krijgt iedereen te maken met de grote vragen des levens: Waarom besta ik? Waartoe ben ik op aarde? Bestaat God en wie is
                         hij? Gelovigen en niet-gelovigen zullen hiermee geconfronteerd worden door zichzelf of anderen. Deze vragen zijn niet nieuw, en de
-                        queeste om ze te beantwoorden evenmin. De rijke Rooms Katholieke Traditie kent vele wijze mannen en vrouwen die hierop een antwoord
-                        hebben getracht te formuleren. Helaas is deze Traditie soms moeilijk bereikbaar, omdat het niet eenvoudig in het Nederlands beschikbaar
-                        is en het voor een gemiddelde leek training vergt om het te begrijpen.
+                        queeste om ze te beantwoorden evenmin.
+                      </p>
+                      <p>
+                        De rijke Rooms Katholieke Traditie kent vele wijze mannen en vrouwen die hierop een antwoord hebben getracht te formuleren. Helaas is
+                        deze Traditie soms moeilijk bereikbaar, omdat het niet eenvoudig in het Nederlands beschikbaar is en het voor een gemiddelde leek
+                        training vergt om het te begrijpen.
                       </p>
                     </div>
                   </Fade>
                   <Slide right>
                     <div className="image-right__card--wrapper position-absolute mt-5 mt-lg-0 col-5 offset-lg-2 offset-xl-3">
-                      <Image
-                        alt="Under construction"
-                        className=""
-                        src="/underConstruction.jpg"
-                        width="110"
-                        height="100"
-                        layout="responsive"
-                        placeholder="blur"
-                      />
+                      <img alt="Under construction" className="about__image" src="/underConstruction.jpg" width="100%" />
                     </div>
                   </Slide>
                 </div>
@@ -88,18 +78,10 @@ export default function overWillehad() {
               <Slide bottom>
                 <div className="row">
                   <div className="image__card background-light mx-2">
-                    <div className="image__card--wrapper col-12 rder-1 mt-3">
-                      <Image
-                        alt="Under construction"
-                        className=""
-                        src="/martelarenvangorcum.jpg"
-                        width="350"
-                        height="200"
-                        layout="responsive"
-                        placeholder="blur"
-                      />
+                    <div className="image__card--wrapper col-12 mt-3">
+                      <img alt="martelaren van gorcum" className="" src="/martelarenvangorcum.jpg" width="100%" />
                     </div>
-                    <div className="order-3 pt-4 px-3 pb-3">
+                    <div className="pt-4 px-3 pb-3">
                       <h3>Willehad.nl</h3>
                       <p>
                         Willehad.nl wil jongeren en gezinnen aanmoedigen op reis te gaan door de grote intellectuele Traditie van de Katholieke Kerk, die vaak
@@ -118,15 +100,7 @@ export default function overWillehad() {
                 <div className="position-relative d-flex align-items-lg-center">
                   <Slide left>
                     <div className="image__card--wrapper position-absolute mt-5 mt-lg-0 offset-1 col-5">
-                      <Image
-                        alt="Under construction"
-                        className=""
-                        src="/martelarenvangorcum.jpg"
-                        width="110"
-                        height="100"
-                        layout="responsive"
-                        placeholder="blur"
-                      />
+                      <img alt="Under construction" className="about__image" width="100%" src="/martelarenvangorcum.jpg" />
                     </div>
                   </Slide>
                   <Fade>

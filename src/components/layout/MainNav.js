@@ -20,7 +20,7 @@ export default function MainNav() {
         <Container className="menu__container">
           <Nav className="me-auto w-100">
             <nav className="py-2 row mx-auto w-100">
-              <div className="py-1">
+              <div className="py-1 d-flex align-items-center">
                 <Link href="/">
                   <a id="logo" className="pr-4">
                     Willehad
