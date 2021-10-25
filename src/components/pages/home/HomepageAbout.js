@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Slide from "react-reveal/Slide";
 import Fade from 'react-reveal/Fade'
 
@@ -20,6 +21,9 @@ export default function HomepageAbout() {
                     verborgen ligt in stoffige boeken en deze toegankelijk maken. Willehad.nl is een initiatief van het Thomistisch Instituut en staat onder het
                     patronaat van Willehad van Bremen en Willehad de Deen.
                   </p>
+                  <Link href="/over-Willehad">
+                    <button className="button__primary px-4 py-1 mt-3">Lees meer</button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -37,6 +41,9 @@ export default function HomepageAbout() {
                     verborgen ligt in stoffige boeken en deze toegankelijk maken. Willehad.nl is een initiatief van het Thomistisch Instituut en staat onder het
                     patronaat van Willehad van Bremen en Willehad de Deen.
                   </p>
+                  <Link href="/over-Willehad">
+                    <button className="button__primary px-4 py-1 mt-3">Lees meer</button>
+                  </Link>
                 </div>
               </Fade>
               <Slide right>
