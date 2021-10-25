@@ -91,7 +91,7 @@ export default function contact() {
                             <p className="mb-0">{errors.message?.message}</p>
                           </div>
                         </div>
-                        <button type="submit" className="button__primary--dark mt-3 py-1 px-5">
+                        <button type="submit" className="col-12 col-md-6 col-lg-4 w-100 button__primary mt-3 py-2 px-5">
                           {submitButton}
                         </button>
                         {postError && <span>Sorry er is iets mis gegaan, probeer het later nog een keer</span>}

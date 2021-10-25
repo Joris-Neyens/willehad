@@ -63,7 +63,7 @@ export default function MainNav() {
         </Container>
       </Navbar>
 
-      <div className="hamburger__wrapper w-100 position-fixed d-lg-none">
+      <div className="hamburger__wrapper w-100 position-fixed d-lg-none background-black">
         <div className="container hamburger__container d-flex justify-content-between background-black">
           <div className="logo-container py-3">
             <div className="hamburger-logo">

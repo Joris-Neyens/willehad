@@ -30,7 +30,7 @@ export default function CursusHeader({ date, title, video, course_type, viewHeig
     headerButtonPrimary = (
       <div className="col-auto col-lg-12 px-lg-0">
         <Link href={buttonPrimary}>
-          <button className="button__primary col-md-auto col-lg-12 px-5 py-1 mb-3" title="meer info">
+          <button className="button__primary col-md-auto col-lg-12 px-5 py-2 mb-3" title="meer info">
             {headerButtonName}
           </button>
         </Link>
@@ -40,7 +40,7 @@ export default function CursusHeader({ date, title, video, course_type, viewHeig
   if (buttonSecondary) {
     headerButtonSecondary = (
       <Link href={buttonSecondary}>
-        <button className="button__secondary--light col-12 py-1" title="hoe het werkt">
+        <button className="button__secondary--light col-12 py-2" title="hoe het werkt">
           hoe het werkt
         </button>
       </Link>

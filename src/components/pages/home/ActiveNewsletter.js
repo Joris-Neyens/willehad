@@ -53,13 +53,13 @@ export default function ActiveNewsletter() {
   return (
     <>
       <section className="newsletter d-flex justify-content-center align-items-center py-5">
-        <div className="container">
-          <div className="row w-100">
-            <div className="col-12 col-md-6 offset-lg-1 pb-4 d-flex flex-column justify-content-center">
+        <div className="container px-md-0">
+          <div className="row w-100 mx-auto px-0">
+            <div className="col-12 pr-0 pl-0 pl-md-4pl-lg-5 col-md-6 pb-4 d-flex flex-column justify-content-center">
               <h2 className="">Nieuwsbrief</h2>
               <p className="text-lg-left m-0 ">Blijf op de hoogte van nieuwe cursussen, activiteiten en aanbiedingen.</p>
             </div>
-            <div className="col-12 col-md-4 d-flex align-items-center mt-3">
+            <div className="col-12 px-0 col-md-6 offset-lg-1 col-lg-5 d-flex align-items-center mt-3">
               <div className="row w-100 mx-auto">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-100">
                   <input {...register("u")} type="hidden" name="u" value="3" />
@@ -70,16 +70,16 @@ export default function ActiveNewsletter() {
                   <input {...register("act")} type="hidden" name="act" value="sub" />
                   <input {...register("v")} type="hidden" name="v" value="2" />
 
-                  <div className="col-12 col-md-12 offset-md-0 px-0 d-flex align-items-center">
+                  <div className="col-12 offset-md-0 px-0 d-flex align-items-center">
                     <input {...register("fullname")} type="text" name="fullname" placeholder="Naam" className="form-control text-center mb-0" />
                   </div>
                   <p className="error text-center mb-2"> {errors.fullname?.message}</p>
-                  <div className="col-12 col-md-12 offset-md-0 px-0 d-flex align-items-center">
+                  <div className="col-12 offset-md-0 px-0 d-flex align-items-center">
                     <input {...register("email")} type="text" name="email" placeholder="Email" className="form-control text-center mb-1" />
                   </div>
                   <p className="error text-center">{errors.email?.message}</p>
-                  <div className="col-12 col-md-12 offset-md-0 px-0 d-flex align-items-center">
-                    <button type="submit" className="button__primary w-100 mx-lg-auto mt-3 mt-md-0 pt-2 pb-1 px-4">
+                  <div className="col-12 offset-md-0 px-0 d-flex align-items-center">
+                    <button type="submit" className="button__primary w-100 mx-lg-auto mt-3 mt-md-0 py-2 px-4">
                       Meld je aan
                     </button>
                   </div>
@@ -91,7 +91,7 @@ export default function ActiveNewsletter() {
       </section>
       <Modal aria-labelledby="contained-modal-title-vcenter"
       centered show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header className="background-blue" closeButton>
           <Modal.Title>Niewsbrief aanmelding</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -99,7 +99,7 @@ export default function ActiveNewsletter() {
           <p>Check je inbox voor een email van het Thomischische Instituut om aanmelding te bevestigen.</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button className="button__primary py-2 px-4" onClick={handleClose}>
             Sluit dit bericht
           </Button>
         </Modal.Footer>

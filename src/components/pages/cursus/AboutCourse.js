@@ -34,7 +34,7 @@ export default function ShortAbout({ product, strapiCourses }) {
 }
 
   return (
-    <section className="pb-5 pt-5 py-lg-5 background-dark about-course">
+    <section className="pt-5 py-lg-5 about-course">
       <div className="container py-lg-5">
         <h2 className="pt-1 text-lg-center">Over de cursus</h2>
         {description}

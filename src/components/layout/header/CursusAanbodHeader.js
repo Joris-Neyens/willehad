@@ -43,7 +43,7 @@ if (buttonPrimary) {
   headerButtonPrimary = (
     <div className="col-12 px-lg-0">
       <Link href={buttonPrimary}>
-        <button className="button__primary col-12 px-5 py-1 mb-3" title="meer info">
+        <button className="button__primary col-12 px-5 py-2 mb-3" title="meer info">
           {headerButtonName}
         </button>
       </Link>
@@ -54,7 +54,7 @@ if (buttonPrimary) {
     headerButtonSecondary = (
       <Link href={buttonSecondary}>
         <button
-          className="button__secondary--light col-12 py-1"
+          className="button__secondary--light col-12 py-2"
           title="hoe het werkt"
         >
           hoe het werkt

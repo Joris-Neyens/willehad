@@ -38,17 +38,17 @@ export default function Uitleg() {
             </div>
           </Fade>
         </div>
-        <div className="row mt-md-4">
-          <div className="col-12 col-md-6 d-flex  justify-content-md-end mt-3 mt-md-0">
+        <div className="row mt-md-4 pt-md-5">
+          <div className="col-12 offset-md-1 col-md-5 col-lg-3 offset-lg-3 d-flex  justify-content-md-end mt-4 mt-md-0">
             <Link href="/cursus-aanbod">
-              <button className="button__primary py-1 px-4" text="cursus aanbod">
+              <button className="w-100 button__primary py-2 px-4" text="cursus aanbod">
                 Cursus aanbod
               </button>
             </Link>
           </div>
-          <div className="col-12 col-md-6 d-flex  justify-content-md-start mt-4 mt-md-0">
+          <div className="col-12 col-md-5 col-lg-3 d-flex justify-content-md-start mt-4 mt-md-0">
             <Link href="/hoe-het-werkt">
-              <button className="button__secondary--dark py-1 px-4" text="hoe het werkt">
+              <button className=" w-100 button__secondary--dark py-2 px-4" text="hoe het werkt">
                 Hoe het werkt
               </button>
             </Link>
@@ -56,9 +56,5 @@ export default function Uitleg() {
         </div>
       </div>
     </section>
-
-
-    
-    
   );
 }

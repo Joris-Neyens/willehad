@@ -82,9 +82,9 @@ export default function hoeHetWerkt() {
                       </p>
                     </div>
                   </Fade>
-                  <div className="py-5">
+                  <div className="py-5 px-0 col-12 col-md-6">
                     <Link href="/cursus-aanbod">
-                      <button className="button__primary mt-3 px-4 py-1">Cursus aanbod</button>
+                      <button className="w-100 button__primary mt-3 px-4 py-2">Cursus aanbod</button>
                     </Link>
                   </div>
                 </div>
