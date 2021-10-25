@@ -29,13 +29,8 @@ export default function HomepageAbout() {
           <div className="row">
             <h2 className="pb-3 col-12 text-center">Over Willehad</h2>
             <div className="position-relative d-flex align-items-lg-center">
-              <Slide left>
-                <div className="image__card--wrapper position-absolute mt-5 mt-lg-0 col-6 col-lg-4 col-xl-3 offset-lg-2 offset-xl-3">
-                  <Image alt="Thomas Aquino" className="" src="/thomasaquinas.jpg" width="100" height="130" layout="responsive" />
-                </div>
-              </Slide>
               <Fade>
-                <div className="image__card--bio col-6 col-xl-5 py-4 px-5 py-5 background-dark">
+                <div className="image-right__card--bio offset-1 col-5 py-4 px-5 py-5 background-dark">
                   <h3>Cursus platform Willehad</h3>
                   <p>
                     Willehad.nl wil jongeren en gezinnen aanmoedigen op reis te gaan door de grote intellectuele Traditie van de Katholieke Kerk, die vaak zo
@@ -44,6 +39,11 @@ export default function HomepageAbout() {
                   </p>
                 </div>
               </Fade>
+              <Slide right>
+                <div className="image-right__card--wrapper position-absolute mt-5 mt-lg-0 col-6">
+                  <Image alt="Thomas Aquino" className="" src="/thomas-card.jpg" width="190" height="130" layout="responsive" />
+                </div>
+              </Slide>
             </div>
           </div>
         </div>
