@@ -27,7 +27,7 @@ export default function overWillehad() {
                 <div className="row">
                   <div className="image__card background-light mx-2">
                     <div className="image__card--wrapper col-12 mt-3">
-                      <img alt="Under construction" className="" src="/underConstruction.jpg" width="100%" />
+                      <img alt="man alin ein church" className="" src="/about-1.jpg" width="100%" />
                     </div>
                     <div className="pt-4 px-3 pb-3">
                       <h3>Grote Vragen</h3>
@@ -65,8 +65,8 @@ export default function overWillehad() {
                     </div>
                   </Fade>
                   <Slide right>
-                    <div className="image-right__card--wrapper position-absolute mt-5 mt-lg-0 col-5 offset-lg-2 offset-xl-3">
-                      <img alt="Under construction" className="about__image" src="/underConstruction.jpg" width="100%" />
+                    <div className="image-right__card--wrapper position-absolute mt-5 mt-lg-0 col-6 offset-lg-2 offset-xl-3">
+                      <img alt="Man alone in church" className="about__image" src="/about-1.jpg" width="100%" />
                     </div>
                   </Slide>
                 </div>
@@ -79,7 +79,7 @@ export default function overWillehad() {
                 <div className="row">
                   <div className="image__card background-light mx-2">
                     <div className="image__card--wrapper col-12 mt-3">
-                      <img alt="martelaren van gorcum" className="" src="/martelarenvangorcum.jpg" width="100%" />
+                      <img alt="martelaren van gorcum" className="" src="/martelarenvangorcom.jpg" width="100%" />
                     </div>
                     <div className="pt-4 px-3 pb-3">
                       <h3>Willehad.nl</h3>
@@ -100,7 +100,7 @@ export default function overWillehad() {
                 <div className="position-relative d-flex align-items-lg-center">
                   <Slide left>
                     <div className="image__card--wrapper position-absolute mt-5 mt-lg-0 offset-1 col-5">
-                      <img alt="Under construction" className="about__image" width="100%" src="/martelarenvangorcum.jpg" />
+                      <img alt="Under construction" className="about__image" width="100%" src="/martelarenvangorcom.jpg" />
                     </div>
                   </Slide>
                   <Fade>
