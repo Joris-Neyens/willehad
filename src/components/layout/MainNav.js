@@ -64,7 +64,7 @@ export default function MainNav() {
       </Navbar>
 
       <div className="hamburger__wrapper w-100 position-fixed d-lg-none">
-        <div className="container hamburger__container d-flex justify-content-between">
+        <div className="container hamburger__container d-flex justify-content-between background-black">
           <div className="logo-container py-3">
             <div className="hamburger-logo">
               <Link href="/">
@@ -111,7 +111,7 @@ export default function MainNav() {
             setOpen(false);
           }}
         >
-          <div className="background-blue hamburger__content py-5 px-sm-5 px-4">
+          <div className="background-black hamburger__content py-5 px-sm-5 px-4">
             <Link href="/">
               <a className="text-right menu__link">Home</a>
             </Link>
