@@ -1,23 +1,18 @@
 
 .button__primary {
     border: none;
-    background-color: $secondary;
+    background-color: $accent;
     font-weight: 400;
     font-size: 22px;
     color: white;
         border-radius: 2px;
 }
 .button__primary:hover {
-    background-color: rgba(255, 255, 255, 0);
-    outline: 2px solid $secondary;
-    color: $secondary;
+    background-color: #751e1e;
     cursor: pointer;
-    a {
-        color: $secondary;
-    }
 }
 .button__primary:active {
-    background-color: $secondary-dark;
+    background-color: $accent;
     color: $background;
     cursor: pointer;
     a {
@@ -25,7 +20,7 @@
     }
 }
 .button__primary:focus {
-    background-color: $secondary-dark;
+    background-color: #751e1e;
     color: $background;
     cursor: pointer;
     a {
@@ -41,7 +36,7 @@
     border-radius: 2px;
 }
 .button__primary--dark:hover {
-    background-color: #44435c;
+    background-color: #373547;
     cursor: pointer;
 }
 
@@ -67,16 +62,17 @@
     visibility: hidden;
 }
 .button__secondary--dark {
-    border: 2px solid $secondary;
+    border: 2px solid $accent;
     background-color: transparent;
     border-radius: 2px !important;
     font-weight: 400;
     font-size: 22px;
-    color: $secondary;
+    color: $accent;
 }
 .button__secondary--dark:hover {
-     outline: 1px solid $secondary;
-    border-color: $secondary;
+    //  outline: 1px solid $accent;
+    border-color: #751e1e;
+    color: #751e1e;
     font-weight: 400;
 }
 

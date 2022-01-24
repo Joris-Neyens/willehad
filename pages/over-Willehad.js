@@ -1,6 +1,4 @@
 import Image from "next/image";
-// import underConstruction from "../public/underConstruction.jpg";
-// import martelarenvangorcum from "../public/martelarenvangorcum.jpg";
 import Layout from "../src/components/layout/Layout";
 import Slide from "react-reveal/Slide";
 import Fade from "react-reveal/Fade";
@@ -27,7 +25,7 @@ export default function overWillehad() {
                 <div className="row">
                   <div className="image__card background-light mx-2">
                     <div className="image__card--wrapper col-12 mt-3">
-                      <img alt="man alin ein church" className="" src="/about-1.jpg" width="100%" />
+                      <img alt="man alone in church" className="" src="/about-1.jpg" width="100%" />
                     </div>
                     <div className="pt-4 px-3 pb-3">
                       <h3>Grote Vragen</h3>

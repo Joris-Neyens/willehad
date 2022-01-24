@@ -89,7 +89,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, collec
             video={home.header_video.url}
             modal={false}
             home={home}
-            viewHeight={90}
+            viewHeight={85}
             textCol="4"
             subtitle={home.header_subtitle}
             date={home.course_date}

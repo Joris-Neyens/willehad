@@ -83,10 +83,10 @@ export default function VideoHeader({
     <div className="jumbotron__video container-fluid rounded-0 p-0">
       {videoHtml}
       <div className="jumbotron-overlay__video">
-        <div className="container d-flex align-items-center jumbotron__content" style={height}>
-          <div className="row w-md-50 justify-content-lg-center mx-lg-0">
+        <div className="container d-flex align-items-center jumbotron__content pl-0" style={height}>
+          <div className="row w-md-50 mx-lg-0">
             <div className="col-12 col-lg-8">
-              <div className="row col-8 col-md-6 pt-lg-5 mt-lg-5">
+              <div className="row col-8 col-md-6 pt-lg-5 pl-0 mt-lg-5">
                 <div className="p-0">
                   {headerType}
                   {headerTitle}

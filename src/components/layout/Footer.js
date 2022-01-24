@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="row p-0">
           <div className="col-12 pb-3 pb-md-0 text-md-left col-md-2">
             <p className="d-block mb-1">Willehad</p>
-            <Link href="/contact">
+            <Link href="/over-Willehad">
               <a className="d-block">Over Willehad</a>
             </Link>
             <Link href="/contact">
