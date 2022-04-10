@@ -101,7 +101,7 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
               headerButtonName="schrijf je nu in"
               subtitle={seo_title}
               url={course[0].cover.url}
-              viewHeight={60}
+              viewHeight={80}
               textCol="12"
               modal={false}
               course_type={collectionTitle}
@@ -109,7 +109,7 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
             <AboutCourse strapiCourses={strapiCourses} product={courseProduct} />
             <Curriculum chapters={chapters} />
             <ExplainCourse />
-            <Reviews reviews={reviews} />
+            {/* <Reviews reviews={reviews} /> */}
             <Docent product={courseProduct} instructors={instructors} />
             {practicalInfo}
           </Layout>
@@ -128,14 +128,14 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
               headerButtonName="schrijf je nu in"
               subtitle={seo_title}
               modal={false}
-              viewHeight={60}
+              viewHeight={70}
               course_type={collectionTitle}
               url={course[0].cover_video.url}
             />
             <AboutCourse strapiCourses={strapiCourses} product={courseProduct} />
             <Curriculum chapters={chapters} />
             <ExplainCourse />
-            <Reviews reviews={reviews} />
+            {/* <Reviews reviews={reviews} /> */}
             <Docent product={courseProduct} instructors={instructors} />
             {practicalInfo}
           </Layout>

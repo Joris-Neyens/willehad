@@ -1,21 +1,10 @@
 
-#logo {
-  color: $background;
-  font-size: 36px;
-}
+
 #logo:hover {
-  cursor: pointer;
-}
-#slogan {
-  font-size: 14px;
-  font-weight: 400;
-}
-#slogan:hover {
   cursor: pointer;
 }
 #wordmark:hover {
   cursor: pointer;
-
 }
 .menu {
   background-color: $background;
@@ -26,9 +15,9 @@
 }
 .menu__link {
   font-weight: 400;
-  font-size: 17px;
+  font-size: 15px;
   text-transform: uppercase;
-  color: $primary;
+  color: $background !important;
 }
 .menu__link:hover {
   color: $secondary-dark;
@@ -92,6 +81,9 @@
 }
 
 @media (min-width: 576px) { 
+  .menu__link {
+    color: $primary !important;
+  }
   .hamburger__menu--close {
     .background-blue {
     width: 45vw;

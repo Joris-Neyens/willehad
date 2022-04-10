@@ -1,6 +1,6 @@
 body {
   background-color: $background;
-  color: $primary;
+  color: $background-dark;
   font-size: 18px;
 }
 
@@ -19,6 +19,9 @@ img {
 .background-blue {
   background: $primary;
   color: $background;
+}
+.background-secondary {
+  background: $secondary;
 }
 .alert {
   color: $accent;

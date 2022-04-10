@@ -41,11 +41,11 @@ export default function Docent({ product, instructors }) {
               </Slide>
             </div>
             <div className="container d-none d-md-block pt-0 py-md-5">
-              <div className="row">
-                <h2 className="pb-3 col-12 text-center">Ontmoet de docent</h2>
-                <div className="position-relative d-flex align-items-lg-center">
+              <div className="row pb-5">
+                <h2 className="pb-3 pt-5 col-12 text-center">Ontmoet de docent</h2>
+                <div className="position-relative d-flex align-items-lg-center pt-5 mt-2">
                   <Slide left>
-                    <div className="image__card--wrapper position-absolute mt-5 mt-lg-0 col-6 col-lg-4 offset-lg-2 offset-xl-2">
+                    <div className="image__card--wrapper-left position-absolute mt-5 mt-lg-0 col-6 col-lg-4 offset-lg-2 offset-xl-2">
                       <Image alt={"image of " + teacherName} className="" src={instructor.avatar_url} width="200" height="200" layout="responsive" />
                     </div>
                   </Slide>

@@ -13,7 +13,7 @@ export default function PutHomeInfo({ home }) {
 
   const {
     course_date,
-    title,
+    header_title,
     header_subtitle,
   } = home;
 
@@ -25,9 +25,9 @@ export default function PutHomeInfo({ home }) {
   const token = getToken("auth");
 
   const schema = yup.object().shape({
-    title: yup
+    header_title: yup
       .string()
-      .required("Vul de title in die over de header foto komt"),
+      .required("Vul de titel in die over de header foto komt"),
     course_date: yup
       .string()
       .required("vul in datum voor de eersvolgende cursus"),
@@ -79,11 +79,11 @@ export default function PutHomeInfo({ home }) {
         <div className="px-0 py-2">
           <input
             className="form-control w-100 p-2"
-            defaultValue={title}
+            defaultValue={header_title}
             type="text"
-            {...register("title")}
+            {...register("header_title")}
           />
-          <p className="error"> {errors.title?.message}</p>
+          <p className="error"> {errors.header_title?.message}</p>
         </div>
         <p className="m-0">datum cursus</p>
         <div className="px-0 py-2">

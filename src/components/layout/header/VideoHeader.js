@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 export default function VideoHeader({
   date,
   title,
-  video,
   course_type,
   viewHeight,
   buttonPrimary,
@@ -13,6 +12,8 @@ export default function VideoHeader({
   headerButtonName,
   url,
 }) {
+
+  console.log("title = " + title)
   
   const size = useWindowSize();
 
@@ -32,7 +33,7 @@ export default function VideoHeader({
   }
   if (subtitle) {
     headerSubtitle = (
-      <p className="jumbotron__content-subtitle pt-4 pb-3">{subtitle}</p>
+      <p className="jumbotron__content-subtitle col-md-11 px-0 pt-4 pb-3">{subtitle}</p>
     );
   }
   if (date) {
@@ -84,15 +85,15 @@ export default function VideoHeader({
       {videoHtml}
       <div className="jumbotron-overlay__video">
         <div className="container d-flex align-items-center jumbotron__content pl-0" style={height}>
-          <div className="row w-md-50 mx-lg-0">
-            <div className="col-12 col-lg-8">
-              <div className="row col-8 col-md-6 pt-lg-5 pl-0 mt-lg-5">
+          <div className="row w-100 w-md-50 mx-lg-0">
+            <div className="col-12 col-lg-12 pl-md-0">
+              <div className="row col-12 pt-lg-5 pl-md-0 mx-0 mt-lg-5">
                 <div className="p-0">
                   {headerType}
                   {headerTitle}
                   {headerDate}
                   {headerSubtitle}
-                  <div className="row pl-lg-3">
+                  <div className="row w-100 pl-lg-3">
                     {headerButtonPrimary}
                     {headerButtonSecondary}
                   </div>

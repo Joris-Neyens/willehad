@@ -12,7 +12,7 @@ export default function Uitleg() {
               <div className="row flex-lg-column">
                 <div className="text-lect text-lg-center col-md-10 offset-md-1 offset-lg-0 col-lg-12 mt-lg-4">
                   <h3 className="text-lg-center">Verdieping</h3>
-                  <p className="text-lg-center px-lg-4">Studeer online de rijke intellectuele traditie van de Katholieke kerk op een toegankelijke manier</p>
+                  <p className=" px-lg-4">Studeer online de rijke intellectuele traditie van de Katholieke kerk op een toegankelijke manier.</p>
                 </div>
               </div>
             </div>
@@ -20,7 +20,7 @@ export default function Uitleg() {
               <div className="row flex-lg-column">
                 <div className="text-left text-lg-center col-md-10 offset-md-1 offset-lg-0 col-lg-12 mt-lg-4 pt-4 pt-lg-0">
                   <h3 className="text-lg-center">Samen</h3>
-                  <p className="text-lg-center px-lg-4">
+                  <p className="px-lg-4">
                     Kom wekelijks samen met vrienden of een groep uit je parochie om elkaar intellectueel en spiritueel uit te dagen.
                   </p>
                 </div>
@@ -30,7 +30,7 @@ export default function Uitleg() {
               <div className="row">
                 <div className="text-left text-lg-center col-md-10 offset-md-1 offset-lg-0 col-lg-12 mt-lg-4 pt-4 pt-lg-0">
                   <h3 className="text-lg-center">Begeleiding</h3>
-                  <p className="text-lg-center px-lg-4">
+                  <p className="px-lg-4">
                     Een coach helpt jou groep dieper te graven in de materie en een docent staat klaar voor verdiepende vragen.
                   </p>
                 </div>

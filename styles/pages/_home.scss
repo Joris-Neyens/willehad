@@ -10,3 +10,15 @@
 .home__about {
     min-height: 55vh;
 }
+.homepage-about_image-wrapper {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.homepage-about_willehad-illustration {
+    object-fit: scale-down;
+    width: 100%;
+    height: 100%;
+}

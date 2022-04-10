@@ -52,7 +52,7 @@ export default function ActiveNewsletter() {
 
   return (
     <>
-      <section className="newsletter d-flex justify-content-center align-items-center py-5">
+      <section className="newsletter d-flex justify-content-center align-items-center">
         <div className="container px-md-0">
           <div className="row w-100 mx-auto px-0">
             <div className="col-12 pr-0 pl-0 pl-md-4pl-lg-5 col-md-6 pb-4 d-flex flex-column justify-content-center">

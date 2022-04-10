@@ -3,6 +3,8 @@
   border: none;
 }
 .newsletter {
-  background-color: $lightgrey-background;
-  color: $primary;
+  background: url("/stone-background.jpg");
+  background-position: center; 
+  background-size: 100vw auto;
+  padding: 80px 0 80px 0;
 }

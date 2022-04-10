@@ -26,6 +26,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, collec
   })
   productCollection = productCollection[0]
 
+
   const filteredCollection = collections.map(function (collection) {
     return productCollection.collection_ids.map(function (productCollectionId) {
       if (collection.id === productCollectionId) {
@@ -50,6 +51,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, collec
     }
   });
 
+  console.log(home)
 
   if (! home.header_video) {
     return (
@@ -61,7 +63,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, collec
             headerButtonName="cursus info"
             buttonPrimary={courseUrl}
             buttonSecondary="/hoe-het-werkt"
-            title={home.title}
+            title={home.header_title}
             url={home.header_image.url}
             modal={false}
             home={home}
@@ -70,7 +72,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, collec
             date={home.course_date}
           />
           <Uitleg />
-          <ReviewsHome reviews={reviews} />
+          {/* <ReviewsHome reviews={reviews} /> */}
           <ActiveNewsletter />
           <HomepageAbout />
         </Layout>
@@ -85,7 +87,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, collec
             courses={courses}
             headerButtonName="Cursus info"
             buttonPrimary={courseUrl}
-            title={home.title}
+            title={home.header_title}
             video={home.header_video.url}
             modal={false}
             home={home}
@@ -97,7 +99,7 @@ export default function Home({ home, courses, reviews, thinkificProducts, collec
             url={home.header_video.url}
           />
           <Uitleg />
-          <ReviewsHome reviews={reviews} />
+          {/* <ReviewsHome reviews={reviews} /> */}
           <ActiveNewsletter />
           <HomepageAbout />
         </Layout>

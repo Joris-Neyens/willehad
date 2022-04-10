@@ -31,7 +31,7 @@ export default function Header({
      headerType = <p className="jumbotron__content-type m-0">{course_type}</p>;
    }
   if (title) {
-    headerTitle = <p className="jumbotron__content-title__header">{title}</p>;
+    headerTitle = <p className="jumbotron__content-title__header text-left">{title}</p>;
   }
   if (subtitle) {
     headerSubtitle = <p className="jumbotron__content-subtitle--header pb-2">{subtitle}</p>;

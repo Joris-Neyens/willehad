@@ -21,17 +21,10 @@ export default function MainNav() {
                 <Link href="/">
                   <Image id="logo" src="/CrestOnlyPurple.png" width="70" height="63" />
                 </Link>
-                <div className="d-flex h-100">
-                  <div className="d-flex align-items-center pt-1">
-                    <div className="d-flex flex-column" id="wordmark">
-                      <Link href="/">
-                        <Image src="/wordmark.png" width="250" height="32" />
-                      </Link>
-                      <p id="slogan" className="d-flex justify-content-center m-0">
-                        Katholiek Cursus Platform
-                      </p>
-                    </div>
-                  </div>
+                <div className="pl-3 pt-3" id="wordmark">
+                  <Link href="/">
+                    <Image src="/willehad_wordmark.png" width="220" height="48" />
+                  </Link>
                 </div>
               </div>
               <div className="d-flex">
