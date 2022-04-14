@@ -10,6 +10,7 @@ import Header from "../../src/components/layout/header/Header";
 import Layout from "../../src/components/layout/Layout";
 import AboutCourse from "../../src/components/pages/cursus/AboutCourse";
 import ExplainCourse from "../../src/components/pages/cursus/ExplainCourse";
+import CoursenNotFound from "../../src/components/pages/cursus/CourseNotFound";
 import PracticalInfoTraject from "../../src/components/pages/cursus/PracticalInfoTraject";
 import PracticalInfoZelfstandig from "../../src/components/pages/cursus/PracticalInfoZelfstandig";
 import Docent from "../../src/components/pages/cursus/Docent";
@@ -20,7 +21,6 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
   const { name, seo_title, card_image_url } = courseProduct;
   const webUrl = fetchedCheckout.webUrl;
   const productCollectionIds = courseProduct.collection_ids;
-
   const collectionArrays = productCollectionIds.map(function (prodColId) {
 
     return collections.map(function (collection) {
@@ -89,6 +89,19 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
     }
   })
 
+  if (!course[0]) {
+    return (
+      <>
+        <Head title={name} description={"cursus onder constructie"} />
+        <div className="wrapper">
+          <Layout>
+            <CoursenNotFound/>
+          </Layout>
+        </div>
+      </>
+    );
+  }
+
   if (! course[0].cover_video) {
     return (
       <>
@@ -136,7 +149,7 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
             <Curriculum chapters={chapters} />
             <ExplainCourse />
             {/* <Reviews reviews={reviews} /> */}
-            <Docent product={courseProduct} instructors={instructors} />
+            /* <Docent product={courseProduct} instructors={instructors} />
             {practicalInfo}
           </Layout>
         </div>
@@ -267,7 +280,11 @@ export async function getServerSideProps({ params }) {
     console.log(error)
   }
 
-   variantId = variantId[0].variants[0].id
+
+
+  if (!variantId) {
+    variantId = variantId[0].variants[0].id
+  }
 
   const lineItemsToAdd = [
     {

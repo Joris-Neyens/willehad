@@ -76,7 +76,6 @@ export default function CourseCards({ productInfo, courses, collections }) {
                               </p>
                             </div>
                           </div>
-
           }
             
             return (

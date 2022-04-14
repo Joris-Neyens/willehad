@@ -12,7 +12,7 @@ export default function Courses({ products, courses, collections }) {
 
   let publishedProducts = products.filter(function (product) {
     console.log(product.status)
-    if (product.status === "published") {
+    if (product.status !== "draft") {
       return product.keywords
     }
   })
