@@ -10,22 +10,22 @@ export default function ExplainCourse() {
               <div className="col-12 px-0 col-lg-4">
                 <div className="col-10 col-lg-12 mt-lg-4">
                   <h3 className="text-lg-center">Online cursus</h3>
-                  <p className="px-lg-2">Studeer online de rijke intellectuele traditie van de Katholieke kerk op een toegankelijke manier</p>
+                  <p className="px-lg-2">Deze cursus bestaat uit videos, vragen en verdiepende teksten die je in je eigen tempo kunt volgen.</p>
                 </div>
               </div>
               <div className="col-12 px-0 col-lg-4">
                 <div className="col-10 col-lg-12 mt-lg-4">
                   <h3 className="text-lg-center">Samen</h3>
                   <p className="px-lg-2">
-                    Kom wekelijks samen met vrienden of een groep uit je parochie om elkaar intellectueel en spiritueel uit te dagen.
+                    Tijdens twee online bijeenkomsten ga je in gesprek over wat je hebt geleerd.
                   </p>
                 </div>
               </div>
               <div className="col-12 px-0 col-lg-4">
                 <div className="col-10 col-lg-12 mt-lg-4">
                   <h3 className="text-lg-center">Begeleiding</h3>
-                  <p className="px-lg-2">
-                    Een coach helpt jou groep dieper te graven in de materie en een docent staat klaar voor verdiepende vragen.
+                  <p className="px-lg-2 ">
+                    Tijdens deze bijeenkomensten zal de docent dieper ingaan op het cursusmateriaal.
                   </p>
                 </div>
               </div>

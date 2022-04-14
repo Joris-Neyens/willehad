@@ -10,15 +10,12 @@ export default function Courses({ products, courses, collections }) {
 
   const [productInfo, setProductInfo] = useState(products);
 
-
   let publishedProducts = products.filter(function (product) {
+    console.log(product.status)
     if (product.status === "published") {
       return product.keywords
     }
   })
-
-  console.log(publishedProducts)
-
 
   let themesObjects = Object.assign(
     publishedProducts.map(function (product) {
@@ -219,7 +216,6 @@ export default function Courses({ products, courses, collections }) {
                         id={collection.id}
                         type="checkbox"
                         value={collection.id}
-                        id="category"
                         onChange={e => collectionFilter(e.target)}
                       />
                       <label className="form-check-label custom-control-label" htmlFor={collection.id}>

@@ -34,7 +34,7 @@ export default function Header({
     headerTitle = <p className="jumbotron__content-title__header text-left">{title}</p>;
   }
   if (subtitle) {
-    headerSubtitle = <p className="jumbotron__content-subtitle--header pb-2">{subtitle}</p>;
+    headerSubtitle = <p className="jumbotron__content-subtitle--header pb-2 text-left">{subtitle}</p>;
   }
   if (date) {
     headerDate = <p className="jumbotron__content-date col-6 col-sm-4 col-md-3 col-lg-6 col-xl-5 px-0">{date}</p>;
@@ -71,7 +71,7 @@ if (buttonPrimary) {
         </div>
       </div>
       <div className="header__image--content">
-        <div className="container d-flex align-items-center jumbotron__content" style={height}>
+        <div className="container d-flex align-items-center jumbotron__content pl-0" style={height}>
           <div className="row w-100 mx-auto w-md-50 mx-lg-0 pr-0">
             <div className="col-12 col-lg-7 pr-0">
               <div className="row col-12 px-0">
