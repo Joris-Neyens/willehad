@@ -62,8 +62,16 @@ export default function CourseCards({ productInfo, courses, collections }) {
             };
           }
 
-          let card_details = <div><br/></div>
+          let cardTitle = <h2 className="ml-2 w-100 text-center mt-5">{name}</h2>
+          
+          let meerInfo = <button className="button__secondary--light ml-2 text-center px-4 py-1 mt-2">Meer info</button>;
+          if (product.status === "presell") {
+            meerInfo = ""
+            cardTitle = <h2 className="ml-2 w-100 text-center mt-5">cursus onder ontwikkeling</h2>;
+          }
 
+            let card_details = (<div><br /></div>
+            );
           if (product.status === "published") {
 
             card_details = <div className="d-flex justify-content-center">
@@ -89,8 +97,8 @@ export default function CourseCards({ productInfo, courses, collections }) {
                             <img src={card_image_url} style={{ width: "100%", height: "100%" }} className="py-2" />
                           </div>
                           <div className="card__image--content my-2 d-flex flex-column justify-content-center align-items-center ">
-                            <h2 className="ml-2 w-100 text-center mt-5">{name}</h2>
-                            <button className="button__secondary--light ml-2 text-center px-4 py-1 mt-2">Meer info</button>
+                            {cardTitle}
+                            {meerInfo}
                           </div>
                         </div>
                         <div className="px-1 py-2 col-12 col-lg-12 px-md-4 d-flex flex-column justify-content-between">
