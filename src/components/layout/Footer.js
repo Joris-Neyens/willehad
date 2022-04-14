@@ -35,7 +35,7 @@ export default function Footer() {
               </div>
             </Link>
           </div>
-          <div className="col-12 d-flex justify-content-center p-0">
+          <div className="d-none col-12 justify-content-center p-0">
             <FontAwesomeIcon className="footer__icon mx-2" icon={faFacebookSquare} />
             <FontAwesomeIcon className="footer__icon mx-2" icon={faTwitterSquare} />
           </div>
