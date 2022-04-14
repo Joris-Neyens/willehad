@@ -30,7 +30,9 @@ export default function Footer() {
           </div>
           <div className="col-12 py-3">
             <Link href="/">
-              <h3 className="text-center footer__logo">Willehad</h3>
+              <div className="d-flex justify-content-center footer-logo">
+                <img src="/willehad_wordmark_white.png" alt="footer logo" className="col-3"></img>
+              </div>
             </Link>
           </div>
           <div className="col-12 d-flex justify-content-center p-0">
