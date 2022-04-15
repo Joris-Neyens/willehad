@@ -13,7 +13,7 @@ body {
  overflow: hidden;
  display: block;
  position: relative;
- padding-bottom: 292px;
+ padding-bottom: 360.17px;
 }
 
 section.newsletter {
@@ -25,8 +25,13 @@ footer {
  width: 100%;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .wrapper{
-    padding-bottom: 481.6px;
+    padding-bottom: 526.8px;
   }
 }
+// @media only screen and (max-width: 768px) {
+//   .wrapper {
+//     padding-bottom: 526.8px;
+//   }
+// }

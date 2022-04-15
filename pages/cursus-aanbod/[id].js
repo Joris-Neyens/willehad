@@ -149,7 +149,7 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
             <Curriculum chapters={chapters} />
             <ExplainCourse />
             {/* <Reviews reviews={reviews} /> */}
-            /* <Docent product={courseProduct} instructors={instructors} />
+            <Docent product={courseProduct} instructors={instructors} />
             {practicalInfo}
           </Layout>
         </div>
