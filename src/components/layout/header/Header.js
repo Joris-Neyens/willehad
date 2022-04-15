@@ -71,11 +71,11 @@ if (buttonPrimary) {
         </div>
       </div>
       <div className="header__image--content">
-        <div className="container d-flex align-items-center jumbotron__content pl-0" style={height}>
+        <div className="container d-flex align-items-center jumbotron__content pl-md-0" style={height}>
           <div className="row w-100 mx-auto w-md-50 mx-lg-0 pr-0">
             <div className="col-12 col-lg-7 pr-0">
               <div className="row col-12 px-0">
-                <div className="p-0">
+                <div className="p-md-0">
                   {headerType}
                   {headerTitle}
                   {headerDate}
