@@ -17,10 +17,10 @@
   font-weight: 400;
   font-size: 15px;
   text-transform: uppercase;
-  color: $background !important;
+  color: $background-dark !important;
 }
 .menu__link:hover {
-  color: $secondary-dark;
+  color: $accent;
 }
 .menu__link--light {
   font-weight: 600;
@@ -45,7 +45,7 @@
   transition-timing-function: ease-out;
 }
 .hamburger__content {
-  margin-top: 65.2px;
+  margin-top: 59.2px;
 }
 .hamburger__menu--close {
   z-index: 4;
@@ -62,7 +62,7 @@
  z-index: 3;
 
  a {
-   color: $background;
+   color: $background-dark;
    font-family: $playfair;
    font-size: 36px;
  }

@@ -45,21 +45,21 @@ export default function HomepageAbout() {
         </section>
       </section> */}
 
-      <section className="homepage-about background mt-5 pb-5 pt-5">
+      <section className="homepage-about background mt-5 pb-md-5 pt-5">
         <div className="container">
           <div className="row">
-            <div className="col-6 px-0">
-              <h2>Cursus platform</h2>
+            <div className="col-12 col-md-6 px-md-0">
+              <h2>Willehad</h2>
               <p>
                 Willehad.nl wil jongeren en gezinnen aanmoedigen op reis te gaan door de grote intellectuele Traditie van de Katholieke Kerk, die vaak zo
                 verborgen ligt in stoffige boeken en deze toegankelijk maken. Willehad.nl is een initiatief van het Thomistisch Instituut en staat onder het
                 patronaat van Willehad van Bremen en Willehad de Deen.
               </p>
               <Link href="/over-Willehad">
-                <button className="w-50 button__primary px-4 py-2 mt-3">over Willehad</button>
+                <button className="w-100 w-md-50 button__primary px-4 py-2 mt-3">meer over Willehad</button>
               </Link>
             </div>
-            <div className="col-6 homepage-about_image-wrapper" id="homepage_about-illustration">
+            <div className="pt-5 col-12 col-md-6 homepage-about_image-wrapper" id="homepage_about-illustration">
               <img alt="illustration of Saint Willehad" className="homepage-about_willehad-illustration" src="/bisshop_willehad_red.png" />
             </div>
           </div>
