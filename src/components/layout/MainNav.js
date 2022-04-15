@@ -69,7 +69,9 @@ export default function MainNav() {
         <div className="container hamburger__container d-flex justify-content-between">
           <div className="logo-container w-100 py-3">
             <div className="hamburger-logo d-flex justify-content-center px-md-5">
-              <img src="/willehad_wordmark_white.png" className=""></img>
+              <Link href="/">
+                <img src="/willehad_wordmark_white.png" className=""></img>
+              </Link>
             </div>
           </div>
           <div className="d-flex align-items-center">

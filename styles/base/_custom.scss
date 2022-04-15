@@ -12,10 +12,6 @@ $sans-serif: 'proxima-nova', sans-serif;
 $playfair: 'freight-big-pro', serif;
 $logo-font: 'playfair-display', serif;
 
-p {
-  text-align: justify;
-}
-
 @media (max-width: 767px) { 
     p {
         font-size: 16px !important;

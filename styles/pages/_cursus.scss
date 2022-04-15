@@ -32,3 +32,10 @@
 .explain-course {
     min-height: 50vh;
 }
+
+@media (min-width: 992px) {
+
+    .explain-course p {
+        text-align: justify;
+    }
+}

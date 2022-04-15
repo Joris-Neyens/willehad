@@ -27,7 +27,7 @@ export default function hoeHetWerkt() {
                 </div>
               </div>
               <div className="row">
-                <div className="col-12 offset-0 col-lg-8 mb-5">
+                <div className="col-12 offset-0 col-lg-7 mb-5">
                   <h2 className="hoe-het-werkt__title py-2">Samen</h2>
                   <p>
                     Een essentieel deel van het groeien in geloof is de gemeenschap. We beperken ons zelf als we proberen alles alleen te doen. Laat jezelf
