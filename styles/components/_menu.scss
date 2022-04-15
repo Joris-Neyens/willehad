@@ -17,7 +17,7 @@
   font-weight: 400;
   font-size: 15px;
   text-transform: uppercase;
-  color: $background-dark !important;
+  color: $background !important;
 }
 .menu__link:hover {
   color: $accent;
@@ -38,6 +38,12 @@
   width: 48px;
   right: 0;
   z-index: 5;
+}
+.hamburger-logo img {
+  min-width: 200px;
+  max-width: 230px;
+  padding-left: 48px;
+  width: 80%;
 }
 .hamburger__menu {
   height: 100vh;

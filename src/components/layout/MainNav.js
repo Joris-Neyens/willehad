@@ -65,11 +65,11 @@ export default function MainNav() {
         </div>
       </Navbar>
 
-      <div className="hamburger__wrapper w-100 position-fixed d-lg-none background-light">
+      <div className="hamburger__wrapper w-100 position-fixed d-lg-none background-blue">
         <div className="container hamburger__container d-flex justify-content-between">
           <div className="logo-container w-100 py-3">
-            <div className="hamburger-logo d-flex justify-content-center">
-                <a href="/" className="text-center pr-4">WILLEHAD</a>
+            <div className="hamburger-logo d-flex justify-content-center px-md-5">
+              <img src="/willehad_wordmark_white.png" className=""></img>
             </div>
           </div>
           <div className="d-flex align-items-center">
@@ -79,7 +79,7 @@ export default function MainNav() {
                 size={30}
                 toggled={isOpen}
                 toggle={setOpen}
-                color="#282833"
+                color="#F6F6F6"
                 onToggle={toggled => {
                   const hamburgerMenu = document.querySelector(".hamburger__menu");
                   const hamburgerWrapper = document.querySelector(".menu-transparent");
@@ -111,7 +111,7 @@ export default function MainNav() {
             setOpen(false);
           }}
         >
-          <div className="background-light hamburger__content py-5 px-sm-5 px-4">
+          <div className="background-blue hamburger__content py-5 px-sm-5 px-4">
             <Link href="/">
               <a className="text-right menu__link">Home</a>
             </Link>
