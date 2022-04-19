@@ -6,7 +6,7 @@ export default function Head({ title = "", description }) {
     <NextHead>
       <title>
         Willehad | {title}
-      </title>
+      </title>git push 
       <meta name="description" content={description}></meta>
     </NextHead>
   );
