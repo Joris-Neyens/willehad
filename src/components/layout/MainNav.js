@@ -19,13 +19,8 @@ export default function MainNav() {
             <nav className="py-2 d-flex flex-row justify-content-between mx-auto w-100">
               <div className="py-1 d-flex align-items-center">
                 <Link href="/">
-                  <Image id="logo" src="/CrestOnlyPurple.png" width="70" height="63" />
+                  <Image id="logo" src="/willehad_logo.png" width="280" height="55" />
                 </Link>
-                <div className="pl-3 pt-3" id="wordmark">
-                  <Link href="/">
-                    <Image src="/willehad_wordmark.png" width="220" height="48" />
-                  </Link>
-                </div>
               </div>
               <div className="d-flex">
                 <div className="d-none d-lg-flex col-auto align-items-center justify-content-right pt-1">

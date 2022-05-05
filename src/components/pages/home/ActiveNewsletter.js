@@ -96,7 +96,7 @@ export default function ActiveNewsletter() {
         </Modal.Header>
         <Modal.Body>
           <p>Bedankt voor je interesse in onze nieuwsbrief.</p>
-          <p>Check je inbox voor een email van het Thomischische Instituut om aanmelding te bevestigen.</p>
+          <p>Check je inbox voor een email van het Thomischische Instituut om je aanmelding te bevestigen.</p>
         </Modal.Body>
         <Modal.Footer>
           <Button className="button__primary py-2 px-4" onClick={handleClose}>
