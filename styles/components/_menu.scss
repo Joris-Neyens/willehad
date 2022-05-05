@@ -44,6 +44,11 @@
   transition: margin 700ms;
   transition-timing-function: ease-out;
 }
+@media (min-width: 356px) {
+  .hamburger-logo {
+    padding-left: 48px;
+  }
+}
 .hamburger__content {
   margin-top: 59.2px;
 }
