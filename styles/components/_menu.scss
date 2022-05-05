@@ -39,9 +39,6 @@
   right: 0;
   z-index: 5;
 }
-.hamburger-logo img {
-
-}
 .hamburger__menu {
   height: 100vh;
   transition: margin 700ms;
@@ -63,6 +60,7 @@
 }
 .logo-container {
  z-index: 3;
+ height: 70px;
 
  a {
    color: $background-dark;

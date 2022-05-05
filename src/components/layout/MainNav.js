@@ -62,10 +62,10 @@ export default function MainNav() {
 
       <div className="hamburger__wrapper w-100 position-fixed d-lg-none background-blue">
         <div className="container hamburger__container d-flex justify-content-between px-md-0">
-          <div className="logo-container w-100 py-2">
-            <div className="hamburger-logo">
+          <div className="logo-container w-100 py-2 d-flex justify-content-center align-items-center">
+            <div className="hamburger-logo position-absolute">
               <Link href="/">
-                <img src="/willehad_logo_white.png" width="255" height="50" alt="willehad logo"></img>
+                <img src="/willehad_logo_white.png" width="225" height="44" alt="willehad logo"></img>
               </Link>
             </div>
           </div>
