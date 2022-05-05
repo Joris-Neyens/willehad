@@ -61,11 +61,11 @@ export default function MainNav() {
       </Navbar>
 
       <div className="hamburger__wrapper w-100 position-fixed d-lg-none background-blue">
-        <div className="container hamburger__container d-flex justify-content-between">
-          <div className="logo-container w-100 py-3">
-            <div className="hamburger-logo d-flex justify-content-center px-md-5">
+        <div className="container hamburger__container d-flex justify-content-between px-md-0">
+          <div className="logo-container w-100 py-2">
+            <div className="hamburger-logo">
               <Link href="/">
-                <img src="/willehad_wordmark_white.png" className=""></img>
+                <img src="/willehad_logo_white.png" width="255" height="50" alt="willehad logo"></img>
               </Link>
             </div>
           </div>
