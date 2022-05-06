@@ -6,6 +6,7 @@ import { SHOPIFY_TOKEN } from "../../src/api/shopify";
 import { BASE_URL, COURSES_PATH } from "../../src/api/baseUrl";
 import Head from "../../src/components/head/Head";
 import Header from "../../src/components/layout/header/Header";
+import CursusHeader from "../../src/components/layout/header/CursusHeader";
 import Layout from "../../src/components/layout/Layout";
 import AboutCourse from "../../src/components/pages/cursus/AboutCourse";
 import ExplainCourse from "../../src/components/pages/cursus/ExplainCourse";
@@ -13,35 +14,142 @@ import Docent from "../../src/components/pages/cursus/Docent";
 import Curriculum from "../../src/components/pages/cursus/Curriculum";
 import Reviews from "../../src/components/pages/cursus/Reviews";
 
-export default function Course({ courseProduct, instructors, chapters, fetchedCheckout, strapiCourses, reviews }) {
+export default function Course({ courseProduct, instructors, chapters, fetchedCheckout, strapiCourses, reviews, collections }) {
   const { name, seo_title, card_image_url } = courseProduct;
-
   const webUrl = fetchedCheckout.webUrl;
-  return (
-    <>
-      <Head title={name} description={"course info for " + seo_title} />
-      <div className="wrapper">
-        <Layout>
-          <Header
-            title={name}
-            buttonPrimary={webUrl}
-            headerButtonName="schrijf je nu in"
-            subtitle={seo_title}
-            url={card_image_url}
-            viewHeight={60}
-            textCol="12"
-            modal={false}
-          />
-          <AboutCourse strapiCourses={strapiCourses} product={courseProduct} />
-          <Curriculum chapters={chapters} />
-          <ExplainCourse />
-          {/* <Reviews reviews={reviews} /> */}
-          <Docent product={courseProduct} instructors={instructors} />
-          {/* <PracticalInfo webUrl={webUrl} /> */}
-        </Layout>
-      </div>
-    </>
-  );
+  const productCollectionIds = courseProduct.collection_ids;
+  const collectionArrays = productCollectionIds.map(function (prodColId) {
+    return collections.map(function (collection) {
+      if (prodColId === collection.id) {
+        return collection.name;
+      }
+    });
+  });
+
+  let collectionNames = [];
+
+  collectionArrays.map(function (collectionArray) {
+    collectionArray.map(function (collectionName) {
+      collectionNames.push(collectionName);
+    });
+  });
+
+  let collectionName = "";
+
+  collectionNames.map(function (name) {
+    if (name === "cursus traject" || name === "zelfstandig") {
+      collectionName = name;
+    }
+  });
+
+  let practicalInfo = "";
+
+  if (collectionName === "cursus traject") {
+    practicalInfo = <PracticalInfoTraject webUrl={webUrl} />;
+  }
+  if (collectionName === "zelfstandig") {
+    practicalInfo = <PracticalInfoZelfstandig webUrl={webUrl} />;
+  }
+
+  let productCollection = courseProduct;
+
+  const filteredCollection = collections.map(function (collection) {
+    return productCollection.collection_ids.map(function (productCollectionId) {
+      if (collection.id === productCollectionId) {
+        return collection.name;
+      }
+    });
+  });
+
+  let allNames = [];
+
+  filteredCollection.map(function (collectionNames) {
+    collectionNames.map(function (name) {
+      allNames.push(name);
+    });
+  });
+
+  let collectionTitle = "";
+
+  allNames.map(function (name) {
+    if (name === "cursus traject" || name === "zelfstudie cursus") {
+      collectionTitle = name;
+    }
+  });
+
+  const course = strapiCourses.filter(function (strapiCourse) {
+    if (courseProduct.name === strapiCourse.title) {
+      return strapiCourse;
+    }
+  });
+
+  if (!course[0]) {
+    return (
+      <>
+        <Head title={name} description={"cursus onder constructie"} />
+        <div className="wrapper">
+          <Layout>
+            <CoursenNotFound />
+          </Layout>
+        </div>
+      </>
+    );
+  }
+
+  if (!course[0].cover_video) {
+    return (
+      <>
+        <Head title={name} description={"course info for " + seo_title} />
+        <div className="wrapper">
+          <Layout>
+            <Header
+              title={name}
+              buttonPrimary={webUrl}
+              headerButtonName="schrijf je nu in"
+              subtitle={seo_title}
+              url={course[0].cover.url}
+              viewHeight={80}
+              textCol="12"
+              modal={false}
+              course_type={collectionTitle}
+            />
+            <AboutCourse strapiCourses={strapiCourses} product={courseProduct} />
+            <Curriculum chapters={chapters} />
+            <ExplainCourse />
+            {/* <Reviews reviews={reviews} /> */}
+            <Docent product={courseProduct} instructors={instructors} />
+            {practicalInfo}
+          </Layout>
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Head title={name} description={"course info for " + seo_title} />
+        <div className="wrapper">
+          <Layout>
+            <CursusHeader
+              title={name}
+              buttonPrimary={webUrl}
+              headerButtonName="schrijf je nu in"
+              subtitle={seo_title}
+              modal={false}
+              viewHeight={70}
+              course_type={collectionTitle}
+              url={course[0].cover_video.url}
+            />
+            <AboutCourse strapiCourses={strapiCourses} product={courseProduct} />
+            <Curriculum chapters={chapters} />
+            <ExplainCourse />
+            {/* <Reviews reviews={reviews} /> */}
+           <Docent product={courseProduct} instructors={instructors} />
+            {practicalInfo}
+          </Layout>
+        </div>
+      </>
+    );
+  }
 }
 
 const header = {
@@ -90,6 +198,7 @@ export async function getServerSideProps({ params }) {
   let chapters = [];
   let courses = null;
   let checkout = null;
+  let collections = [];
 
   try {
     const response = await axios.get(url, header);
@@ -124,6 +233,14 @@ export async function getServerSideProps({ params }) {
   } catch (error) {
     console.log(error);
   }
+
+    try {
+      const response = await axios.get(collectionsUrl, header);
+      console.log(response.data);
+      collections = response.data.items;
+    } catch (error) {
+      console.log(error);
+    }
 
   const client = Client.buildClient({
     domain: "willehad.myshopify.com",
@@ -200,6 +317,7 @@ export async function getServerSideProps({ params }) {
       checkout: checkout,
       fetchedCheckout: fetchedCheckout,
       reviews: reviews,
+      collections: collections,
     },
   };
 }
