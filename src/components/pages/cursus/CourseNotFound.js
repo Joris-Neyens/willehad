@@ -1,6 +1,6 @@
 import Header from "../../layout/header/Header"
 
-export default function CoursenNotFound() {
+export default function CourseNotFound() {
     return (
       <Header
         title={"Cursus onder ontwikkeling"}

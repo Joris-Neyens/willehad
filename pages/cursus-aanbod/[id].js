@@ -13,6 +13,7 @@ import ExplainCourse from "../../src/components/pages/cursus/ExplainCourse";
 import Docent from "../../src/components/pages/cursus/Docent";
 import Curriculum from "../../src/components/pages/cursus/Curriculum";
 import PracticalinfoTraject from "../../src/components/pages/cursus/PracticalInfoTraject";
+import CourseNotFound from "../../src/components/pages/cursus/CourseNotFound";
 import Reviews from "../../src/components/pages/cursus/Reviews";
 
 export default function Course({ courseProduct, instructors, chapters, fetchedCheckout, strapiCourses, reviews, collections }) {
@@ -90,7 +91,7 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
         <Head title={name} description={"cursus onder constructie"} />
         <div className="wrapper">
           <Layout>
-            <CoursenNotFound />
+            <CourseNotFound />
           </Layout>
         </div>
       </>
