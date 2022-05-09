@@ -89,7 +89,6 @@ export default function privacyverklaring() {
                 TLS (voorheen SSL) Wij versturen uw gegevens via een beveiligde internetverbinding. Dit kunt u zien aan de adresbalk 'https' en het hangslotje
                 in de adresbalk;
               </li>
-              <li>reCaptcha-beveiliging op het inschrijfformulier.</li>
             </ul>
           </div>
         </Layout>

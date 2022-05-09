@@ -12,6 +12,7 @@ import AboutCourse from "../../src/components/pages/cursus/AboutCourse";
 import ExplainCourse from "../../src/components/pages/cursus/ExplainCourse";
 import Docent from "../../src/components/pages/cursus/Docent";
 import Curriculum from "../../src/components/pages/cursus/Curriculum";
+import PracticalinfoTraject from "../../src/components/pages/cursus/PracticalInfoTraject";
 import Reviews from "../../src/components/pages/cursus/Reviews";
 
 export default function Course({ courseProduct, instructors, chapters, fetchedCheckout, strapiCourses, reviews, collections }) {
@@ -119,6 +120,7 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
             {/* <Reviews reviews={reviews} /> */}
             <Docent product={courseProduct} instructors={instructors} />
             {practicalInfo}
+            <PracticalinfoTraject/>
           </Layout>
         </div>
       </>
@@ -143,8 +145,9 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
             <Curriculum chapters={chapters} />
             <ExplainCourse />
             {/* <Reviews reviews={reviews} /> */}
-           <Docent product={courseProduct} instructors={instructors} />
+            <Docent product={courseProduct} instructors={instructors} />
             {practicalInfo}
+            <PracticalinfoTraject webUrl={webUrl}/>
           </Layout>
         </div>
       </>

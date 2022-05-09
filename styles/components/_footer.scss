@@ -23,8 +23,13 @@ footer a:hover {
 }
 .footer__terms {
   font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
   text-transform: lowercase;
+}
+.footer_privacy p {
+  font-weight: 300;
+ font-size: 14px;
+text-transform: lowercase;
 }
 .footer__logo:hover {
   cursor: pointer;
