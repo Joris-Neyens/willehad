@@ -87,9 +87,7 @@
 }
 
 @media (min-width: 576px) { 
-  .menu__link {
-    color: $primary !important;
-  }
+
   .hamburger__menu--close {
     .background-blue {
     width: 45vw;
@@ -102,6 +100,11 @@
     }
   }
 
+}
+@media (min-width: 992px) {
+  .menu__link {
+    color: $primary !important;
+  }
 }
 .menu-transparent {
   width: 100vw;
