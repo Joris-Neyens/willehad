@@ -8,30 +8,27 @@ export default function Uitleg() {
         <h1 className="text-lg-center">Willehad cursus platform</h1>
         <div className="row w-100 mx-auto mt-5">
           <Fade bottom>
-            <div className="col-12 px-0 col-lg-4">
+            <div className="col-12 px-0 col-lg-6">
               <div className="row flex-lg-column">
                 <div className="text-lect text-lg-center col-md-10 offset-md-1 offset-lg-0 col-lg-12 mt-lg-4">
-                  <h3 className="text-lg-center">Verdieping</h3>
-                  <p className=" px-lg-4">Studeer online de rijke intellectuele traditie van de Katholieke kerk op een toegankelijke manier.</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 px-0 col-lg-4">
-              <div className="row flex-lg-column">
-                <div className="text-left text-lg-center col-md-10 offset-md-1 offset-lg-0 col-lg-12 mt-lg-4 pt-4 pt-lg-0">
                   <h3 className="text-lg-center">Samen</h3>
-                  <p className="px-lg-4">
-                    Meld je aan als groep of leer nieuwe mensen kennen door je aan te melden als individu. Durf de diepte in te gaan door elkaar verdiepende
-                    vragen te stellen.
+                  <p className=" px-lg-4">
+                    Een essentieel deel van het groeien in geloof is de gemeenschap. We beperken ons zelf als we proberen alles alleen te doen. Laat jezelf
+                    uitdagen door anderen, en stel elkaar kritische vragen. Meld je aan samen met anderen, mensen uit je parochie, collega´s, je sportclub of
+                    oude bekende. Maar je kunt je ook individueel aanmelden en nieuwe mensen ontmoeten.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="col-12 px-0 col-lg-4">
-              <div className="row">
+            <div className="col-12 px-0 col-lg-6">
+              <div className="row flex-lg-column">
                 <div className="text-left text-lg-center col-md-10 offset-md-1 offset-lg-0 col-lg-12 mt-lg-4 pt-4 pt-lg-0">
-                  <h3 className="text-lg-center">Begeleiding</h3>
-                  <p className="px-lg-4">Samen met je groep kun jij je vragen direct aan de docent of expert op het vakgebied stellen.</p>
+                  <h3 className="text-lg-center">Verdieping</h3>
+                  <p className="px-lg-4">
+                    Leren is meer dan het opnemen van nieuwe informatie. Door kritische vragen te stellen over de inhoud van de cursus kun jij samen met anderen
+                    dieper gaan dan de inhoud van de cursus in eerste instantie biedt. Deze cursus is voor diegene die de uitdaging aan willen gaan om de diepte
+                    in te gaan.
+                  </p>
                 </div>
               </div>
             </div>
