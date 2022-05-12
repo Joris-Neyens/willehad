@@ -83,14 +83,20 @@ export default function ActiveNewsletter() {
                       Meld je aan
                     </button>
                   </div>
+                  <div className="newsletter_privacyverklaring d-inline-block pt-1">
+                    Bekijk onze{" "}
+                    <span className="d-inline-block">
+                      <a href="/privacyverklaring">privacyverklaring</a>
+                    </span>{" "}
+                    voor meer informatie over de verwerking van jouw gegevens.
+                  </div>
                 </form>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <Modal aria-labelledby="contained-modal-title-vcenter"
-      centered show={show} onHide={handleClose}>
+      <Modal aria-labelledby="contained-modal-title-vcenter" centered show={show} onHide={handleClose}>
         <Modal.Header className="background-blue" closeButton>
           <Modal.Title>Niewsbrief aanmelding</Modal.Title>
         </Modal.Header>
