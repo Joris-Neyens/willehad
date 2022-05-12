@@ -48,7 +48,7 @@ export default function Footer() {
           <div className="row">
             <div className="col-12 col-md-auto px-0 d-flex justify-content-center">
               <Link href="/privacyverklaring" className="footer__terms  mt-5">
-                Privacyverklaring
+                <p>Privacyverklaring</p>
               </Link>
             </div>
             <div className="col-12 col-md-auto px-0 d-flex justify-content-center">
