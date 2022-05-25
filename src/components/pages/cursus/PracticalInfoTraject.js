@@ -4,13 +4,13 @@ export default function PracticalinfoTraject({webUrl}) {
 
 
   return (
-    <section className="py-lg-5 mt-3 my-lg-5">
-      <div className="text-center pt-5">
+    <section className="py-lg-5 mt-3 my-lg-5 pb-5 mb-5">
+      <div className="container text-md-center pt-5">
         <h2>Praktische informatie</h2>
       </div>
       <div className="container pt-4">
         <div className="row">
-          <div className="col-12 col-md-6 col-lg-5 offset-1 ">
+          <div className="col-12 col-md-6 col-lg-5 offset-lg-1 ">
             <p>
               Een zelfstudieles is opgedeeld in drie onderdelen: een video, een quiz en verdiepende teksten en vragen. Aanvullend zijn er twee Webinars met alle
               deelnemers van de cursus en met de spreker pater Elias Leyds CSJ. Dit zijn sessies waarin iedereen zijn vragen over de cursus kan stellen.
