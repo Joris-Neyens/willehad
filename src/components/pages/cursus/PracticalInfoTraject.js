@@ -5,7 +5,7 @@ export default function PracticalinfoTraject({webUrl}) {
 
   return (
     <section className="py-lg-5 mt-3 my-lg-5 pb-5 mb-5">
-      <div className="container text-md-center pt-5">
+      <div className="container çtext-md-center pt-5">
         <h2>Praktische informatie</h2>
       </div>
       <div className="container pt-4">
@@ -23,7 +23,7 @@ export default function PracticalinfoTraject({webUrl}) {
               Week 1 (6 – 12 juni): les 1 en 2.<br></br>
               Week 2 (13 - 19 juni): les 3 en 4. <br></br>
               Week 3 (20 – 26 juni) les 5 en 6. <br></br>
-              Eerste Webinar (maandag 27 juni van 20.00-21.00). <br></br>
+              Eerste Webinar (maandag 20 juni van 20.00-21.00). <br></br>
               Week 4 (27 juni – 3 juli) les 7 en 8. <br></br>
               Week 5 (4 -8 juli) les 9.<br></br>
               Afsluitende Webinar (woensdag 6 juli van 20.00-21.00).
