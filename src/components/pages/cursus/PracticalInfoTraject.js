@@ -5,7 +5,7 @@ export default function PracticalinfoTraject({webUrl}) {
 
   return (
     <section className="py-lg-5 mt-3 my-lg-5 pb-5 mb-5">
-      <div className="container çtext-md-center pt-5">
+      <div className="container text-md-center pt-5">
         <h2>Praktische informatie</h2>
       </div>
       <div className="container pt-4">

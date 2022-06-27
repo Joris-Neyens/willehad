@@ -24,7 +24,7 @@ export default function Docent({ product, instructors }) {
         teacherName = title + " " + instructor.first_name + " " + instructor.last_name
 
         return (
-          <section key={instructor.id} className="pb-5 pt-3 background-dark">
+          <section key={instructor.id} className="pb-5 pt-3 background-dark docent">
             <div className="container d-md-none pt-0 py-5">
               <Slide bottom>
                 <div className="row">

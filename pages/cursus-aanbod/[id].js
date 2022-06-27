@@ -145,7 +145,7 @@ export default function Course({ courseProduct, instructors, chapters, fetchedCh
             <AboutCourse strapiCourses={strapiCourses} product={courseProduct} />
             <Curriculum chapters={chapters} />
             <ExplainCourse />
-            {/* <Reviews reviews={reviews} /> */}
+            <Reviews reviews={reviews} />
             <Docent product={courseProduct} instructors={instructors} />
             {practicalInfo}
             <PracticalinfoTraject webUrl={webUrl}/>

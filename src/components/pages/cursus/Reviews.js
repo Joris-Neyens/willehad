@@ -39,22 +39,22 @@ export default function Reviews({ reviews }) {
     
 
     return (
-      <div className="background-blue pt-5" style={styles}>
-        <div className="reviews container py-5 d-flex">
+      <div className="background-light pt-5" style={styles}>
+        <h2 className="py-3 py-lg-0 pl-lg-5 ml-3 pl-lg-0 ml-lg-0 text-lg-center">Wat anderen over de cursus zeggen</h2>
+        <div className="reviews container pb-5 d-flex">
           <Carousel
             responsive={responsive}
             swipeable={true}
             draggable={true}
             showDots={false}
-            responsive={responsive}
             ssr={true}
             infinite={true}
             autoPlay={true}
-            autoPlaySpeed={10000}
+            autoPlaySpeed={5000}
             keyBoardControl={true}
-            transitionDuration={500}
+            transitionDuration={1000}
             containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
+            arrows={false}
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px"
             className="w-100"
@@ -73,46 +73,6 @@ export default function Reviews({ reviews }) {
                 </div>
               );
             })}
-            <div className="reviews__review mx-5 py-5 mb-5">
-              <h4 className="text-center">titel 1</h4>
-              <p className="text-center">
-                “In all the free time you have, once you have finished your duties of state, you should kneel down and pray the Rosary. Pray the Rosary before
-                the Blessed Sacrament or before a crucifix. - Saint Padre Pio”
-              </p>
-              <div className="d-flex justify-content-center">
-                <FontAwesomeIcon key={Math.floor(Math.random() * 10000 + 1)} className="reviews__review--star" icon={faStar} />
-                <FontAwesomeIcon key={Math.floor(Math.random() * 10000 + 1)} className="reviews__review--star" icon={faStar} />
-                <FontAwesomeIcon key={Math.floor(Math.random() * 10000 + 1)} className="reviews__review--star" icon={faStar} />
-                <FontAwesomeIcon key={Math.floor(Math.random() * 10000 + 1)} className="reviews__review--star" icon={faStar} />
-              </div>
-            </div>
-            <div className="reviews__review mx-5 py-5 mb-5">
-              <h4 className="text-center">titel 2</h4>
-              <p className="text-center">
-                “The longer the trial to which God subjects you, the greater the goodness in comforting you during the time of the trial and in the exaltation
-                after the combat.” -Saint Padre Pio
-              </p>
-              <div className="d-flex justify-content-center">
-                <FontAwesomeIcon key={Math.floor(Math.random() * 10000 + 1)} className="reviews__review--star" icon={faStar} />
-                <FontAwesomeIcon key={Math.floor(Math.random() * 10000 + 1)} className="reviews__review--star" icon={faStar} />
-                <FontAwesomeIcon key={Math.floor(Math.random() * 10000 + 1)} className="reviews__review--star" icon={faStar} />
-                <FontAwesomeIcon key={Math.floor(Math.random() * 10000 + 1)} className="reviews__review--star" icon={faStar} />
-              </div>
-            </div>
-            <div className="reviews__review mx-5 py-5 mb-5">
-              <h4 className="text-center">titel 3</h4>
-              <p className="text-center">
-                “Do not fear. Jesus is more powerful than all hell. At the invocation of his name every knee in heaven, on earth and in hell must bend before
-                Jesus; this is a consolation for the good and terror for evil.” - Saint Padre Pio
-              </p>
-              <div className="d-flex justify-content-center">
-                <FontAwesomeIcon key={Math.floor(Math.random() * 10000 + 1)} className="reviews__review--star" icon={faStar} />
-                <FontAwesomeIcon key={Math.floor(Math.random() * 10000 + 1)} className="reviews__review--star" icon={faStar} />
-                <FontAwesomeIcon key={Math.floor(Math.random() * 10000 + 1)} className="reviews__review--star" icon={faStar} />
-                <FontAwesomeIcon key={Math.floor(Math.random() * 10000 + 1)} className="reviews__review--star" icon={faStar} />
-                <FontAwesomeIcon key={Math.floor(Math.random() * 10000 + 1)} className="reviews__review--star" icon={faStar} />
-              </div>
-            </div>
           </Carousel>
         </div>
       </div>
