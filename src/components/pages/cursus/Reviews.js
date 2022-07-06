@@ -41,7 +41,7 @@ export default function Reviews({ reviews }) {
     return (
       <div className="background-light pt-5" style={styles}>
         <h2 className="py-3 py-lg-0 pl-lg-5 ml-3 pl-lg-0 ml-lg-0 text-lg-center">Wat anderen over de cursus zeggen</h2>
-        <div className="reviews container pb-5 d-flex">
+        <div className="reviews pb-5 d-flex">
           <Carousel
             responsive={responsive}
             swipeable={true}
@@ -54,7 +54,7 @@ export default function Reviews({ reviews }) {
             keyBoardControl={true}
             transitionDuration={1000}
             containerClass="carousel-container"
-            arrows={false}
+            arrows={true}
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px"
             className="w-100"
@@ -62,7 +62,7 @@ export default function Reviews({ reviews }) {
             {reviews.items.map(function (review) {
               const n = review.rating;
               return (
-                <div key={review.id} className="reviews__review mx-5 py-5 mb-5">
+                <div key={review.id} className="reviews__review mx-5 py-5">
                   <h4 className="text-center">{review.title}</h4>
                   <p className="text-center">{review.review_text}</p>
                   <div className="d-flex justify-content-center">

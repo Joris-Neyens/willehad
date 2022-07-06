@@ -250,7 +250,7 @@ export async function getServerSideProps({ params }) {
     domain: "willehad.myshopify.com",
     storefrontAccessToken: SHOPIFY_TOKEN,
   });
-
+  
   try {
     checkout = await client.checkout.create().then(checkout => {
       return JSON.parse(JSON.stringify(checkout));

@@ -20,9 +20,18 @@
     max-width: 600px;
     margin: 0 auto;
 }
+.react-multiple-carousel__arrow--left {
+    left: 10px !important;
+
+}
+.react-multiple-carousel__arrow--right {
+    right: 10px !important;
+
+}
 .curriculum__plus {
     font-size: 32px;
 }
+
 .reviews svg {
     font-size: 32px;
     padding: 5px;
