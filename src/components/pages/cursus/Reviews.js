@@ -40,7 +40,7 @@ export default function Reviews({ reviews }) {
 
     return (
       <div className="background-light pt-5" style={styles}>
-        <h2 className="py-3 py-lg-0 pl-lg-5 ml-3 pl-lg-0 ml-lg-0 text-lg-center">Wat anderen over de cursus zeggen</h2>
+        <h2 className="py-3 py-lg-0 pl-lg-5 ml-3 pl-lg-0 ml-lg-0 text-center">Wat anderen over de cursus zeggen</h2>
         <div className="reviews pb-5 d-flex">
           <Carousel
             responsive={responsive}
